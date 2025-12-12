@@ -1,0 +1,458 @@
+﻿[
+    {
+        "id":  "1",
+        "species_name":  "アイアシ",
+        "scientific_name":  "Phacelurus latifolius",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "2",
+        "species_name":  "アイナエ",
+        "scientific_name":  "Mitrasacme pygmaea",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "3",
+        "species_name":  "アオネカズラ",
+        "scientific_name":  "Polypodium niponicum",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "4",
+        "species_name":  "アオフタバラン",
+        "scientific_name":  "Listera makinoana",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "5",
+        "species_name":  "アオベンケイ",
+        "scientific_name":  "Sedum viride",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "6",
+        "species_name":  "アカウキクサ",
+        "scientific_name":  "Azolla imbricata",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "7",
+        "species_name":  "アカネスミレ",
+        "scientific_name":  "Viola phalacrocarpa",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "8",
+        "species_name":  "アカハナワラビ",
+        "scientific_name":  "Botrychium nipponicum",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "9",
+        "species_name":  "アギナシ",
+        "scientific_name":  "Sagittaria aginashi",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "10",
+        "species_name":  "アキノハハコグサ",
+        "scientific_name":  "Gnaphalium hypoleucum",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "11",
+        "species_name":  "アケボノスミレ",
+        "scientific_name":  "Viola rossii",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "12",
+        "species_name":  "アサガラ",
+        "scientific_name":  "Pterostyrax corymbosa",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "13",
+        "species_name":  "アサザ",
+        "scientific_name":  "Nymphoides peltata",
+        "category":  "DD",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "14",
+        "species_name":  "アサダ",
+        "scientific_name":  "Ostrya japonica",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "15",
+        "species_name":  "アズマイチゲ",
+        "scientific_name":  "Anemonoides raddeana",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "16",
+        "species_name":  "アズマスゲ",
+        "scientific_name":  "Carex lasiolepis",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "17",
+        "species_name":  "アズマツメクサ",
+        "scientific_name":  "Tillaea aquatica",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "18",
+        "species_name":  "アゼオトギリ",
+        "scientific_name":  "Hypericum oliganthum",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "19",
+        "species_name":  "アゼテンツキ",
+        "scientific_name":  "Fimbristylis squarrosa",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "20",
+        "species_name":  "アヤメ",
+        "scientific_name":  "Iris sanguinea",
+        "category":  "DD",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "21",
+        "species_name":  "アリマウマノスズクサ",
+        "scientific_name":  "Aristolochia shimadae",
+        "category":  "DD",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "22",
+        "species_name":  "アワボスゲ",
+        "scientific_name":  "Carex brownii",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "23",
+        "species_name":  "アンペライ",
+        "scientific_name":  "Machaerina rubiginosa var. nipponensis",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "24",
+        "species_name":  "イガクサ",
+        "scientific_name":  "Rhynchospora rubra",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "25",
+        "species_name":  "イカリソウ",
+        "scientific_name":  "Epimedium grandiflorum",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "26",
+        "species_name":  "イシモチソウ",
+        "scientific_name":  "Drosera peltata var. nipponica",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "27",
+        "species_name":  "イズヤブソテツ",
+        "scientific_name":  "Cyrtomium atropunctatum ",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "28",
+        "species_name":  "イセウキヤガラ",
+        "scientific_name":  "Bolboschoenus planiculmis",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "29",
+        "species_name":  "イタチササゲ",
+        "scientific_name":  "Lathyrus davidii ",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "30",
+        "species_name":  "イトクズモ",
+        "scientific_name":  "Zannichellia palustris",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "31",
+        "species_name":  "イトテンツキ",
+        "scientific_name":  "Bulbostylis densa var. capitata",
+        "category":  "DD",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "32",
+        "species_name":  "イトトリゲモ",
+        "scientific_name":  "Najas gracillima",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "33",
+        "species_name":  "イトモ",
+        "scientific_name":  "Potamogeton berchtoldii",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "34",
+        "species_name":  "イナモリソウ",
+        "scientific_name":  "Pseudopyxis depressa ",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "35",
+        "species_name":  "イヌクログワイ",
+        "scientific_name":  "Eleocharis dulcis",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "36",
+        "species_name":  "イヌセンブリ",
+        "scientific_name":  "Swertia tosaensis",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "37",
+        "species_name":  "イヌタヌキモ",
+        "scientific_name":  "Utricularia australis",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "38",
+        "species_name":  "イヌハギ",
+        "scientific_name":  "Lespedeza tomentosa",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "39",
+        "species_name":  "イバラモ",
+        "scientific_name":  "Najas marina",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "40",
+        "species_name":  "イブキコゴメグサ",
+        "scientific_name":  "Euphrasia insignis subsp. iinumae",
+        "category":  "DD",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "41",
+        "species_name":  "イブキボウフウ",
+        "scientific_name":  "Libanotis ugoensis var. japonica",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "42",
+        "species_name":  "イワオモダカ",
+        "scientific_name":  "Pyrrosia hastata",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "43",
+        "species_name":  "イワシデ",
+        "scientific_name":  "Carpinus turczaninovii",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "44",
+        "species_name":  "ウキシバ",
+        "scientific_name":  "Pseudoraphis sordida",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "45",
+        "species_name":  "ウシクサ",
+        "scientific_name":  "Schizachyrium brevifolium",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "46",
+        "species_name":  "ウスバヒョウタンボク",
+        "scientific_name":  "Lonicera cerasina",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "47",
+        "species_name":  "ウチョウラン",
+        "scientific_name":  "Ponerorchis graminifolia",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "48",
+        "species_name":  "ウマスゲ",
+        "scientific_name":  "Carex idzuroei",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "49",
+        "species_name":  "ウメガサソウ",
+        "scientific_name":  "Chimaphila japonica ",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "50",
+        "species_name":  "ウメバチソウ",
+        "scientific_name":  "Parnassia palustris var. palustris",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "51",
+        "species_name":  "ウラギク",
+        "scientific_name":  "Aster tripolium",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "52",
+        "species_name":  "ウンヌケモドキ",
+        "scientific_name":  "Eulalia quadrinervis",
+        "category":  "Ⅱ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "53",
+        "species_name":  "ウンラン",
+        "scientific_name":  "Linaria japonica",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "54",
+        "species_name":  "エイザンスミレ",
+        "scientific_name":  "Viola eizanensis",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "55",
+        "species_name":  "エゾエノキ",
+        "scientific_name":  "Celtis jessoensis",
+        "category":  "Ⅰ類",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "56",
+        "species_name":  "エビネ",
+        "scientific_name":  "Calanthe discolor",
+        "category":  "NT",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "57",
+        "species_name":  "エンコウソウ",
+        "scientific_name":  "Caltha palustris var. enkoso",
+        "category":  "EX",
+        "prefecture":  "大阪府",
+        "taxonomy":  "植物"
+    }
+]

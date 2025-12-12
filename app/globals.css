@@ -1,26 +1,689 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 
+                 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 40px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: #2c5f2d;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.search-section {
+    margin-bottom: 30px;
+}
+
+/* 検索ボックスラッパー */
+.search-box-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#searchBox {
+    width: 100%;
+    padding: 15px;
+    padding-right: 45px; /* クリアボタンのスペースを確保 */
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+#searchBox:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* クリアボタン */
+.clear-search-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.clear-search-btn:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.clear-search-btn:active {
+    background: #e0e0e0;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filters select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.result-count {
+    margin-top: 15px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* オートコンプリート */
+.autocomplete-list {
+    position: absolute;
+    background: white;
+    border: 2px solid #667eea;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%; /* calc(100% - 80px)から変更 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    display: none;
+    margin-top: -15px; /* 検索ボックスとの隙間を調整 */
+}
+
+.autocomplete-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+    background-color: #f5f7fa;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-species-name {
+    font-weight: 600;
+    color: #2c5f2d;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.autocomplete-scientific-name {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.autocomplete-meta {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+}
+
+.autocomplete-highlight {
+    background-color: #fff59d;
+    font-weight: 600;
+}
+
+.autocomplete-no-results {
+    padding: 15px;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+}
+
+/* 都道府県サマリー */
+.prefecture-summary {
+    margin: 30px 0;
+    padding: 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f7 100%);
+    border-radius: 12px;
+    border: 2px solid #e8ecf1;
+}
+
+.prefecture-summary h3 {
+    color: #2c5f2d;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.prefecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 10px;
+}
+
+.prefecture-badge {
+    padding: 8px 6px;
+    text-align: center;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #999;
+}
+
+.prefecture-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.prefecture-badge.has-data {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+    font-weight: 600;
+}
+
+.prefecture-badge.has-data:hover {
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+}
+
+.prefecture-count {
+    font-size: 11px;
+    margin-top: 0px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 18px;
+}
+
+.results {
+    display: grid;
+    gap: 15px;
+}
+
+.species-card {
+    border: 2px solid #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: all 0.3s;
+}
+
+.species-card:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.species-card h3 {
+    color: #2c5f2d;
+    font-size: 1.0rem;
+    margin-bottom: 8px;
+}
+
+.scientific {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+/* 都道府県リスト（カード内） */
+.prefecture-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.prefecture-badge-inline {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    cursor: help;
+    transition: transform 0.2s;
+}
+
+.prefecture-badge-inline:hover {
+    transform: scale(1.05);
+}
+
+/* カテゴリ別の色 */
+.category-ex {
+    background: #ff6b6b;
+}
+
+.category-cr {
+    background: #ff8787;
+}
+
+.category-en {
+    background: #ffd93d;
+    color: #333;
+}
+
+.category-vu {
+    background: #6bcf7f;
+}
+
+.category-nt {
+    background: #6b6bcf;
+}
+
+.category-dd {
+    background: #825a34;
+}
+
+.category-other {
+    background: #999;
+}
+
+.meta-info {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 16px;
+}
+
+footer {
+    max-width: 900px;
+    margin: 20px auto 0;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* 統計情報セクション */
+.statistics-section {
+    margin: 30px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #e8ecf1;
+}
+
+.statistics-section h3 {
+    color: #2c5f2d;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.statistics-section h4 {
+    color: #2c5f2d;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* 全体サマリー */
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.stat-number {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* カテゴリ別グラフ */
+.chart-container {
+    margin-top: 15px;
+}
+
+.chart-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.chart-label {
+    min-width: 180px;
+    font-size: 14px;
+    color: #666;
+}
+
+.chart-bar-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chart-bar-container {
+    flex: 1;
+    background: #f0f0f0;
+    border-radius: 8px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    min-width: 60px;
+}
+
+.chart-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+}
+
+.chart-value {
+    min-width: 45px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+    text-align: right;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .stats-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .chart-label {
+        min-width: 120px;
+        font-size: 12px;
+    }
+
+    .chart-bar-fill {
+        font-size: 11px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filters select {
+        min-width: 100%;
+    }
+
+    /* オートコンプリートのレスポンシブ対応（追加） */
+    .autocomplete-list {
+        width: 100%; /* calc(100% - 40px)から変更 */
+    }
+
+    .prefecture-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 8px;
+    }
+    
+    .prefecture-badge {
+        padding: 10px 6px;
+        font-size: 12px;
+    }
+    
+    .prefecture-badge-inline {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
+
+/* モーダル */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-header {
+    padding: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-species-name {
+    font-size: 2rem;
+    color: #2c5f2d;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.modal-scientific-name {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.modal-taxonomy {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-section-title {
+    font-size: 1.1rem;
+    color: #2c5f2d;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.prefecture-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.prefecture-table th {
+    background: #f5f7fa;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.prefecture-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.prefecture-table tr:hover {
+    background: #fafafa;
+}
+
+.prefecture-table-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.prefecture-table-scientific {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.prefecture-table-category {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+}
+
+/* モーダルのレスポンシブ対応 */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .modal-header {
+        padding: 20px;
+    }
+
+    .modal-species-name {
+        font-size: 1.5rem;
+    }
+
+    .modal-scientific-name {
+        font-size: 1rem;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .prefecture-table {
+        font-size: 14px;
+    }
+
+    .prefecture-table th,
+    .prefecture-table td {
+        padding: 10px 8px;
+    }
 }

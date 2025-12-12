@@ -1,0 +1,330 @@
+﻿[
+    {
+        "id":  "1",
+        "species_name":  "アイアシ",
+        "scientific_name":  "Phacelurus latifolius",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "2",
+        "species_name":  "アオガヤツリ",
+        "scientific_name":  "Cyperus nipponicus",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "3",
+        "species_name":  "アオバスゲ",
+        "scientific_name":  "Carex insaniae var. papillaticulmis",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "4",
+        "species_name":  "アシカキ",
+        "scientific_name":  "Leersia japonica",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "5",
+        "species_name":  "シソバタツナミ",
+        "scientific_name":  "Scutellaria laeteviolacea",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "6",
+        "species_name":  "イヌアワ",
+        "scientific_name":  "Setaria chondrachne",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "7",
+        "species_name":  "イヌクグ",
+        "scientific_name":  "Cyperus cyperoides",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "8",
+        "species_name":  "イヌショウマ",
+        "scientific_name":  "Cimicifuga biternata",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "9",
+        "species_name":  "イヌチャセンシダ",
+        "scientific_name":  "Asplenium tripteropus",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "10",
+        "species_name":  "イヌナズナ",
+        "scientific_name":  "Draba nemorosa",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "11",
+        "species_name":  "イヌノハナヒゲ",
+        "scientific_name":  "Rhynchospora japonica var. japonica",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "12",
+        "species_name":  "イヌミゾハコベ",
+        "scientific_name":  "Elatine triandra var. triandra",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "13",
+        "species_name":  "イブキヌカボ",
+        "scientific_name":  "Milium effusum",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "14",
+        "species_name":  "イワギボウシ",
+        "scientific_name":  "Hosta longipes var. longipes",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "15",
+        "species_name":  "イワハリガネワラビ",
+        "scientific_name":  "Thelypteris musashiensis",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "16",
+        "species_name":  "イワボタン",
+        "scientific_name":  "Chrysosplenium macrostemon var. macrostemon",
+        "category":  "絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "17",
+        "species_name":  "ウキヤガラ",
+        "scientific_name":  "Bolboschoenus fluviatilis subsp. yagara",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "18",
+        "species_name":  "ウシクサ",
+        "scientific_name":  "Schizachyrium brevifolium",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "19",
+        "species_name":  "ウシノケグサ",
+        "scientific_name":  "Festuca ovina",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "20",
+        "species_name":  "ウシノシッペイ",
+        "scientific_name":  "Hemarthria sibirica",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "21",
+        "species_name":  "ウマノスズクサ",
+        "scientific_name":  "Aristolochia debilis",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "22",
+        "species_name":  "ウラシマソウ",
+        "scientific_name":  "Arisaema thunbergii subsp. urashima",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "23",
+        "species_name":  "ウリカワ",
+        "scientific_name":  "Sagittaria pygmaea",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "24",
+        "species_name":  "エゾタチカタバミ",
+        "scientific_name":  "Oxalis stricta",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "25",
+        "species_name":  "エチゴツルキジムシロ",
+        "scientific_name":  "Potentilla toyamensis",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "26",
+        "species_name":  "オオイタドリ",
+        "scientific_name":  "Fallopia sachalinensis",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "27",
+        "species_name":  "オオウラジロノキ",
+        "scientific_name":  "Malus tschonoskii",
+        "category":  "絶滅寸前種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "28",
+        "species_name":  "オオナンバンギセル",
+        "scientific_name":  "Aeginetia sinensis",
+        "category":  "絶滅寸前種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "29",
+        "species_name":  "オオニワホコリ",
+        "scientific_name":  "Eragrostis pilosa",
+        "category":  "絶滅寸前種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "30",
+        "species_name":  "オオヒキヨモギ",
+        "scientific_name":  "Siphonostegia laeta",
+        "category":  "絶滅寸前種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "31",
+        "species_name":  "オオヒメワラビモドキ",
+        "scientific_name":  "Deparia unifurcata",
+        "category":  "絶滅寸前種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "32",
+        "species_name":  "オオマルバベニシダ",
+        "scientific_name":  "Dryopteris medioxima",
+        "category":  "絶滅寸前種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "33",
+        "species_name":  "オオヤマムグラ",
+        "scientific_name":  "Galium pogonanthum var. trichopetalum",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "34",
+        "species_name":  "オオユリワサビ",
+        "scientific_name":  "Eutrema okinosimense",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "35",
+        "species_name":  "オギノツメ",
+        "scientific_name":  "Hygrophila ringens",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "36",
+        "species_name":  "オクモミジハグマ",
+        "scientific_name":  "Ainsliaea acerifolia var. subapoda",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "37",
+        "species_name":  "オグルマ",
+        "scientific_name":  "Inula britannica subsp. japonica",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "38",
+        "species_name":  "オニシバリ",
+        "scientific_name":  "Daphne pseudomezereum",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "39",
+        "species_name":  "オニスゲ",
+        "scientific_name":  "Carex dickinsii",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "40",
+        "species_name":  "オヒガンギボウシ",
+        "scientific_name":  "Hosta longipes var. aequinoctiiantha",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    },
+    {
+        "id":  "41",
+        "species_name":  "オミナエシ",
+        "scientific_name":  "Patrinia scabiosifolia",
+        "category":  "準絶滅危惧種",
+        "prefecture":  "京都府",
+        "taxonomy":  "植物"
+    }
+]
