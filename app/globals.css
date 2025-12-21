@@ -299,32 +299,33 @@ h1 {
 
 /* カテゴリ別の色 */
 .category-ex {
-    background: #ff6b6b;
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .category-cr {
-    background: #ff8787;
+    background: #D81E05;
 }
 
 .category-en {
-    background: #ffd93d;
+    background: #FC7F3F;
     color: #333;
 }
 
 .category-vu {
-    background: #6bcf7f;
+    background: #F9E814;
 }
 
 .category-nt {
-    background: #6b6bcf;
+    background: #CCE226;
 }
 
 .category-dd {
-    background: #825a34;
+    background: #D1D1C6;
 }
 
 .category-other {
-    background: #999;
+    background: #C1B5A5;
 }
 
 .meta-info {
@@ -686,4 +687,152 @@ footer {
     .prefecture-table td {
         padding: 10px 8px;
     }
+}
+
+/* モーダルスタイル */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.taxonomy-label {
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.prefecture-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.prefecture-table th,
+.prefecture-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.prefecture-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #555;
+}
+
+.scientific-cell {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.prefecture-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+
+/* オートコンプリート用スタイル */
+.search-box-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.clear-search {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+.clear-search:hover {
+  color: #333;
+}
+
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #667eea;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+  background-color: #f5f7ff;
+}
+
+.autocomplete-name {
+  font-weight: 500;
+  color: #2c5f2d;
+  margin-bottom: 4px;
+}
+
+.autocomplete-scientific {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
 }
