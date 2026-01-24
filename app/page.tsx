@@ -54,6 +54,7 @@ export default function Home() {
               >
                 <option value="">カテゴリ：すべて</option>
                 <option value="絶滅（EX）">絶滅（EX）</option>
+                <option value="野生絶滅（EW）">野生絶滅（EW）</option>  {/* ← 追加 */}
                 <option value="絶滅危惧ⅠA類（CR）">絶滅危惧ⅠA類（CR）</option>
                 <option value="絶滅危惧ⅠB類（EN）">絶滅危惧ⅠB類（EN）</option>
                 <option value="絶滅危惧Ⅰ類">絶滅危惧Ⅰ類（CR+EN）</option>

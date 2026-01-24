@@ -303,28 +303,26 @@ h1 {
     background: #000000;
     color: #FFFFFF;
 }
-
+.category-ew {
+  background: #ff8787;  /* 絶滅より少し明るい赤 */
+  color: white;
+}
 .category-cr {
     background: #D81E05;
 }
-
 .category-en {
     background: #FC7F3F;
     color: #333;
 }
-
 .category-vu {
     background: #F9E814;
 }
-
 .category-nt {
     background: #CCE226;
 }
-
 .category-dd {
     background: #D1D1C6;
 }
-
 .category-other {
     background: #C1B5A5;
 }

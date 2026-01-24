@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 // カテゴリマッピング（同じ意味のカテゴリをグループ化）
 const CATEGORY_MAPPINGS: { [key: string]: string[] } = {
   'EX': ['絶滅（EX）', '絶滅', 'EX', '絶滅種'],
+  'EW': ['野生絶滅（EW）', '野生絶滅', 'EW'],  // ← 追加
   'CR': [
     '絶滅危惧ⅠA類(CR)', '絶滅危惧ⅠA類（CR）',
     '絶滅危惧ⅠA類', 'ⅠA類', 'CR'
@@ -15,8 +16,7 @@ const CATEGORY_MAPPINGS: { [key: string]: string[] } = {
     '絶滅危惧ⅠB類', 'ⅠB類', 'EN'
   ],
   'CR+EN': [
-    '絶滅危惧Ⅰ類（CR+EN）', '絶滅危惧Ⅰ類', 'Ⅰ類',
-    '絶滅寸前種', '絶滅危惧種'
+    '絶滅危惧Ⅰ類（CR+EN）', '絶滅危惧Ⅰ類', 'Ⅰ類'
   ],
   'VU': [
     '絶滅危惧Ⅱ類（VU）', '絶滅危惧Ⅱ類', 
@@ -390,15 +390,11 @@ export default function SearchPage() {
   // カテゴリに応じたCSSクラス
   function getCategoryClass(category: string) {
     if (category.includes('絶滅（EX）') || category.includes('EX')) return 'category-ex'
-    if (category.includes('Ⅰ') || category.includes('CR') ||
-        category.includes('寸前') || category.includes('EN') ||
-        category.includes('絶滅危惧種')) return 'category-en'
-    if (category.includes('Ⅱ類') || category.includes('VU') || 
-        category.includes('増大')) return 'category-vu'
-    if (category.includes('準') || category.includes('NT') || 
-        category.includes('希少')) return 'category-nt'
-    if (category.includes('情報不足') || category.includes('要注目種') || 
-        category.includes('DD')) return 'category-dd'
+    if (category.includes('野生絶滅') || category.includes('EW')) return 'category-ew'  // ← 追加
+    if (category.includes('Ⅰ') || category.includes('CR') || category.includes('寸前') || category.includes('EN') || category.includes('絶滅危惧種')) return 'category-en'
+    if (category.includes('Ⅱ類') || category.includes('VU') ||  category.includes('増大')) return 'category-vu'
+    if (category.includes('準') || category.includes('NT') ||  category.includes('希少')) return 'category-nt'
+    if (category.includes('情報不足') || category.includes('要注目種') ||  category.includes('DD')) return 'category-dd'
     return 'category-other'
   }
 
@@ -426,6 +422,36 @@ export default function SearchPage() {
       <div className="loading">読み込み中...</div>
     )
   }
+
+    // 表示用に自治体をフィルタリングする関数
+  function filterJurisdictionsForDisplay(jurisdictions: any[]) {
+    let filtered = jurisdictions
+
+    // カテゴリフィルターが選択されている場合
+    if (categoryFilter) {
+      filtered = filtered.filter((j: any) => 
+        isSameCategory(j.category_unified || j.category, categoryFilter)
+      )
+    }
+
+    // 都道府県フィルターが選択されている場合
+    if (prefectureFilter) {
+      filtered = filtered.filter((j: any) => 
+        j.jurisdiction_name === prefectureFilter || 
+        j.parent_prefecture === prefectureFilter
+      )
+    }
+
+    // 市町村フィルターが選択されている場合
+    if (municipalityFilter) {
+      filtered = filtered.filter((j: any) => 
+        j.jurisdiction_name === municipalityFilter
+      )
+    }
+
+    return filtered
+  }
+
 
   // 自治体を階層別に分類
   function groupJurisdictionsByType(jurisdictions: any[]) {
@@ -510,6 +536,7 @@ export default function SearchPage() {
             >
               <option value="">カテゴリ：すべて</option>
               <option value="絶滅（EX）">絶滅（EX）</option>
+              <option value="野生絶滅（EW）">野生絶滅（EW）</option>  {/* ← 追加 */}
               <option value="絶滅危惧ⅠA類（CR）">絶滅危惧ⅠA類（CR）</option>
               <option value="絶滅危惧ⅠB類（EN）">絶滅危惧ⅠB類（EN）</option>
               <option value="絶滅危惧Ⅰ類">絶滅危惧Ⅰ類（CR+EN）</option>
@@ -573,8 +600,9 @@ export default function SearchPage() {
             <div className="no-results">該当する種が見つかりませんでした。</div>
           ) : (
             displayData.map((species, index) => {
-              const { national, prefecture, municipality } = groupJurisdictionsByType(species.jurisdictions)
-              
+              // フィルター条件に合致する自治体のみ表示
+              const visibleJurisdictions = filterJurisdictionsForDisplay(species.jurisdictions)
+              const { national, prefecture, municipality } = groupJurisdictionsByType(visibleJurisdictions)
               return (
                 <div 
                   key={index} 
@@ -656,8 +684,9 @@ export default function SearchPage() {
 
       {/* モーダル */}
       {selectedSpecies && (() => {
-        const { national, prefecture, municipality } = groupJurisdictionsByType(selectedSpecies.jurisdictions)
-        
+        // フィルター条件に合致する自治体のみ表示
+        const visibleJurisdictions = filterJurisdictionsForDisplay(selectedSpecies.jurisdictions)
+        const { national, prefecture, municipality } = groupJurisdictionsByType(visibleJurisdictions)
         return (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
