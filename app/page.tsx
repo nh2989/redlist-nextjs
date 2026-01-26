@@ -61,7 +61,7 @@ export default function Home() {
                 <option value="絶滅危惧Ⅱ類（VU）">絶滅危惧Ⅱ類（VU）</option>
                 <option value="準絶滅危惧（NT）">準絶滅危惧（NT）</option>
                 <option value="情報不足（DD）">情報不足（DD）</option>
-                <option value="その他重要種">その他</option>
+                <option value="OTHER">その他</option>
               </select>
               
               <select 
