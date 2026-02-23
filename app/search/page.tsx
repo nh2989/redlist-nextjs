@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import dynamic from "next/dynamic";
-const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), { ssr: false });
+const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), {
+  ssr: false,
+});
 
 // カテゴリマッピング（同じ意味のカテゴリをグループ化）
 const CATEGORY_MAPPINGS: { [key: string]: string[] } = {
@@ -171,7 +173,7 @@ function normalizeAliases(aliases: any): string[] {
   return [];
 }
 
-export default function SearchPage() {
+function SearchPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -1088,5 +1090,13 @@ export default function SearchPage() {
           );
         })()}
     </>
+  );
+}
+
+export default function SearchPageWrapper() {
+  return (
+    <Suspense fallback={<div className="loading">読み込み中...</div>}>
+      <SearchPage />
+    </Suspense>
   );
 }
