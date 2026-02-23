@@ -218,7 +218,6 @@ export default function SearchPage() {
     try {
       const dataFiles = [
         "/data/national.json",
-        "/data/sample.json",
         "/data/shiga.json",
         "/data/kyoto.json",
         "/data/osaka.json",
@@ -757,7 +756,7 @@ export default function SearchPage() {
               onChange={(e) => setTaxonomyFilter(e.target.value)}
             >
               <option value="">分類：すべて</option>
-              <option value="植物">植物</option>
+              <option value="維管束植物">維管束植物</option>
               <option value="動物">動物</option>
             </select>
 
