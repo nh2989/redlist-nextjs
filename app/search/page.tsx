@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import SpeciesMap from "../components/SpeciesMap";
+
+import dynamic from "next/dynamic";
+const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), { ssr: false });
 
 // カテゴリマッピング（同じ意味のカテゴリをグループ化）
 const CATEGORY_MAPPINGS: { [key: string]: string[] } = {
