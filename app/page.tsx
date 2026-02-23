@@ -1,60 +1,71 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter()
-  
-  const [searchTerm, setSearchTerm] = useState('')
-  const [categoryFilter, setCategoryFilter] = useState('')
-  const [prefectureFilter, setPrefectureFilter] = useState('')
-  const [municipalityFilter, setMunicipalityFilter] = useState('')
-  const [taxonomyFilter, setTaxonomyFilter] = useState('')
+  const router = useRouter();
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [prefectureFilter, setPrefectureFilter] = useState("");
+  const [municipalityFilter, setMunicipalityFilter] = useState("");
+  const [taxonomyFilter, setTaxonomyFilter] = useState("");
 
   // 検索実行
   function handleSearch(e: React.FormEvent) {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     // URLパラメータを構築
-    const params = new URLSearchParams()
-    if (searchTerm) params.set('q', searchTerm)
-    if (categoryFilter) params.set('category', categoryFilter)
-    if (prefectureFilter) params.set('prefecture', prefectureFilter)
-    if (municipalityFilter) params.set('municipality', municipalityFilter)
-    if (taxonomyFilter) params.set('taxonomy', taxonomyFilter)
-    
+    const params = new URLSearchParams();
+    if (searchTerm) params.set("q", searchTerm);
+    if (categoryFilter) params.set("category", categoryFilter);
+    if (prefectureFilter) params.set("prefecture", prefectureFilter);
+    if (municipalityFilter) params.set("municipality", municipalityFilter);
+    if (taxonomyFilter) params.set("taxonomy", taxonomyFilter);
+
     // 検索結果ページに遷移
-    router.push(`/search?${params.toString()}`)
+    router.push(`/search?${params.toString()}`);
   }
 
   return (
-    <div className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: '100%', maxWidth: '600px' }}>
-        <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>🌿 絶滅危惧種検索サイト</h1>
+    <div
+      className="container"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ width: "100%", maxWidth: "600px" }}>
+        <header style={{ textAlign: "center", marginBottom: "40px" }}>
+          <h1 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>
+            🌿 絶滅危惧種検索サイト
+          </h1>
           <p className="subtitle">日本の絶滅危惧種を検索・閲覧できます</p>
         </header>
 
         <form onSubmit={handleSearch}>
           <div className="search-section">
-            <input 
-              type="text" 
+            <input
+              type="text"
               id="searchBox"
-              placeholder="種名・別名・学名で検索..." 
+              placeholder="種名・別名・学名で検索..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ marginBottom: '15px' }}
+              style={{ marginBottom: "15px" }}
             />
-            
+
             <div className="filters">
-              <select 
+              <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
               >
                 <option value="">カテゴリ：すべて</option>
                 <option value="絶滅（EX）">絶滅（EX）</option>
-                <option value="野生絶滅（EW）">野生絶滅（EW）</option>  {/* ← 追加 */}
+                <option value="野生絶滅（EW）">野生絶滅（EW）</option>{" "}
+                {/* ← 追加 */}
                 <option value="絶滅危惧ⅠA類（CR）">絶滅危惧ⅠA類（CR）</option>
                 <option value="絶滅危惧ⅠB類（EN）">絶滅危惧ⅠB類（EN）</option>
                 <option value="絶滅危惧Ⅰ類">絶滅危惧Ⅰ類（CR+EN）</option>
@@ -63,8 +74,8 @@ export default function Home() {
                 <option value="情報不足（DD）">情報不足（DD）</option>
                 <option value="OTHER">その他</option>
               </select>
-              
-              <select 
+
+              <select
                 value={prefectureFilter}
                 onChange={(e) => setPrefectureFilter(e.target.value)}
               >
@@ -75,8 +86,8 @@ export default function Home() {
                 <option value="愛知県">愛知県</option>
                 <option value="広島県">広島県</option>
               </select>
-              
-              <select 
+
+              <select
                 value={taxonomyFilter}
                 onChange={(e) => setTaxonomyFilter(e.target.value)}
               >
@@ -85,42 +96,60 @@ export default function Home() {
                 <option value="動物">動物</option>
               </select>
             </div>
-            
-            <button 
+
+            <button
               type="submit"
               style={{
-                width: '100%',
-                padding: '15px',
-                marginTop: '20px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '16px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                transition: 'transform 0.2s'
+                width: "100%",
+                padding: "15px",
+                marginTop: "20px",
+                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "16px",
+                fontWeight: "bold",
+                cursor: "pointer",
+                transition: "transform 0.2s",
               }}
-              onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-              onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.transform = "translateY(-2px)")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.transform = "translateY(0)")
+              }
             >
               検索する
             </button>
           </div>
         </form>
 
-        <div style={{ textAlign: 'center', marginTop: '40px', color: '#666', fontSize: '14px' }}>
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "40px",
+            color: "#666",
+            fontSize: "14px",
+          }}
+        >
           <p>📕 国のレッドリスト対応</p>
           <p>🗾 対応都道府県：滋賀県、京都府、大阪府、愛知県、広島県</p>
           <p>🏘️ 市町村レッドリストも一部対応</p>
         </div>
       </div>
 
-      <footer style={{ position: 'fixed', bottom: '20px', width: '100%', textAlign: 'center' }}>
-        <p style={{ color: 'white', fontSize: '13px', opacity: 0.8 }}>
+      <footer
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ color: "white", fontSize: "13px", opacity: 0.8 }}>
           データ出典：環境省・都道府県・市町村レッドリスト
         </p>
       </footer>
     </div>
-  )
+  );
 }
