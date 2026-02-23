@@ -904,7 +904,7 @@ footer {
 
   /* モーダルのレスポンシブ */
   .modal-overlay {
-    padding: 10px;
+    padding: 0px;
   }
 
   .modal-content {
