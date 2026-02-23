@@ -840,12 +840,11 @@ footer {
 
 /* ========== レスポンシブ対応 ========== */
 @media (max-width: 768px) {
-
   body {
     padding: 0;
   }
 
-/* 2. containerの余白、角丸、幅を調整 */
+  /* 2. containerの余白、角丸、幅を調整 */
   .container {
     padding: 20px 15px; /* 上下20px、左右15px（中身が壁に張り付かない程度） */
     margin: 0;          /* 外側の余白をなくす */
