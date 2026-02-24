@@ -904,7 +904,7 @@ footer {
 
   /* モーダルのレスポンシブ */
   .modal-overlay {
-    padding: 0px;
+    padding: 0;
   }
 
   .modal-content {
@@ -952,13 +952,13 @@ footer {
   }
 
   /* 沖縄・小笠原を下に移動 */
-  .okinawa-map-inset,
+  /* .okinawa-map-inset,
   .ogasawara-map-inset {
     position: static;
     width: 120px;
     height: 120px;
     margin: 10px auto 0;
-  }
+  } */
 
   /* 凡例も下に */
   .map-legend-sidebar {
