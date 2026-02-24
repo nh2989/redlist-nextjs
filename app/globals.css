@@ -308,31 +308,39 @@ h1 {
   background: #000000;
   color: #ffffff;
 }
+
 .category-ew {
   background: #542344;
   color: #ffffff;
 }
+
 .category-cr {
   background: #d81e05;
   color: #fffacd;
 }
+
 .category-en {
   background: #fc7f3f;
   color: #333;
 }
+
 .category-cren {
   background: #d81e05;
   color: #fffacd;
 }
+
 .category-vu {
   background: #f9e814;
 }
+
 .category-nt {
   background: #cce226;
 }
+
 .category-dd {
   background: #d1d1c6;
 }
+
 .category-other {
   background: #e5e5e5;
 }
@@ -541,8 +549,10 @@ footer {
 
 /* モーダルコンテンツ（スクロール可能） */
 .modal-body {
-  flex: 1; /* ★ 追加：残りのスペースを使う */
-  overflow-y: auto; /* ★ 追加：スクロール可能 */
+  flex: 1;
+  /* ★ 追加：残りのスペースを使う */
+  overflow-y: auto;
+  /* ★ 追加：スクロール可能 */
   padding: 0 clamp(15px, 2.5vw, 30px) clamp(15px, 2.5vw, 30px);
 }
 
@@ -659,6 +669,9 @@ footer {
 
 /* 地図コンテナ：親要素として機能 */
 .species-map-svg {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   position: relative;
   background: white;
   border-radius: 8px;
@@ -666,13 +679,7 @@ footer {
   max-width: 800px;
   margin: 0 auto;
   aspect-ratio: 4 / 3;
-  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-  /* ★ 追加：GPUレイヤー化 */
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  contain: layout style paint; /* ★ レイアウト再計算を抑制 */
 }
 
 /* 地図部分：親要素いっぱいに表示 */
@@ -776,36 +783,29 @@ footer {
   white-space: nowrap;
 }
 
-/* 凡例：右上 */
+/* 凡例 */
 .map-legend-sidebar {
   position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%) translate3d(0, 0, 0); /* ★ translate3d追加 */
+  top: 0;
+  bottom: 0;
+  right: 12px;
+  margin: auto 0;
+  height: fit-content;
   z-index: 10;
-
-  background: #ffffff; /* 完全不透明 */
-  /* backdrop-filter: blur(4px); */
+  background: #ffffff;
   border-radius: 8px;
   padding: clamp(8px, 1.2vh, 12px);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* ★ 軽量化 */
-
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: clamp(4px, 0.8vh, 6px);
-
   min-width: clamp(90px, 12vw, 120px);
   max-width: 140px;
-
-  /* ★ 最適化 */
-  will-change: transform;
-  backface-visibility: hidden;
-  contain: layout style; /* ★ 追加 */
-  pointer-events: none; /* ★ 追加：インタラクション無効化 */
+  pointer-events: none;
 }
 
 .map-legend-sidebar * {
-  pointer-events: auto; /* ★ 子要素は有効 */
+  pointer-events: auto;
 }
 
 .legend-title {
@@ -846,12 +846,18 @@ footer {
 
   /* 2. containerの余白、角丸、幅を調整 */
   .container {
-    padding: 20px 15px; /* 上下20px、左右15px（中身が壁に張り付かない程度） */
-    margin: 0;          /* 外側の余白をなくす */
-    max-width: 100%;    /* 最大幅を100%に */
-    width: 100%;        /* 幅を100%に */
-    border-radius: 0;   /* 角丸をなくすと「フルスクリーン感」が出ます（お好みで） */
-    box-shadow: none;   /* スマホでは影がないほうがスッキリする場合が多いです */
+    padding: 20px 15px;
+    /* 上下20px、左右15px（中身が壁に張り付かない程度） */
+    margin: 0;
+    /* 外側の余白をなくす */
+    max-width: 100%;
+    /* 最大幅を100%に */
+    width: 100%;
+    /* 幅を100%に */
+    border-radius: 0;
+    /* 角丸をなくすと「フルスクリーン感」が出ます（お好みで） */
+    box-shadow: none;
+    /* スマホでは影がないほうがスッキリする場合が多いです */
   }
 
   h1 {
@@ -905,18 +911,24 @@ footer {
   /* モーダルのレスポンシブ */
   .modal-overlay {
     padding: 0;
+    align-items: stretch; /* 上下の余白をなくす */
+    background-color: white; /* 完全不透明 */
   }
 
   .modal-content {
-    width: 95%;
-    max-height: 95vh;
-    padding: 20px;
+    width: 100%;
+    height: 100vh; /* 縦全画面 */
+    max-height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 0;
   }
 
   .modal-header-info {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    padding: 15px 15px 12px; /* 左右の余白を確保 */
   }
 
   .modal-header-info h2 {
@@ -929,6 +941,10 @@ footer {
 
   .modal-header-info .taxonomy-label {
     font-size: 0.9rem;
+  }
+
+  .modal-body {
+    padding: 0 15px 15px; /* 左右の余白を確保 */
   }
 
   /* 地図のレスポンシブ：スマホでは縦並び */
@@ -952,13 +968,13 @@ footer {
   }
 
   /* 沖縄・小笠原を下に移動 */
-  /* .okinawa-map-inset,
+  .okinawa-map-inset,
   .ogasawara-map-inset {
     position: static;
     width: 120px;
     height: 120px;
     margin: 10px auto 0;
-  } */
+  }
 
   /* 凡例も下に */
   .map-legend-sidebar {
@@ -992,7 +1008,7 @@ footer {
 }
 
 /* デスクトップ */
-@media (min-width: 1025px) {
+/* @media (min-width: 1025px) {
   .species-map-svg {
     max-width: 850px;
   }
@@ -1002,7 +1018,7 @@ footer {
     max-width: 130px;
     padding: 10px;
   }
-}
+} */
 
 /* 超大画面 */
 @media (min-width: 1600px) {

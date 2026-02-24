@@ -580,11 +580,13 @@ function SearchPage() {
   // モーダルを開く
   function openModal(species: any) {
     setSelectedSpecies(species);
+    document.body.style.overflow = "hidden";
   }
 
   // モーダルを閉じる
   function closeModal() {
     setSelectedSpecies(null);
+    document.body.style.overflow = "";
   }
 
   // 読み込み中
