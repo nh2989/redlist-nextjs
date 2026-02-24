@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { feature } from "topojson-client";
-import { ComposableMap, Geography } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
 const JAPAN_TOPO_JSON = "/japan.topojson";
 
@@ -38,22 +37,16 @@ function getMinLatitude(coords: any): number {
   return coords[1];
 }
 
-// ========== モジュールレベルのキャッシュ（アプリ全体で1回だけ処理） ==========
-// モーダルを何度開いても、2回目以降は即座に表示される
+// ========== モジュールレベルのキャッシュ ==========
+// TopoJSONオブジェクトを保持（2回目以降のモーダル表示で fetch しない）
+let topoCache: any = null;
 
-interface GeoFeature {
-  rsmKey: string;
-  properties: { nam_ja?: string };
-  geometry: { type: string; coordinates: any };
-}
-
-interface GeoCache {
-  main: GeoFeature[];
-  okinawa: GeoFeature[];
-  ogasawara: GeoFeature[];
-}
-
-let geoCache: GeoCache | null = null;
+// 分割・振り分け済みの rsmKey セットもキャッシュ
+let splitCache: {
+  main: Set<string>;
+  okinawa: Set<string>;
+  ogasawara: Set<string>;
+} | null = null;
 
 // ========== 型定義 ==========
 
@@ -70,67 +63,24 @@ interface SpeciesMapProps {
 // ========== コンポーネント ==========
 
 export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
-  const [geoData, setGeoData] = useState<GeoCache | null>(geoCache);
+  const [topology, setTopology] = useState<any>(topoCache);
 
-  // TopoJSONの取得・分割・振り分けを1回だけ実行
+  // TopoJSONを1回だけ fetch してモジュール変数に保存
   useEffect(() => {
-    if (geoCache) {
-      setGeoData(geoCache);
+    if (topoCache) {
+      setTopology(topoCache);
       return;
     }
-
     fetch(JAPAN_TOPO_JSON)
       .then((r) => r.json())
-      .then((topology) => {
-        // TopoJSON → GeoJSON変換
-        const firstObject = Object.values(topology.objects)[0] as any;
-        const geojson = feature(topology, firstObject) as any;
-        const rawFeatures: any[] = geojson.features;
-
-        // MultiPolygon分割（1回だけ）
-        const splitFeatures: GeoFeature[] = rawFeatures.flatMap(
-          (geo: any, i: number) => {
-            if (geo.geometry?.type === "MultiPolygon") {
-              return geo.geometry.coordinates.map(
-                (part: any, j: number): GeoFeature => ({
-                  ...geo,
-                  rsmKey: `geo-${i}-part${j}`,
-                  geometry: { type: "Polygon", coordinates: part },
-                })
-              );
-            }
-            return [{ ...geo, rsmKey: `geo-${i}` }] as GeoFeature[];
-          }
-        );
-
-        // 3エリアに振り分け（1回だけ）
-        const main: GeoFeature[] = [];
-        const okinawa: GeoFeature[] = [];
-        const ogasawara: GeoFeature[] = [];
-
-        splitFeatures.forEach((geo) => {
-          const prefName = geo.properties.nam_ja || "";
-          const coords = geo.geometry?.coordinates;
-          if (!coords) return;
-
-          const minLat = getMinLatitude(coords);
-          const isOgasawara = prefName === "東京都" && minLat < 30;
-          const isOkinawaArea =
-            prefName === "沖縄県" ||
-            (prefName === "鹿児島県" && minLat < 30.07);
-
-          if (isOgasawara) ogasawara.push(geo);
-          else if (isOkinawaArea) okinawa.push(geo);
-          else main.push(geo);
-        });
-
-        geoCache = { main, okinawa, ogasawara };
-        setGeoData(geoCache);
+      .then((topo) => {
+        topoCache = topo;
+        setTopology(topo);
       })
       .catch((err) => console.error("TopoJSON読み込みエラー:", err));
-  }, []); // 空配列 → アプリ起動後1回だけ実行
+  }, []);
 
-  // 都道府県→色のマップをメモ化（jurisdictionsが変わらない限り再計算しない）
+  // 都道府県→色のマップをメモ化
   const prefColorMap = useMemo(() => {
     const grouped = new Map<string, JurisdictionData[]>();
     for (const j of jurisdictions) {
@@ -157,28 +107,80 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
     return colorMap;
   }, [jurisdictions]);
 
-  // 地図1枚分のレンダリング（キャッシュ済みデータを受け取るだけ）
-  const renderGeos = (geos: GeoFeature[]) =>
-    geos.map((geo) => {
-      const color = prefColorMap.get(geo.properties.nam_ja ?? "") ?? "#e5e5e5";
-      return (
-        <Geography
-          key={geo.rsmKey}
-          geography={geo}
-          fill={color}
-          stroke="#999999"
-          strokeWidth={0.5}
-          style={{
-            default: { outline: "none" },
-            hover: { outline: "none", opacity: 0.8, fill: color },
-            pressed: { outline: "none" },
-          }}
-        />
-      );
-    });
+  // MultiPolygon分割
+  const splitMultiPolygon = (geo: any) => {
+    if (geo.geometry?.type !== "MultiPolygon") return [geo];
+    return geo.geometry.coordinates.map((part: any, index: number) => ({
+      ...geo,
+      geometry: { type: "Polygon", coordinates: part },
+      rsmKey: `${geo.rsmKey}-part${index}`,
+    }));
+  };
 
-  // 読み込み中の表示
-  if (!geoData) {
+  // エリア判定
+  const classifyGeo = (geo: any): "main" | "okinawa" | "ogasawara" | null => {
+    const prefName = geo.properties.nam_ja || "";
+    const coords = geo.geometry?.coordinates;
+    if (!coords) return null;
+
+    const minLat = getMinLatitude(coords);
+
+    if (prefName === "東京都" && minLat < 30) return "ogasawara";
+    if (prefName === "沖縄県" || (prefName === "鹿児島県" && minLat < 30.07))
+      return "okinawa";
+    return "main";
+  };
+
+  // Geographies の中身（モード別）
+  const renderGeographies = (mode: "main" | "okinawa" | "ogasawara") => (
+    <Geographies geography={topology}>
+      {({ geographies }) => {
+        // splitCacheがあれば rsmKey の Set で高速判定
+        if (!splitCache) {
+          // 初回だけ分割・振り分けしてキャッシュ
+          const main = new Set<string>();
+          const okinawa = new Set<string>();
+          const ogasawara = new Set<string>();
+
+          geographies.flatMap(splitMultiPolygon).forEach((geo) => {
+            const area = classifyGeo(geo);
+            if (area === "main") main.add(geo.rsmKey);
+            else if (area === "okinawa") okinawa.add(geo.rsmKey);
+            else if (area === "ogasawara") ogasawara.add(geo.rsmKey);
+          });
+
+          splitCache = { main, okinawa, ogasawara };
+        }
+
+        const targetKeys = splitCache[mode];
+
+        return geographies
+          .flatMap(splitMultiPolygon)
+          .filter((geo) => targetKeys.has(geo.rsmKey))
+          .map((geo) => {
+            const color =
+              prefColorMap.get(geo.properties.nam_ja ?? "") ?? "#e5e5e5";
+            return (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                fill={color}
+                stroke="#999999"
+                strokeWidth={0.5}
+                style={{
+                  default: { outline: "none" },
+                  hover: { outline: "none", opacity: 0.8, fill: color },
+                  pressed: { outline: "none" },
+                }}
+              />
+            );
+          });
+      }}
+    </Geographies>
+  );
+
+  // 読み込み中
+  if (!topology) {
     return (
       <div
         className="species-map-container"
@@ -201,7 +203,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
       <h3>📍 分布地図</h3>
 
       <div className="species-map-svg">
-        {/* メイン地図（沖縄・南西諸島・小笠原以外） */}
+        {/* メイン地図 */}
         <div className="map-wrapper">
           <ComposableMap
             projection="geoMercator"
@@ -210,11 +212,11 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             height={450}
             style={{ width: "100%", height: "auto" }}
           >
-            {renderGeos(geoData.main)}
+            {renderGeographies("main")}
           </ComposableMap>
         </div>
 
-        {/* 沖縄・南西諸島地図（左上） */}
+        {/* 沖縄・南西諸島 */}
         <div className="okinawa-map-inset">
           <ComposableMap
             projection="geoMercator"
@@ -223,12 +225,12 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             height={150}
             style={{ width: "100%", height: "auto" }}
           >
-            {renderGeos(geoData.okinawa)}
+            {renderGeographies("okinawa")}
           </ComposableMap>
           <div className="inset-label">沖縄・南西諸島</div>
         </div>
 
-        {/* 小笠原地図（右下） */}
+        {/* 小笠原 */}
         <div className="ogasawara-map-inset">
           <ComposableMap
             projection="geoMercator"
@@ -237,7 +239,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             height={150}
             style={{ width: "100%", height: "auto" }}
           >
-            {renderGeos(geoData.ogasawara)}
+            {renderGeographies("ogasawara")}
           </ComposableMap>
           <div className="inset-label">小笠原</div>
         </div>
@@ -270,7 +272,10 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             <span>DD</span>
           </div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#ffffff", border: "1px solid #ccc" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#ffffff", border: "1px solid #ccc" }}
+            ></div>
             <span>指定なし</span>
           </div>
         </div>
