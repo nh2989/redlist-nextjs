@@ -2,8 +2,7 @@
 
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
-const JAPAN_TOPO_JSON =
-  "https://raw.githubusercontent.com/dataofjapan/land/master/japan.topojson";
+const JAPAN_TOPO_JSON = "/japan.topojson";
 
 interface JurisdictionData {
   jurisdiction_name: string;
