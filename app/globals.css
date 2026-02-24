@@ -308,31 +308,39 @@ h1 {
   background: #000000;
   color: #ffffff;
 }
+
 .category-ew {
   background: #542344;
   color: #ffffff;
 }
+
 .category-cr {
   background: #d81e05;
   color: #fffacd;
 }
+
 .category-en {
   background: #fc7f3f;
   color: #333;
 }
+
 .category-cren {
   background: #d81e05;
   color: #fffacd;
 }
+
 .category-vu {
   background: #f9e814;
 }
+
 .category-nt {
   background: #cce226;
 }
+
 .category-dd {
   background: #d1d1c6;
 }
+
 .category-other {
   background: #e5e5e5;
 }
@@ -541,8 +549,10 @@ footer {
 
 /* モーダルコンテンツ（スクロール可能） */
 .modal-body {
-  flex: 1; /* ★ 追加：残りのスペースを使う */
-  overflow-y: auto; /* ★ 追加：スクロール可能 */
+  flex: 1;
+  /* ★ 追加：残りのスペースを使う */
+  overflow-y: auto;
+  /* ★ 追加：スクロール可能 */
   padding: 0 clamp(15px, 2.5vw, 30px) clamp(15px, 2.5vw, 30px);
 }
 
@@ -659,6 +669,9 @@ footer {
 
 /* 地図コンテナ：親要素として機能 */
 .species-map-svg {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   position: relative;
   background: white;
   border-radius: 8px;
@@ -666,20 +679,14 @@ footer {
   max-width: 800px;
   margin: 0 auto;
   aspect-ratio: 4 / 3;
-  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-  /* ★ 追加：GPUレイヤー化 */
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  contain: layout style paint; /* ★ レイアウト再計算を抑制 */
 }
 
 /* 地図部分：親要素いっぱいに表示 */
 .map-wrapper {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -30;
   width: 100%;
   height: 100%;
   display: flex;
@@ -707,24 +714,16 @@ footer {
 /* 沖縄地図（左上） */
 .okinawa-map-inset {
   position: absolute;
-  top: 100px;
-  left: 12px;
+  top: 23%;
+  left: 15%;
   z-index: 5;
-  margin-left: 60px;
-
-  width: clamp(100px, 15vw, 140px);
-  height: clamp(100px, 15vw, 140px);
-
+  width: clamp(80px, 10vw, 110px);
+  height: clamp(80px, 15vw, 110px);
   background: white;
-  border: 2px solid #999;
+  border: 1px solid #999;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-
-  /* ★ 追加 */
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  contain: layout style paint;
 }
 
 .okinawa-map-inset svg {
@@ -735,24 +734,16 @@ footer {
 /* 小笠原地図（右下） */
 .ogasawara-map-inset {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  bottom: 5%;
+  right: 30%;
   z-index: 5;
-  margin-right: 140px;
-
-  width: clamp(100px, 15vw, 120px);
-  height: clamp(100px, 15vw, 120px);
-
+  width: clamp(80px, 10vw, 110px);
+  height: clamp(80px, 12vw, 110px);
   background: white;
-  border: 2px solid #999;
+  border: 1px solid #999;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-
-  /* ★ 追加 */
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  contain: layout style paint;
 }
 
 .ogasawara-map-inset svg {
@@ -776,36 +767,29 @@ footer {
   white-space: nowrap;
 }
 
-/* 凡例：右上 */
+/* 凡例 */
 .map-legend-sidebar {
   position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%) translate3d(0, 0, 0); /* ★ translate3d追加 */
+  top: 0;
+  bottom: 0;
+  right: 12px;
+  margin: auto 0;
+  height: fit-content;
   z-index: 10;
-
-  background: #ffffff; /* 完全不透明 */
-  /* backdrop-filter: blur(4px); */
+  background: #ffffff;
   border-radius: 8px;
   padding: clamp(8px, 1.2vh, 12px);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* ★ 軽量化 */
-
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: clamp(4px, 0.8vh, 6px);
-
   min-width: clamp(90px, 12vw, 120px);
   max-width: 140px;
-
-  /* ★ 最適化 */
-  will-change: transform;
-  backface-visibility: hidden;
-  contain: layout style; /* ★ 追加 */
-  pointer-events: none; /* ★ 追加：インタラクション無効化 */
+  pointer-events: none;
 }
 
 .map-legend-sidebar * {
-  pointer-events: auto; /* ★ 子要素は有効 */
+  pointer-events: auto;
 }
 
 .legend-title {
@@ -847,11 +831,11 @@ footer {
   /* 2. containerの余白、角丸、幅を調整 */
   .container {
     padding: 20px 15px; /* 上下20px、左右15px（中身が壁に張り付かない程度） */
-    margin: 0;          /* 外側の余白をなくす */
-    max-width: 100%;    /* 最大幅を100%に */
-    width: 100%;        /* 幅を100%に */
-    border-radius: 0;   /* 角丸をなくすと「フルスクリーン感」が出ます（お好みで） */
-    box-shadow: none;   /* スマホでは影がないほうがスッキリする場合が多いです */
+    margin: 0; /* 外側の余白をなくす */
+    max-width: 100%; /* 最大幅を100%に */
+    width: 100%; /* 幅を100%に */
+    border-radius: 0; /* 角丸をなくすと「フルスクリーン感」が出ます（お好みで） */
+    box-shadow: none; /* スマホでは影がないほうがスッキリする場合が多いです */
   }
 
   h1 {
@@ -904,31 +888,46 @@ footer {
 
   /* モーダルのレスポンシブ */
   .modal-overlay {
-    padding: 0px;
+    padding: 0;
+    align-items: stretch; /* 上下の余白をなくす */
+    background-color: white; /* 完全不透明 */
   }
 
   .modal-content {
-    width: 95%;
-    max-height: 95vh;
-    padding: 20px;
+    width: 100%;
+    height: 100vh; /* 縦全画面 */
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 0;
   }
 
   .modal-header-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+    padding: 15px 15px 12px; /* 左右の余白を確保 */
   }
 
   .modal-header-info h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .modal-header-info .scientific {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .modal-header-info .taxonomy-label {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
+  }
+
+  .modal-body {
+    padding: 0 15px; /* 左右の余白を確保 */
+    /* ナビバー分の余白をSafe Area Insetで確保 */
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
   }
 
   /* 地図のレスポンシブ：スマホでは縦並び */
@@ -946,18 +945,22 @@ footer {
     height: auto;
   }
 
-  .map-wrapper svg {
-    height: auto !important;
-    max-height: 50vh;
+  /* 沖縄 */
+  .okinawa-map-inset {
+    position: absolute;
+    top: 23%;
+    left: 20%;
+    width: 10% !important;
+    height: 14% !important;
   }
 
-  /* 沖縄・小笠原を下に移動 */
-  .okinawa-map-inset,
+  /* 小笠原 */
   .ogasawara-map-inset {
-    position: static;
-    width: 120px;
-    height: 120px;
-    margin: 10px auto 0;
+    position: absolute;
+    bottom: 30%;
+    right: 20%;
+    width: 10% !important;
+    height: 14% !important;
   }
 
   /* 凡例も下に */
@@ -972,6 +975,11 @@ footer {
     justify-content: center;
     gap: 8px;
     padding: 8px;
+  }
+
+  /* 別枠地図のラベル（共通） */
+  .inset-label {
+    display: none;
   }
 
   .legend-title {
@@ -992,7 +1000,7 @@ footer {
 }
 
 /* デスクトップ */
-@media (min-width: 1025px) {
+/* @media (min-width: 1025px) {
   .species-map-svg {
     max-width: 850px;
   }
@@ -1002,7 +1010,7 @@ footer {
     max-width: 130px;
     padding: 10px;
   }
-}
+} */
 
 /* 超大画面 */
 @media (min-width: 1600px) {
@@ -1014,41 +1022,5 @@ footer {
     min-width: 120px;
     max-width: 140px;
     font-size: 13px;
-  }
-}
-
-/* 画面が低い場合 */
-@media (max-height: 700px) {
-  .modal-content {
-    max-height: 95vh;
-  }
-
-  .species-map-svg {
-    aspect-ratio: 5 / 3;
-  }
-
-  .okinawa-map-inset,
-  .ogasawara-map-inset {
-    width: clamp(80px, 12vw, 110px);
-    height: clamp(80px, 12vw, 110px);
-  }
-
-  .map-legend-sidebar {
-    top: 8px;
-    right: 8px;
-    padding: 6px;
-    gap: 3px;
-  }
-
-  .modal-header-info {
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-  }
-}
-
-/* 画面が高い場合 */
-@media (min-height: 1000px) {
-  .species-map-svg {
-    max-height: 650px;
   }
 }

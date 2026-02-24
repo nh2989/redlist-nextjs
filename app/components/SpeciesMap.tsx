@@ -175,7 +175,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             projection="geoMercator"
             projectionConfig={{
               scale: 1200,
-              center: [138, 38],
+              center: [137.5, 38],
             }}
             width={600}
             height={450}
