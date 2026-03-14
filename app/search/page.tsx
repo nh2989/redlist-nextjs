@@ -8,127 +8,15 @@ const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), {
   ssr: false,
 });
 
-// カテゴリマッピング（同じ意味のカテゴリをグループ化）
-const CATEGORY_MAPPINGS: { [key: string]: string[] } = {
-  EX: ["絶滅(EX)", "絶滅（EX）", "絶滅", "EX", "絶滅種"],
-  EW: ["野生絶滅(EW)", "野生絶滅（EW）", "野生絶滅", "EW"], // ← 追加
-  CR: ["絶滅危惧ⅠA類(CR)", "絶滅危惧ⅠA類（CR）", "絶滅危惧ⅠA類", "ⅠA類", "CR"],
-  EN: ["絶滅危惧ⅠB類(EN)", "絶滅危惧ⅠB類（EN）", "絶滅危惧ⅠB類", "ⅠB類", "EN"],
-  "CR+EN": ["絶滅危惧Ⅰ類（CR+EN）", "絶滅危惧Ⅰ類", "Ⅰ類"],
-  VU: ["絶滅危惧Ⅱ類（VU）", "絶滅危惧Ⅱ類", "Ⅱ類", "VU", "絶滅危機増大種"],
-  NT: ["準絶滅危惧（NT）", "準絶滅危惧", "準絶滅危惧種", "希少種", "NT"],
-  DD: ["情報不足(DD)", "情報不足（DD）", "情報不足", "DD", "要注目種"],
-};
-
-// カテゴリ優先順位（希少性の高い順）
-const CATEGORY_PRIORITY: { [key: string]: number } = {
-  EX: 1, // 絶滅
-  EW: 2, // 野生絶滅
-  CR: 3, // 絶滅危惧ⅠA類
-  EN: 4, // 絶滅危惧ⅠB類
-  "CR+EN": 5, // 絶滅危惧Ⅰ類
-  VU: 6, // 絶滅危惧Ⅱ類
-  NT: 7, // 準絶滅危惧
-  DD: 8, // 情報不足
-  OTHER: 9, // その他
-};
-
-// 都道府県コード（JIS X 0401）
-const PREFECTURE_CODES: { [key: string]: number } = {
-  北海道: 1,
-  青森県: 2,
-  岩手県: 3,
-  宮城県: 4,
-  秋田県: 5,
-  山形県: 6,
-  福島県: 7,
-  茨城県: 8,
-  栃木県: 9,
-  群馬県: 10,
-  埼玉県: 11,
-  千葉県: 12,
-  東京都: 13,
-  神奈川県: 14,
-  新潟県: 15,
-  富山県: 16,
-  石川県: 17,
-  福井県: 18,
-  山梨県: 19,
-  長野県: 20,
-  岐阜県: 21,
-  静岡県: 22,
-  愛知県: 23,
-  三重県: 24,
-  滋賀県: 25,
-  京都府: 26,
-  大阪府: 27,
-  兵庫県: 28,
-  奈良県: 29,
-  和歌山県: 30,
-  鳥取県: 31,
-  島根県: 32,
-  岡山県: 33,
-  広島県: 34,
-  山口県: 35,
-  徳島県: 36,
-  香川県: 37,
-  愛媛県: 38,
-  高知県: 39,
-  福岡県: 40,
-  佐賀県: 41,
-  長崎県: 42,
-  熊本県: 43,
-  大分県: 44,
-  宮崎県: 45,
-  鹿児島県: 46,
-  沖縄県: 47,
-};
-
-// カテゴリが主要カテゴリ（EX, EW, CR, EN, CR+EN, VU, NT, DD）に含まれるかチェック
-function isMajorCategory(category: string): boolean {
-  if (!category) return false;
-
-  // CATEGORY_MAPPINGSの全グループをチェック
-  for (let group in CATEGORY_MAPPINGS) {
-    const variations = CATEGORY_MAPPINGS[group];
-    if (variations.some((v) => category.includes(v) || v.includes(category))) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-// カテゴリが同じグループかチェックする関数
-function isSameCategory(category: string, filterCategory: string): boolean {
-  if (!category || !filterCategory) return false;
-  if (category === filterCategory) return true;
-
-  // 「OTHER」が選択された場合は、主要カテゴリ以外かチェック
-  if (filterCategory === "OTHER") {
-    return !isMajorCategory(category);
-  }
-
-  for (let group in CATEGORY_MAPPINGS) {
-    const variations = CATEGORY_MAPPINGS[group];
-    const catInGroup = variations.includes(category);
-    const filterInGroup = variations.includes(filterCategory);
-    if (catInGroup && filterInGroup) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// カテゴリーを統一グループに変換する関数
-function getCategoryGroup(category: string): string {
-  for (let group in CATEGORY_MAPPINGS) {
-    if (CATEGORY_MAPPINGS[group].includes(category)) {
-      return group;
-    }
-  }
-  return "OTHER";
-}
+import {
+  CATEGORY_MAPPINGS,
+  CATEGORY_PRIORITY,
+  PREFECTURE_CODES,
+  getCategoryGroup,
+  getCategoryClass,
+  isMajorCategory,
+  isSameCategory,
+} from "@/lib/categoryConstants";
 
 // 種の最も高い希少性カテゴリを取得する関数（階層優先）
 function getHighestPriorityCategory(jurisdictions: any[]): number {
@@ -530,43 +418,6 @@ function SearchPage() {
   // トップページに戻る
   function goToTop() {
     router.push("/");
-  }
-
-  // カテゴリに応じたCSSクラス（category_unified用に最適化）
-  function getCategoryClass(category: string) {
-    // 長い文字列・具体的な文字列から先にチェック（重要！）
-
-    // 野生絶滅（「絶滅」を含むので先にチェック）
-    if (category.includes("野生絶滅") || category.includes("EW"))
-      return "category-ew";
-
-    // 絶滅危惧系（「絶滅」を含むので先にチェック）
-    if (category.includes("絶滅危惧ⅠA類") || category.includes("CR"))
-      return "category-cr";
-    if (category.includes("絶滅危惧ⅠB類") || category.includes("EN"))
-      return "category-en";
-    if (category.includes("絶滅危惧Ⅰ類") || category.includes("CR+EN"))
-      return "category-cr";
-    if (category.includes("絶滅危惧Ⅱ類") || category.includes("VU"))
-      return "category-vu";
-
-    // 絶滅（最後にチェック）
-    if (
-      category.includes("絶滅（EX）") ||
-      category.includes("絶滅(EX)") ||
-      category === "絶滅" ||
-      category === "EX" ||
-      category === "絶滅種"
-    )
-      return "category-ex";
-
-    // その他のカテゴリ
-    if (category.includes("準絶滅危惧") || category.includes("NT"))
-      return "category-nt";
-    if (category.includes("情報不足") || category.includes("DD"))
-      return "category-dd";
-
-    return "category-other";
   }
 
   // 自治体種別のアイコン

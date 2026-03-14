@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import PreloadTopoJson from "./components/PreloadTopoJson";
 import "./globals.css";
+import CategoryStyles from "./components/CategoryStyles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover",  // これでenv(safe-area-inset-bottom)が有効になる
+  viewportFit: "cover", // これでenv(safe-area-inset-bottom)が有効になる
 };
 
 export default function RootLayout({
@@ -35,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PreloadTopoJson />
+        <CategoryStyles />
         {children}
       </body>
     </html>
