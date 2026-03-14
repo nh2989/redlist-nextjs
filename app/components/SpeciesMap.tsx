@@ -1,56 +1,49 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-const JAPAN_TOPO_JSON = "/japan.topojson";
+// ========== コンポーネント外の定数・関数 ==========
 
-// ========== コンポーネント外の定数・関数（再生成されない） ==========
+const JAPAN_MAP_SVG = "/japan-map.svg";
+
+// 都道府県コード → 都道府県名（Geoloniaのdata-codeと紐付け）
+const CODE_TO_PREF: Record<number, string> = {
+  1: "北海道", 2: "青森県", 3: "岩手県", 4: "宮城県", 5: "秋田県",
+  6: "山形県", 7: "福島県", 8: "茨城県", 9: "栃木県", 10: "群馬県",
+  11: "埼玉県", 12: "千葉県", 13: "東京都", 14: "神奈川県", 15: "新潟県",
+  16: "富山県", 17: "石川県", 18: "福井県", 19: "山梨県", 20: "長野県",
+  21: "岐阜県", 22: "静岡県", 23: "愛知県", 24: "三重県", 25: "滋賀県",
+  26: "京都府", 27: "大阪府", 28: "兵庫県", 29: "奈良県", 30: "和歌山県",
+  31: "鳥取県", 32: "島根県", 33: "岡山県", 34: "広島県", 35: "山口県",
+  36: "徳島県", 37: "香川県", 38: "愛媛県", 39: "高知県", 40: "福岡県",
+  41: "佐賀県", 42: "長崎県", 43: "熊本県", 44: "大分県", 45: "宮崎県",
+  46: "鹿児島県", 47: "沖縄県",
+};
 
 const CATEGORY_PRIORITY: Record<string, number> = {
-  絶滅: 1,
-  EX: 1,
-  CR: 2,
-  EN: 3,
-  絶滅危惧Ⅰ類: 2.5,
-  VU: 4,
-  絶滅危惧Ⅱ類: 4,
-  NT: 5,
-  準絶滅危惧: 5,
-  DD: 6,
-  情報不足: 6,
+  絶滅: 1, EX: 1,
+  野生絶滅: 2, EW: 2,
+  CR: 3, 絶滅危惧Ⅰ類: 3,
+  EN: 4,
+  VU: 5, 絶滅危惧Ⅱ類: 5,
+  NT: 6, 準絶滅危惧: 6,
+  DD: 7, 情報不足: 7,
 };
 
 function getCategoryColor(category: string | null): string {
   if (!category) return "#ffffff";
-  if (category.includes("絶滅") && !category.includes("危惧")) return "#000000";
-  if (category.includes("CR") || category.includes("絶滅危惧Ⅰ類"))
-    return "#d81e05";
+  if (category.includes("絶滅") && !category.includes("危惧") && !category.includes("野生")) return "#000000";
+  if (category.includes("野生絶滅") || category.includes("EW")) return "#542344";
+  if (category.includes("CR") || category.includes("絶滅危惧Ⅰ類")) return "#d81e05";
   if (category.includes("EN")) return "#fc7f3f";
-  if (category.includes("VU") || category.includes("絶滅危惧Ⅱ類"))
-    return "#f9e814";
-  if (category.includes("NT") || category.includes("準絶滅危惧"))
-    return "#CCE226";
-  if (category.includes("DD") || category.includes("情報不足"))
-    return "#d1d1c6";
+  if (category.includes("VU") || category.includes("絶滅危惧Ⅱ類")) return "#f9e814";
+  if (category.includes("NT") || category.includes("準絶滅危惧")) return "#CCE226";
+  if (category.includes("DD") || category.includes("情報不足")) return "#d1d1c6";
   return "#e5e5e5";
 }
 
-function getMinLatitude(coords: any): number {
-  if (Array.isArray(coords[0])) return Math.min(...coords.map(getMinLatitude));
-  return coords[1];
-}
-
-// ========== モジュールレベルのキャッシュ ==========
-// TopoJSONオブジェクトを保持（2回目以降のモーダル表示で fetch しない）
-let topoCache: any = null;
-
-// 分割・振り分け済みの rsmKey セットもキャッシュ
-let splitCache: {
-  main: Set<string>;
-  okinawa: Set<string>;
-  ogasawara: Set<string>;
-} | null = null;
+// SVGキャッシュ（モジュールレベル）
+let svgCache: string | null = null;
 
 // ========== 型定義 ==========
 
@@ -67,21 +60,22 @@ interface SpeciesMapProps {
 // ========== コンポーネント ==========
 
 export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
-  const [topology, setTopology] = useState<any>(topoCache);
+  const [svgContent, setSvgContent] = useState<string | null>(svgCache);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // TopoJSONを1回だけ fetch してモジュール変数に保存
+  // SVGを1回だけfetch
   useEffect(() => {
-    if (topoCache) {
-      setTopology(topoCache);
+    if (svgCache) {
+      setSvgContent(svgCache);
       return;
     }
-    fetch(JAPAN_TOPO_JSON)
-      .then((r) => r.json())
-      .then((topo) => {
-        topoCache = topo;
-        setTopology(topo);
+    fetch(JAPAN_MAP_SVG)
+      .then((r) => r.text())
+      .then((text) => {
+        svgCache = text;
+        setSvgContent(text);
       })
-      .catch((err) => console.error("TopoJSON読み込みエラー:", err));
+      .catch((err) => console.error("SVG読み込みエラー:", err));
   }, []);
 
   // 都道府県→色のマップをメモ化
@@ -99,7 +93,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
       let selectedCategory = jList[0].category_unified || jList[0].category;
       for (const j of jList) {
         const unified = j.category_unified || j.category;
-        const p = CATEGORY_PRIORITY[unified] || 999;
+        const p = CATEGORY_PRIORITY[unified] ?? 999;
         if (p < best) {
           best = p;
           selectedCategory = unified;
@@ -111,81 +105,37 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
     return colorMap;
   }, [jurisdictions]);
 
-  // MultiPolygon分割
-  const splitMultiPolygon = (geo: any) => {
-    if (geo.geometry?.type !== "MultiPolygon") return [geo];
-    return geo.geometry.coordinates.map((part: any, index: number) => ({
-      ...geo,
-      geometry: { type: "Polygon", coordinates: part },
-      rsmKey: `${geo.rsmKey}-part${index}`,
-    }));
-  };
+  // SVG挿入後に色を適用
+  useEffect(() => {
+    if (!svgContent || !containerRef.current) return;
 
-  // エリア判定
-  const classifyGeo = (geo: any): "main" | "okinawa" | "ogasawara" | null => {
-    const prefName = geo.properties.nam_ja || "";
-    const coords = geo.geometry?.coordinates;
-    if (!coords) return null;
+    // SVGをDOMに挿入
+    containerRef.current.innerHTML = svgContent;
 
-    const minLat = getMinLatitude(coords);
+    // data-code属性を持つ全要素に色を適用
+    const elements = containerRef.current.querySelectorAll<HTMLElement>("[data-code]");
+    elements.forEach((el) => {
+      const code = Number(el.dataset.code);
+      const prefName = CODE_TO_PREF[code];
+      if (!prefName) return;
 
-    if (prefName === "東京都" && minLat < 30) return "ogasawara";
-    if (prefName === "沖縄県" || (prefName === "鹿児島県" && minLat < 30.07))
-      return "okinawa";
-    return "main";
-  };
+      const color = prefColorMap.get(prefName) ?? "#ffffff";
 
-  // Geographies の中身（モード別）
-  const renderGeographies = (mode: "main" | "okinawa" | "ogasawara") => (
-    <Geographies geography={topology}>
-      {({ geographies }) => {
-        // splitCacheがあれば rsmKey の Set で高速判定
-        if (!splitCache) {
-          // 初回だけ分割・振り分けしてキャッシュ
-          const main = new Set<string>();
-          const okinawa = new Set<string>();
-          const ogasawara = new Set<string>();
-
-          geographies.flatMap(splitMultiPolygon).forEach((geo) => {
-            const area = classifyGeo(geo);
-            if (area === "main") main.add(geo.rsmKey);
-            else if (area === "okinawa") okinawa.add(geo.rsmKey);
-            else if (area === "ogasawara") ogasawara.add(geo.rsmKey);
-          });
-
-          splitCache = { main, okinawa, ogasawara };
-        }
-
-        const targetKeys = splitCache[mode];
-
-        return geographies
-          .flatMap(splitMultiPolygon)
-          .filter((geo) => targetKeys.has(geo.rsmKey))
-          .map((geo) => {
-            const color =
-              // prefColorMapに存在しない → フォールバックの #e5e5e5
-              prefColorMap.get(geo.properties.nam_ja ?? "") ?? "#ffffff";
-            return (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill={color}
-                stroke="#999999"
-                strokeWidth={0.5}
-                style={{
-                  default: { outline: "none" },
-                  hover: { outline: "none", opacity: 0.8, fill: color },
-                  pressed: { outline: "none" },
-                }}
-              />
-            );
-          });
-      }}
-    </Geographies>
-  );
+      // g要素配下の全polygon/path/circleに色を適用
+      const shapes = el.querySelectorAll<SVGElement>("polygon, path, circle, rect");
+      if (shapes.length > 0) {
+        shapes.forEach((shape) => {
+          shape.style.fill = color;
+        });
+      } else {
+        // g要素自体がshapeの場合
+        el.style.fill = color;
+      }
+    });
+  }, [svgContent, prefColorMap]);
 
   // 読み込み中
-  if (!topology) {
+  if (!svgContent) {
     return (
       <div
         className="species-map-container"
@@ -206,102 +156,35 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
   return (
     <div className="species-map-container">
       <h3>📍 分布地図</h3>
-
-      <div className="species-map-svg">
-        {/* メイン地図 */}
-        <div className="map-wrapper">
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{ scale: 1200, center: [137.5, 38] }}
-            width={600}
-            height={450}
-            style={{ width: "100%", height: "auto" }}
-          >
-            {renderGeographies("main")}
-          </ComposableMap>
-        </div>
-
-        {/* 沖縄・南西諸島 */}
-        <div className="okinawa-map-inset">
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{ scale: 2200, center: [128.5, 27.5] }}
-            width={150}
-            height={150}
-            style={{ width: "100%", height: "auto" }}
-          >
-            {renderGeographies("okinawa")}
-          </ComposableMap>
-          <div className="inset-label">沖縄・南西諸島</div>
-        </div>
-
-        {/* 小笠原 */}
-        <div className="ogasawara-map-inset">
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{ scale: 6000, center: [142.2, 27] }}
-            width={150}
-            height={150}
-            style={{ width: "100%", height: "auto" }}
-          >
-            {renderGeographies("ogasawara")}
-          </ComposableMap>
-          <div className="inset-label">小笠原</div>
-        </div>
-
-        {/* 凡例 */}
-        <div className="map-legend-sidebar">
-          <div className="legend-title">カテゴリ</div>
-          <div className="legend-item-vertical">
+      <div
+        ref={containerRef}
+        className="species-map-svg"
+        style={{ width: "100%", lineHeight: 0 }}
+      />
+      {/* 凡例 */}
+      <div className="map-legend-sidebar">
+        <div className="legend-title">カテゴリ</div>
+        {[
+          { color: "#000000", label: "絶滅（EX）" },
+          { color: "#542344", label: "野生絶滅（EW）" },
+          { color: "#d81e05", label: "CR/Ⅰ類" },
+          { color: "#fc7f3f", label: "EN" },
+          { color: "#f9e814", label: "VU/Ⅱ類" },
+          { color: "#CCE226", label: "NT" },
+          { color: "#d1d1c6", label: "DD" },
+          { color: "#e5e5e5", label: "指定なし", border: true },
+        ].map(({ color, label, border }) => (
+          <div key={label} className="legend-item-vertical">
             <div
               className="legend-color-box"
-              style={{ background: "#000000" }}
-            ></div>
-            <span>絶滅（EX）</span>
+              style={{
+                background: color,
+                border: border ? "1px solid #ccc" : undefined,
+              }}
+            />
+            <span>{label}</span>
           </div>
-          <div className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{ background: "#d81e05" }}
-            ></div>
-            <span>CR/Ⅰ類</span>
-          </div>
-          <div className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{ background: "#fc7f3f" }}
-            ></div>
-            <span>EN</span>
-          </div>
-          <div className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{ background: "#f9e814" }}
-            ></div>
-            <span>VU/Ⅱ類</span>
-          </div>
-          <div className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{ background: "#CCE226" }}
-            ></div>
-            <span>NT</span>
-          </div>
-          <div className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{ background: "#d1d1c6" }}
-            ></div>
-            <span>DD</span>
-          </div>
-          <div className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{ background: "#ffffff", border: "1px solid #ccc" }}
-            ></div>
-            <span>指定なし</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
