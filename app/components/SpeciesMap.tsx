@@ -24,11 +24,15 @@ const CATEGORY_PRIORITY: Record<string, number> = {
 function getCategoryColor(category: string | null): string {
   if (!category) return "#ffffff";
   if (category.includes("絶滅") && !category.includes("危惧")) return "#000000";
-  if (category.includes("CR") || category.includes("絶滅危惧Ⅰ類")) return "#d81e05";
+  if (category.includes("CR") || category.includes("絶滅危惧Ⅰ類"))
+    return "#d81e05";
   if (category.includes("EN")) return "#fc7f3f";
-  if (category.includes("VU") || category.includes("絶滅危惧Ⅱ類")) return "#f9e814";
-  if (category.includes("NT") || category.includes("準絶滅危惧")) return "#CCE226";
-  if (category.includes("DD") || category.includes("情報不足")) return "#d1d1c6";
+  if (category.includes("VU") || category.includes("絶滅危惧Ⅱ類"))
+    return "#f9e814";
+  if (category.includes("NT") || category.includes("準絶滅危惧"))
+    return "#CCE226";
+  if (category.includes("DD") || category.includes("情報不足"))
+    return "#d1d1c6";
   return "#e5e5e5";
 }
 
@@ -159,7 +163,8 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
           .filter((geo) => targetKeys.has(geo.rsmKey))
           .map((geo) => {
             const color =
-              prefColorMap.get(geo.properties.nam_ja ?? "") ?? "#e5e5e5";
+              // prefColorMapに存在しない → フォールバックの #e5e5e5
+              prefColorMap.get(geo.properties.nam_ja ?? "") ?? "#ffffff";
             return (
               <Geography
                 key={geo.rsmKey}
@@ -248,27 +253,45 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
         <div className="map-legend-sidebar">
           <div className="legend-title">カテゴリ</div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#000000" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#000000" }}
+            ></div>
             <span>絶滅（EX）</span>
           </div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#d81e05" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#d81e05" }}
+            ></div>
             <span>CR/Ⅰ類</span>
           </div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#fc7f3f" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#fc7f3f" }}
+            ></div>
             <span>EN</span>
           </div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#f9e814" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#f9e814" }}
+            ></div>
             <span>VU/Ⅱ類</span>
           </div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#CCE226" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#CCE226" }}
+            ></div>
             <span>NT</span>
           </div>
           <div className="legend-item-vertical">
-            <div className="legend-color-box" style={{ background: "#d1d1c6" }}></div>
+            <div
+              className="legend-color-box"
+              style={{ background: "#d1d1c6" }}
+            ></div>
             <span>DD</span>
           </div>
           <div className="legend-item-vertical">
