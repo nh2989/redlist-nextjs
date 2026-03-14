@@ -125,7 +125,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             { key: "DD", label: "情報不足（DD）" },
             { key: "OTHER", label: "その他指定あり" },
             { key: "NONE", label: "指定なし", border: true },
-          ] as const
+          ] as { key: keyof typeof CATEGORY_COLORS; label: string; border?: boolean }[]
         ).map(({ key, label, border }) => (
           <div key={key} className="legend-item-vertical">
             <div
