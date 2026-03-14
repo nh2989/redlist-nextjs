@@ -1,6 +1,6 @@
 # レッドリスト検索アプリ - プロジェクト現状
 
-最終更新：2026年2月25日
+最終更新：2026年3月15日
 リポジトリ：https://github.com/nh2989/redlist-nextjs
 
 ---
@@ -21,15 +21,19 @@ redlist-nextjs/
 ├── app/
 │   ├── page.tsx                    # トップページ（検索フォーム）
 │   ├── layout.tsx                  # 共通レイアウト
-│   ├── globals.css                 # グローバルスタイル
+│   ├── globals.css                 # グローバルスタイル（CSS変数で一元管理）
 │   ├── favicon.ico
 │   ├── search/
 │   │   └── page.tsx                # 検索結果ページ（メインロジック）
 │   └── components/
-│       ├── SpeciesMap.tsx          # 地図コンポーネント
-│       └── PreloadTopoJson.tsx     # TopoJSON事前読み込み
+│       ├── SpeciesMap.tsx          # 地図コンポーネント（Geolonia SVG）
+│       ├── CategoryStyles.tsx      # カテゴリ色をCSS変数として注入
+│       └── PreloadTopoJson.tsx     # 不要（削除候補）
+├── lib/
+│   └── categoryConstants.ts        # カテゴリ色・定数・ユーティリティ関数の一元管理
 └── public/
-    ├── japan.topojson              # 日本地図データ（ローカル配信）
+    ├── japan.topojson              # 日本地図データ（5%簡略化済み、40KB）
+    ├── japan-map.svg               # Geolonia map-mobile.svg（地図表示用）
     └── data/
         ├── national.json           # 環境省（国）
         ├── sample.json             # 用途確認要（nationalと重複？）
@@ -71,16 +75,25 @@ redlist-nextjs/
 - [x] 検索クリアボタン（×）
 - [x] ソート（種名・カテゴリ希少性順・指定箇所数・学名）
 - [x] カード表示（国 / 都道府県 / 市町村を階層別に表示）
-- [x] カテゴリ別色分けバッジ（EX/EW/CR/EN/VU/NT/DD）
+- [x] カテゴリ別色分けバッジ（EX/EW/CR/EN/VU/NT/DD/OTHER）
 - [x] モーダル詳細表示（学名・分類群・指定状況テーブル）
 - [x] 地図表示（都道府県データがある種のみ、モーダル内）
 
+### 地図
+- [x] Geolonia map-mobile.svg による地図表示（react-simple-maps廃止）
+- [x] 都道府県ごとのカテゴリ色塗り分け
+- [x] 凡例（地図下部に横並び表示）
+- [x] SVGモジュールレベルキャッシュ（2回目以降のモーダル開閉でfetchゼロ）
+
 ### パフォーマンス
-- [x] TopoJSONローカル配信（`/public/japan.topojson`、GitHub外部取得を廃止）
-- [x] TopoJSONのモジュールレベルキャッシュ（2回目以降のモーダル開閉でfetchゼロ）
-- [x] 地理データ分割・振り分けのキャッシュ（splitCache、初回1回のみ計算）
+- [x] TopoJSONローカル配信・5%簡略化（415KB → 40KB）※現在はjapan-map.svgを使用
 - [x] 都道府県→カラーマップのメモ化（useMemo）
-- [x] GPU加速対応
+
+### スタイル・コード品質
+- [x] CSS変数による色の一元管理（globals.css の `:root`）
+- [x] ブランドカラーをフラット単色（`#4a6fa5`）に統一・グラデーション廃止
+- [x] `categoryConstants.ts` でカテゴリ色・優先順位・マッピング・都道府県コードを一元管理
+- [x] `CategoryStyles.tsx` でTS側の色定義をCSS変数として注入（二重管理の解消）
 
 ---
 
@@ -102,21 +115,49 @@ redlist-nextjs/
 
 ---
 
-## 既知の課題・要確認事項
+## 既知の課題・次回作業候補
 
-- [ ] `sample.json` の用途が不明（national.jsonと内容が重複している可能性）
+### 優先度高
+- [ ] `page.tsx` 内の `getCategoryClass` 関数を削除し `categoryConstants.ts` のimportに統一
+- [ ] `national.json` の `category_unified` が空欄 → データ修正が必要
 - [ ] 分類群フィルターの選択肢が「植物」だが、データは「維管束植物」→ 不一致
-- [ ] TypeScriptの `any` 型が多用されている（型定義の整備が必要）
-- [ ] `getCategoryClass` 関数内に文字化けあり（`野���絶滅`、`絶滅危惧Ⅱ���`）→ ソース確認要
+
+### 優先度中
+- [ ] `sample.json` の用途確認・削除（national.jsonと重複の可能性）
+- [ ] `PreloadTopoJson.tsx` の削除（Geolonia SVG移行後は不要）
+- [ ] 不要なVercelプロジェクトの削除（`ugck`、`vuz5`、`6pkh`）
+- [ ] TypeScriptの `any` 型が多用されている（型定義の整備）
+
+### 優先度低・将来
 - [ ] 市町村フィルターは滋賀県選択時のみ機能（甲賀市・彦根市のみ対応）
+- [ ] データ拡充（新しい都道府県の追加）
+- [ ] Supabaseデータベース移行（データが増えたタイミング）
+- [ ] Geolonia SVGのライセンス（GFDL）→ 商用化時に自作SVGへ切り替え検討
 
 ---
 
-## 作業候補（地図パフォーマンスのさらなる改善）
+## 技術メモ
 
-- [ ] **TopoJSON簡略化**：mapshaperで地物を10〜20%に間引く
-  - ファイルサイズ・描画頂点数が激減し、スマホでの描画が速くなる
-  - 参考：https://mapshaper.org/
-- [ ] **Canvas描画への切り替え**：react-simple-maps（SVG描画）から変更
-  - 都道府県×島数分のDOM要素が激減する
-  - ライブラリの変更が必要（deck.gl、Konvaなど）
+### 色管理の仕組み
+```
+categoryConstants.ts（CATEGORY_COLORS）
+  ↓ import
+CategoryStyles.tsx → <style> タグで :root に CSS変数を注入
+  ↓
+globals.css の .category-* クラスが var(--color-cat-*) を参照
+```
+
+### 地図の仕組み
+```
+public/japan-map.svg（Geolonia map-mobile.svg）
+  ↓ fetch & キャッシュ
+SpeciesMap.tsx → DOMに挿入後 data-code属性でprefを特定
+  ↓
+categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
+```
+
+### tsconfig.json のパス設定
+```json
+"paths": { "@/*": ["./*"] }
+```
+`lib/categoryConstants.ts` は `@/lib/categoryConstants` でimport可能。
