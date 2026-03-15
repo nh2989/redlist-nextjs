@@ -119,7 +119,7 @@ redlist-nextjs/
 
 ### 優先度高
 - [x] `page.tsx` 内の `getCategoryClass` 関数を削除し `categoryConstants.ts` のimportに統一
-- [ ] `national.json` の `category_unified` が空欄 → データ修正が必要
+- [x] `national.json` の `category_unified` が空欄 → データ修正が必要
 - [x] 分類群フィルターの選択肢が「植物」だが、データは「維管束植物」→ 不一致
 
 ### 優先度中

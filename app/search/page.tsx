@@ -18,16 +18,18 @@ import {
   isSameCategory,
 } from "@/lib/categoryConstants";
 
+import type { RawSpeciesRecord, Jurisdiction, SpeciesGroup } from "@/lib/types";
+
 // 種の最も高い希少性カテゴリを取得する関数（階層優先）
-function getHighestPriorityCategory(jurisdictions: any[]): number {
+function getHighestPriorityCategory(jurisdictions: Jurisdiction[]): number {
   // 国 -> 都道府県 -> 市町村の順で確認
-  const typeOrder = ["national", "prefecture", "municipality"];
+  const typeOrder = ["national", "prefecture", "municipality"] as const;
 
   for (const type of typeOrder) {
     const filtered = jurisdictions.filter((j) => j.jurisdiction_type === type);
     if (filtered.length > 0) {
       let highestPriority = 999;
-      filtered.forEach((j: any) => {
+      filtered.forEach((j: Jurisdiction) => {
         const category = j.category_unified || j.category;
         const group = getCategoryGroup(category);
         const priority = CATEGORY_PRIORITY[group] || 999;
@@ -43,7 +45,7 @@ function getHighestPriorityCategory(jurisdictions: any[]): number {
 }
 
 // 別名を正規化する関数
-function normalizeAliases(aliases: any): string[] {
+function normalizeAliases(aliases: string | string[] | null | undefined): string[] {
   if (!aliases) return [];
   if (aliases === "") return [];
 
@@ -74,10 +76,10 @@ function SearchPage() {
   const initialSort = searchParams.get("sort") || "name";
 
   // State（状態管理）
-  const [allSpeciesData, setAllSpeciesData] = useState<any[]>([]);
-  const [groupedData, setGroupedData] = useState<any[]>([]);
-  const [filteredData, setFilteredData] = useState<any[]>([]);
-  const [displayData, setDisplayData] = useState<any[]>([]);
+  const [allSpeciesData, setAllSpeciesData] = useState<RawSpeciesRecord[]>([]);
+  const [groupedData, setGroupedData] = useState<SpeciesGroup[]>([]);
+  const [filteredData, setFilteredData] = useState<SpeciesGroup[]>([]);
+  const [displayData, setDisplayData] = useState<SpeciesGroup[]>([]);
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [categoryFilter, setCategoryFilter] = useState(initialCategory);
   const [prefectureFilter, setPrefectureFilter] = useState(initialPrefecture);
@@ -86,7 +88,7 @@ function SearchPage() {
   const [taxonomyFilter, setTaxonomyFilter] = useState(initialTaxonomy);
   const [sortOrder, setSortOrder] = useState(initialSort);
   const [loading, setLoading] = useState(true);
-  const [selectedSpecies, setSelectedSpecies] = useState<any>(null);
+  const [selectedSpecies, setSelectedSpecies] = useState<SpeciesGroup | null>(null);
 
   // 市町村リスト（選択された都道府県に応じて変化）
   const [availableMunicipalities, setAvailableMunicipalities] = useState<
@@ -94,7 +96,7 @@ function SearchPage() {
   >([]);
 
   // オートコンプリート用
-  const [autocompleteItems, setAutocompleteItems] = useState<any[]>([]);
+  const [autocompleteItems, setAutocompleteItems] = useState<SpeciesGroup[]>([]);
   const [showAutocomplete, setShowAutocomplete] = useState(false);
   const [autocompleteIndex, setAutocompleteIndex] = useState(-1);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -130,7 +132,7 @@ function SearchPage() {
       );
 
       // データを正規化
-      const allData = dataArrays.flat().map((item) => ({
+      const allData: RawSpeciesRecord[] = dataArrays.flat().map((item: RawSpeciesRecord) => ({
         ...item,
         species_aliases: normalizeAliases(item.species_aliases),
       }));
@@ -148,8 +150,8 @@ function SearchPage() {
   }
 
   // グループ化関数（和名でグループ化）
-  function groupBySpecies(data: any[]) {
-    const speciesMap: any = {};
+  function groupBySpecies(data: RawSpeciesRecord[]): SpeciesGroup[] {
+    const speciesMap: Record<string, SpeciesGroup> = {};
 
     data.forEach((item) => {
       const key = item.species_name;
@@ -157,7 +159,7 @@ function SearchPage() {
       if (!speciesMap[key]) {
         speciesMap[key] = {
           species_name: item.species_name,
-          species_aliases: item.species_aliases || [],
+          species_aliases: (item.species_aliases as string[]) || [],
           scientific_name: item.scientific_name,
           taxonomy: item.taxonomy,
           jurisdictions: [],
@@ -175,10 +177,10 @@ function SearchPage() {
     });
 
     // 各種の自治体を並べ替え
-    Object.values(speciesMap).forEach((species: any) => {
-      species.jurisdictions.sort((a: any, b: any) => {
+    Object.values(speciesMap).forEach((species: SpeciesGroup) => {
+      species.jurisdictions.sort((a: Jurisdiction, b: Jurisdiction) => {
         // 種別順: national -> prefecture -> municipality
-        const typeOrder: any = { national: 0, prefecture: 1, municipality: 2 };
+        const typeOrder: Record<string, number> = { national: 0, prefecture: 1, municipality: 2 };
         if (typeOrder[a.jurisdiction_type] !== typeOrder[b.jurisdiction_type]) {
           return (
             typeOrder[a.jurisdiction_type] - typeOrder[b.jurisdiction_type]
@@ -254,7 +256,7 @@ function SearchPage() {
     if (categoryFilter && prefectureFilter && municipalityFilter) {
       filtered = filtered.filter((species) =>
         species.jurisdictions.some(
-          (j: any) =>
+          (j: Jurisdiction) =>
             j.jurisdiction_name === municipalityFilter &&
             isSameCategory(j.category_unified || j.category, categoryFilter),
         ),
@@ -264,7 +266,7 @@ function SearchPage() {
     else if (categoryFilter && prefectureFilter) {
       filtered = filtered.filter((species) =>
         species.jurisdictions.some(
-          (j: any) =>
+          (j: Jurisdiction) =>
             j.jurisdiction_name === prefectureFilter &&
             isSameCategory(j.category_unified || j.category, categoryFilter),
         ),
@@ -273,7 +275,7 @@ function SearchPage() {
     // カテゴリのみ
     else if (categoryFilter) {
       filtered = filtered.filter((species) =>
-        species.jurisdictions.some((j: any) =>
+        species.jurisdictions.some((j: Jurisdiction) =>
           isSameCategory(j.category_unified || j.category, categoryFilter),
         ),
       );
@@ -282,7 +284,7 @@ function SearchPage() {
     else if (prefectureFilter && municipalityFilter) {
       filtered = filtered.filter((species) =>
         species.jurisdictions.some(
-          (j: any) => j.jurisdiction_name === municipalityFilter,
+          (j: Jurisdiction) => j.jurisdiction_name === municipalityFilter,
         ),
       );
     }
@@ -290,7 +292,7 @@ function SearchPage() {
     else if (prefectureFilter) {
       filtered = filtered.filter((species) =>
         species.jurisdictions.some(
-          (j: any) => j.jurisdiction_name === prefectureFilter,
+          (j: Jurisdiction) => j.jurisdiction_name === prefectureFilter,
         ),
       );
     }
@@ -379,7 +381,7 @@ function SearchPage() {
   }, [searchTerm, groupedData]);
 
   // オートコンプリート項目を選択
-  function selectAutocompleteItem(species: any) {
+  function selectAutocompleteItem(species: SpeciesGroup) {
     setSearchTerm(species.species_name);
     setShowAutocomplete(false);
     setAutocompleteIndex(-1);
@@ -429,7 +431,7 @@ function SearchPage() {
   }
 
   // モーダルを開く
-  function openModal(species: any) {
+  function openModal(species: SpeciesGroup) {
     setSelectedSpecies(species);
     document.body.style.overflow = "hidden";
   }
@@ -446,12 +448,12 @@ function SearchPage() {
   }
 
   // 表示用に自治体をフィルタリングする関数
-  function filterJurisdictionsForDisplay(jurisdictions: any[]) {
+  function filterJurisdictionsForDisplay(jurisdictions: Jurisdiction[]): Jurisdiction[] {
     let filtered = jurisdictions;
 
     // カテゴリフィルターが選択されている場合
     if (categoryFilter) {
-      filtered = filtered.filter((j: any) =>
+      filtered = filtered.filter((j: Jurisdiction) =>
         isSameCategory(j.category_unified || j.category, categoryFilter),
       );
     }
@@ -459,7 +461,7 @@ function SearchPage() {
     // 都道府県フィルターが選択されている場合
     if (prefectureFilter) {
       filtered = filtered.filter(
-        (j: any) =>
+        (j: Jurisdiction) =>
           j.jurisdiction_name === prefectureFilter ||
           j.parent_prefecture === prefectureFilter,
       );
@@ -468,7 +470,7 @@ function SearchPage() {
     // 市町村フィルターが選択されている場合
     if (municipalityFilter) {
       filtered = filtered.filter(
-        (j: any) => j.jurisdiction_name === municipalityFilter,
+        (j: Jurisdiction) => j.jurisdiction_name === municipalityFilter,
       );
     }
 
@@ -476,7 +478,7 @@ function SearchPage() {
   }
 
   // 自治体を階層別に分類
-  function groupJurisdictionsByType(jurisdictions: any[]) {
+  function groupJurisdictionsByType(jurisdictions: Jurisdiction[]) {
     const national = jurisdictions.filter(
       (j) => j.jurisdiction_type === "national",
     );
@@ -571,26 +573,40 @@ function SearchPage() {
             >
               <option value="">カテゴリ：すべて</option>
               <option value="絶滅（EX）">絶滅（EX）</option>
-              <option value="野生絶滅（EW）">野生絶滅（EW）</option>{" "}
+              <option value="野生絶滅（EW）">野生絶滅（EW）</option>
               <option value="絶滅危惧ⅠA類（CR）">絶滅危惧ⅠA類（CR）</option>
               <option value="絶滅危惧ⅠB類（EN）">絶滅危惧ⅠB類（EN）</option>
-              <option value="絶滅危惧Ⅰ類">絶滅危惧Ⅰ類（CR+EN）</option>
+              <option value="絶滅危惧Ⅰ類（CR+EN）">絶滅危惧Ⅰ類（CR+EN）</option>
               <option value="絶滅危惧Ⅱ類（VU）">絶滅危惧Ⅱ類（VU）</option>
               <option value="準絶滅危惧（NT）">準絶滅危惧（NT）</option>
               <option value="情報不足（DD）">情報不足（DD）</option>
-              <option value="OTHER">その他</option>
+              <option value="OTHER">その他重要種</option>
             </select>
 
             <select
               value={prefectureFilter}
-              onChange={(e) => setPrefectureFilter(e.target.value)}
+              onChange={(e) => {
+                setPrefectureFilter(e.target.value);
+                setMunicipalityFilter("");
+              }}
             >
               <option value="">都道府県：すべて</option>
-              <option value="滋賀県">滋賀県</option>
-              <option value="京都府">京都府</option>
-              <option value="大阪府">大阪府</option>
-              <option value="愛知県">愛知県</option>
-              <option value="広島県">広島県</option>
+              {Object.keys(PREFECTURE_CODES)
+                .filter((pref) =>
+                  allSpeciesData.some(
+                    (item) =>
+                      item.jurisdiction_name === pref ||
+                      item.parent_prefecture === pref,
+                  ),
+                )
+                .sort(
+                  (a, b) => PREFECTURE_CODES[a] - PREFECTURE_CODES[b],
+                )
+                .map((pref) => (
+                  <option key={pref} value={pref}>
+                    {pref}
+                  </option>
+                ))}
             </select>
 
             {availableMunicipalities.length > 0 && (
@@ -599,9 +615,9 @@ function SearchPage() {
                 onChange={(e) => setMunicipalityFilter(e.target.value)}
               >
                 <option value="">市町村：すべて</option>
-                {availableMunicipalities.map((city) => (
-                  <option key={city} value={city}>
-                    {city}
+                {availableMunicipalities.map((muni) => (
+                  <option key={muni} value={muni}>
+                    {muni}
                   </option>
                 ))}
               </select>
@@ -611,29 +627,37 @@ function SearchPage() {
               value={taxonomyFilter}
               onChange={(e) => setTaxonomyFilter(e.target.value)}
             >
-              <option value="">分類：すべて</option>
-              <option value="維管束植物">維管束植物</option>
-              <option value="動物">動物</option>
+              <option value="">分類群：すべて</option>
+              {Array.from(
+                new Set(allSpeciesData.map((item) => item.taxonomy)),
+              )
+                .filter(Boolean)
+                .sort()
+                .map((tax) => (
+                  <option key={tax} value={tax}>
+                    {tax}
+                  </option>
+                ))}
             </select>
 
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
             >
-              <option value="name">種名順（あいうえお順）</option>
-              <option value="category">カテゴリ順（希少性が高い順）</option>
-              <option value="jurisdiction-desc">指定箇所が多い順</option>
-              <option value="jurisdiction-asc">指定箇所が少ない順</option>
-              <option value="scientific">学名順（アルファベット順）</option>
+              <option value="name">種名順</option>
+              <option value="category">カテゴリ順（希少性）</option>
+              <option value="jurisdiction-desc">指定箇所数（多い順）</option>
+              <option value="jurisdiction-asc">指定箇所数（少ない順）</option>
+              <option value="scientific">学名順</option>
             </select>
           </div>
 
-          <div className="result-count">
+          <div id="resultCount" className="result-count">
             {displayData.length}件の種が見つかりました
           </div>
         </div>
 
-        <div className="results">
+        <div id="results" className="results">
           {displayData.length === 0 ? (
             <div className="no-results">該当する種が見つかりませんでした。</div>
           ) : (
@@ -683,7 +707,7 @@ function SearchPage() {
                         🏛️ 国
                       </div>
                       <div className="prefecture-badges">
-                        {national.map((j: any, i: number) => (
+                        {national.map((j: Jurisdiction, i: number) => (
                           <span
                             key={i}
                             className={`category ${getCategoryClass(j.category_unified || j.category)}`}
@@ -708,7 +732,7 @@ function SearchPage() {
                         🗾 都道府県
                       </div>
                       <div className="prefecture-badges">
-                        {prefecture.map((j: any, i: number) => (
+                        {prefecture.map((j: Jurisdiction, i: number) => (
                           <span
                             key={i}
                             className={`category ${getCategoryClass(j.category_unified || j.category)}`}
@@ -733,7 +757,7 @@ function SearchPage() {
                         🏘️ 市町村
                       </div>
                       <div className="prefecture-badges">
-                        {municipality.map((j: any, i: number) => (
+                        {municipality.map((j: Jurisdiction, i: number) => (
                           <span
                             key={i}
                             className={`category ${getCategoryClass(j.category_unified || j.category)}`}
@@ -756,11 +780,11 @@ function SearchPage() {
             })
           )}
         </div>
-      </div>
 
-      <footer>
-        <p>データ出典：環境省・都道府県・市町村レッドリスト</p>
-      </footer>
+        <footer>
+          <p>データ出典：環境省・都道府県・市町村レッドリスト</p>
+        </footer>
+      </div>
 
       {/* モーダル */}
       {selectedSpecies &&
@@ -820,7 +844,7 @@ function SearchPage() {
                           </tr>
                         </thead>
                         <tbody>
-                          {national.map((j: any, i: number) => (
+                          {national.map((j: Jurisdiction, i: number) => (
                             <tr key={i}>
                               <td>{j.jurisdiction_name}</td>
                               <td className="scientific-cell">
@@ -856,7 +880,7 @@ function SearchPage() {
                           </tr>
                         </thead>
                         <tbody>
-                          {prefecture.map((j: any, i: number) => (
+                          {prefecture.map((j: Jurisdiction, i: number) => (
                             <tr key={i}>
                               <td>{j.jurisdiction_name}</td>
                               <td className="scientific-cell">
@@ -892,7 +916,7 @@ function SearchPage() {
                           </tr>
                         </thead>
                         <tbody>
-                          {municipality.map((j: any, i: number) => (
+                          {municipality.map((j: Jurisdiction, i: number) => (
                             <tr key={i}>
                               <td>
                                 {j.jurisdiction_name}
