@@ -126,7 +126,7 @@ redlist-nextjs/
 - [x] `sample.json` の用途確認・削除（national.jsonと重複の可能性）
 - [x] `PreloadTopoJson.tsx` の削除（Geolonia SVG移行後は不要）
 - [x] 不要なVercelプロジェクトの削除（`ugck`、`vuz5`、`6pkh`）
-- [ ] TypeScriptの `any` 型が多用されている（型定義の整備）
+- [x] TypeScriptの `any` 型が多用されている（型定義の整備）
 
 ### 優先度低・将来
 - [ ] 市町村フィルターは滋賀県選択時のみ機能（甲賀市・彦根市のみ対応）
