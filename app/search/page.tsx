@@ -45,7 +45,9 @@ function getHighestPriorityCategory(jurisdictions: Jurisdiction[]): number {
 }
 
 // 別名を正規化する関数
-function normalizeAliases(aliases: string | string[] | null | undefined): string[] {
+function normalizeAliases(
+  aliases: string | string[] | null | undefined,
+): string[] {
   if (!aliases) return [];
   if (aliases === "") return [];
 
@@ -88,7 +90,9 @@ function SearchPage() {
   const [taxonomyFilter, setTaxonomyFilter] = useState(initialTaxonomy);
   const [sortOrder, setSortOrder] = useState(initialSort);
   const [loading, setLoading] = useState(true);
-  const [selectedSpecies, setSelectedSpecies] = useState<SpeciesGroup | null>(null);
+  const [selectedSpecies, setSelectedSpecies] = useState<SpeciesGroup | null>(
+    null,
+  );
 
   // 市町村リスト（選択された都道府県に応じて変化）
   const [availableMunicipalities, setAvailableMunicipalities] = useState<
@@ -96,7 +100,9 @@ function SearchPage() {
   >([]);
 
   // オートコンプリート用
-  const [autocompleteItems, setAutocompleteItems] = useState<SpeciesGroup[]>([]);
+  const [autocompleteItems, setAutocompleteItems] = useState<SpeciesGroup[]>(
+    [],
+  );
   const [showAutocomplete, setShowAutocomplete] = useState(false);
   const [autocompleteIndex, setAutocompleteIndex] = useState(-1);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -119,6 +125,7 @@ function SearchPage() {
         "/data/hiroshima.json",
         "/data/koka.json",
         "/data/hikone.json",
+        "/data/shimane.json",
       ];
 
       const responses = await Promise.all(
@@ -132,10 +139,12 @@ function SearchPage() {
       );
 
       // データを正規化
-      const allData: RawSpeciesRecord[] = dataArrays.flat().map((item: RawSpeciesRecord) => ({
-        ...item,
-        species_aliases: normalizeAliases(item.species_aliases),
-      }));
+      const allData: RawSpeciesRecord[] = dataArrays
+        .flat()
+        .map((item: RawSpeciesRecord) => ({
+          ...item,
+          species_aliases: normalizeAliases(item.species_aliases),
+        }));
 
       setAllSpeciesData(allData);
 
@@ -180,7 +189,11 @@ function SearchPage() {
     Object.values(speciesMap).forEach((species: SpeciesGroup) => {
       species.jurisdictions.sort((a: Jurisdiction, b: Jurisdiction) => {
         // 種別順: national -> prefecture -> municipality
-        const typeOrder: Record<string, number> = { national: 0, prefecture: 1, municipality: 2 };
+        const typeOrder: Record<string, number> = {
+          national: 0,
+          prefecture: 1,
+          municipality: 2,
+        };
         if (typeOrder[a.jurisdiction_type] !== typeOrder[b.jurisdiction_type]) {
           return (
             typeOrder[a.jurisdiction_type] - typeOrder[b.jurisdiction_type]
@@ -448,7 +461,9 @@ function SearchPage() {
   }
 
   // 表示用に自治体をフィルタリングする関数
-  function filterJurisdictionsForDisplay(jurisdictions: Jurisdiction[]): Jurisdiction[] {
+  function filterJurisdictionsForDisplay(
+    jurisdictions: Jurisdiction[],
+  ): Jurisdiction[] {
     let filtered = jurisdictions;
 
     // カテゴリフィルターが選択されている場合
@@ -599,9 +614,7 @@ function SearchPage() {
                       item.parent_prefecture === pref,
                   ),
                 )
-                .sort(
-                  (a, b) => PREFECTURE_CODES[a] - PREFECTURE_CODES[b],
-                )
+                .sort((a, b) => PREFECTURE_CODES[a] - PREFECTURE_CODES[b])
                 .map((pref) => (
                   <option key={pref} value={pref}>
                     {pref}
@@ -628,9 +641,7 @@ function SearchPage() {
               onChange={(e) => setTaxonomyFilter(e.target.value)}
             >
               <option value="">分類群：すべて</option>
-              {Array.from(
-                new Set(allSpeciesData.map((item) => item.taxonomy)),
-              )
+              {Array.from(new Set(allSpeciesData.map((item) => item.taxonomy)))
                 .filter(Boolean)
                 .sort()
                 .map((tax) => (
@@ -830,9 +841,7 @@ function SearchPage() {
                   {/* 国 */}
                   {national.length > 0 && (
                     <>
-                      <h4
-                        style={{ marginTop: "20px", marginBottom: "10px" }}
-                      >
+                      <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
                         🏛️ 国
                       </h4>
                       <table className="prefecture-table">
@@ -866,9 +875,7 @@ function SearchPage() {
                   {/* 都道府県 */}
                   {prefecture.length > 0 && (
                     <>
-                      <h4
-                        style={{ marginTop: "20px", marginBottom: "10px" }}
-                      >
+                      <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
                         🗾 都道府県
                       </h4>
                       <table className="prefecture-table">
@@ -902,9 +909,7 @@ function SearchPage() {
                   {/* 市町村 */}
                   {municipality.length > 0 && (
                     <>
-                      <h4
-                        style={{ marginTop: "20px", marginBottom: "10px" }}
-                      >
+                      <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
                         🏘️ 市町村
                       </h4>
                       <table className="prefecture-table">

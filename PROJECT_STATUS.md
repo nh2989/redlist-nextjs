@@ -161,3 +161,190 @@ categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
 "paths": { "@/*": ["./*"] }
 ```
 `lib/categoryConstants.ts` は `@/lib/categoryConstants` でimport可能。
+
+---
+
+## 次回作業計画
+
+### 作業概要
+1. 各データJSONの原典チェック
+2. `sources.json` の作成と実装
+3. モーダルの指定状況テーブルに発行年を表示
+4. 出典一覧ページの実装
+
+---
+
+### タスク1：各データJSONの原典チェック
+
+各JSONを原典PDFと照合し、種名・学名・カテゴリの表記が原記載に忠実かを確認する。
+**`publication_year` はJSONには追加しない**（`sources.json` で一元管理するため）。
+
+対象ファイル：
+`national.json` / `shiga.json` / `kyoto.json` / `osaka.json` / `aichi.json` / `hiroshima.json` / `koka.json` / `hikone.json`
+
+---
+
+### タスク2：sources.jsonの作成
+
+各データソースのメタ情報を一元管理するファイル。`jurisdiction_name` をキーに各JSONと紐づける。
+
+```json
+// public/data/sources.json
+[
+  {
+    "jurisdiction_name": "環境省",
+    "jurisdiction_type": "national",
+    "title": "環境省レッドリスト2020",
+    "publication_year": 2020,
+    "publisher": "環境省",
+    "url": "https://www.env.go.jp/nature/kisho/hozen/redlist.html"
+  },
+  {
+    "jurisdiction_name": "滋賀県",
+    "jurisdiction_type": "prefecture",
+    "title": "滋賀県レッドデータブック2020",
+    "publication_year": 2020,
+    "publisher": "滋賀県",
+    "url": "https://..."
+  }
+]
+```
+
+#### loadData への組み込みイメージ
+
+```typescript
+// sources.jsonを並列読み込みに追加
+const [sourcesRes, ...dataResponses] = await Promise.all([
+  fetch("/data/sources.json"),
+  ...dataFiles.map((file) => fetch(file).catch(() => null)),
+]);
+const sources = await sourcesRes.json();
+
+// jurisdiction_name → source のルックアップマップ
+const sourceMap = Object.fromEntries(
+  sources.map((s: any) => [s.jurisdiction_name, s])
+);
+
+// 正規化時に publication_year を付与
+const allData = dataArrays.flat().map((item) => ({
+  ...item,
+  species_aliases: normalizeAliases(item.species_aliases),
+  publication_year: sourceMap[item.jurisdiction_name]?.publication_year ?? null,
+}));
+```
+
+---
+
+### タスク3：モーダルに発行年を表示
+
+指定状況テーブルに発行年列を追加する。
+
+**変更前：**
+| 機関 | 学名 | カテゴリ |
+|------|------|---------|
+
+**変更後：**
+| 機関 | 学名 | カテゴリ | 発行年 |
+|------|------|---------|--------|
+
+---
+
+### タスク4：出典ページの実装
+
+#### `/sources` ページ（新規作成）
+`sources.json` を読み込み、一覧テーブルとして表示する。フッターにリンクを追加。
+
+#### モーダル内の機関名にリンクを追加
+指定状況テーブルの機関名セルを `<a href={source.url} target="_blank">` でラップし、元のレッドリストに直接アクセスできるようにする。
+
+---
+
+---
+
+### タスク5：synonyms.jsonの作成とシノニム統合
+
+地域によって異なる名前で登録されている同一種を、正規名に統一してグループ化するためのマスターファイル。
+
+```json
+// public/data/synonyms.json
+{
+  "ミカワタヌキモ": "イトタヌキモ",
+  "ホソバノキミズ": "キミズ"
+}
+```
+
+- **キー**：各JSONに記載されている表記（非正規名）
+- **値**：統一する正規名（基本的に環境省の表記に合わせる）
+
+#### グループ化への組み込みイメージ
+
+```typescript
+// synonyms.jsonも並列読み込みに追加
+const synonyms: Record<string, string> = await fetch("/data/synonyms.json")
+  .then((r) => r.json())
+  .catch(() => ({}));
+
+// groupBySpecies内で正規名に変換してからキーにする
+const key = synonyms[item.species_name] ?? item.species_name;
+```
+
+#### 運用ルール
+- 正規名は原則として**環境省レッドリストの表記**を優先する
+- 環境省に掲載がない種は、より広く使われている表記を正規名とする
+- 原典チェック（タスク1）で同一種と判明したものを随時追記していく
+
+#### モーダルの指定状況テーブル仕様変更
+
+シノニム統合後も、各自治体が原典でどう記載しているかを確認できるようにする。
+
+**変更前：**
+| 機関 | 学名 | カテゴリ | 発行年 |
+|------|------|---------|--------|
+
+**変更後：**
+| 機関 | 和名（出典） | 学名（出典） | カテゴリ | 発行年 |
+|------|------------|------------|---------|--------|
+
+- **和名（出典）**：その自治体JSONに記載されている `species_name`（出典名）と `species_aliases`（別名）を両方表示する。例：「ミカワタヌキモ（別名：イトタヌキモ）」
+- **学名（出典）**：その自治体JSONに記載されている `scientific_name`（記載なしの場合は空白）
+- 正規名と同じ場合も和名列には表示する（原典確認のため）
+
+#### groupBySpecies のデータ構造変更
+
+現状、グループ化時に各自治体の元の `species_name` が捨てられてしまうため、`jurisdictions` 配列の各要素に `original_name` として保持する必要がある。
+
+```typescript
+speciesMap[key].jurisdictions.push({
+  jurisdiction_name: item.jurisdiction_name,
+  jurisdiction_type: item.jurisdiction_type,
+  parent_prefecture: item.parent_prefecture,
+  category: item.category,
+  category_unified: item.category_unified,
+  scientific_name: item.scientific_name,   // 既存
+  original_name: item.species_name,        // ← 追加（出典での和名）
+  original_aliases: item.species_aliases,  // ← 追加（出典での別名）
+  publication_year: item.publication_year, // ← 追加（sources.jsonから付与）
+});
+```
+
+---
+
+### 作業順序
+
+```
+1. sources.json の内容を確定（URL・発行年を各自治体分入力）
+      ↓
+2. 各JSONの原典チェック（表記の修正・シノニム候補の洗い出し）
+      ↓
+3. synonyms.json を作成（原典チェックで判明したシノニムを記載）
+      ↓
+4. loadData に sources.json・synonyms.json の読み込みを追加
+      ↓
+5. groupBySpecies に synonyms による正規名変換を組み込む
+      ↓
+6. モーダルのテーブルに発行年列を追加
+      ↓
+7. /sources ページを新規作成・フッターにリンク追加
+      ↓
+8. モーダルの機関名をURLリンク化
+```
