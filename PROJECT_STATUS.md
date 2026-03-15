@@ -118,14 +118,14 @@ redlist-nextjs/
 ## 既知の課題・次回作業候補
 
 ### 優先度高
-- [ ] `page.tsx` 内の `getCategoryClass` 関数を削除し `categoryConstants.ts` のimportに統一
+- [x] `page.tsx` 内の `getCategoryClass` 関数を削除し `categoryConstants.ts` のimportに統一
 - [ ] `national.json` の `category_unified` が空欄 → データ修正が必要
-- [ ] 分類群フィルターの選択肢が「植物」だが、データは「維管束植物」→ 不一致
+- [x] 分類群フィルターの選択肢が「植物」だが、データは「維管束植物」→ 不一致
 
 ### 優先度中
-- [ ] `sample.json` の用途確認・削除（national.jsonと重複の可能性）
-- [ ] `PreloadTopoJson.tsx` の削除（Geolonia SVG移行後は不要）
-- [ ] 不要なVercelプロジェクトの削除（`ugck`、`vuz5`、`6pkh`）
+- [x] `sample.json` の用途確認・削除（national.jsonと重複の可能性）
+- [x] `PreloadTopoJson.tsx` の削除（Geolonia SVG移行後は不要）
+- [x] 不要なVercelプロジェクトの削除（`ugck`、`vuz5`、`6pkh`）
 - [ ] TypeScriptの `any` 型が多用されている（型定義の整備）
 
 ### 優先度低・将来

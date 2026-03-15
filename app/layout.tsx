@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import PreloadTopoJson from "./components/PreloadTopoJson";
 import "./globals.css";
 import CategoryStyles from "./components/CategoryStyles";
 

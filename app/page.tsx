@@ -99,25 +99,18 @@ export default function Home() {
 
             <button
               type="submit"
+              className="btn-primary"
               style={{
                 width: "100%",
                 padding: "15px",
                 marginTop: "20px",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                color: "white",
                 border: "none",
                 borderRadius: "8px",
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: "bold",
                 cursor: "pointer",
                 transition: "transform 0.2s",
               }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.transform = "translateY(-2px)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.transform = "translateY(0)")
-              }
             >
               検索する
             </button>
@@ -128,8 +121,8 @@ export default function Home() {
           style={{
             textAlign: "center",
             marginTop: "40px",
-            color: "#666",
-            fontSize: "14px",
+            color: "var(--text-body)",
+            fontSize: "var(--fs-sm)",
           }}
         >
           <p>📕 国のレッドリスト対応</p>
@@ -146,7 +139,7 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <p style={{ color: "white", fontSize: "13px", opacity: 0.8 }}>
+        <p style={{ fontSize: "var(--fs-xs)", opacity: 0.8 }}>
           データ出典：環境省・都道府県・市町村レッドリスト
         </p>
       </footer>

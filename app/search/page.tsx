@@ -498,11 +498,10 @@ function SearchPage() {
           <p className="subtitle">検索結果</p>
           <button
             onClick={goToTop}
+            className="btn-back"
             style={{
               marginTop: "10px",
               padding: "8px 16px",
-              background: "#667eea",
-              color: "white",
               border: "none",
               borderRadius: "6px",
               cursor: "pointer",
@@ -548,7 +547,7 @@ function SearchPage() {
                         <span
                           style={{
                             fontSize: "0.85em",
-                            color: "#999",
+                            color: "var(--text-faint)",
                             marginLeft: "8px",
                           }}
                         >
@@ -657,7 +656,7 @@ function SearchPage() {
                       <span
                         style={{
                           fontSize: "0.7em",
-                          color: "#999",
+                          color: "var(--text-faint)",
                           fontWeight: "normal",
                           marginLeft: "8px",
                         }}
@@ -677,7 +676,7 @@ function SearchPage() {
                       <div
                         style={{
                           fontSize: "0.85em",
-                          color: "#666",
+                          color: "var(--text-body)",
                           marginBottom: "4px",
                         }}
                       >
@@ -702,7 +701,7 @@ function SearchPage() {
                       <div
                         style={{
                           fontSize: "0.85em",
-                          color: "#666",
+                          color: "var(--text-body)",
                           marginBottom: "4px",
                         }}
                       >
@@ -727,7 +726,7 @@ function SearchPage() {
                       <div
                         style={{
                           fontSize: "0.85em",
-                          color: "#666",
+                          color: "var(--text-body)",
                           marginBottom: "4px",
                         }}
                       >
@@ -808,11 +807,7 @@ function SearchPage() {
                   {national.length > 0 && (
                     <>
                       <h4
-                        style={{
-                          marginTop: "20px",
-                          marginBottom: "10px",
-                          color: "#2c5f2d",
-                        }}
+                        style={{ marginTop: "20px", marginBottom: "10px" }}
                       >
                         🏛️ 国
                       </h4>
@@ -848,11 +843,7 @@ function SearchPage() {
                   {prefecture.length > 0 && (
                     <>
                       <h4
-                        style={{
-                          marginTop: "20px",
-                          marginBottom: "10px",
-                          color: "#2c5f2d",
-                        }}
+                        style={{ marginTop: "20px", marginBottom: "10px" }}
                       >
                         🗾 都道府県
                       </h4>
@@ -888,11 +879,7 @@ function SearchPage() {
                   {municipality.length > 0 && (
                     <>
                       <h4
-                        style={{
-                          marginTop: "20px",
-                          marginBottom: "10px",
-                          color: "#2c5f2d",
-                        }}
+                        style={{ marginTop: "20px", marginBottom: "10px" }}
                       >
                         🏘️ 市町村
                       </h4>
@@ -913,7 +900,7 @@ function SearchPage() {
                                   <span
                                     style={{
                                       fontSize: "0.85em",
-                                      color: "#999",
+                                      color: "var(--text-faint)",
                                       marginLeft: "4px",
                                     }}
                                   >
