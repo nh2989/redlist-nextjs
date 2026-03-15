@@ -7,19 +7,14 @@ import {
   CODE_TO_PREF,
   getCategoryColor,
 } from "@/lib/categoryConstants";
+import type { Jurisdiction } from "@/lib/types";
 
 const JAPAN_MAP_SVG = "/japan-map.svg";
 
 let svgCache: string | null = null;
 
-interface JurisdictionData {
-  jurisdiction_name: string;
-  category: string;
-  category_unified: string;
-}
-
 interface SpeciesMapProps {
-  jurisdictions: JurisdictionData[];
+  jurisdictions: Jurisdiction[];
 }
 
 export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
@@ -41,7 +36,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
   }, []);
 
   const prefColorMap = useMemo(() => {
-    const grouped = new Map<string, JurisdictionData[]>();
+    const grouped = new Map<string, Jurisdiction[]>();
     for (const j of jurisdictions) {
       const arr = grouped.get(j.jurisdiction_name) || [];
       arr.push(j);
@@ -119,7 +114,6 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
             { key: "EX", label: "絶滅（EX）" },
             { key: "EW", label: "野生絶滅（EW）" },
             { key: "CR", label: "Ⅰ類（CR+EN）" },
-            // { key: "EN", label: "EN" },
             { key: "VU", label: "Ⅱ類（VU）" },
             { key: "NT", label: "準絶滅危惧（NT）" },
             { key: "DD", label: "情報不足（DD）" },
