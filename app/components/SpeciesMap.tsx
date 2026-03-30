@@ -113,13 +113,19 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
           [
             { key: "EX", label: "絶滅（EX）" },
             { key: "EW", label: "野生絶滅（EW）" },
-            { key: "CR", label: "Ⅰ類（CR+EN）" },
+            { key: "CR", label: "ⅠA類（CR）" },
+            { key: "EN", label: "ⅠB類（EN）" },
+            { key: "CREN", label: "Ⅰ類（CR+EN）" },
             { key: "VU", label: "Ⅱ類（VU）" },
             { key: "NT", label: "準絶滅危惧（NT）" },
             { key: "DD", label: "情報不足（DD）" },
             { key: "OTHER", label: "その他指定あり" },
             { key: "NONE", label: "指定なし", border: true },
-          ] as { key: keyof typeof CATEGORY_COLORS; label: string; border?: boolean }[]
+          ] as {
+            key: keyof typeof CATEGORY_COLORS;
+            label: string;
+            border?: boolean;
+          }[]
         ).map(({ key, label, border }) => (
           <div key={key} className="legend-item-vertical">
             <div

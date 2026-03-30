@@ -85,6 +85,7 @@ export default function Home() {
                 <option value="大阪府">大阪府</option>
                 <option value="愛知県">愛知県</option>
                 <option value="広島県">広島県</option>
+                <option value="島根県">島根県</option>
               </select>
 
               <select
