@@ -1,6 +1,6 @@
 # レッドリスト検索アプリ - プロジェクト現状
 
-最終更新：2026年3月15日
+最終更新：2026年3月30日
 リポジトリ：https://github.com/nh2989/redlist-nextjs
 
 ---
@@ -168,9 +168,11 @@ categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
 
 ### 作業概要
 1. 各データJSONの原典チェック
-2. `sources.json` の作成と実装
+2. `sources.json` の作成と実装（source_id設計を含む）
 3. モーダルの指定状況テーブルに発行年を表示
 4. 出典一覧ページの実装
+5. `synonyms.json` の作成とシノニム統合
+6. 条例指定希少野生動植物の実装（`ordinance.json` 別ファイル管理）
 
 ---
 
@@ -180,18 +182,26 @@ categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
 **`publication_year` はJSONには追加しない**（`sources.json` で一元管理するため）。
 
 対象ファイル：
-`national.json` / `shiga.json` / `kyoto.json` / `osaka.json` / `aichi.json` / `hiroshima.json` / `koka.json` / `hikone.json`
+`national.json` 済 / `shiga.json` 学名削除 / `kyoto.json` / `osaka.json` / `aichi.json` 済 / `hiroshima.json` 済 / `koka.json` / `hikone.json`
+`fukui.json` 追加 /
 
 ---
 
 ### タスク2：sources.jsonの作成
 
-各データソースのメタ情報を一元管理するファイル。`jurisdiction_name` をキーに各JSONと紐づける。
+各データソースのメタ情報を一元管理するファイル。**`id`（ファイル名ベース）をキー**として各JSONと紐づける。
+
+#### source_id の設計方針
+
+- `source_id` はJSONファイル名（拡張子なし）をそのまま使う（`"shiga"`、`"national"` など）
+- **既存のJSONファイルは編集不要**。`loadData` がfetch時に付与する
+- 将来同一都道府県の新版を追加する場合は `shiga_2025.json` など別ファイルとして追加し、`source_id: "shiga_2025"` で区別する
 
 ```json
 // public/data/sources.json
 [
   {
+    "id": "national",
     "jurisdiction_name": "環境省",
     "jurisdiction_type": "national",
     "title": "環境省レッドリスト2020",
@@ -200,6 +210,7 @@ categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
     "url": "https://www.env.go.jp/nature/kisho/hozen/redlist.html"
   },
   {
+    "id": "shiga",
     "jurisdiction_name": "滋賀県",
     "jurisdiction_type": "prefecture",
     "title": "滋賀県レッドデータブック2020",
@@ -213,24 +224,33 @@ categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
 #### loadData への組み込みイメージ
 
 ```typescript
+// ファイルリストに id を持たせる
+const dataFiles = [
+  { id: "national", path: "/data/national.json" },
+  { id: "shiga",    path: "/data/shiga.json" },
+  // ...
+];
+
 // sources.jsonを並列読み込みに追加
 const [sourcesRes, ...dataResponses] = await Promise.all([
   fetch("/data/sources.json"),
-  ...dataFiles.map((file) => fetch(file).catch(() => null)),
+  ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
 ]);
 const sources = await sourcesRes.json();
 
-// jurisdiction_name → source のルックアップマップ
-const sourceMap = Object.fromEntries(
-  sources.map((s: any) => [s.jurisdiction_name, s])
-);
+// source_id → source のルックアップマップ
+const sourceMap = Object.fromEntries(sources.map((s: any) => [s.id, s]));
 
-// 正規化時に publication_year を付与
-const allData = dataArrays.flat().map((item) => ({
-  ...item,
-  species_aliases: normalizeAliases(item.species_aliases),
-  publication_year: sourceMap[item.jurisdiction_name]?.publication_year ?? null,
-}));
+// fetch時に source_id を付与（既存JSONの編集不要）
+const allData = dataFiles.flatMap((file, i) => {
+  const items = dataArrays[i] ?? [];
+  return items.map((item) => ({
+    ...item,
+    source_id: file.id,
+    species_aliases: normalizeAliases(item.species_aliases),
+    publication_year: sourceMap[file.id]?.publication_year ?? null,
+  }));
+});
 ```
 
 ---
@@ -259,8 +279,6 @@ const allData = dataArrays.flat().map((item) => ({
 
 ---
 
----
-
 ### タスク5：synonyms.jsonの作成とシノニム統合
 
 地域によって異なる名前で登録されている同一種を、正規名に統一してグループ化するためのマスターファイル。
@@ -279,7 +297,6 @@ const allData = dataArrays.flat().map((item) => ({
 #### グループ化への組み込みイメージ
 
 ```typescript
-// synonyms.jsonも並列読み込みに追加
 const synonyms: Record<string, string> = await fetch("/data/synonyms.json")
   .then((r) => r.json())
   .catch(() => ({}));
@@ -295,23 +312,14 @@ const key = synonyms[item.species_name] ?? item.species_name;
 
 #### モーダルの指定状況テーブル仕様変更
 
-シノニム統合後も、各自治体が原典でどう記載しているかを確認できるようにする。
-
-**変更前：**
-| 機関 | 学名 | カテゴリ | 発行年 |
-|------|------|---------|--------|
-
 **変更後：**
 | 機関 | 和名（出典） | 学名（出典） | カテゴリ | 発行年 |
 |------|------------|------------|---------|--------|
 
-- **和名（出典）**：その自治体JSONに記載されている `species_name`（出典名）と `species_aliases`（別名）を両方表示する。例：「ミカワタヌキモ（別名：イトタヌキモ）」
-- **学名（出典）**：その自治体JSONに記載されている `scientific_name`（記載なしの場合は空白）
-- 正規名と同じ場合も和名列には表示する（原典確認のため）
+- **和名（出典）**：`species_name`（出典名）と `species_aliases`（別名）を両方表示
+- **学名（出典）**：`scientific_name`（記載なしの場合は空白）
 
 #### groupBySpecies のデータ構造変更
-
-現状、グループ化時に各自治体の元の `species_name` が捨てられてしまうため、`jurisdictions` 配列の各要素に `original_name` として保持する必要がある。
 
 ```typescript
 speciesMap[key].jurisdictions.push({
@@ -320,11 +328,104 @@ speciesMap[key].jurisdictions.push({
   parent_prefecture: item.parent_prefecture,
   category: item.category,
   category_unified: item.category_unified,
-  scientific_name: item.scientific_name,   // 既存
-  original_name: item.species_name,        // ← 追加（出典での和名）
-  original_aliases: item.species_aliases,  // ← 追加（出典での別名）
-  publication_year: item.publication_year, // ← 追加（sources.jsonから付与）
+  scientific_name: item.scientific_name,
+  source_id: item.source_id,              // ← 追加
+  original_name: item.species_name,       // ← 追加（出典での和名）
+  original_aliases: item.species_aliases, // ← 追加（出典での別名）
+  publication_year: item.publication_year,// ← 追加（sources.jsonから付与）
 });
+```
+
+---
+
+### タスク6：条例指定希少野生動植物の実装
+
+#### 概要
+
+都道府県条例に基づく「指定希少野生動植物」をレッドリストとは別ファイルで管理し、
+検索・表示時に法的保護の有無を明示できるようにする。
+
+#### 背景・設計方針
+
+- レッドリスト（学術評価）と条例指定（法令）は**更新サイクルが異なる**ため別ファイル管理
+  - レッドリスト：改訂時（5〜10年ごと）
+  - 条例指定：指定追加・解除の都度（種の保存法への格上げで解除されるケースあり）
+- 令和7年11月時点で**36都道府県**が希少野生生物保護条例を制定
+- 1県あたりの指定種数は数種〜数十種（レッドリストより大幅に少ない）
+
+#### ファイル構造
+
+```json
+// public/data/ordinance.json
+[
+  {
+    "species_name": "イタセンパラ",
+    "scientific_name": "Acheilognathus longipinnis",
+    "jurisdiction_name": "愛知県",
+    "designation_name": "指定希少野生動植物",
+    "ordinance_name": "愛知県自然環境の保全及び緑化の推進に関する条例",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "オビトカゲモドキ",
+    "scientific_name": "Goniurosaurus kuroiwae splendens",
+    "jurisdiction_name": "鹿児島県",
+    "designation_name": "指定希少野生動植物",
+    "ordinance_name": "鹿児島県希少野生動植物保護条例",
+    "designated_year": 2004,
+    "note": "2015年に種の保存法・国内希少野生動植物種に格上げのため実質移行"
+  }
+]
+```
+
+#### 結合キーの設計
+
+- `species_name`（和名）× `jurisdiction_name` の組み合わせで種データと結合
+- 条例指定種は数が少ないため、synonym の揺れは手動で名寄せして対応
+- 将来的には `scientific_name` を補助キーとして活用できるよう `note` に記録しておく
+
+#### loadData への組み込みイメージ
+
+```typescript
+// ordinance.jsonを並列読み込みに追加
+const ordinanceRes = await fetch("/data/ordinance.json").catch(() => null);
+const ordinanceList = ordinanceRes ? await ordinanceRes.json() : [];
+
+// (jurisdiction_name + species_name) → OrdinanceRecord のマップ
+const ordinanceMap = new Map<string, OrdinanceRecord>();
+for (const rec of ordinanceList) {
+  const key = `${rec.jurisdiction_name}::${rec.species_name}`;
+  ordinanceMap.set(key, rec);
+}
+
+// groupBySpecies内で各jurisdictionにフラグを付与
+speciesMap[key].jurisdictions.push({
+  // ... 既存フィールド ...
+  ordinance: ordinanceMap.get(
+    `${item.jurisdiction_name}::${item.species_name}`
+  ) ?? null,  // null = 条例指定なし
+});
+```
+
+#### UI表示仕様
+
+- **検索カード**：条例指定がある自治体が1つでもある種に「🔒 条例指定あり」バッジを表示
+- **モーダル指定状況テーブル**：条例指定のある行に「🔒 条例指定」列を追加、条例名をツールチップまたは括弧書きで表示
+- **フィルター**：「条例指定のみ表示」チェックボックスを追加（任意）
+
+#### 型定義（lib/types.ts への追加）
+
+```typescript
+export interface OrdinanceRecord {
+  species_name: string;
+  scientific_name: string;
+  jurisdiction_name: string;
+  designation_name: string;
+  ordinance_name: string;
+  designated_year: number | null;
+  note: string;
+}
 ```
 
 ---
@@ -332,19 +433,25 @@ speciesMap[key].jurisdictions.push({
 ### 作業順序
 
 ```
-1. sources.json の内容を確定（URL・発行年を各自治体分入力）
+1. sources.json の内容を確定（id・URL・発行年を各自治体分入力）
       ↓
 2. 各JSONの原典チェック（表記の修正・シノニム候補の洗い出し）
       ↓
 3. synonyms.json を作成（原典チェックで判明したシノニムを記載）
       ↓
-4. loadData に sources.json・synonyms.json の読み込みを追加
+4. loadData に sources.json・synonyms.json の読み込みを追加（source_id付与を含む）
       ↓
 5. groupBySpecies に synonyms による正規名変換を組み込む
       ↓
-6. モーダルのテーブルに発行年列を追加
+6. モーダルのテーブルに発行年列・和名（出典）列を追加
       ↓
 7. /sources ページを新規作成・フッターにリンク追加
       ↓
 8. モーダルの機関名をURLリンク化
+      ↓
+9. ordinance.json を作成（各県の条例指定種データを収集・入力）
+      ↓
+10. loadData に ordinance.json の読み込みを追加
+      ↓
+11. UI に条例指定バッジ・フィルターを追加
 ```

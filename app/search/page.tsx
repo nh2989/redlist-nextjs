@@ -126,6 +126,7 @@ function SearchPage() {
         "/data/koka.json",
         "/data/hikone.json",
         "/data/shimane.json",
+        "/data/fukui.json",
       ];
 
       const responses = await Promise.all(

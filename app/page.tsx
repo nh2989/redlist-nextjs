@@ -86,6 +86,7 @@ export default function Home() {
                 <option value="愛知県">愛知県</option>
                 <option value="広島県">広島県</option>
                 <option value="島根県">島根県</option>
+                <option value="福井県">福井県</option>
               </select>
 
               <select
@@ -127,7 +128,7 @@ export default function Home() {
           }}
         >
           <p>📕 国のレッドリスト対応</p>
-          <p>🗾 対応都道府県：滋賀県、京都府、大阪府、愛知県、広島県</p>
+          <p>🗾 対応都道府県：滋賀県、京都府、大阪府、愛知県、広島県、島根県、福井県</p>
           <p>🏘️ 市町村レッドリストも一部対応</p>
         </div>
       </div>
