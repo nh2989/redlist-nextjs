@@ -182,8 +182,8 @@ categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
 **`publication_year` はJSONには追加しない**（`sources.json` で一元管理するため）。
 
 対象ファイル：
-`national.json` 済 / `shiga.json` 学名削除 / `kyoto.json` / `osaka.json` / `aichi.json` 済 / `hiroshima.json` 済 / `koka.json` / `hikone.json`
-`fukui.json` 追加 /
+`national.json` 済 / `shiga.json` 学名削除 / `kyoto.json` 済 / `osaka.json` / `aichi.json` 済 / `hiroshima.json` 済 / `koka.json` / `hikone.json`
+`fukui.json` 追加 / `simane.json` 追加
 
 ---
 
