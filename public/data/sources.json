@@ -1,0 +1,83 @@
+﻿[
+    {
+        "id":  "national",
+        "jurisdiction_name":  "環境省",
+        "jurisdiction_type":  "national",
+        "title":  "環境省第５次レッドリスト",
+        "publication_year":  "2025-2026",
+        "publisher":  "環境省",
+        "url":  "https://ikilog.biodic.go.jp/Rdb/booklist"
+    },
+    {
+        "id":  "aichi",
+        "jurisdiction_name":  "愛知県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "レッドリストあいち2025",
+        "publication_year":  "2026",
+        "publisher":  "愛知県",
+        "url":  "https://www.pref.aichi.jp/soshiki/shizen/redlist-aichi-2025.html"
+    },
+    {
+        "id":  "fukui",
+        "jurisdiction_name":  "福井県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "【改訂版】福井県の絶滅のおそれのある野生動植物",
+        "publication_year":  "2016",
+        "publisher":  "福井県",
+        "url":  "https://www.pref.fukui.lg.jp/doc/shizen/rdb/rdb.html"
+    },
+    {
+        "id":  "gifu",
+        "jurisdiction_name":  "岐阜県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "岐阜県レッドリスト（植物編・動物編）二次改訂版",
+        "publication_year":  "2026",
+        "publisher":  "岐阜県",
+        "url":  "https://www.pref.gifu.lg.jp/page/488299.html"
+    },
+    {
+        "id":  "hiroshima",
+        "jurisdiction_name":  "広島県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "レッドデータブックひろしま２０２１",
+        "publication_year":  "2022",
+        "publisher":  "広島県",
+        "url":  "https://www.pref.hiroshima.lg.jp/site/tayousei/j-j2-reddata2-index3.html"
+    },
+    {
+        "id":  "kyoto",
+        "jurisdiction_name":  "京都府",
+        "jurisdiction_type":  "prefecture",
+        "title":  "京都府改訂版レッドリスト（2021～2025）",
+        "publication_year":  "2021-2025",
+        "publisher":  "京都府",
+        "url":  "https://www.pref.kyoto.jp/kankyo_red/news/index.html"
+    },
+    {
+        "id":  "mie",
+        "jurisdiction_name":  "三重県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "三重県レッドリスト2024",
+        "publication_year":  "2024",
+        "publisher":  "三重県",
+        "url":  "https://www.pref.mie.lg.jp/MIDORI/HP/m0118500292.htm"
+    },
+    {
+        "id":  "shiga_2025",
+        "jurisdiction_name":  "滋賀県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "滋賀県で大切にすべき野生生物（滋賀県版レッドデータブック）2025年版",
+        "publication_year":  "2026",
+        "publisher":  "滋賀県",
+        "url":  "https://www.pref.shiga.lg.jp/ippan/kankyoshizen/shizen/322847.html"
+    },
+    {
+        "id":  "shimane",
+        "jurisdiction_name":  "島根県",
+        "jurisdiction_type":  "prefecture",
+        "title":  "しまねレッドデータブック2026",
+        "publication_year":  "2026",
+        "publisher":  "島根県",
+        "url":  "https://www.pref.shimane.lg.jp/infra/nature/shizen/yasei/red-data/"
+    }
+]

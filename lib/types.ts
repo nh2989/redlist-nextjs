@@ -15,7 +15,7 @@ export type RawSpeciesRecord = {
   jurisdiction_type: "national" | "prefecture" | "municipality";
   parent_prefecture: string | null;
   category: string;
-  category_unified?: string;
+  category_unified: string;
 };
 
 /**
@@ -27,7 +27,7 @@ export type Jurisdiction = {
   jurisdiction_type: "national" | "prefecture" | "municipality";
   parent_prefecture: string | null;
   category: string;
-  category_unified?: string;
+  category_unified: string;
   scientific_name: string;
 };
 

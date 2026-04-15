@@ -4,41 +4,50 @@
    カテゴリ色は categoryConstants.ts で管理 → CategoryStyles.tsx で注入
    ============================================================ */
 :root {
-  --brand:           #4a6fa5;
-  --text-heading:    #2c5f2d;
-  --text-body:       #555555;
-  --text-faint:      #999999;
-  --bg-page:         #ffffff;
+  --brand: #4a6fa5;
+  --text-heading: #2c5f2d;
+  --text-body: #555555;
+  --text-faint: #999999;
+  --bg-page: #ffffff;
   --bg-table-header: #f5f5f5;
-  --border:          #e0e0e0;
+  --border: #e0e0e0;
 
-  --fs-base: 1rem;      /* 16px */
-  --fs-sm:   0.875rem;  /* 14px */
-  --fs-xs:   0.75rem;   /* 12px */
+  --fs-base: 1rem; /* 16px */
+  --fs-sm: 0.875rem; /* 14px */
+  --fs-xs: 0.75rem; /* 12px */
 }
 
 /* カテゴリ別の色（値はCategoryStyles.tsxから注入） */
-.category-ex   { background: var(--color-cat-ex);   color: #ffffff; }
-.category-ew   { background: var(--color-cat-ew);   color: #ffffff; }
-.category-cr   { background: var(--color-cat-cr);   color: #fffacd; }
-.category-en   { background: var(--color-cat-en);   color: #333333; }
-.category-cren { background: var(--color-cat-cren); color: #fffacd; }
-.category-vu   { background: var(--color-cat-vu);   color: #333333; }
-.category-nt   { background: var(--color-cat-nt);   color: #333333; }
-.category-dd   { background: var(--color-cat-dd);   color: #333333; }
-.category-other{ background: var(--color-cat-other);color: #333333; }
+.category-ex   { background: var(--color-cat-ex);   color: var(--color-cat-ex-text); }
+.category-ew   { background: var(--color-cat-ew);   color: var(--color-cat-ew-text); }
+.category-cr   { background: var(--color-cat-cr);   color: var(--color-cat-cr-text); }
+.category-en   { background: var(--color-cat-en);   color: var(--color-cat-en-text); }
+.category-cren { background: var(--color-cat-cren); color: var(--color-cat-cren-text); }
+.category-vu   { background: var(--color-cat-vu);   color: var(--color-cat-vu-text); }
+.category-nt   { background: var(--color-cat-nt);   color: var(--color-cat-nt-text); }
+.category-dd   { background: var(--color-cat-dd);   color: var(--color-cat-dd-text); }
+.category-other{ background: var(--color-cat-other);color: var(--color-cat-other-text); }
 
 /* ============================================================
    ボタン
    ============================================================ */
 .btn-primary,
-.btn-back { background: var(--brand); color: white; }
-.btn-primary:hover { transform: translateY(-2px); }
+.btn-back {
+  background: var(--brand);
+  color: white;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
 
 /* ============================================================
    ベース
    ============================================================ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family:
@@ -58,15 +67,30 @@ body {
   padding: 40px;
 }
 
-header { text-align: center; margin-bottom: 40px; }
-h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
-.subtitle { color: var(--text-body); font-size: 0.95rem; }
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+h1 {
+  color: var(--text-heading);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.subtitle {
+  color: var(--text-body);
+  font-size: 0.95rem;
+}
 
 /* ============================================================
    検索
    ============================================================ */
-.search-section { margin-bottom: 30px; }
-.search-box-wrapper { position: relative; margin-bottom: 15px; }
+.search-section {
+  margin-bottom: 30px;
+}
+.search-box-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
 
 #searchBox {
   width: 100%;
@@ -78,7 +102,10 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   transition: border-color 0.3s;
 }
 
-#searchBox:focus { outline: none; border-color: var(--brand); }
+#searchBox:focus {
+  outline: none;
+  border-color: var(--brand);
+}
 
 .clear-search-btn {
   position: absolute;
@@ -99,10 +126,19 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   padding: 0;
 }
 
-.clear-search-btn:hover { background: var(--bg-table-header); color: var(--text-body); }
-.clear-search-btn:active { background: var(--border); }
+.clear-search-btn:hover {
+  background: var(--bg-table-header);
+  color: var(--text-body);
+}
+.clear-search-btn:active {
+  background: var(--border);
+}
 
-.filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
 .filters select {
   flex: 1;
@@ -115,7 +151,12 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   cursor: pointer;
 }
 
-.result-count { margin-top: 15px; color: var(--text-body); font-size: var(--fs-sm); font-weight: 500; }
+.result-count {
+  margin-top: 15px;
+  color: var(--text-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
 
 /* ============================================================
    オートコンプリート
@@ -143,14 +184,39 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
 }
 
 .autocomplete-item:hover,
-.autocomplete-item.active { background-color: var(--bg-table-header); }
-.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item.active {
+  background-color: var(--bg-table-header);
+}
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
 
-.autocomplete-species-name { font-weight: 600; color: var(--text-heading); font-size: var(--fs-sm); margin-bottom: 3px; }
-.autocomplete-scientific-name { font-size: var(--fs-xs); color: var(--text-body); font-style: italic; }
-.autocomplete-meta { font-size: var(--fs-xs); color: var(--text-faint); margin-top: 3px; }
-.autocomplete-highlight { background-color: #fff59d; font-weight: 600; }
-.autocomplete-no-results { padding: 15px; text-align: center; color: var(--text-faint); font-size: var(--fs-xs); }
+.autocomplete-species-name {
+  font-weight: 600;
+  color: var(--text-heading);
+  font-size: var(--fs-sm);
+  margin-bottom: 3px;
+}
+.autocomplete-scientific-name {
+  font-size: var(--fs-xs);
+  color: var(--text-body);
+  font-style: italic;
+}
+.autocomplete-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-top: 3px;
+}
+.autocomplete-highlight {
+  background-color: #fff59d;
+  font-weight: 600;
+}
+.autocomplete-no-results {
+  padding: 15px;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: var(--fs-xs);
+}
 
 /* ============================================================
    都道府県サマリー
@@ -163,8 +229,17 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   border: 2px solid var(--border);
 }
 
-.prefecture-summary h3 { color: var(--text-heading); font-size: 1.2rem; margin-bottom: 20px; text-align: center; }
-.prefecture-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; }
+.prefecture-summary h3 {
+  color: var(--text-heading);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.prefecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 10px;
+}
 
 .prefecture-badge {
   padding: 8px 6px;
@@ -178,7 +253,10 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   color: var(--text-faint);
 }
 
-.prefecture-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+.prefecture-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 .prefecture-badge.has-data {
   background: var(--brand);
@@ -187,14 +265,29 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   font-weight: 600;
 }
 
-.prefecture-badge.has-data:hover { box-shadow: 0 6px 16px rgba(74, 111, 165, 0.3); }
-.prefecture-count { font-size: var(--fs-xs); margin-top: 0; opacity: 0.9; font-weight: 500; }
+.prefecture-badge.has-data:hover {
+  box-shadow: 0 6px 16px rgba(74, 111, 165, 0.3);
+}
+.prefecture-count {
+  font-size: var(--fs-xs);
+  margin-top: 0;
+  opacity: 0.9;
+  font-weight: 500;
+}
 
 /* ============================================================
    検索結果
    ============================================================ */
-.loading { text-align: center; padding: 40px; color: var(--text-body); font-size: 18px; }
-.results { display: grid; gap: 15px; }
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-body);
+  font-size: 18px;
+}
+.results {
+  display: grid;
+  gap: 15px;
+}
 
 .species-card {
   border: 2px solid var(--border);
@@ -211,9 +304,24 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   box-shadow: 0 4px 12px rgba(74, 111, 165, 0.15);
 }
 
-.species-card h3 { color: var(--text-heading); font-size: 1rem; margin-bottom: 8px; }
-.scientific { font-style: italic; color: var(--text-body); margin-bottom: 12px; font-size: 0.95rem; margin-left: 8px; }
-.prefecture-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.species-card h3 {
+  color: var(--text-heading);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.scientific {
+  font-style: italic;
+  color: var(--text-body);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  margin-left: 8px;
+}
+.prefecture-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
 
 .prefecture-badge-inline {
   display: inline-block;
@@ -226,15 +334,39 @@ h1 { color: var(--text-heading); font-size: 2rem; margin-bottom: 10px; }
   transition: transform 0.2s;
 }
 
-.prefecture-badge-inline:hover { transform: scale(1.05); }
-.meta-info { display: flex; gap: 15px; margin-top: 10px; font-size: var(--fs-sm); color: var(--text-faint); }
-.meta-item { display: flex; align-items: center; gap: 5px; }
-.no-results { text-align: center; padding: 60px 20px; color: var(--text-faint); font-size: var(--fs-base); }
+.prefecture-badge-inline:hover {
+  transform: scale(1.05);
+}
+.meta-info {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-faint);
+  font-size: var(--fs-base);
+}
 
 /* ============================================================
    フッター
    ============================================================ */
-footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white; font-size: var(--fs-xs); opacity: 0.8; }
+footer {
+  max-width: 900px;
+  margin: 20px auto 0;
+  text-align: center;
+  color: white;
+  font-size: var(--fs-xs);
+  opacity: 0.8;
+}
 
 /* ============================================================
    統計情報
@@ -247,9 +379,24 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   border: 2px solid var(--border);
 }
 
-.statistics-section h3 { color: var(--text-heading); font-size: 1.3rem; margin-bottom: 20px; text-align: center; }
-.statistics-section h4 { color: var(--text-heading); font-size: 1.1rem; margin-bottom: 15px; margin-top: 25px; }
-.stats-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
+.statistics-section h3 {
+  color: var(--text-heading);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.statistics-section h4 {
+  color: var(--text-heading);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
 
 .stat-card {
   background: var(--brand);
@@ -260,12 +407,35 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   box-shadow: 0 4px 12px rgba(74, 111, 165, 0.3);
 }
 
-.stat-number { font-size: 2rem; font-weight: bold; margin-bottom: 5px; }
-.stat-label { font-size: 0.9rem; opacity: 0.9; }
-.chart-container { margin-top: 15px; }
-.chart-bar { display: flex; align-items: center; margin-bottom: 12px; gap: 10px; }
-.chart-label { min-width: 180px; font-size: var(--fs-sm); color: var(--text-body); }
-.chart-bar-wrapper { flex: 1; display: flex; align-items: center; gap: 8px; }
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+.chart-container {
+  margin-top: 15px;
+}
+.chart-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+.chart-label {
+  min-width: 180px;
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+}
+.chart-bar-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .chart-bar-container {
   flex: 1;
@@ -277,16 +447,28 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   min-width: 60px;
 }
 
-.chart-bar-fill { height: 100%; border-radius: 8px; transition: width 0.5s ease; }
-.chart-value { min-width: 45px; font-weight: 600; font-size: var(--fs-xs); color: var(--text-body); text-align: right; }
+.chart-bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+.chart-value {
+  min-width: 45px;
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  color: var(--text-body);
+  text-align: right;
+}
 
 /* ============================================================
    モーダル
    ============================================================ */
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
@@ -311,7 +493,8 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
 
 .modal-close {
   position: absolute;
-  top: 15px; right: 15px;
+  top: 15px;
+  right: 15px;
   font-size: 28px;
   font-weight: bold;
   color: var(--text-faint);
@@ -319,7 +502,8 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   background: var(--bg-page);
   border: none;
   padding: 0;
-  width: 30px; height: 30px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -328,7 +512,10 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   border-radius: 50%;
 }
 
-.modal-close:hover { color: var(--text-body); background: var(--bg-table-header); }
+.modal-close:hover {
+  color: var(--text-body);
+  background: var(--bg-table-header);
+}
 
 .modal-header-info {
   display: flex;
@@ -351,9 +538,25 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   padding: 0 clamp(15px, 2.5vw, 30px) clamp(15px, 2.5vw, 30px);
 }
 
-.modal-header-info h2 { margin: 0; font-size: clamp(1.2rem, 2.5vw, 1.4rem); color: var(--text-heading); font-weight: 600; line-height: 1.2; }
-.species-aliases { font-size: 0.6em; color: var(--text-faint); font-weight: normal; margin-left: 0.3em; }
-.modal-header-info .scientific { margin: 0; font-style: italic; color: var(--text-body); font-size: clamp(0.9rem, 1.8vw, 1.1rem); }
+.modal-header-info h2 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  color: var(--text-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.species-aliases {
+  font-size: 0.6em;
+  color: var(--text-faint);
+  font-weight: normal;
+  margin-left: 0.3em;
+}
+.modal-header-info .scientific {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-body);
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+}
 
 .modal-header-info .taxonomy-label {
   margin: 0;
@@ -366,9 +569,19 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   white-space: nowrap;
 }
 
-.modal-content h3 { margin-top: clamp(10px, 2vh, 15px); margin-bottom: clamp(8px, 1.5vh, 12px); color: var(--text-heading); font-size: clamp(1rem, 2vw, 1.2rem); }
-.modal-content h4 { color: var(--text-heading); }
-.taxonomy-label { color: var(--text-body); margin: 10px 0 20px; }
+.modal-content h3 {
+  margin-top: clamp(10px, 2vh, 15px);
+  margin-bottom: clamp(8px, 1.5vh, 12px);
+  color: var(--text-heading);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+.modal-content h4 {
+  color: var(--text-heading);
+}
+.taxonomy-label {
+  color: var(--text-body);
+  margin: 10px 0 20px;
+}
 
 .prefecture-table {
   width: 100%;
@@ -378,15 +591,41 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   font-size: clamp(0.85rem, 1.5vw, 1rem);
 }
 
-.prefecture-table th:nth-child(1), .prefecture-table td:nth-child(1) { width: 25%; }
-.prefecture-table th:nth-child(2), .prefecture-table td:nth-child(2) { width: 45%; }
-.prefecture-table th:nth-child(3), .prefecture-table td:nth-child(3) { width: 30%; }
+.prefecture-table th:nth-child(1),
+.prefecture-table td:nth-child(1) {
+  width: 25%;
+}
+.prefecture-table th:nth-child(2),
+.prefecture-table td:nth-child(2) {
+  width: 45%;
+}
+.prefecture-table th:nth-child(3),
+.prefecture-table td:nth-child(3) {
+  width: 30%;
+}
 
 .prefecture-table th,
-.prefecture-table td { padding: clamp(8px, 1.5vh, 12px); text-align: left; border-bottom: 1px solid var(--border); }
-.prefecture-table th { background: var(--bg-table-header); font-weight: 600; color: var(--text-body); }
-.scientific-cell { font-style: italic; color: var(--text-body); font-size: 0.9rem; }
-.prefecture-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.prefecture-table td {
+  padding: clamp(8px, 1.5vh, 12px);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.prefecture-table th {
+  background: var(--bg-table-header);
+  font-weight: 600;
+  color: var(--text-body);
+}
+.scientific-cell {
+  font-style: italic;
+  color: var(--text-body);
+  font-size: 0.9rem;
+}
+.prefecture-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
 
 /* ============================================================
    地図
@@ -398,7 +637,12 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   border-radius: 8px;
 }
 
-.species-map-container h3 { margin-top: 0; margin-bottom: clamp(6px, 1vh, 10px); color: var(--text-heading); font-size: clamp(1rem, 2vw, 1.2rem); }
+.species-map-container h3 {
+  margin-top: 0;
+  margin-bottom: clamp(6px, 1vh, 10px);
+  color: var(--text-heading);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
 
 .species-map-svg {
   display: flex;
@@ -412,7 +656,10 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.species-map-svg svg { width: 100%; height: auto; }
+.species-map-svg svg {
+  width: 100%;
+  height: auto;
+}
 
 .map-legend-sidebar {
   display: flex;
@@ -438,36 +685,109 @@ footer { max-width: 900px; margin: 20px auto 0; text-align: center; color: white
   border-bottom: 2px solid var(--border);
 }
 
-.legend-item-vertical { display: flex; align-items: center; gap: clamp(5px, 0.8vw, 7px); font-size: clamp(10px, 1.3vw, 12px); }
-.legend-color-box { width: clamp(14px, 2vw, 18px); height: clamp(10px, 1.5vw, 12px); border-radius: 3px; flex-shrink: 0; }
+.legend-item-vertical {
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 0.8vw, 7px);
+  font-size: clamp(10px, 1.3vw, 12px);
+}
+.legend-color-box {
+  width: clamp(14px, 2vw, 18px);
+  height: clamp(10px, 1.5vw, 12px);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
 
 /* ============================================================
    レスポンシブ
    ============================================================ */
 @media (max-width: 768px) {
-  body { padding: 0; }
+  body {
+    padding: 0;
+  }
 
-  .container { padding: 20px 15px; margin: 0; max-width: 100%; width: 100%; border-radius: 0; box-shadow: none; }
-  h1 { font-size: 1.5rem; }
-  .filters { flex-direction: column; }
-  .filters select { min-width: 100%; }
-  .autocomplete-list { width: 100%; }
-  .prefecture-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; }
-  .prefecture-badge { padding: 10px 6px; font-size: var(--fs-xs); }
-  .prefecture-badge-inline { font-size: var(--fs-xs); padding: 5px 10px; }
-  .stats-summary { grid-template-columns: 1fr; }
-  .stat-number { font-size: 2rem; }
-  .chart-label { min-width: 120px; font-size: var(--fs-xs); }
+  .container {
+    padding: 20px 15px;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .filters {
+    flex-direction: column;
+  }
+  .filters select {
+    min-width: 100%;
+  }
+  .autocomplete-list {
+    width: 100%;
+  }
+  .prefecture-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+  }
+  .prefecture-badge {
+    padding: 10px 6px;
+    font-size: var(--fs-xs);
+  }
+  .prefecture-badge-inline {
+    font-size: var(--fs-xs);
+    padding: 5px 10px;
+  }
+  .stats-summary {
+    grid-template-columns: 1fr;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .chart-label {
+    min-width: 120px;
+    font-size: var(--fs-xs);
+  }
 
-  .modal-overlay { padding: 0; align-items: stretch; background-color: var(--bg-page); }
-  .modal-content { width: 100%; height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh; max-width: 100%; border-radius: 0; padding: 0; }
-  .modal-header-info { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; padding: 15px 15px 12px; }
-  .modal-header-info h2             { font-size: 1.2rem; }
-  .modal-header-info .scientific     { font-size: 0.8rem; }
-  .modal-header-info .taxonomy-label { font-size: 0.5rem; }
-  .modal-body { padding: 0 15px; padding-bottom: calc(15px + env(safe-area-inset-bottom)); }
+  .modal-overlay {
+    padding: 0;
+    align-items: stretch;
+    background-color: var(--bg-page);
+  }
+  .modal-content {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 0;
+  }
+  .modal-header-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+    padding: 15px 15px 12px;
+  }
+  .modal-header-info h2 {
+    font-size: 1.2rem;
+  }
+  .modal-header-info .scientific {
+    font-size: 0.8rem;
+  }
+  .modal-header-info .taxonomy-label {
+    font-size: 0.5rem;
+  }
+  .modal-body {
+    padding: 0 15px;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .species-map-svg { max-width: 700px; }
+  .species-map-svg {
+    max-width: 700px;
+  }
 }

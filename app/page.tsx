@@ -63,15 +63,14 @@ export default function Home() {
                 onChange={(e) => setCategoryFilter(e.target.value)}
               >
                 <option value="">カテゴリ：すべて</option>
-                <option value="絶滅（EX）">絶滅（EX）</option>
-                <option value="野生絶滅（EW）">野生絶滅（EW）</option>{" "}
-                {/* ← 追加 */}
-                <option value="絶滅危惧ⅠA類（CR）">絶滅危惧ⅠA類（CR）</option>
-                <option value="絶滅危惧ⅠB類（EN）">絶滅危惧ⅠB類（EN）</option>
-                <option value="絶滅危惧Ⅰ類">絶滅危惧Ⅰ類（CR+EN）</option>
-                <option value="絶滅危惧Ⅱ類（VU）">絶滅危惧Ⅱ類（VU）</option>
-                <option value="準絶滅危惧（NT）">準絶滅危惧（NT）</option>
-                <option value="情報不足（DD）">情報不足（DD）</option>
+                <option value="EX">絶滅（EX）</option>
+                <option value="EW">野生絶滅（EW）</option>{" "}
+                <option value="CR">絶滅危惧ⅠA類（CR）</option>
+                <option value="EN">絶滅危惧ⅠB類（EN）</option>
+                <option value="CREN">絶滅危惧Ⅰ類（CR+EN）</option>
+                <option value="VU">絶滅危惧Ⅱ類（VU）</option>
+                <option value="NT">準絶滅危惧（NT）</option>
+                <option value="DD">情報不足（DD）</option>
                 <option value="OTHER">その他</option>
               </select>
 
@@ -87,6 +86,8 @@ export default function Home() {
                 <option value="広島県">広島県</option>
                 <option value="島根県">島根県</option>
                 <option value="福井県">福井県</option>
+                <option value="岐阜県">岐阜県</option>
+                <option value="三重県">三重県</option>
               </select>
 
               <select
@@ -128,7 +129,10 @@ export default function Home() {
           }}
         >
           <p>📕 国のレッドリスト対応</p>
-          <p>🗾 対応都道府県：滋賀県、京都府、大阪府、愛知県、広島県、島根県、福井県</p>
+          <p>
+            🗾
+            対応都道府県：滋賀県、京都府、大阪府、愛知県、広島県、島根県、福井県、岐阜県、三重県
+          </p>
           <p>🏘️ 市町村レッドリストも一部対応</p>
         </div>
       </div>

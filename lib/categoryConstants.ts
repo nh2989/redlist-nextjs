@@ -127,72 +127,36 @@ export function getCategoryGroup(category: string): string {
 
 // カテゴリ文字列 → 地図塗り色（hex）
 // null/空 = データなし（NONE/白）、文字列あり = 何らかの指定あり（最低でもOTHER）
-export function getCategoryColor(category: string | null): string {
-  if (!category) return CATEGORY_COLORS.NONE;
-  if (
-    (category.includes("絶滅") || category.includes("EX")) &&
-    !category.includes("危惧") &&
-    !category.includes("野生")
-  )
-    return CATEGORY_COLORS.EX;
-  if (category.includes("野生絶滅") || category.includes("EW"))
-    return CATEGORY_COLORS.EW;
-  if (category.includes("CR") || category.includes("絶滅危惧ⅠA類"))
-    return CATEGORY_COLORS.CR;
-  if (category.includes("EN") || category.includes("絶滅危惧ⅠB類"))
-    return CATEGORY_COLORS.EN;
-  if (category.includes("CR+EN") || category.includes("絶滅危惧Ⅰ類"))
-    return CATEGORY_COLORS.CREN;
-  if (category.includes("VU") || category.includes("絶滅危惧Ⅱ類"))
-    return CATEGORY_COLORS.VU;
-  if (category.includes("NT") || category.includes("準絶滅危惧"))
-    return CATEGORY_COLORS.NT;
-  if (category.includes("DD") || category.includes("情報不足"))
-    return CATEGORY_COLORS.DD;
-  return CATEGORY_COLORS.OTHER; // "その他重要種"など
+export function getCategoryColor(unified: string | null): string {
+  if (!unified) return CATEGORY_COLORS.NONE;
+  return CATEGORY_COLORS[unified as keyof typeof CATEGORY_COLORS]
+    ?? CATEGORY_COLORS.OTHER;
 }
 
 // カテゴリ文字列 → CSSクラス名（category-ex など）
-export function getCategoryClass(category: string): string {
-  if (!category) return "category-other";
-  if (
-    (category.includes("絶滅") || category.includes("EX")) &&
-    !category.includes("危惧") &&
-    !category.includes("野生")
-  )
-    return "category-ex";
-  if (category.includes("野生絶滅") || category.includes("EW"))
-    return "category-ew";
-  if (category.includes("ⅠA") || category.includes("CR")) return "category-cr";
-  if (category.includes("ⅠB") || category.includes("EN")) return "category-en";
-  if (category.includes("Ⅰ類")) return "category-cren";
-  if (category.includes("Ⅱ") || category.includes("VU")) return "category-vu";
-  if (category.includes("準絶滅") || category.includes("NT"))
-    return "category-nt";
-  if (category.includes("情報不足") || category.includes("DD"))
-    return "category-dd";
-  return "category-other";
+export function getCategoryClass(unified: string): string {
+  switch (unified) {
+    case "EX":   return "category-ex";
+    case "EW":   return "category-ew";
+    case "CR":   return "category-cr";
+    case "EN":   return "category-en";
+    case "CREN": return "category-cren";
+    case "VU":   return "category-vu";
+    case "NT":   return "category-nt";
+    case "DD":   return "category-dd";
+    default:     return "category-other";
+  }
 }
 
 // カテゴリが主要カテゴリかどうか
-export function isMajorCategory(category: string): boolean {
-  if (!category) return false;
-  return Object.values(CATEGORY_MAPPINGS).some((variations) =>
-    variations.some((v) => category.includes(v) || v.includes(category)),
-  );
+const MAJOR_CATEGORIES = new Set(["EX","EW","CR","EN","CREN","VU","NT","DD"]);
+export function isMajorCategory(unified: string): boolean {
+  return MAJOR_CATEGORIES.has(unified);
 }
 
 // カテゴリが同じグループかどうか（フィルタリング用）
-export function isSameCategory(
-  category: string,
-  filterCategory: string,
-): boolean {
-  if (!category || !filterCategory) return false;
-  if (category === filterCategory) return true;
-  if (filterCategory === "OTHER") return !isMajorCategory(category);
-  for (const variations of Object.values(CATEGORY_MAPPINGS)) {
-    if (variations.includes(category) && variations.includes(filterCategory))
-      return true;
-  }
-  return false;
+export function isSameCategory(unified: string, filter: string): boolean {
+  if (!unified || !filter) return false;
+  if (filter === "OTHER") return !isMajorCategory(unified);
+  return unified === filter;
 }

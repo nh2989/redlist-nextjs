@@ -9,10 +9,8 @@ const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), {
 });
 
 import {
-  CATEGORY_MAPPINGS,
   CATEGORY_PRIORITY,
   PREFECTURE_CODES,
-  getCategoryGroup,
   getCategoryClass,
   isMajorCategory,
   isSameCategory,
@@ -30,9 +28,7 @@ function getHighestPriorityCategory(jurisdictions: Jurisdiction[]): number {
     if (filtered.length > 0) {
       let highestPriority = 999;
       filtered.forEach((j: Jurisdiction) => {
-        const category = j.category_unified || j.category;
-        const group = getCategoryGroup(category);
-        const priority = CATEGORY_PRIORITY[group] || 999;
+        const priority = CATEGORY_PRIORITY[j.category_unified] ?? 999;
         if (priority < highestPriority) {
           highestPriority = priority;
         }
@@ -120,13 +116,14 @@ function SearchPage() {
         "/data/national.json",
         "/data/shiga.json",
         "/data/kyoto.json",
-        "/data/osaka.json",
         "/data/aichi.json",
         "/data/hiroshima.json",
         "/data/koka.json",
         "/data/hikone.json",
         "/data/shimane.json",
         "/data/fukui.json",
+        "/data/gifu.json",
+        "/data/mie.json",
       ];
 
       const responses = await Promise.all(
@@ -272,7 +269,7 @@ function SearchPage() {
         species.jurisdictions.some(
           (j: Jurisdiction) =>
             j.jurisdiction_name === municipalityFilter &&
-            isSameCategory(j.category_unified || j.category, categoryFilter),
+            isSameCategory(j.category_unified, categoryFilter),
         ),
       );
     }
@@ -282,7 +279,7 @@ function SearchPage() {
         species.jurisdictions.some(
           (j: Jurisdiction) =>
             j.jurisdiction_name === prefectureFilter &&
-            isSameCategory(j.category_unified || j.category, categoryFilter),
+            isSameCategory(j.category_unified, categoryFilter),
         ),
       );
     }
@@ -290,7 +287,7 @@ function SearchPage() {
     else if (categoryFilter) {
       filtered = filtered.filter((species) =>
         species.jurisdictions.some((j: Jurisdiction) =>
-          isSameCategory(j.category_unified || j.category, categoryFilter),
+          isSameCategory(j.category_unified, categoryFilter),
         ),
       );
     }
@@ -470,7 +467,7 @@ function SearchPage() {
     // カテゴリフィルターが選択されている場合
     if (categoryFilter) {
       filtered = filtered.filter((j: Jurisdiction) =>
-        isSameCategory(j.category_unified || j.category, categoryFilter),
+        isSameCategory(j.category_unified, categoryFilter),
       );
     }
 
@@ -588,14 +585,14 @@ function SearchPage() {
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
               <option value="">カテゴリ：すべて</option>
-              <option value="絶滅（EX）">絶滅（EX）</option>
-              <option value="野生絶滅（EW）">野生絶滅（EW）</option>
-              <option value="絶滅危惧ⅠA類（CR）">絶滅危惧ⅠA類（CR）</option>
-              <option value="絶滅危惧ⅠB類（EN）">絶滅危惧ⅠB類（EN）</option>
-              <option value="絶滅危惧Ⅰ類（CR+EN）">絶滅危惧Ⅰ類（CR+EN）</option>
-              <option value="絶滅危惧Ⅱ類（VU）">絶滅危惧Ⅱ類（VU）</option>
-              <option value="準絶滅危惧（NT）">準絶滅危惧（NT）</option>
-              <option value="情報不足（DD）">情報不足（DD）</option>
+              <option value="EX">絶滅（EX）</option>
+              <option value="EW">野生絶滅（EW）</option>
+              <option value="CR">絶滅危惧ⅠA類（CR）</option>
+              <option value="EN">絶滅危惧ⅠB類（EN）</option>
+              <option value="CREN">絶滅危惧Ⅰ類（CR+EN）</option>
+              <option value="VU">絶滅危惧Ⅱ類（VU）</option>
+              <option value="NT">準絶滅危惧（NT）</option>
+              <option value="DD">情報不足（DD）</option>
               <option value="OTHER">その他重要種</option>
             </select>
 
@@ -722,7 +719,7 @@ function SearchPage() {
                         {national.map((j: Jurisdiction, i: number) => (
                           <span
                             key={i}
-                            className={`category ${getCategoryClass(j.category_unified || j.category)}`}
+                            className={`category ${getCategoryClass(j.category_unified)}`}
                           >
                             {j.jurisdiction_name}
                           </span>
@@ -747,7 +744,7 @@ function SearchPage() {
                         {prefecture.map((j: Jurisdiction, i: number) => (
                           <span
                             key={i}
-                            className={`category ${getCategoryClass(j.category_unified || j.category)}`}
+                            className={`category ${getCategoryClass(j.category_unified)}`}
                           >
                             {j.jurisdiction_name}
                           </span>
@@ -772,7 +769,7 @@ function SearchPage() {
                         {municipality.map((j: Jurisdiction, i: number) => (
                           <span
                             key={i}
-                            className={`category ${getCategoryClass(j.category_unified || j.category)}`}
+                            className={`category ${getCategoryClass(j.category_unified)}`}
                           >
                             {j.jurisdiction_name}
                           </span>
@@ -862,7 +859,7 @@ function SearchPage() {
                               </td>
                               <td>
                                 <span
-                                  className={`category ${getCategoryClass(j.category_unified || j.category)}`}
+                                  className={`category ${getCategoryClass(j.category_unified)}`}
                                 >
                                   {j.category}
                                 </span>
@@ -896,7 +893,7 @@ function SearchPage() {
                               </td>
                               <td>
                                 <span
-                                  className={`category ${getCategoryClass(j.category_unified || j.category)}`}
+                                  className={`category ${getCategoryClass(j.category_unified)}`}
                                 >
                                   {j.category}
                                 </span>
@@ -943,7 +940,7 @@ function SearchPage() {
                               </td>
                               <td>
                                 <span
-                                  className={`category ${getCategoryClass(j.category_unified || j.category)}`}
+                                  className={`category ${getCategoryClass(j.category_unified)}`}
                                 >
                                   {j.category}
                                 </span>
