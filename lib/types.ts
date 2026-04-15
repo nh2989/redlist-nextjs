@@ -16,6 +16,8 @@ export type RawSpeciesRecord = {
   parent_prefecture: string | null;
   category: string;
   category_unified: string;
+  source_id: string;
+  publication_year: string | null;
 };
 
 /**
@@ -29,6 +31,10 @@ export type Jurisdiction = {
   category: string;
   category_unified: string;
   scientific_name: string;
+  source_id: string;
+  original_name: string;
+  original_aliases: string[];
+  publication_year: string | null;
 };
 
 /**
@@ -41,4 +47,14 @@ export type SpeciesGroup = {
   scientific_name: string;
   taxonomy: string;
   jurisdictions: Jurisdiction[];
+};
+
+export type SourceRecord = {
+  id: string;
+  jurisdiction_name: string;
+  jurisdiction_type: string;
+  title: string;
+  publication_year: string;
+  publisher: string;
+  url: string;
 };

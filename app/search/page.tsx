@@ -16,7 +16,12 @@ import {
   isSameCategory,
 } from "@/lib/categoryConstants";
 
-import type { RawSpeciesRecord, Jurisdiction, SpeciesGroup } from "@/lib/types";
+import type {
+  RawSpeciesRecord,
+  Jurisdiction,
+  SpeciesGroup,
+  SourceRecord,
+} from "@/lib/types";
 
 // 種の最も高い希少性カテゴリを取得する関数（階層優先）
 function getHighestPriorityCategory(jurisdictions: Jurisdiction[]): number {
@@ -89,6 +94,7 @@ function SearchPage() {
   const [selectedSpecies, setSelectedSpecies] = useState<SpeciesGroup | null>(
     null,
   );
+  const [sourceMap, setSourceMap] = useState<Record<string, SourceRecord>>({});
 
   // 市町村リスト（選択された都道府県に応じて変化）
   const [availableMunicipalities, setAvailableMunicipalities] = useState<
@@ -113,36 +119,46 @@ function SearchPage() {
     setLoading(true);
     try {
       const dataFiles = [
-        "/data/national.json",
-        "/data/shiga.json",
-        "/data/kyoto.json",
-        "/data/aichi.json",
-        "/data/hiroshima.json",
-        "/data/koka.json",
-        "/data/hikone.json",
-        "/data/shimane.json",
-        "/data/fukui.json",
-        "/data/gifu.json",
-        "/data/mie.json",
+        { id: "national", path: "/data/national.json" },
+        { id: "shiga_2025", path: "/data/shiga_2025.json" },
+        { id: "kyoto", path: "/data/kyoto.json" },
+        { id: "aichi", path: "/data/aichi.json" },
+        { id: "hiroshima", path: "/data/hiroshima.json" },
+        { id: "koka", path: "/data/koka.json" },
+        { id: "hikone", path: "/data/hikone.json" },
+        { id: "shimane", path: "/data/shimane.json" },
+        { id: "fukui", path: "/data/fukui.json" },
+        { id: "gifu", path: "/data/gifu.json" },
+        { id: "mie", path: "/data/mie.json" },
       ];
 
-      const responses = await Promise.all(
-        dataFiles.map((file) => fetch(file).catch(() => null)),
-      );
+      // sources.json をデータファイルと並列でfetch
+      const [sourcesRes, ...dataResponses] = await Promise.all([
+        fetch("/data/sources.json"),
+        ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
+      ]);
+
+      // source_id → source オブジェクトのマップを作成
+      const sources: SourceRecord[] = await sourcesRes.json().catch(() => []);
+      const sourceMap = Object.fromEntries(sources.map((s) => [s.id, s]));
+      setSourceMap(sourceMap); // ← この行を追加するだけ
 
       const dataArrays = await Promise.all(
-        responses.map((response) =>
-          response ? response.json().catch(() => []) : [],
+        dataResponses.map((res) =>
+          res ? res.json().catch(() => []) : Promise.resolve([]),
         ),
       );
 
-      // データを正規化
-      const allData: RawSpeciesRecord[] = dataArrays
-        .flat()
-        .map((item: RawSpeciesRecord) => ({
+      // source_id と publication_year を各レコードに付与
+      const allData: RawSpeciesRecord[] = dataFiles.flatMap((file, i) => {
+        const items: RawSpeciesRecord[] = dataArrays[i] ?? [];
+        return items.map((item) => ({
           ...item,
+          source_id: file.id,
           species_aliases: normalizeAliases(item.species_aliases),
+          publication_year: sourceMap[file.id]?.publication_year ?? null,
         }));
+      });
 
       setAllSpeciesData(allData);
 
@@ -180,6 +196,10 @@ function SearchPage() {
         category: item.category,
         category_unified: item.category_unified,
         scientific_name: item.scientific_name,
+        source_id: item.source_id,
+        original_name: item.species_name,
+        original_aliases: (item.species_aliases as string[]) || [],
+        publication_year: item.publication_year,
       });
     });
 
