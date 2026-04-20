@@ -18,15 +18,46 @@
 }
 
 /* カテゴリ別の色（値はCategoryStyles.tsxから注入） */
-.category-ex   { background: var(--color-cat-ex);   color: var(--color-cat-ex-text); }
-.category-ew   { background: var(--color-cat-ew);   color: var(--color-cat-ew-text); }
-.category-cr   { background: var(--color-cat-cr);   color: var(--color-cat-cr-text); }
-.category-en   { background: var(--color-cat-en);   color: var(--color-cat-en-text); }
-.category-cren { background: var(--color-cat-cren); color: var(--color-cat-cren-text); }
-.category-vu   { background: var(--color-cat-vu);   color: var(--color-cat-vu-text); }
-.category-nt   { background: var(--color-cat-nt);   color: var(--color-cat-nt-text); }
-.category-dd   { background: var(--color-cat-dd);   color: var(--color-cat-dd-text); }
-.category-other{ background: var(--color-cat-other);color: var(--color-cat-other-text); }
+.category-ex {
+  background: var(--color-cat-ex);
+  color: var(--color-cat-ex-text);
+}
+.category-ew {
+  background: var(--color-cat-ew);
+  color: var(--color-cat-ew-text);
+}
+.category-cr {
+  background: var(--color-cat-cr);
+  color: var(--color-cat-cr-text);
+}
+.category-en {
+  background: var(--color-cat-en);
+  color: var(--color-cat-en-text);
+}
+.category-cren {
+  background: var(--color-cat-cren);
+  color: var(--color-cat-cren-text);
+}
+.category-vu {
+  background: var(--color-cat-vu);
+  color: var(--color-cat-vu-text);
+}
+.category-nt {
+  background: var(--color-cat-nt);
+  color: var(--color-cat-nt-text);
+}
+.category-dd {
+  background: var(--color-cat-dd);
+  color: var(--color-cat-dd-text);
+}
+.category-lp {
+  background: var(--color-cat-lp);
+  color: var(--color-cat-lp-text);
+}
+.category-other {
+  background: var(--color-cat-other);
+  color: var(--color-cat-other-text);
+}
 
 /* ============================================================
    ボタン
@@ -587,21 +618,8 @@ footer {
   width: 100%;
   border-collapse: collapse;
   margin-top: clamp(10px, 2vh, 15px);
-  table-layout: fixed;
+  table-layout: auto;
   font-size: clamp(0.85rem, 1.5vw, 1rem);
-}
-
-.prefecture-table th:nth-child(1),
-.prefecture-table td:nth-child(1) {
-  width: 25%;
-}
-.prefecture-table th:nth-child(2),
-.prefecture-table td:nth-child(2) {
-  width: 45%;
-}
-.prefecture-table th:nth-child(3),
-.prefecture-table td:nth-child(3) {
-  width: 30%;
 }
 
 .prefecture-table th,
@@ -609,12 +627,20 @@ footer {
   padding: clamp(8px, 1.5vh, 12px);
   text-align: left;
   border-bottom: 1px solid var(--border);
+  white-space: nowrap; /* 追加 */
 }
+
 .prefecture-table th {
   background: var(--bg-table-header);
   font-weight: 600;
   color: var(--text-body);
 }
+
+.prefecture-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .scientific-cell {
   font-style: italic;
   color: var(--text-body);
@@ -625,6 +651,26 @@ footer {
   flex-wrap: wrap;
   gap: 8px;
   margin: 10px 0;
+}
+
+.national-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.national-status-label {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  font-weight: 500;
+}
+.national-status-original {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
 }
 
 /* ============================================================

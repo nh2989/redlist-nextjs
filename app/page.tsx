@@ -136,19 +136,6 @@ export default function Home() {
           <p>🏘️ 市町村レッドリストも一部対応</p>
         </div>
       </div>
-
-      <footer
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          width: "100%",
-          textAlign: "center",
-        }}
-      >
-        <p style={{ fontSize: "var(--fs-xs)", opacity: 0.8 }}>
-          データ出典：環境省・都道府県・市町村レッドリスト
-        </p>
-      </footer>
     </div>
   );
 }

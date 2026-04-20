@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CATEGORY_COLORS,
+  CATEGORY_LABEL,
   CATEGORY_PRIORITY,
   CODE_TO_PREF,
   getCategoryColor,
@@ -101,7 +102,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
 
   return (
     <div className="species-map-container">
-      <h3>📍 分布地図</h3>
+      <h3>📍 都道府県の指定状況</h3>
       <div
         ref={containerRef}
         className="species-map-svg"
@@ -113,8 +114,6 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
           [
             { key: "EX", label: "絶滅（EX）" },
             { key: "EW", label: "野生絶滅（EW）" },
-            { key: "CR", label: "ⅠA類（CR）" },
-            { key: "EN", label: "ⅠB類（EN）" },
             { key: "CREN", label: "Ⅰ類（CR+EN）" },
             { key: "VU", label: "Ⅱ類（VU）" },
             { key: "NT", label: "準絶滅危惧（NT）" },

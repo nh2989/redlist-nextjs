@@ -8,11 +8,12 @@ export const CATEGORY_COLORS = {
   EX: "#4f4437", // 絶滅
   EW: "#84618c", // 野生絶滅
   CR: "#d81e05", // 絶滅危惧ⅠA類
-  EN: "#f28633", // 絶滅危惧ⅠB類
+  EN: "#d81e05", // 絶滅危惧ⅠB類
   CREN: "#d81e05", // 絶滅危惧Ⅰ類（CR+EN）
   VU: "#ffcb0d", // 絶滅危惧Ⅱ類
   NT: "#97c215", // 準絶滅危惧
   DD: "#c2c2c2", // 情報不足
+  LP: "#5ba3c9", // 地域個体群
   OTHER: "#52bd1c", // その他（"その他重要種"など主要カテゴリ外の指定あり）
   NONE: "#ffffff", // 指定なし（データなし）
 } as const;
@@ -22,11 +23,12 @@ export const CATEGORY_TEXT_COLORS = {
   EX: "#ffffff",
   EW: "#ffffff",
   CR: "#fffacd",
-  EN: "#333333",
+  EN: "#fffacd",
   CREN: "#fffacd",
   VU: "#333333",
   NT: "#333333",
   DD: "#333333",
+  LP: "#ffffff", // 新規追加
   OTHER: "#333333",
 } as const;
 
@@ -40,7 +42,8 @@ export const CATEGORY_PRIORITY: Record<string, number> = {
   VU: 6,
   NT: 7,
   DD: 8,
-  OTHER: 9,
+  LP: 9,
+  OTHER: 10,
 };
 
 // ---------- カテゴリマッピング（各自治体の表記 → 統一グループ） ----------
@@ -53,7 +56,21 @@ export const CATEGORY_MAPPINGS: Record<string, string[]> = {
   VU: ["絶滅危惧Ⅱ類（VU）", "絶滅危惧Ⅱ類", "Ⅱ類", "VU", "絶滅危機増大種"],
   NT: ["準絶滅危惧（NT）", "準絶滅危惧", "準絶滅危惧種", "希少種", "NT"],
   DD: ["情報不足(DD)", "情報不足（DD）", "情報不足", "DD", "要注目種"],
+  LP: ["地域個体群（LP）", "地域個体群", "LP", "絶滅のおそれのある地域個体群"],
   OTHER: ["その他重要種", "分布上重要種"],
+};
+
+export const CATEGORY_LABEL: Record<string, string> = {
+  EX: "絶滅",
+  EW: "野生絶滅",
+  CR: "絶滅危惧Ⅰ類",
+  EN: "絶滅危惧Ⅰ類",
+  CREN: "絶滅危惧Ⅰ類",
+  VU: "絶滅危惧Ⅱ類",
+  NT: "準絶滅危惧",
+  DD: "情報不足",
+  LP: "地域個体群",
+  OTHER: "その他",
 };
 
 // ---------- 都道府県コード（JIS X 0401） ----------
@@ -129,27 +146,50 @@ export function getCategoryGroup(category: string): string {
 // null/空 = データなし（NONE/白）、文字列あり = 何らかの指定あり（最低でもOTHER）
 export function getCategoryColor(unified: string | null): string {
   if (!unified) return CATEGORY_COLORS.NONE;
-  return CATEGORY_COLORS[unified as keyof typeof CATEGORY_COLORS]
-    ?? CATEGORY_COLORS.OTHER;
+  return (
+    CATEGORY_COLORS[unified as keyof typeof CATEGORY_COLORS] ??
+    CATEGORY_COLORS.OTHER
+  );
 }
 
 // カテゴリ文字列 → CSSクラス名（category-ex など）
 export function getCategoryClass(unified: string): string {
   switch (unified) {
-    case "EX":   return "category-ex";
-    case "EW":   return "category-ew";
-    case "CR":   return "category-cr";
-    case "EN":   return "category-en";
-    case "CREN": return "category-cren";
-    case "VU":   return "category-vu";
-    case "NT":   return "category-nt";
-    case "DD":   return "category-dd";
-    default:     return "category-other";
+    case "EX":
+      return "category-ex";
+    case "EW":
+      return "category-ew";
+    case "CR":
+      return "category-cr";
+    case "EN":
+      return "category-en";
+    case "CREN":
+      return "category-cren";
+    case "VU":
+      return "category-vu";
+    case "NT":
+      return "category-nt";
+    case "DD":
+      return "category-dd";
+    case "LP":
+      return "category-lp"; 
+    default:
+      return "category-other";
   }
 }
 
 // カテゴリが主要カテゴリかどうか
-const MAJOR_CATEGORIES = new Set(["EX","EW","CR","EN","CREN","VU","NT","DD"]);
+const MAJOR_CATEGORIES = new Set([
+  "EX",
+  "EW",
+  "CR",
+  "EN",
+  "CREN",
+  "VU",
+  "NT",
+  "DD",
+  "LP",
+]);
 export function isMajorCategory(unified: string): boolean {
   return MAJOR_CATEGORIES.has(unified);
 }

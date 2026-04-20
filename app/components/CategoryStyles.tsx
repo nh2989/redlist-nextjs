@@ -13,6 +13,7 @@ export default function CategoryStyles() {
       --color-cat-vu:    ${CATEGORY_COLORS.VU};
       --color-cat-nt:    ${CATEGORY_COLORS.NT};
       --color-cat-dd:    ${CATEGORY_COLORS.DD};
+      --color-cat-lp:    ${CATEGORY_COLORS.LP};
       --color-cat-other: ${CATEGORY_COLORS.OTHER};
       --color-cat-none:  ${CATEGORY_COLORS.NONE};
 
@@ -24,6 +25,7 @@ export default function CategoryStyles() {
       --color-cat-vu-text:   ${CATEGORY_TEXT_COLORS.VU};
       --color-cat-nt-text:   ${CATEGORY_TEXT_COLORS.NT};
       --color-cat-dd-text:   ${CATEGORY_TEXT_COLORS.DD};
+      --color-cat-lp-text:   ${CATEGORY_TEXT_COLORS.LP};
       --color-cat-other-text:${CATEGORY_TEXT_COLORS.OTHER};
     }
   `;

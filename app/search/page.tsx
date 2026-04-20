@@ -9,6 +9,7 @@ const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), {
 });
 
 import {
+  CATEGORY_LABEL,
   CATEGORY_PRIORITY,
   PREFECTURE_CODES,
   getCategoryClass,
@@ -613,6 +614,7 @@ function SearchPage() {
               <option value="VU">絶滅危惧Ⅱ類（VU）</option>
               <option value="NT">準絶滅危惧（NT）</option>
               <option value="DD">情報不足（DD）</option>
+              <option value="LP">地域個体群（LP）</option>
               <option value="OTHER">その他重要種</option>
             </select>
 
@@ -809,10 +811,6 @@ function SearchPage() {
             })
           )}
         </div>
-
-        <footer>
-          <p>データ出典：環境省・都道府県・市町村レッドリスト</p>
-        </footer>
       </div>
 
       {/* モーダル */}
@@ -847,6 +845,25 @@ function SearchPage() {
                     {selectedSpecies.scientific_name}
                   </p>
                   <p className="taxonomy-label">{selectedSpecies.taxonomy}</p>
+                  {(() => {
+                    const nat = selectedSpecies.jurisdictions.find(
+                      (j) => j.jurisdiction_type === "national",
+                    );
+                    return nat ? (
+                      <div className="national-status">
+                        <span className="national-status-label">環境省</span>
+                        <span
+                          className={`category ${getCategoryClass(nat.category_unified)}`}
+                        >
+                          {CATEGORY_LABEL[nat.category_unified] ??
+                            nat.category_unified}
+                        </span>
+                        <span className="national-status-original">
+                          （{nat.category}）
+                        </span>
+                      </div>
+                    ) : null;
+                  })()}
                 </div>
 
                 {/* ★コンテンツ部分（スクロール可能） */}
@@ -855,73 +872,43 @@ function SearchPage() {
                   {prefecture.length > 0 && (
                     <SpeciesMap jurisdictions={prefecture} />
                   )}
-                  <h3>指定状況</h3>
-                  {/* 国 */}
-                  {national.length > 0 && (
-                    <>
-                      <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
-                        🏛️ 国
-                      </h4>
-                      <table className="prefecture-table">
-                        <thead>
-                          <tr>
-                            <th>機関</th>
-                            <th>学名</th>
-                            <th>カテゴリ</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {national.map((j: Jurisdiction, i: number) => (
-                            <tr key={i}>
-                              <td>{j.jurisdiction_name}</td>
-                              <td className="scientific-cell">
-                                {j.scientific_name}
-                              </td>
-                              <td>
-                                <span
-                                  className={`category ${getCategoryClass(j.category_unified)}`}
-                                >
-                                  {j.category}
-                                </span>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </>
-                  )}
                   {/* 都道府県 */}
                   {prefecture.length > 0 && (
                     <>
                       <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
                         🗾 都道府県
                       </h4>
-                      <table className="prefecture-table">
-                        <thead>
-                          <tr>
-                            <th>都道府県</th>
-                            <th>学名</th>
-                            <th>カテゴリ</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {prefecture.map((j: Jurisdiction, i: number) => (
-                            <tr key={i}>
-                              <td>{j.jurisdiction_name}</td>
-                              <td className="scientific-cell">
-                                {j.scientific_name}
-                              </td>
-                              <td>
-                                <span
-                                  className={`category ${getCategoryClass(j.category_unified)}`}
-                                >
-                                  {j.category}
-                                </span>
-                              </td>
+                      <div className="prefecture-table-wrapper">
+                        <table className="prefecture-table">
+                          <thead>
+                            <tr>
+                              <th>機関</th>
+                              <th>和名</th>
+                              <th>統一カテゴリ</th>
+                              <th>出典カテゴリ</th>
+                              <th>発行年</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody>
+                            {prefecture.map((j: Jurisdiction, i: number) => (
+                              <tr key={i}>
+                                <td>{j.jurisdiction_name}</td>
+                                <td>{j.original_name}</td>
+                                <td>
+                                  <span
+                                    className={`category ${getCategoryClass(j.category_unified)}`}
+                                  >
+                                    {CATEGORY_LABEL[j.category_unified] ??
+                                      j.category_unified}
+                                  </span>
+                                </td>
+                                <td>{j.category}</td>
+                                <td>{j.publication_year ?? "—"}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </>
                   )}
                   {/* 市町村 */}
@@ -930,45 +917,37 @@ function SearchPage() {
                       <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
                         🏘️ 市町村
                       </h4>
-                      <table className="prefecture-table">
-                        <thead>
-                          <tr>
-                            <th>市町村</th>
-                            <th>学名</th>
-                            <th>カテゴリ</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {municipality.map((j: Jurisdiction, i: number) => (
-                            <tr key={i}>
-                              <td>
-                                {j.jurisdiction_name}
-                                {j.parent_prefecture && (
-                                  <span
-                                    style={{
-                                      fontSize: "0.85em",
-                                      color: "var(--text-faint)",
-                                      marginLeft: "4px",
-                                    }}
-                                  >
-                                    （{j.parent_prefecture}）
-                                  </span>
-                                )}
-                              </td>
-                              <td className="scientific-cell">
-                                {j.scientific_name}
-                              </td>
-                              <td>
-                                <span
-                                  className={`category ${getCategoryClass(j.category_unified)}`}
-                                >
-                                  {j.category}
-                                </span>
-                              </td>
+                      <div className="prefecture-table-wrapper">
+                        <table className="prefecture-table">
+                          <thead>
+                            <tr>
+                              <th>機関</th>
+                              <th>和名</th>
+                              <th>統一カテゴリ</th>
+                              <th>出典カテゴリ</th>
+                              <th>発行年</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody>
+                            {municipality.map((j: Jurisdiction, i: number) => (
+                              <tr key={i}>
+                                <td>{j.jurisdiction_name}</td>
+                                <td>{j.original_name}</td>
+                                <td>
+                                  <span
+                                    className={`category ${getCategoryClass(j.category_unified)}`}
+                                  >
+                                    {CATEGORY_LABEL[j.category_unified] ??
+                                      j.category_unified}
+                                  </span>
+                                </td>
+                                <td>{j.category}</td>
+                                <td>{j.publication_year ?? "—"}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </>
                   )}
                 </div>
