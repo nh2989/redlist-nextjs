@@ -615,7 +615,7 @@ function SearchPage() {
               <option value="NT">準絶滅危惧（NT）</option>
               <option value="DD">情報不足（DD）</option>
               <option value="LP">地域個体群（LP）</option>
-              <option value="OTHER">その他重要種</option>
+              <option value="OTHER">その他</option>
             </select>
 
             <select
@@ -719,10 +719,14 @@ function SearchPage() {
                         （別名: {species.species_aliases.join(", ")}）
                       </span>
                     )}
-                    <span className="scientific">
-                      {" "}
-                      {species.scientific_name}{" "}
-                    </span>
+                    {species.jurisdictions.some(
+                      (j) => j.jurisdiction_type === "national",
+                    ) && (
+                      <span className="scientific">
+                        {" "}
+                        {species.scientific_name}{" "}
+                      </span>
+                    )}
                   </h3>
 
                   {/* 国 */}
@@ -884,6 +888,7 @@ function SearchPage() {
                             <tr>
                               <th>機関</th>
                               <th>和名</th>
+                              <th>学名</th>
                               <th>統一カテゴリ</th>
                               <th>出典カテゴリ</th>
                               <th>発行年</th>
@@ -894,6 +899,9 @@ function SearchPage() {
                               <tr key={i}>
                                 <td>{j.jurisdiction_name}</td>
                                 <td>{j.original_name}</td>
+                                <td className="scientific-cell">
+                                  {j.scientific_name || "—"}
+                                </td>
                                 <td>
                                   <span
                                     className={`category ${getCategoryClass(j.category_unified)}`}
@@ -923,6 +931,7 @@ function SearchPage() {
                             <tr>
                               <th>機関</th>
                               <th>和名</th>
+                              <th>学名</th>
                               <th>統一カテゴリ</th>
                               <th>出典カテゴリ</th>
                               <th>発行年</th>
@@ -933,6 +942,9 @@ function SearchPage() {
                               <tr key={i}>
                                 <td>{j.jurisdiction_name}</td>
                                 <td>{j.original_name}</td>
+                                <td className="scientific-cell">
+                                  {j.scientific_name || "—"}
+                                </td>
                                 <td>
                                   <span
                                     className={`category ${getCategoryClass(j.category_unified)}`}

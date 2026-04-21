@@ -1,6 +1,6 @@
 # レッドリスト検索アプリ - プロジェクト現状
 
-最終更新：2026年3月30日
+最終更新：2026年4月20日
 リポジトリ：https://github.com/nh2989/redlist-nextjs
 
 ---
@@ -25,26 +25,34 @@ redlist-nextjs/
 │   ├── favicon.ico
 │   ├── search/
 │   │   └── page.tsx                # 検索結果ページ（メインロジック）
+│   ├── sources/
+│   │   └── page.tsx                # 出典一覧ページ（新規）
 │   └── components/
 │       ├── SpeciesMap.tsx          # 地図コンポーネント（Geolonia SVG）
 │       ├── CategoryStyles.tsx      # カテゴリ色をCSS変数として注入
 │       └── PreloadTopoJson.tsx     # 不要（削除候補）
 ├── lib/
-│   └── categoryConstants.ts        # カテゴリ色・定数・ユーティリティ関数の一元管理
+│   ├── categoryConstants.ts        # カテゴリ色・定数・ユーティリティ関数の一元管理
+│   └── types.ts                    # 共通型定義（RawSpeciesRecord / Jurisdiction / SpeciesGroup / SourceRecord）
 └── public/
-    ├── japan.topojson              # 日本地図データ（5%簡略化済み、40KB）
+    ├── japan.topojson              # 日本地図データ（5%簡略化済み、40KB）※現在未使用
     ├── japan-map.svg               # Geolonia map-mobile.svg（地図表示用）
     └── data/
-        ├── national.json           # 環境省（国）
-        ├── sample.json             # 用途確認要（nationalと重複？）
-        ├── shiga.json              # 滋賀県
+        ├── sources.json            # 出典メタ情報（id・title・year・url を一元管理）
+        ├── national.json           # 環境省 第５次レッドリスト
+        ├── shiga_2025.json         # 滋賀県 2025年版（旧 shiga.json から更新）
         ├── kyoto.json              # 京都府
-        ├── osaka.json              # 大阪府
         ├── aichi.json              # 愛知県
         ├── hiroshima.json          # 広島県
+        ├── shimane.json            # 島根県（新規）
+        ├── fukui.json              # 福井県（新規）
+        ├── gifu.json               # 岐阜県（新規）
+        ├── mie.json                # 三重県（新規）
         ├── koka.json               # 甲賀市
         └── hikone.json             # 彦根市
 ```
+
+※ `osaka.json`・`sample.json` は削除済み
 
 ---
 
@@ -53,18 +61,22 @@ redlist-nextjs/
 ### ページ構成
 - **トップページ** (`/`): 検索条件を入力 → URLパラメータで `/search` に遷移
 - **検索結果ページ** (`/search`): 全メインロジック
+- **出典一覧ページ** (`/sources`): sources.json を読み込み、機関名・資料名・発行年・URLを表示。都道府県コード順ソート。フッターからリンク
 
 ### データ処理
-- [x] 9ファイルの並列読み込み（Promise.all）
+- [x] 11ファイルの並列読み込み（sources.json + 10データJSON、Promise.all）
+- [x] sources.json によるメタ情報一元管理（source_id をキーに publication_year 付与）
 - [x] 和名ベースのグルーピング（学名の表記ゆれを吸収）
 - [x] jurisdiction_type（national / prefecture / municipality）による階層管理
 - [x] 別名（species_aliases）の正規化（`|`区切り文字列または配列に対応）
-- [x] カテゴリ統一マッピング（EX, EW, CR, EN, CR+EN, VU, NT, DD, OTHER）
+- [x] カテゴリ統一マッピング（EX, EW, CREN, VU, NT, DD, LP, OTHER）
 - [x] JIS X 0401 都道府県コードによる並び順
+- [x] original_name（出典上の和名）を Jurisdiction に保持
+- [x] source_id・publication_year を Jurisdiction に保持
 
 ### 検索・フィルター
 - [x] 和名 / 別名 / 学名の横断検索
-- [x] カテゴリフィルター（9段階 + OTHER）
+- [x] カテゴリフィルター（EX/EW/CREN/VU/NT/DD/LP/OTHER）
 - [x] 都道府県フィルター
 - [x] 市町村フィルター（都道府県選択後に動的表示）
 - [x] 分類群フィルター
@@ -74,33 +86,46 @@ redlist-nextjs/
 - [x] オートコンプリート（↑↓・Enter・Escキーボード操作対応）
 - [x] 検索クリアボタン（×）
 - [x] ソート（種名・カテゴリ希少性順・指定箇所数・学名）
-- [x] カード表示（国 / 都道府県 / 市町村を階層別に表示）
-- [x] カテゴリ別色分けバッジ（EX/EW/CR/EN/VU/NT/DD/OTHER）
-- [x] モーダル詳細表示（学名・分類群・指定状況テーブル）
+- [x] カード表示（国 / 都道府県 / 市町村を階層別にバッジ表示）
+- [x] カテゴリ別色分けバッジ
+- [x] モーダル詳細表示（学名・分類群・環境省ステータス・指定状況テーブル）
 - [x] 地図表示（都道府県データがある種のみ、モーダル内）
+
+### モーダル指定状況テーブル（現在の列構成）
+
+**都道府県・市町村テーブル：**
+| 機関 | 和名 | 統一カテゴリ | 出典カテゴリ | 発行年 |
+|------|------|------------|------------|--------|
+
+- 「機関」列：現在はテキストのみ（URLリンク化は未実装 → タスク4残作業）
+- 「和名」列：`original_name`（出典上の記載名）を表示
+- 「統一カテゴリ」：`CATEGORY_LABEL` によるバッジ表示
+- 「出典カテゴリ」：元の文字列をそのまま表示
+- 「発行年」：`sources.json` の `publication_year` を参照（未設定は「—」）
 
 ### 地図
 - [x] Geolonia map-mobile.svg による地図表示（react-simple-maps廃止）
-- [x] 都道府県ごとのカテゴリ色塗り分け
-- [x] 凡例（地図下部に横並び表示）
+- [x] 都道府県ごとのカテゴリ色塗り分け（最高優先カテゴリで着色）
+- [x] 凡例（地図右側に縦並び表示）
 - [x] SVGモジュールレベルキャッシュ（2回目以降のモーダル開閉でfetchゼロ）
 
 ### パフォーマンス
-- [x] TopoJSONローカル配信・5%簡略化（415KB → 40KB）※現在はjapan-map.svgを使用
 - [x] 都道府県→カラーマップのメモ化（useMemo）
 
 ### スタイル・コード品質
 - [x] CSS変数による色の一元管理（globals.css の `:root`）
-- [x] ブランドカラーをフラット単色（`#4a6fa5`）に統一・グラデーション廃止
+- [x] ブランドカラーをフラット単色（`#4a6fa5`）に統一
 - [x] `categoryConstants.ts` でカテゴリ色・優先順位・マッピング・都道府県コードを一元管理
 - [x] `CategoryStyles.tsx` でTS側の色定義をCSS変数として注入（二重管理の解消）
+- [x] TypeScript 型定義整備（`lib/types.ts`）
 
 ---
 
-## データJSON構造
+## データJSON構造（現行スキーマ）
 
 ```json
 {
+  "id": "1",
   "species_name": "ヒモヅル",
   "species_aliases": "別名1|別名2",
   "scientific_name": "Lycopodium casuarinoides",
@@ -109,173 +134,97 @@ redlist-nextjs/
   "jurisdiction_type": "prefecture",
   "parent_prefecture": null,
   "category": "絶滅(EX)",
-  "category_unified": "絶滅（EX）"
+  "category_unified": "EX"
 }
 ```
 
+※ `publication_year` は JSON には持たせず `sources.json` で一元管理
+
 ---
 
-## 既知の課題・次回作業候補
+## sources.json 登録済み出典
+
+| id | 機関 | 発行年 |
+|----|------|--------|
+| national | 環境省 | 2025-2026 |
+| shiga_2025 | 滋賀県 | 2026 |
+| kyoto | 京都府 | 2021-2025 |
+| aichi | 愛知県 | 2026 |
+| hiroshima | 広島県 | 2022 |
+| shimane | 島根県 | 2026 |
+| fukui | 福井県 | 2016 |
+| gifu | 岐阜県 | 2026 |
+| mie | 三重県 | 2024 |
+
+※ koka・hikone（市町村）は sources.json 未登録
+
+---
+
+## 既知の課題
 
 ### 優先度高
-- [x] `page.tsx` 内の `getCategoryClass` 関数を削除し `categoryConstants.ts` のimportに統一
-- [x] `national.json` の `category_unified` が空欄 → データ修正が必要
-- [x] 分類群フィルターの選択肢が「植物」だが、データは「維管束植物」→ 不一致
-
-### 優先度中
-- [x] `sample.json` の用途確認・削除（national.jsonと重複の可能性）
-- [x] `PreloadTopoJson.tsx` の削除（Geolonia SVG移行後は不要）
-- [x] 不要なVercelプロジェクトの削除（`ugck`、`vuz5`、`6pkh`）
-- [x] TypeScriptの `any` 型が多用されている（型定義の整備）
+- [ ] `gifu.json` の `category_unified` が空欄の種がある（VU相当のデータ）→ データ修正要
+- [ ] `koka.json` / `hikone.json` を sources.json に追加（municipality 対応）
+- [ ] モーダルの機関名を sources.json の URL でリンク化（タスク4の残作業）
 
 ### 優先度低・将来
 - [ ] 市町村フィルターは滋賀県選択時のみ機能（甲賀市・彦根市のみ対応）
-- [ ] データ拡充（新しい都道府県の追加）
+- [ ] `PreloadTopoJson.tsx` の削除
 - [ ] Supabaseデータベース移行（データが増えたタイミング）
 - [ ] Geolonia SVGのライセンス（GFDL）→ 商用化時に自作SVGへ切り替え検討
 
 ---
 
-## 技術メモ
-
-### 色管理の仕組み
-```
-categoryConstants.ts（CATEGORY_COLORS）
-  ↓ import
-CategoryStyles.tsx → <style> タグで :root に CSS変数を注入
-  ↓
-globals.css の .category-* クラスが var(--color-cat-*) を参照
-```
-
-### 地図の仕組み
-```
-public/japan-map.svg（Geolonia map-mobile.svg）
-  ↓ fetch & キャッシュ
-SpeciesMap.tsx → DOMに挿入後 data-code属性でprefを特定
-  ↓
-categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
-```
-
-### tsconfig.json のパス設定
-```json
-"paths": { "@/*": ["./*"] }
-```
-`lib/categoryConstants.ts` は `@/lib/categoryConstants` でimport可能。
-
----
-
 ## 次回作業計画
 
-### 作業概要
-1. 各データJSONの原典チェック
-2. `sources.json` の作成と実装（source_id設計を含む）
-3. モーダルの指定状況テーブルに発行年を表示
-4. 出典一覧ページの実装
-5. `synonyms.json` の作成とシノニム統合
-6. 条例指定希少野生動植物の実装（`ordinance.json` 別ファイル管理）
+### 完了済みタスク
+
+- [x] **タスク1**：各データJSONの原典チェック（下記参照）
+- [x] **タスク2**：`sources.json` の作成と実装（source_id 設計・loadData 統合）
+- [x] **タスク3**：モーダルの指定状況テーブルに発行年・和名（出典）列を追加
+- [x] **タスク4**：出典一覧ページ `/sources` の実装・フッターにリンク追加
+
+### 残作業順序
+
+```
+① モーダルの機関名を URL リンク化（タスク4の残作業・小規模）
+      ↓
+② gifu.json の category_unified 空欄を修正
+      ↓
+③ synonyms.json を作成（タスク5）
+      ↓
+④ loadData に synonyms.json の読み込みを追加
+      ↓
+⑤ groupBySpecies に synonyms による正規名変換を組み込む
+      ↓
+⑥ ordinance.json を作成（タスク6）
+      ↓
+⑦ loadData に ordinance.json の読み込みを追加
+      ↓
+⑧ UI に条例指定バッジ・フィルターを追加
+```
 
 ---
 
-### タスク1：各データJSONの原典チェック
+### タスク1：各データJSONの原典チェック（進捗）
 
 各JSONを原典PDFと照合し、種名・学名・カテゴリの表記が原記載に忠実かを確認する。
 **`publication_year` はJSONには追加しない**（`sources.json` で一元管理するため）。
 
-対象ファイル：
-`national.json` 済 / `shiga.json` 学名削除 / `kyoto.json` 済 / `osaka.json` 削除 / `aichi.json` 済 / `hiroshima.json` 済 / `koka.json` / `hikone.json`
-`fukui.json` 追加 / `simane.json` 追加 / `gifu.json` 追加 / `mie.json` 追加
-
----
-
-### タスク2：sources.jsonの作成
-
-各データソースのメタ情報を一元管理するファイル。**`id`（ファイル名ベース）をキー**として各JSONと紐づける。
-
-#### source_id の設計方針
-
-- `source_id` はJSONファイル名（拡張子なし）をそのまま使う（`"shiga"`、`"national"` など）
-- **既存のJSONファイルは編集不要**。`loadData` がfetch時に付与する
-- 将来同一都道府県の新版を追加する場合は `shiga_2025.json` など別ファイルとして追加し、`source_id: "shiga_2025"` で区別する
-
-```json
-// public/data/sources.json
-[
-  {
-    "id": "national",
-    "jurisdiction_name": "環境省",
-    "jurisdiction_type": "national",
-    "title": "環境省レッドリスト2020",
-    "publication_year": 2020,
-    "publisher": "環境省",
-    "url": "https://www.env.go.jp/nature/kisho/hozen/redlist.html"
-  },
-  {
-    "id": "shiga",
-    "jurisdiction_name": "滋賀県",
-    "jurisdiction_type": "prefecture",
-    "title": "滋賀県レッドデータブック2020",
-    "publication_year": 2020,
-    "publisher": "滋賀県",
-    "url": "https://..."
-  }
-]
-```
-
-#### loadData への組み込みイメージ
-
-```typescript
-// ファイルリストに id を持たせる
-const dataFiles = [
-  { id: "national", path: "/data/national.json" },
-  { id: "shiga",    path: "/data/shiga.json" },
-  // ...
-];
-
-// sources.jsonを並列読み込みに追加
-const [sourcesRes, ...dataResponses] = await Promise.all([
-  fetch("/data/sources.json"),
-  ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
-]);
-const sources = await sourcesRes.json();
-
-// source_id → source のルックアップマップ
-const sourceMap = Object.fromEntries(sources.map((s: any) => [s.id, s]));
-
-// fetch時に source_id を付与（既存JSONの編集不要）
-const allData = dataFiles.flatMap((file, i) => {
-  const items = dataArrays[i] ?? [];
-  return items.map((item) => ({
-    ...item,
-    source_id: file.id,
-    species_aliases: normalizeAliases(item.species_aliases),
-    publication_year: sourceMap[file.id]?.publication_year ?? null,
-  }));
-});
-```
-
----
-
-### タスク3：モーダルに発行年を表示
-
-指定状況テーブルに発行年列を追加する。
-
-**変更前：**
-| 機関 | 学名 | カテゴリ |
-|------|------|---------|
-
-**変更後：**
-| 機関 | 学名 | カテゴリ | 発行年 |
-|------|------|---------|--------|
-
----
-
-### タスク4：出典ページの実装
-
-#### `/sources` ページ（新規作成）
-`sources.json` を読み込み、一覧テーブルとして表示する。フッターにリンクを追加。
-
-#### モーダル内の機関名にリンクを追加
-指定状況テーブルの機関名セルを `<a href={source.url} target="_blank">` でラップし、元のレッドリストに直接アクセスできるようにする。
+| ファイル | 状態 |
+|---------|------|
+| national.json | ✅ 済 |
+| shiga_2025.json | ✅ 済（旧shiga.json から更新、学名列削除） |
+| kyoto.json | ✅ 済 |
+| aichi.json | ✅ 済 |
+| hiroshima.json | ✅ 済 |
+| osaka.json | ✅ 削除済み |
+| fukui.json | ✅ 済 |
+| shimane.json | ✅ 済 |
+| gifu.json | ✅ 済 |
+| mie.json | ✅ 済 |
+| koka.json | ✅ 済 |
+| hikone.json | ✅ 済 |
 
 ---
 
@@ -293,8 +242,10 @@ const allData = dataFiles.flatMap((file, i) => {
 
 - **キー**：各JSONに記載されている表記（非正規名）
 - **値**：統一する正規名（基本的に環境省の表記に合わせる）
+- 環境省に掲載がない種は、より広く使われている表記を正規名とする
+- タスク1（原典チェック）で同一種と判明したものを随時追記していく
 
-#### グループ化への組み込みイメージ
+#### loadData への組み込みイメージ
 
 ```typescript
 const synonyms: Record<string, string> = await fetch("/data/synonyms.json")
@@ -305,36 +256,10 @@ const synonyms: Record<string, string> = await fetch("/data/synonyms.json")
 const key = synonyms[item.species_name] ?? item.species_name;
 ```
 
-#### 運用ルール
-- 正規名は原則として**環境省レッドリストの表記**を優先する
-- 環境省に掲載がない種は、より広く使われている表記を正規名とする
-- 原典チェック（タスク1）で同一種と判明したものを随時追記していく
+#### モーダル指定状況テーブルへの影響
 
-#### モーダルの指定状況テーブル仕様変更
-
-**変更後：**
-| 機関 | 和名（出典） | 学名（出典） | カテゴリ | 発行年 |
-|------|------------|------------|---------|--------|
-
-- **和名（出典）**：`species_name`（出典名）と `species_aliases`（別名）を両方表示
-- **学名（出典）**：`scientific_name`（記載なしの場合は空白）
-
-#### groupBySpecies のデータ構造変更
-
-```typescript
-speciesMap[key].jurisdictions.push({
-  jurisdiction_name: item.jurisdiction_name,
-  jurisdiction_type: item.jurisdiction_type,
-  parent_prefecture: item.parent_prefecture,
-  category: item.category,
-  category_unified: item.category_unified,
-  scientific_name: item.scientific_name,
-  source_id: item.source_id,              // ← 追加
-  original_name: item.species_name,       // ← 追加（出典での和名）
-  original_aliases: item.species_aliases, // ← 追加（出典での別名）
-  publication_year: item.publication_year,// ← 追加（sources.jsonから付与）
-});
-```
+シノニム統合後、「和名」列の `original_name` には出典上の記載名がそのまま残るため、
+どの自治体がどの名前で登録しているかが確認できる（統合後も元の表記が失われない）。
 
 ---
 
@@ -388,18 +313,25 @@ speciesMap[key].jurisdictions.push({
 #### loadData への組み込みイメージ
 
 ```typescript
-// ordinance.jsonを並列読み込みに追加
-const ordinanceRes = await fetch("/data/ordinance.json").catch(() => null);
-const ordinanceList = ordinanceRes ? await ordinanceRes.json() : [];
+// ordinance.json を他ファイルと並列read込みに追加
+const [sourcesRes, ordinanceRes, ...dataResponses] = await Promise.all([
+  fetch("/data/sources.json"),
+  fetch("/data/ordinance.json").catch(() => null),
+  ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
+]);
 
-// (jurisdiction_name + species_name) → OrdinanceRecord のマップ
+const ordinanceList: OrdinanceRecord[] = ordinanceRes
+  ? await ordinanceRes.json().catch(() => [])
+  : [];
+
+// (jurisdiction_name::species_name) → OrdinanceRecord のマップ
 const ordinanceMap = new Map<string, OrdinanceRecord>();
 for (const rec of ordinanceList) {
   const key = `${rec.jurisdiction_name}::${rec.species_name}`;
   ordinanceMap.set(key, rec);
 }
 
-// groupBySpecies内で各jurisdictionにフラグを付与
+// groupBySpecies 内で各 jurisdiction に付与
 speciesMap[key].jurisdictions.push({
   // ... 既存フィールド ...
   ordinance: ordinanceMap.get(
@@ -407,12 +339,6 @@ speciesMap[key].jurisdictions.push({
   ) ?? null,  // null = 条例指定なし
 });
 ```
-
-#### UI表示仕様
-
-- **検索カード**：条例指定がある自治体が1つでもある種に「🔒 条例指定あり」バッジを表示
-- **モーダル指定状況テーブル**：条例指定のある行に「🔒 条例指定」列を追加、条例名をツールチップまたは括弧書きで表示
-- **フィルター**：「条例指定のみ表示」チェックボックスを追加（任意）
 
 #### 型定義（lib/types.ts への追加）
 
@@ -426,32 +352,71 @@ export interface OrdinanceRecord {
   designated_year: number | null;
   note: string;
 }
+
+// Jurisdiction 型に追加
+ordinance: OrdinanceRecord | null;
 ```
+
+#### UI表示仕様
+
+- **検索カード**：条例指定がある自治体が1つでもある種に「🔒 条例指定あり」バッジを追加
+- **モーダル指定状況テーブル**：条例指定のある行の機関名セルに「🔒」アイコン＋条例名をツールチップまたは括弧書きで表示
+- **フィルター**：「条例指定のみ表示」チェックボックスを追加（任意・後回し可）
 
 ---
 
-### 作業順序
+## 技術メモ
 
+### 色管理の仕組み
 ```
-1. sources.json の内容を確定（id・URL・発行年を各自治体分入力）
-      ↓
-2. 各JSONの原典チェック（表記の修正・シノニム候補の洗い出し）
-      ↓
-3. synonyms.json を作成（原典チェックで判明したシノニムを記載）
-      ↓
-4. loadData に sources.json・synonyms.json の読み込みを追加（source_id付与を含む）
-      ↓
-5. groupBySpecies に synonyms による正規名変換を組み込む
-      ↓
-6. モーダルのテーブルに発行年列・和名（出典）列を追加
-      ↓
-7. /sources ページを新規作成・フッターにリンク追加
-      ↓
-8. モーダルの機関名をURLリンク化
-      ↓
-9. ordinance.json を作成（各県の条例指定種データを収集・入力）
-      ↓
-10. loadData に ordinance.json の読み込みを追加
-      ↓
-11. UI に条例指定バッジ・フィルターを追加
+categoryConstants.ts（CATEGORY_COLORS）
+  ↓ import
+CategoryStyles.tsx → <style> タグで :root に CSS変数を注入
+  ↓
+globals.css の .category-* クラスが var(--color-cat-*) を参照
 ```
+
+### 地図の仕組み
+```
+public/japan-map.svg（Geolonia map-mobile.svg）
+  ↓ fetch & モジュールレベルキャッシュ（svgCache 変数）
+SpeciesMap.tsx → DOMに挿入後 data-code 属性でprefを特定
+  ↓
+categoryConstants.ts の CODE_TO_PREF & getCategoryColor で色を適用
+```
+
+### sources.json の仕組み
+```
+public/data/sources.json
+  ↓ loadData で並列fetch
+sourceMap（id → SourceRecord）を State に保持
+  ↓
+各レコードに source_id・publication_year を付与（既存JSONは編集不要）
+  ↓
+Jurisdiction.publication_year としてモーダルテーブルに表示
+  ↓
+/sources ページでも同 sources.json を fs.readFile で参照
+```
+
+### tsconfig.json のパス設定
+```json
+"paths": { "@/*": ["./*"] }
+```
+`lib/categoryConstants.ts` は `@/lib/categoryConstants` でimport可能。
+
+---
+
+## データ拡充の優先順位（将来）
+
+| 優先度 | 県 | 入手方法 |
+|--------|-----|---------|
+| 高 | 宮城・福島・栃木・埼玉・千葉・長野・静岡・高知・鹿児島 | Excel入手可能 |
+| 中 | 東京・神奈川・兵庫 | PDF（構造化しやすい） |
+| 低 | その他PDF県 | PDF（難度高） |
+
+---
+
+## 地図パフォーマンス追加改善候補
+
+1. mapshaperでTopoJSON間引き（10〜20%に簡略化 → ファイルサイズ・描画頂点数削減）
+2. SVG→Canvas描画切り替え（DOM要素削減、ライブラリ変更必要）

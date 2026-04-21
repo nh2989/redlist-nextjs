@@ -619,12 +619,12 @@ footer {
   border-collapse: collapse;
   margin-top: clamp(10px, 2vh, 15px);
   table-layout: auto;
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
 }
 
 .prefecture-table th,
 .prefecture-table td {
-  padding: clamp(8px, 1.5vh, 12px);
+  padding: clamp(5px, 1vh, 8px);
   text-align: left;
   border-bottom: 1px solid var(--border);
   white-space: nowrap; /* 追加 */
@@ -641,11 +641,15 @@ footer {
   -webkit-overflow-scrolling: touch;
 }
 
-.scientific-cell {
+.prefecture-table td.scientific-cell{
   font-style: italic;
   color: var(--text-body);
-  font-size: 0.9rem;
+  white-space: normal; /* nowrap を上書き */
+  min-width: 120px;
+  max-width: 220px;
+  word-break: break-word;
 }
+
 .prefecture-badges {
   display: flex;
   flex-wrap: wrap;

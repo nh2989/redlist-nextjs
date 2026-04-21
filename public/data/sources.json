@@ -79,5 +79,23 @@
     "publication_year": "2026",
     "publisher": "島根県",
     "url": "https://www.pref.shimane.lg.jp/infra/nature/shizen/yasei/red-data/"
+  },
+  {
+    "id": "koka",
+    "jurisdiction_name": "甲賀市",
+    "jurisdiction_type": "municipality",
+    "title": "甲賀市レッドリスト２０２２",
+    "publication_year": "2022",
+    "publisher": "甲賀市",
+    "url": "https://www.city.koka.lg.jp/22237.htm"
+  },
+  {
+    "id": "hikone",
+    "jurisdiction_name": "彦根市",
+    "jurisdiction_type": "municipality",
+    "title": "彦根市で大切にすべき野生生物‐レッドデータブックひこね‐",
+    "publication_year": "2005",
+    "publisher": "彦根市",
+    "url": "https://www.city.hikone.lg.jp/kakuka/shimin_kankyo/5/2_2/9/3770.html"
   }
 ]
