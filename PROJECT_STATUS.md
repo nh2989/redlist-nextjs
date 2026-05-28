@@ -163,9 +163,9 @@ redlist-nextjs/
 ## 既知の課題
 
 ### 優先度高
-- [ ] `gifu.json` の `category_unified` が空欄の種がある（VU相当のデータ）→ データ修正要
-- [ ] `koka.json` / `hikone.json` を sources.json に追加（municipality 対応）
-- [ ] モーダルの機関名を sources.json の URL でリンク化（タスク4の残作業）
+- [x] `gifu.json` の `category_unified` が空欄の種がある（VU相当のデータ）→ データ修正要
+- [x] `koka.json` / `hikone.json` を sources.json に追加（municipality 対応）
+- [x] モーダルの機関名を sources.json の URL でリンク化（タスク4の残作業）
 
 ### 優先度低・将来
 - [ ] 市町村フィルターは滋賀県選択時のみ機能（甲賀市・彦根市のみ対応）
