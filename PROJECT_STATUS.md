@@ -1,6 +1,6 @@
 # レッドリスト検索アプリ - プロジェクト現状
 
-最終更新：2026年4月20日
+最終更新：2026年5月29日
 リポジトリ：https://github.com/nh2989/redlist-nextjs
 
 ---
@@ -29,8 +29,7 @@ redlist-nextjs/
 │   │   └── page.tsx                # 出典一覧ページ（新規）
 │   └── components/
 │       ├── SpeciesMap.tsx          # 地図コンポーネント（Geolonia SVG）
-│       ├── CategoryStyles.tsx      # カテゴリ色をCSS変数として注入
-│       └── PreloadTopoJson.tsx     # 不要（削除候補）
+│       └── CategoryStyles.tsx      # カテゴリ色をCSS変数として注入
 ├── lib/
 │   ├── categoryConstants.ts        # カテゴリ色・定数・ユーティリティ関数の一元管理
 │   └── types.ts                    # 共通型定義（RawSpeciesRecord / Jurisdiction / SpeciesGroup / SourceRecord）
@@ -39,15 +38,16 @@ redlist-nextjs/
     ├── japan-map.svg               # Geolonia map-mobile.svg（地図表示用）
     └── data/
         ├── sources.json            # 出典メタ情報（id・title・year・url を一元管理）
+        ├── synonyms.json           # シノニム（非標準和名 → 標準和名）マスター ★新規
         ├── national.json           # 環境省 第５次レッドリスト
         ├── shiga_2025.json         # 滋賀県 2025年版（旧 shiga.json から更新）
         ├── kyoto.json              # 京都府
         ├── aichi.json              # 愛知県
         ├── hiroshima.json          # 広島県
-        ├── shimane.json            # 島根県（新規）
-        ├── fukui.json              # 福井県（新規）
-        ├── gifu.json               # 岐阜県（新規）
-        ├── mie.json                # 三重県（新規）
+        ├── shimane.json            # 島根県
+        ├── fukui.json              # 福井県
+        ├── gifu.json               # 岐阜県
+        ├── mie.json                # 三重県
         ├── koka.json               # 甲賀市
         └── hikone.json             # 彦根市
 ```
@@ -59,13 +59,15 @@ redlist-nextjs/
 ## 実装済み機能
 
 ### ページ構成
-- **トップページ** (`/`): 検索条件を入力 → URLパラメータで `/search` に遷移
+- **トップページ** (`/`): カテゴリ・都道府県の複数選択フィルター付き検索フォーム → URLパラメータで `/search` に遷移。都道府県リストは sources.json から動的取得
 - **検索結果ページ** (`/search`): 全メインロジック
 - **出典一覧ページ** (`/sources`): sources.json を読み込み、機関名・資料名・発行年・URLを表示。都道府県コード順ソート。フッターからリンク
 
 ### データ処理
-- [x] 11ファイルの並列読み込み（sources.json + 10データJSON、Promise.all）
+- [x] 11ファイルの並列読み込み（sources.json + synonyms.json + 10データJSON、Promise.all）
 - [x] sources.json によるメタ情報一元管理（source_id をキーに publication_year 付与）
+- [x] synonyms.json による非標準和名の正規名変換（グルーピング前に適用）
+- [x] 非標準和名を species_aliases に自動追加（別名検索に対応）
 - [x] 和名ベースのグルーピング（学名の表記ゆれを吸収）
 - [x] jurisdiction_type（national / prefecture / municipality）による階層管理
 - [x] 別名（species_aliases）の正規化（`|`区切り文字列または配列に対応）
@@ -76,11 +78,15 @@ redlist-nextjs/
 
 ### 検索・フィルター
 - [x] 和名 / 別名 / 学名の横断検索
-- [x] カテゴリフィルター（EX/EW/CREN/VU/NT/DD/LP/OTHER）
-- [x] 都道府県フィルター
+- [x] 非標準和名（シノニム）での検索にも対応（aliases 経由）
+- [x] カテゴリフィルター（EX/EW/CREN/VU/NT/DD/LP/OTHER）**複数選択対応**
+- [x] 都道府県フィルター（**環境省を含む**）**複数選択対応**
 - [x] 市町村フィルター（都道府県選択後に動的表示）
+- [x] 「市町村を含む」チェックボックス（都道府県選択時に表示・市町村選択時は自動ON）
 - [x] 分類群フィルター
 - [x] 複合フィルター（カテゴリ＋都道府県＋市町村の組み合わせ）
+- [x] トップページでも同一フィルター（複数選択）を使用可能
+- [x] URLパラメータで複数値を引き継ぎ（`?category=EX&category=VU` 形式）
 
 ### UI
 - [x] オートコンプリート（↑↓・Enter・Escキーボード操作対応）
@@ -98,7 +104,7 @@ redlist-nextjs/
 |------|------|------------|------------|--------|
 
 - 「機関」列：現在はテキストのみ（URLリンク化は未実装 → タスク4残作業）
-- 「和名」列：`original_name`（出典上の記載名）を表示
+- 「和名」列：`original_name`（出典上の記載名）を表示。シノニム統合後も元の表記が確認できる
 - 「統一カテゴリ」：`CATEGORY_LABEL` によるバッジ表示
 - 「出典カテゴリ」：元の文字列をそのまま表示
 - 「発行年」：`sources.json` の `publication_year` を参照（未設定は「—」）
@@ -155,21 +161,15 @@ redlist-nextjs/
 | fukui | 福井県 | 2016 |
 | gifu | 岐阜県 | 2026 |
 | mie | 三重県 | 2024 |
-
-※ koka・hikone（市町村）は sources.json 未登録
+| koka | 甲賀市 | - |
+| hikone | 彦根市 | - |
 
 ---
 
 ## 既知の課題
 
-### 優先度高
-- [x] `gifu.json` の `category_unified` が空欄の種がある（VU相当のデータ）→ データ修正要
-- [x] `koka.json` / `hikone.json` を sources.json に追加（municipality 対応）
-- [x] モーダルの機関名を sources.json の URL でリンク化（タスク4の残作業）
-
 ### 優先度低・将来
 - [ ] 市町村フィルターは滋賀県選択時のみ機能（甲賀市・彦根市のみ対応）
-- [ ] `PreloadTopoJson.tsx` の削除
 - [ ] Supabaseデータベース移行（データが増えたタイミング）
 - [ ] Geolonia SVGのライセンス（GFDL）→ 商用化時に自作SVGへ切り替え検討
 
@@ -179,29 +179,20 @@ redlist-nextjs/
 
 ### 完了済みタスク
 
-- [x] **タスク1**：各データJSONの原典チェック（下記参照）
+- [x] **タスク1**：各データJSONの原典チェック
 - [x] **タスク2**：`sources.json` の作成と実装（source_id 設計・loadData 統合）
 - [x] **タスク3**：モーダルの指定状況テーブルに発行年・和名（出典）列を追加
 - [x] **タスク4**：出典一覧ページ `/sources` の実装・フッターにリンク追加
+- [x] **タスク5**：`synonyms.json` の作成とシノニム統合
 
 ### 残作業順序
 
 ```
-① モーダルの機関名を URL リンク化（タスク4の残作業・小規模）
+① ordinance.json を作成（タスク6）
       ↓
-② gifu.json の category_unified 空欄を修正
+② loadData に ordinance.json の読み込みを追加
       ↓
-③ synonyms.json を作成（タスク5）
-      ↓
-④ loadData に synonyms.json の読み込みを追加
-      ↓
-⑤ groupBySpecies に synonyms による正規名変換を組み込む
-      ↓
-⑥ ordinance.json を作成（タスク6）
-      ↓
-⑦ loadData に ordinance.json の読み込みを追加
-      ↓
-⑧ UI に条例指定バッジ・フィルターを追加
+③ UI に条例指定バッジ・フィルターを追加
 ```
 
 ---
@@ -228,38 +219,85 @@ redlist-nextjs/
 
 ---
 
-### タスク5：synonyms.jsonの作成とシノニム統合
+### タスク5：synonyms.jsonの作成とシノニム統合 ✅
 
 地域によって異なる名前で登録されている同一種を、正規名に統一してグループ化するためのマスターファイル。
 
+#### シノニム収集の方法
+
+1. **学名一致チェック**：各JSONを横断し、同一学名に複数の和名が存在するケースを抽出（7件検出）
+2. **YList照合**：[YList（米倉・梶田, 2003-）](http://ylist.info/)の標準和名データベース（2021年版）と照合し、各JSONの種名が別名（非標準和名）に該当するケースを自動検出（144件ヒット）
+3. **精査・除外**：
+   - 同名別種（ホモニム）のケースは除外（例：オキナグサ → キンポウゲ科が通常だが、クサスギカズラ科でも使われる）
+   - 片方がシソ科の標準和名として独立している場合は除外（例：ミズトラノオ）
+   - 環境省 national.json に掲載がある場合はその表記を正規名として優先
+
+#### 登録内容（24件）
+
 ```json
-// public/data/synonyms.json
 {
-  "ミカワタヌキモ": "イトタヌキモ",
-  "ホソバノキミズ": "キミズ"
+  "エンシュウツリフネ": "エンシュウツリフネソウ",
+  "イトタヌキモ": "ミカワタヌキモ",
+  "コバイモ": "ミノコバイモ",
+  "ミスミソウ（狭義のオオミスミソウおよびケスハマソウを含む）": "ミスミソウ",
+  "ニッコウキスゲ": "ゼンテイカ",
+  "アイヅシモツケ": "アイズシモツケ",
+  "ウスキムヨウラン": "ウスギムヨウラン",
+  "キヨズミウツボ": "キヨスミウツボ",
+  "セキコク": "セッコク",
+  "ナンバンカモメラン": "ナンバンカゴメラン",
+  "ミクラジマトウヒレン": "ミクラシマトウヒレン",
+  "モクビャクコウ": "モクビャッコウ",
+  "スズメハコベ": "スズメノハコベ",
+  "ベニバナツクバネウツギ": "ベニバナノツクバネウツギ",
+  "ホソバツルリンドウ": "ホソバノツルリンドウ",
+  "ホソバヤマハハコ": "ホソバノヤマハハコ",
+  "ホテイアツモリ": "ホテイアツモリソウ",
+  "ミズタカモジ": "ミズタカモジグサ",
+  "ミツバヒヨドリ": "ミツバヒヨドリバナ",
+  "ホザキノヤドリギ": "ホザキヤドリギ",
+  "ヨナグニカモメヅル": "ヨナクニカモメヅル",
+  "オオマルバノコンロンソウ": "オオマルバコンロンソウ",
+  "キビナワシロイチゴ": "キビノナワシロイチゴ",
+  "チシマネコノメ": "チシマネコノメソウ"
 }
 ```
 
-- **キー**：各JSONに記載されている表記（非正規名）
-- **値**：統一する正規名（基本的に環境省の表記に合わせる）
-- 環境省に掲載がない種は、より広く使われている表記を正規名とする
-- タスク1（原典チェック）で同一種と判明したものを随時追記していく
-
-#### loadData への組み込みイメージ
+#### 実装の仕組み
 
 ```typescript
-const synonyms: Record<string, string> = await fetch("/data/synonyms.json")
-  .then((r) => r.json())
-  .catch(() => ({}));
+// loadData内：Promise.all に synonyms.json を追加
+const [sourcesRes, synonymsRes, ...dataResponses] = await Promise.all([
+  fetch("/data/sources.json"),
+  fetch("/data/synonyms.json").catch(() => null),
+  ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
+]);
 
-// groupBySpecies内で正規名に変換してからキーにする
+const synonyms: Record<string, string> = synonymsRes
+  ? await synonymsRes.json().catch(() => ({}))
+  : {};
+
+// groupBySpecies のシグネチャ変更
+function groupBySpecies(
+  data: RawSpeciesRecord[],
+  synonyms: Record<string, string>
+): SpeciesGroup[]
+
+// 正規名に変換してからキーにする
 const key = synonyms[item.species_name] ?? item.species_name;
+
+// シノニム変換された元の名前を aliases に追加（別名検索に対応）
+if (synonyms[item.species_name] && !speciesMap[key].species_aliases.includes(item.species_name)) {
+  speciesMap[key].species_aliases.push(item.species_name);
+}
 ```
 
-#### モーダル指定状況テーブルへの影響
-
-シノニム統合後、「和名」列の `original_name` には出典上の記載名がそのまま残るため、
-どの自治体がどの名前で登録しているかが確認できる（統合後も元の表記が失われない）。
+#### 運用方針
+- データ拡充に伴い随時追記する
+- 正規名の優先順位：①環境省掲載表記 > ②YList標準和名 > ③広く使われている表記
+- 同名別種（ホモニム）はシノニム登録せず、各JSONの記載名のまま独立させる
+- 今回保留した YList 検出の大幅改名ケース（例：ミズトラノオ、各種分類改訂名）は
+  新データ追加時に都度判断する
 
 ---
 
@@ -291,15 +329,6 @@ const key = synonyms[item.species_name] ?? item.species_name;
     "ordinance_name": "愛知県自然環境の保全及び緑化の推進に関する条例",
     "designated_year": 2004,
     "note": ""
-  },
-  {
-    "species_name": "オビトカゲモドキ",
-    "scientific_name": "Goniurosaurus kuroiwae splendens",
-    "jurisdiction_name": "鹿児島県",
-    "designation_name": "指定希少野生動植物",
-    "ordinance_name": "鹿児島県希少野生動植物保護条例",
-    "designated_year": 2004,
-    "note": "2015年に種の保存法・国内希少野生動植物種に格上げのため実質移行"
   }
 ]
 ```
@@ -313,9 +342,9 @@ const key = synonyms[item.species_name] ?? item.species_name;
 #### loadData への組み込みイメージ
 
 ```typescript
-// ordinance.json を他ファイルと並列read込みに追加
-const [sourcesRes, ordinanceRes, ...dataResponses] = await Promise.all([
+const [sourcesRes, synonymsRes, ordinanceRes, ...dataResponses] = await Promise.all([
   fetch("/data/sources.json"),
+  fetch("/data/synonyms.json").catch(() => null),
   fetch("/data/ordinance.json").catch(() => null),
   ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
 ]);
@@ -324,20 +353,11 @@ const ordinanceList: OrdinanceRecord[] = ordinanceRes
   ? await ordinanceRes.json().catch(() => [])
   : [];
 
-// (jurisdiction_name::species_name) → OrdinanceRecord のマップ
 const ordinanceMap = new Map<string, OrdinanceRecord>();
 for (const rec of ordinanceList) {
   const key = `${rec.jurisdiction_name}::${rec.species_name}`;
   ordinanceMap.set(key, rec);
 }
-
-// groupBySpecies 内で各 jurisdiction に付与
-speciesMap[key].jurisdictions.push({
-  // ... 既存フィールド ...
-  ordinance: ordinanceMap.get(
-    `${item.jurisdiction_name}::${item.species_name}`
-  ) ?? null,  // null = 条例指定なし
-});
 ```
 
 #### 型定義（lib/types.ts への追加）
@@ -396,6 +416,44 @@ sourceMap（id → SourceRecord）を State に保持
 Jurisdiction.publication_year としてモーダルテーブルに表示
   ↓
 /sources ページでも同 sources.json を fs.readFile で参照
+```
+
+### synonyms.json の仕組み
+```
+public/data/synonyms.json（非標準和名 → 標準和名）
+  ↓ loadData で sources.json と並列fetch
+synonyms（Record<string, string>）として保持
+  ↓
+groupBySpecies(data, synonyms) に引数として渡す
+  ↓
+const key = synonyms[item.species_name] ?? item.species_name;
+でグループキーを正規名に統一
+  ↓
+変換された元の名前は species_aliases に自動追加
+→ 非標準和名での検索にも対応
+```
+
+### フィルターの仕組み
+```
+カテゴリ・都道府県フィルター：string[] で管理（複数選択対応）
+  ↓
+トップページ：params.append("category", cat) で複数値をURLに付与
+  ↓
+検索ページ：searchParams.getAll("category") で配列として受け取り
+  ↓
+filterResults：species.jurisdictions.some(j => matchCat && matchPref && matchMuni)
+で全フィルターを統合判定（AND条件）
+  ↓
+filterJurisdictionsForDisplay：カード・モーダルの表示自治体を同条件で絞り込み
+
+都道府県選択時の市町村制御：
+- includeMunicipalities（bool）で parent_prefecture 一致を含むか制御
+- 市町村ドロップダウンで選択時は自動で true にセット
+- 市町村データがある都道府県選択時のみチェックボックスを表示
+
+都道府県リスト（トップページ）：
+- sources.json を fetch し jurisdiction_type === "prefecture" で抽出
+- PREFECTURE_CODES でソート → データ追加時に自動反映
 ```
 
 ### tsconfig.json のパス設定

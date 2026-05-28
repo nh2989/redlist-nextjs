@@ -1,0 +1,31 @@
+=== 学名が同じで和名が異なる種（真のシノニム候補）===
+件数: 7
+
+学名: Impatiens hypophylla Makino var. microhypophylla (Nakai) H.Hara
+  和名: エンシュウツリフネ → aichi.json
+  和名: エンシュウツリフネソウ → mie.json
+
+学名: Juniperus chinensis L.
+  和名: ビャクシン → aichi.json
+  和名: イブキ → hiroshima.json
+
+学名: Fritillaria japonica Miq.
+  和名: ミノコバイモ → aichi.json
+  和名: コバイモ → fukui.json
+
+学名: Saussurea ussuriensis Maxim.
+  和名: キクアザミ → aichi.json
+  和名: ワカサトウヒレン → fukui.json
+
+学名: Hepatica nobilis Schreb. var. japonica Nakai
+  和名: ミスミソウ（狭義のオオミスミソウおよびケスハマソウを含む） → fukui.json
+  和名: ミスミソウ → mie.json
+
+学名: Galium verum L. subsp. asiaticum (Nakai) T.Yamaz.
+  和名: キバナカワラマツバ → fukui.json
+  和名: キバナノカワラマツバ → hiroshima.json
+
+学名: Machaerina rubiginosa (Sol. ex G.Forst.) T.Koyama
+  和名: ネビキグサ → hiroshima.json
+  和名: アンペライ → mie.json
+

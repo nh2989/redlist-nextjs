@@ -190,6 +190,90 @@ h1 {
 }
 
 /* ============================================================
+   マルチセレクト
+   ============================================================ */
+
+/* マルチセレクトドロップダウン */
+.multi-select-dropdown {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.multi-select-btn {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-body);
+}
+
+.multi-select-btn:hover {
+  border-color: var(--brand);
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.multi-select-options {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.multi-select-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.multi-select-option:hover {
+  background: var(--bg-subtle);
+}
+
+.multi-select-option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.multi-select-clear {
+  width: 100%;
+  margin-top: 6px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.multi-select-clear:hover {
+  background: var(--bg-subtle);
+}
+
+/* ============================================================
    オートコンプリート
    ============================================================ */
 .autocomplete-list {
@@ -641,7 +725,7 @@ footer {
   -webkit-overflow-scrolling: touch;
 }
 
-.prefecture-table td.scientific-cell{
+.prefecture-table td.scientific-cell {
   font-style: italic;
   color: var(--text-body);
   white-space: normal; /* nowrap を上書き */

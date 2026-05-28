@@ -52,18 +52,15 @@ function normalizeAliases(
 ): string[] {
   if (!aliases) return [];
   if (aliases === "") return [];
-
   if (Array.isArray(aliases)) {
     return aliases.filter((a) => a && a.trim() !== "");
   }
-
   if (typeof aliases === "string") {
     return aliases
       .split("|")
       .map((a) => a.trim())
       .filter((a) => a !== "");
   }
-
   return [];
 }
 
@@ -73,8 +70,10 @@ function SearchPage() {
 
   // URLパラメータから初期値を取得
   const initialSearchTerm = searchParams.get("q") || "";
-  const initialCategory = searchParams.get("category") || "";
-  const initialPrefecture = searchParams.get("prefecture") || "";
+
+  const initialCategories = searchParams.getAll("category");
+  const initialPrefectures = searchParams.getAll("prefecture");
+
   const initialMunicipality = searchParams.get("municipality") || "";
   const initialTaxonomy = searchParams.get("taxonomy") || "";
   const initialSort = searchParams.get("sort") || "name";
@@ -85,8 +84,18 @@ function SearchPage() {
   const [filteredData, setFilteredData] = useState<SpeciesGroup[]>([]);
   const [displayData, setDisplayData] = useState<SpeciesGroup[]>([]);
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
-  const [categoryFilter, setCategoryFilter] = useState(initialCategory);
-  const [prefectureFilter, setPrefectureFilter] = useState(initialPrefecture);
+
+  const [categoryFilters, setCategoryFilters] =
+    useState<string[]>(initialCategories);
+  const [prefectureFilters, setPrefectureFilters] =
+    useState<string[]>(initialPrefectures);
+
+  // ドロップダウンの開閉
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isPrefectureOpen, setIsPrefectureOpen] = useState(false);
+  const categoryDropdownRef = useRef<HTMLDivElement>(null);
+  const prefectureDropdownRef = useRef<HTMLDivElement>(null);
+
   const [municipalityFilter, setMunicipalityFilter] =
     useState(initialMunicipality);
   const [taxonomyFilter, setTaxonomyFilter] = useState(initialTaxonomy);
@@ -102,6 +111,8 @@ function SearchPage() {
     string[]
   >([]);
 
+  const [includeMunicipalities, setIncludeMunicipalities] = useState(true);
+
   // オートコンプリート用
   const [autocompleteItems, setAutocompleteItems] = useState<SpeciesGroup[]>(
     [],
@@ -109,6 +120,18 @@ function SearchPage() {
   const [showAutocomplete, setShowAutocomplete] = useState(false);
   const [autocompleteIndex, setAutocompleteIndex] = useState(-1);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  function toggleCategoryFilter(value: string) {
+    setCategoryFilters((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
+    );
+  }
+
+  function togglePrefectureFilter(value: string) {
+    setPrefectureFilters((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
+    );
+  }
 
   // データ読み込み（初回のみ）
   useEffect(() => {
@@ -133,11 +156,16 @@ function SearchPage() {
         { id: "mie", path: "/data/mie.json" },
       ];
 
-      // sources.json をデータファイルと並列でfetch
-      const [sourcesRes, ...dataResponses] = await Promise.all([
+      // sources.json と synonyms.json をデータファイルと並列でfetch
+      const [sourcesRes, synonymsRes, ...dataResponses] = await Promise.all([
         fetch("/data/sources.json"),
+        fetch("/data/synonyms.json").catch(() => null),
         ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
       ]);
+
+      const synonyms: Record<string, string> = synonymsRes
+        ? await synonymsRes.json().catch(() => ({}))
+        : {};
 
       // source_id → source オブジェクトのマップを作成
       const sources: SourceRecord[] = await sourcesRes.json().catch(() => []);
@@ -164,7 +192,8 @@ function SearchPage() {
       setAllSpeciesData(allData);
 
       // グループ化
-      const grouped = groupBySpecies(allData);
+      const grouped = groupBySpecies(allData, synonyms);
+
       setGroupedData(grouped);
     } catch (error) {
       console.error("データ読み込みエラー:", error);
@@ -174,20 +203,31 @@ function SearchPage() {
   }
 
   // グループ化関数（和名でグループ化）
-  function groupBySpecies(data: RawSpeciesRecord[]): SpeciesGroup[] {
+  function groupBySpecies(
+    data: RawSpeciesRecord[],
+    synonyms: Record<string, string>,
+  ): SpeciesGroup[] {
     const speciesMap: Record<string, SpeciesGroup> = {};
 
     data.forEach((item) => {
-      const key = item.species_name;
+      const key = synonyms[item.species_name] ?? item.species_name;
 
       if (!speciesMap[key]) {
         speciesMap[key] = {
-          species_name: item.species_name,
+          species_name: key,
           species_aliases: (item.species_aliases as string[]) || [],
           scientific_name: item.scientific_name,
           taxonomy: item.taxonomy,
           jurisdictions: [],
         };
+      }
+
+      // シノニム変換された元の名前をaliasに追加
+      if (
+        synonyms[item.species_name] &&
+        !speciesMap[key].species_aliases.includes(item.species_name)
+      ) {
+        speciesMap[key].species_aliases.push(item.species_name);
       }
 
       speciesMap[key].jurisdictions.push({
@@ -231,105 +271,80 @@ function SearchPage() {
 
   // 都道府県が変更されたら市町村リストを更新
   useEffect(() => {
-    if (prefectureFilter) {
+    const nonNationalPrefs = prefectureFilters.filter((p) => p !== "環境省");
+    if (nonNationalPrefs.length > 0) {
       const municipalities = allSpeciesData
         .filter(
           (item) =>
             item.jurisdiction_type === "municipality" &&
-            item.parent_prefecture === prefectureFilter,
+            nonNationalPrefs.includes(item.parent_prefecture ?? ""),
         )
         .map((item) => item.jurisdiction_name);
-
-      const uniqueMunicipalities = Array.from(new Set(municipalities)).sort();
-      setAvailableMunicipalities(uniqueMunicipalities);
+      setAvailableMunicipalities(Array.from(new Set(municipalities)).sort());
     } else {
       setAvailableMunicipalities([]);
       setMunicipalityFilter("");
     }
-  }, [prefectureFilter, allSpeciesData]);
+  }, [prefectureFilters, allSpeciesData]);
 
   // フィルタリング処理
   useEffect(() => {
     filterResults();
   }, [
     searchTerm,
-    categoryFilter,
-    prefectureFilter,
+    categoryFilters,
+    prefectureFilters,
     municipalityFilter,
     taxonomyFilter,
+    includeMunicipalities, // ← 追加
     groupedData,
   ]);
 
   function filterResults() {
     let filtered = groupedData;
 
-    // 検索テキスト（和名・別名・学名）
+    // テキスト検索（変更なし）
     if (searchTerm) {
       filtered = filtered.filter((species) => {
         const searchLower = searchTerm.toLowerCase();
-
-        const matchName = species.species_name
-          .toLowerCase()
-          .includes(searchLower);
-        const matchAlias =
-          species.species_aliases.length > 0 &&
+        return (
+          species.species_name.toLowerCase().includes(searchLower) ||
           species.species_aliases.some((alias: string) =>
             alias.toLowerCase().includes(searchLower),
-          );
-        const matchScientific = species.scientific_name
-          .toLowerCase()
-          .includes(searchLower);
-
-        return matchName || matchAlias || matchScientific;
+          ) ||
+          species.scientific_name.toLowerCase().includes(searchLower)
+        );
       });
     }
 
-    // カテゴリ＋都道府県＋市町村の複合フィルター
-    if (categoryFilter && prefectureFilter && municipalityFilter) {
+    // カテゴリ・都道府県・市町村の複合フィルター（統合）
+    const hasCat = categoryFilters.length > 0;
+    const hasPref = prefectureFilters.length > 0;
+    const hasMuni = !!municipalityFilter;
+
+    if (hasCat || hasPref || hasMuni) {
       filtered = filtered.filter((species) =>
-        species.jurisdictions.some(
-          (j: Jurisdiction) =>
-            j.jurisdiction_name === municipalityFilter &&
-            isSameCategory(j.category_unified, categoryFilter),
-        ),
-      );
-    }
-    // カテゴリ＋都道府県
-    else if (categoryFilter && prefectureFilter) {
-      filtered = filtered.filter((species) =>
-        species.jurisdictions.some(
-          (j: Jurisdiction) =>
-            j.jurisdiction_name === prefectureFilter &&
-            isSameCategory(j.category_unified, categoryFilter),
-        ),
-      );
-    }
-    // カテゴリのみ
-    else if (categoryFilter) {
-      filtered = filtered.filter((species) =>
-        species.jurisdictions.some((j: Jurisdiction) =>
-          isSameCategory(j.category_unified, categoryFilter),
-        ),
-      );
-    }
-    // 都道府県＋市町村
-    else if (prefectureFilter && municipalityFilter) {
-      filtered = filtered.filter((species) =>
-        species.jurisdictions.some(
-          (j: Jurisdiction) => j.jurisdiction_name === municipalityFilter,
-        ),
-      );
-    }
-    // 都道府県のみ
-    else if (prefectureFilter) {
-      filtered = filtered.filter((species) =>
-        species.jurisdictions.some(
-          (j: Jurisdiction) => j.jurisdiction_name === prefectureFilter,
-        ),
+        species.jurisdictions.some((j: Jurisdiction) => {
+          const matchCat =
+            !hasCat ||
+            categoryFilters.some((cat) =>
+              isSameCategory(j.category_unified, cat),
+            );
+
+          const matchPref =
+            !hasPref ||
+            prefectureFilters.includes(j.jurisdiction_name) ||
+            (includeMunicipalities &&
+              prefectureFilters.some((pref) => j.parent_prefecture === pref));
+
+          const matchMuni =
+            !hasMuni || j.jurisdiction_name === municipalityFilter;
+          return matchCat && matchPref && matchMuni;
+        }),
       );
     }
 
-    // 分類フィルター
+    // 分類フィルター（変更なし）
     if (taxonomyFilter) {
       filtered = filtered.filter(
         (species) => species.taxonomy === taxonomyFilter,
@@ -338,6 +353,26 @@ function SearchPage() {
 
     setFilteredData(filtered);
   }
+
+  // ドロップダウン外クリックで閉じる処理
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        categoryDropdownRef.current &&
+        !categoryDropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsCategoryOpen(false);
+      }
+      if (
+        prefectureDropdownRef.current &&
+        !prefectureDropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsPrefectureOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // 並び替え処理
   useEffect(() => {
@@ -485,23 +520,21 @@ function SearchPage() {
   ): Jurisdiction[] {
     let filtered = jurisdictions;
 
-    // カテゴリフィルターが選択されている場合
-    if (categoryFilter) {
+    if (categoryFilters.length > 0) {
       filtered = filtered.filter((j: Jurisdiction) =>
-        isSameCategory(j.category_unified, categoryFilter),
+        categoryFilters.some((cat) => isSameCategory(j.category_unified, cat)),
       );
     }
 
-    // 都道府県フィルターが選択されている場合
-    if (prefectureFilter) {
+    if (prefectureFilters.length > 0) {
       filtered = filtered.filter(
         (j: Jurisdiction) =>
-          j.jurisdiction_name === prefectureFilter ||
-          j.parent_prefecture === prefectureFilter,
+          prefectureFilters.includes(j.jurisdiction_name) ||
+          (includeMunicipalities &&
+            prefectureFilters.some((pref) => j.parent_prefecture === pref)),
       );
     }
 
-    // 市町村フィルターが選択されている場合
     if (municipalityFilter) {
       filtered = filtered.filter(
         (j: Jurisdiction) => j.jurisdiction_name === municipalityFilter,
@@ -601,51 +634,148 @@ function SearchPage() {
           </div>
 
           <div className="filters">
-            <select
-              value={categoryFilter}
-              onChange={(e) => setCategoryFilter(e.target.value)}
-            >
-              <option value="">カテゴリ：すべて</option>
-              <option value="EX">絶滅（EX）</option>
-              <option value="EW">野生絶滅（EW）</option>
-              <option value="CR">絶滅危惧ⅠA類（CR）</option>
-              <option value="EN">絶滅危惧ⅠB類（EN）</option>
-              <option value="CREN">絶滅危惧Ⅰ類（CR+EN）</option>
-              <option value="VU">絶滅危惧Ⅱ類（VU）</option>
-              <option value="NT">準絶滅危惧（NT）</option>
-              <option value="DD">情報不足（DD）</option>
-              <option value="LP">地域個体群（LP）</option>
-              <option value="OTHER">その他</option>
-            </select>
+            {/* カテゴリ複数選択 */}
+            <div className="multi-select-dropdown" ref={categoryDropdownRef}>
+              <button
+                className="multi-select-btn"
+                onClick={() => setIsCategoryOpen((v) => !v)}
+              >
+                {categoryFilters.length === 0
+                  ? "カテゴリ：すべて"
+                  : `カテゴリ：${categoryFilters.length}件選択`}
+                <span className="dropdown-arrow">
+                  {isCategoryOpen ? "▲" : "▼"}
+                </span>
+              </button>
+              {isCategoryOpen && (
+                <div className="multi-select-options">
+                  {(
+                    [
+                      ["EX", "絶滅（EX）"],
+                      ["EW", "野生絶滅（EW）"],
+                      ["CR", "絶滅危惧ⅠA類（CR）"],
+                      ["EN", "絶滅危惧ⅠB類（EN）"],
+                      ["CREN", "絶滅危惧Ⅰ類（CR+EN）"],
+                      ["VU", "絶滅危惧Ⅱ類（VU）"],
+                      ["NT", "準絶滅危惧（NT）"],
+                      ["DD", "情報不足（DD）"],
+                      ["LP", "地域個体群（LP）"],
+                      ["OTHER", "その他"],
+                    ] as [string, string][]
+                  ).map(([value, label]) => (
+                    <label key={value} className="multi-select-option">
+                      <input
+                        type="checkbox"
+                        checked={categoryFilters.includes(value)}
+                        onChange={() => toggleCategoryFilter(value)}
+                      />
+                      {label}
+                    </label>
+                  ))}
+                  {categoryFilters.length > 0 && (
+                    <button
+                      className="multi-select-clear"
+                      onClick={() => setCategoryFilters([])}
+                    >
+                      クリア
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
 
-            <select
-              value={prefectureFilter}
-              onChange={(e) => {
-                setPrefectureFilter(e.target.value);
-                setMunicipalityFilter("");
-              }}
-            >
-              <option value="">都道府県：すべて</option>
-              {Object.keys(PREFECTURE_CODES)
-                .filter((pref) =>
-                  allSpeciesData.some(
-                    (item) =>
-                      item.jurisdiction_name === pref ||
-                      item.parent_prefecture === pref,
-                  ),
-                )
-                .sort((a, b) => PREFECTURE_CODES[a] - PREFECTURE_CODES[b])
-                .map((pref) => (
-                  <option key={pref} value={pref}>
-                    {pref}
-                  </option>
-                ))}
-            </select>
+            {/* 都道府県複数選択（環境省含む） */}
+            <div className="multi-select-dropdown" ref={prefectureDropdownRef}>
+              <button
+                className="multi-select-btn"
+                onClick={() => setIsPrefectureOpen((v) => !v)}
+              >
+                {prefectureFilters.length === 0
+                  ? "都道府県：すべて"
+                  : `都道府県：${prefectureFilters.join("・")}`}
+                <span className="dropdown-arrow">
+                  {isPrefectureOpen ? "▲" : "▼"}
+                </span>
+              </button>
+              {isPrefectureOpen && (
+                <div className="multi-select-options">
+                  {/* 環境省を先頭に */}
+                  <label className="multi-select-option">
+                    <input
+                      type="checkbox"
+                      checked={prefectureFilters.includes("環境省")}
+                      onChange={() => togglePrefectureFilter("環境省")}
+                    />
+                    🏛️ 環境省
+                  </label>
+                  <hr
+                    style={{
+                      margin: "4px 0",
+                      border: "none",
+                      borderTop: "1px solid var(--border)",
+                    }}
+                  />
+                  {Object.keys(PREFECTURE_CODES)
+                    .filter((pref) =>
+                      allSpeciesData.some(
+                        (item) =>
+                          item.jurisdiction_name === pref ||
+                          item.parent_prefecture === pref,
+                      ),
+                    )
+                    .sort((a, b) => PREFECTURE_CODES[a] - PREFECTURE_CODES[b])
+                    .map((pref) => (
+                      <label key={pref} className="multi-select-option">
+                        <input
+                          type="checkbox"
+                          checked={prefectureFilters.includes(pref)}
+                          onChange={() => togglePrefectureFilter(pref)}
+                        />
+                        {pref}
+                      </label>
+                    ))}
+                  {prefectureFilters.length > 0 && (
+                    <button
+                      className="multi-select-clear"
+                      onClick={() => setPrefectureFilters([])}
+                    >
+                      クリア
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
 
+            {prefectureFilters.length > 0 &&
+              availableMunicipalities.length > 0 && (
+                <label
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    fontSize: "var(--fs-sm)",
+                    color: "var(--text-body)",
+                    cursor: "pointer",
+                    padding: "4px 0",
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={includeMunicipalities}
+                    onChange={(e) => setIncludeMunicipalities(e.target.checked)}
+                  />
+                  市町村を含む
+                </label>
+              )}
+
+            {/* 市町村・分類群・ソートは変更なし */}
             {availableMunicipalities.length > 0 && (
               <select
                 value={municipalityFilter}
-                onChange={(e) => setMunicipalityFilter(e.target.value)}
+                onChange={(e) => {
+                  setMunicipalityFilter(e.target.value);
+                  if (e.target.value) setIncludeMunicipalities(true);
+                }}
               >
                 <option value="">市町村：すべて</option>
                 {availableMunicipalities.map((muni) => (

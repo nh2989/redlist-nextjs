@@ -1,0 +1,292 @@
+=== YList照合結果：非標準和名の可能性がある種 ===
+
+アイヅシモツケ → アイズシモツケ
+  (gifu.json)
+アズミイヌノヒゲ → エゾホシクサ
+  (national.json)
+アンペライ → ネビキグサ
+  (mie.json)
+イイタカムシトリスミレ → ムシトリスミレ
+  (gifu.json, mie.json)
+イトタヌキモ → ミカワタヌキモ
+  (kyoto.json, shiga.json, shiga_2025.json, shimane.json)
+イナカギク → ヤマシロギク
+  (shimane.json)
+イワウチワ → トクワカソウ
+  (mie.json)
+イワテヤマナシ → ミチノクナシ
+  (kyoto.json)
+イワヤクシソウ → ナガバヤクシソウ
+  (hiroshima.json, national.json)
+ウジカラマツ → ウジカラマツソウ
+  (national.json)
+ウスキムヨウラン → ウスギムヨウラン
+  (gifu.json, kyoto.json, shiga_2025.json)
+ウゼンベニバナヒョウタンボク → ベニバナヒョウタンボク
+  (national.json)
+ウラホロイチゲ → ヤチイチゲ
+  (national.json)
+エゾアオイスミレ → エゾノアオイスミレ
+  (hiroshima.json)
+エゾノトウウチソウ → エゾトウウチソウ
+  (national.json)
+エゾハナシノブ → エゾノハナシノブ
+  (national.json)
+エンシュウツリフネ → エンシュウツリフネソウ
+  (aichi.json)
+オオアカネ → アカネムグラ
+  (fukui.json)
+オオニガナ → ハナニガナ
+  (gifu.json, kyoto.json, shiga.json, shiga_2025.json)
+オオマルバノコンロンソウ → オオマルバコンロンソウ
+  (hiroshima.json)
+オオマルバベニシダ → マルバベニシダ
+  (kyoto.json)
+オオミコゴメグサ → オウミコゴメグサ
+  (national.json, shiga.json, shiga_2025.json)
+オオミズヒキモ → カモガワモ
+  (kyoto.json)
+オオミゾソバ → ミゾソバ
+  (aichi.json)
+オキナグサ → オキナヤブラン
+  (aichi.json, fukui.json, gifu.json, hiroshima.json, koka.json, kyoto.json, mie.json, national.json, shiga.json, shiga_2025.json, shimane.json)
+オトメイタチシダ → コスギイタチシダ
+  (national.json)
+オニカモジ → オニカモジグサ
+  (national.json)
+オニカンアオイ → ヤクシマアオイ
+  (national.json)
+カラメドハギ → シベリアメドハギ
+  (kyoto.json)
+キソキイチゴ → キソイチゴ
+  (gifu.json)
+キバナイソマツ → タイワンハマサジ
+  (national.json)
+キビナワシロイチゴ → キビノナワシロイチゴ
+  (shimane.json)
+キヨズミウツボ → キヨスミウツボ
+  (kyoto.json)
+クロブシヒョウタンボク → キタカミヒョウタンボク
+  (national.json)
+ケマルバスミレ → マルバスミレ
+  (kyoto.json)
+コウシュンシダ → ホソバコウシュンシダ
+  (national.json)
+コウシュンモダマ → ヒメモダマ
+  (national.json)
+コウライトモエソウ → オオトモエソウ
+  (national.json)
+コケトウバナ → ヤクシマトウバナ
+  (national.json)
+コツゲ → ツゲ
+  (kyoto.json)
+コツブチゴザサ → チゴザサ
+  (national.json)
+コバイモ → ミノコバイモ
+  (fukui.json)
+ゴハリマツモ → ヨツバリキンギョモ
+  (shiga.json, shiga_2025.json)
+サイゴククロヅル → クロヅル
+  (mie.json)
+サケバゼリ → セリ
+  (shimane.json)
+サツマスズメウリ → ホソガタスズメウリ
+  (national.json)
+サワトンボ → オオミズトンボ
+  (gifu.json)
+シジキカンアオイ → シシキカンアオイ
+  (national.json)
+シブツアサツキ → シロウマアサツキ
+  (national.json)
+シマキケマン → ムニンキケマン
+  (hiroshima.json)
+シマシャジン → リュウキュウシャジン
+  (national.json)
+シモダカンアオイ → アマギカンアオイ
+  (national.json)
+ショウキラン → ショウキズイセン
+  (fukui.json, gifu.json, koka.json, kyoto.json, mie.json, shiga.json, shiga_2025.json, shimane.json)
+シレトコトリカブト → シレトコブシ
+  (national.json)
+シログワイ → イヌクログワイ
+  (mie.json)
+シロバナウンゼン → シロバナウンゼンツツジ
+  (kyoto.json)
+スズフリイカリソウ → オオバイカイカリソウ
+  (hiroshima.json)
+スズメハコベ → スズメノハコベ
+  (hiroshima.json, mie.json, national.json, shimane.json)
+スズラン → カキラン
+  (gifu.json)
+スルガヒョウタンボク → エゾヒョウタンボク
+  (national.json)
+セイタカスズムシソウ → コダチスズムシソウ
+  (aichi.json, fukui.json, gifu.json, hiroshima.json, mie.json, shiga.json, shiga_2025.json)
+セキコク → セッコク
+  (kyoto.json)
+セトウチコスズ → アリマコスズ
+  (hiroshima.json)
+タイシャクカモジ → コウリョウカモジグサ
+  (hiroshima.json, national.json)
+タイワンチトセカズラ → チトセカズラ
+  (national.json)
+タイワントリアシ → ナガバヤブマオ
+  (national.json)
+タイワンビロードシダ → ビロードシダ
+  (national.json)
+タカネショウジョウスゲ → ショウジョウスゲ
+  (fukui.json)
+タチガシワ → カシワ
+  (aichi.json)
+タマボウキ → タムラソウ
+  (national.json)
+チシマヒカゲノカズラ → ミヤマヒカゲノカズラ
+  (national.json)
+チシママンテマ → カラフトマンテマ
+  (national.json)
+チチジマイチゴ → チチジマキイチゴ
+  (national.json)
+チュウゴクボダイジュ → マンシュウボダイジュ
+  (hiroshima.json, national.json)
+ツクシテンナンショウ → オガタテンナンショウ
+  (national.json)
+ツルキケマン → ツルケマン
+  (national.json)
+テツオサギソウ → ナガバサギソウ
+  (national.json)
+テリハコブガシ → オガサワラアオグス
+  (national.json)
+ナガバアリノトウグサ → タネガシマアリノトウグサ
+  (national.json)
+ナガミノツルキケマン → ナガミノツルケマン
+  (national.json)
+ナスヒオウギアヤメ → ナスノヒオウギアヤメ
+  (national.json)
+ナタオレノキ → シマモクセイ
+  (mie.json)
+ナンバンカモメラン → ナンバンカゴメラン
+  (national.json)
+ニッコウキスゲ → ゼンテイカ
+  (kyoto.json)
+ノダケモドキ → イワニンジン
+  (aichi.json)
+ハイノキ → クロバイ
+  (mie.json)
+ハクサンシャクナゲ → ケナシハクサンシャクナゲ
+  (fukui.json)
+ハマヤブガラシ → ハマヤブカラシ
+  (national.json)
+ヒメアマナ → ヒメニラ
+  (national.json)
+ヒメウスユキソウ → コマウスユキソウ
+  (national.json)
+ヒメウワバミソウ → ハイウワバミソウ(temp.)
+  (shiga.json, shiga_2025.json)
+ヒメコウモリソウ → ヒメコウモリ
+  (national.json)
+ヒメジガバチソウ → ジガバチソウ
+  (national.json)
+ヒメタツナミソウ → キカイタツナミソウ
+  (national.json)
+ヒモカズラ → コウシュンヒモカズラ
+  (fukui.json, gifu.json, hiroshima.json, kyoto.json, shimane.json)
+ヒョウタンボク → キンギンボク
+  (shimane.json)
+ヒロハスズメノトウガラシ → スズメノトウガラシ
+  (aichi.json)
+ヒロハツリバナ → ヒロハノツリバナ
+  (aichi.json, mie.json)
+ヒロハトリゲモ → サガミトリゲモ
+  (hikone.json, kyoto.json, shiga.json, shiga_2025.json, shimane.json)
+ビャクシン → イブキ
+  (aichi.json)
+フサカンスゲ → カワリナンブスゲ
+  (national.json)
+フユザキヤツシロラン → ハルザキヤツシロラン
+  (national.json)
+ベニバナツクバネウツギ → ベニバナノツクバネウツギ
+  (aichi.json)
+ホウサイラン → ホウサイ
+  (national.json)
+ホウライヒメワラビ → ホウライウスヒメワラビ
+  (national.json, shimane.json)
+ホザキノヤドリギ → ホザキヤドリギ
+  (shimane.json)
+ホザキヒメラン → キザンヒメラン
+  (national.json)
+ホソバツルリンドウ → ホソバノツルリンドウ
+  (aichi.json, national.json)
+ホソバテンナンショウ → アマミテンナンショウ
+  (aichi.json, gifu.json)
+ホソバノダケ → コウライヒメノダケ
+  (national.json)
+ホソバヒカゲスゲ → ヒナタスゲ
+  (gifu.json)
+ホソバヤマハハコ → ホソバノヤマハハコ
+  (kyoto.json)
+ホテイアツモリ → ホテイアツモリソウ
+  (gifu.json, national.json)
+ホロムイコウガイ → ホソコウガイゼキショウ
+  (national.json)
+マヤプシギ → ハマザクロ
+  (national.json)
+マルバノリクラアザミ → ノリクラアザミ
+  (shiga.json, shiga_2025.json)
+ミクラジマトウヒレン → ミクラシマトウヒレン
+  (national.json)
+ミズスギナ → ミズドクサ
+  (aichi.json, fukui.json, mie.json, national.json)
+ミズタカモジ → ミズタカモジグサ
+  (aichi.json, gifu.json, kyoto.json, mie.json, national.json, shiga.json, shiga_2025.json)
+ミズトラノオ → サワトラノオ
+  (aichi.json, fukui.json, gifu.json, kyoto.json, mie.json, national.json, shiga.json, shiga_2025.json)
+ミズハナビ → ヒメガヤツリ
+  (kyoto.json)
+ミツバヒヨドリ → ミツバヒヨドリバナ
+  (kyoto.json)
+ミヤマスズメノヒエ → ミヤマヌカボシソウ
+  (fukui.json)
+ミヤマゼキショウ → ハコネハナゼキショウ
+  (national.json)
+ミヤマダイモンジソウ → ダイモンジソウ
+  (fukui.json)
+ミョウギイワザクラ → ミョウギコザクラ
+  (national.json)
+ムシクサ → ケムシクサ
+  (shimane.json)
+ムニンホラゴケ → オガサワラウチワゴケ
+  (national.json)
+ムロウマムシグサ → キシダマムシグサ
+  (aichi.json)
+モクビャクコウ → モクビャッコウ
+  (national.json)
+モトマチハナワラビ → シチトウハナワラビ
+  (aichi.json, kyoto.json)
+モミジタマブキ → ミヤマコウモリソウ
+  (aichi.json)
+ヤエヤマヒメウツギ → ヤエヤマウツギ
+  (national.json)
+ヤクシマサワハコベ → ヤクシマハコベ
+  (national.json)
+ヤクシマシロバナヘビイチゴ → シロバナノヘビイチゴ
+  (national.json)
+ヤクシマヒゴタイ → ヤクシマトウヒレン
+  (national.json)
+ヤグルマソウ → ヤグルマギク
+  (mie.json)
+ヤマシロギク → シロヨメナ
+  (gifu.json)
+ヤマワキオゴケ → クサナギオゴケ
+  (national.json)
+ユキワリソウ → ミスミソウ
+  (fukui.json)
+ヨナグニカモメヅル → ヨナクニカモメヅル
+  (national.json)
+リュウキュウサギソウ → ナメラサギソウ
+  (national.json)
+リュウキュウツルマサキ → ツルマサキ
+  (national.json)
+ワガトリカブト → ウゼントリカブト
+  (national.json)
+
+該当件数: 144
