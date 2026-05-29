@@ -123,6 +123,12 @@ h1 {
   margin-bottom: 15px;
 }
 
+.search-query-label {
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+  margin-bottom: 12px;
+}
+
 #searchBox {
   width: 100%;
   padding: 15px;
@@ -399,76 +405,183 @@ h1 {
   color: var(--text-body);
   font-size: 18px;
 }
+
 .results {
-  display: grid;
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-.species-card {
-  border: 2px solid var(--border);
-  padding: 20px;
+/* 分類群グループヘッダー */
+.taxonomy-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 4px 6px;
+}
+.taxonomy-group-header:first-child {
+  padding-top: 0;
+}
+.tax-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.taxonomy-group-header span {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-faint);
+  letter-spacing: 0.05em;
+}
+
+/* グループ外枠 */
+.card-group {
+  border: 1px solid var(--border);
   border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+/* 種カード（グループ内の各行） */
+.species-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 0 14px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
   background: var(--bg-page);
-  transition: all 0.3s;
   cursor: pointer;
+  transition: background 0.15s;
 }
-
+.species-card:first-child {
+  border-top: none;
+}
 .species-card:hover {
-  border-color: var(--brand);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(74, 111, 165, 0.15);
+  background: var(--bg-table-header);
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
 }
 
+/* 左列：和名・学名 */
+.card-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .species-card h3 {
   color: var(--text-heading);
-  font-size: 1rem;
-  margin-bottom: 8px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: 3px;
+  line-height: 1.3;
 }
 .scientific {
   font-style: italic;
-  color: var(--text-body);
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-  margin-left: 8px;
+  color: var(--text-faint);
+  font-size: var(--fs-xs);
+  margin: 0;
 }
-.prefecture-list {
+
+/* 右列：指定状況 */
+.card-right {
+  border-left: 1px solid var(--border);
+  padding-left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+.desg-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.desg-label {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  width: 4em;
+  flex-shrink: 0;
+  padding-top: 2px;
+  line-height: 1;
+  text-align: justify; /* 両端揃えで「国」「市町村」も幅いっぱいに伸ばす */
+  text-align-last: justify; /* 最終行も両端揃え */
+}
+.org-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 3px;
 }
-
-.prefecture-badge-inline {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 16px;
+.org-item {
   font-size: var(--fs-xs);
   font-weight: 500;
-  color: white;
-  cursor: help;
-  transition: transform 0.2s;
+  line-height: 1.6;
+  padding: 1px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+/* カテゴリ色はCategoryStyles.tsxのCSS変数を流用 */
+.org-item.category-ex {
+  background: var(--color-cat-ex);
+  color: var(--color-cat-ex-text);
+}
+.org-item.category-ew {
+  background: var(--color-cat-ew);
+  color: var(--color-cat-ew-text);
+}
+.org-item.category-cr {
+  background: var(--color-cat-cr);
+  color: var(--color-cat-cr-text);
+}
+.org-item.category-en {
+  background: var(--color-cat-en);
+  color: var(--color-cat-en-text);
+}
+.org-item.category-cren {
+  background: var(--color-cat-cren);
+  color: var(--color-cat-cren-text);
+}
+.org-item.category-vu {
+  background: var(--color-cat-vu);
+  color: var(--color-cat-vu-text);
+}
+.org-item.category-nt {
+  background: var(--color-cat-nt);
+  color: var(--color-cat-nt-text);
+}
+.org-item.category-dd {
+  background: var(--color-cat-dd);
+  color: var(--color-cat-dd-text);
+}
+.org-item.category-lp {
+  background: var(--color-cat-lp);
+  color: var(--color-cat-lp-text);
+}
+.org-item.category-other {
+  background: var(--color-cat-other);
+  color: var(--color-cat-other-text);
 }
 
-.prefecture-badge-inline:hover {
-  transform: scale(1.05);
-}
-.meta-info {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
-  font-size: var(--fs-sm);
-  color: var(--text-faint);
-}
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
 .no-results {
   text-align: center;
   padding: 60px 20px;
   color: var(--text-faint);
   font-size: var(--fs-base);
+}
+
+/* モバイル */
+@media (max-width: 768px) {
+  .species-card {
+    grid-template-columns: 1fr;
+  }
+  .card-right {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 8px;
+    margin-top: 6px;
+  }
 }
 
 /* ============================================================

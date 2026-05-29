@@ -17,22 +17,6 @@ const CATEGORIES: [string, string][] = [
   ["OTHER", "その他"],
 ];
 
-const TAXONOMIES = [
-  "維管束植物",
-  "蘚苔類",
-  "藻類",
-  "地衣類",
-  "菌類",
-  "哺乳類",
-  "鳥類",
-  "爬虫類",
-  "両生類",
-  "魚類",
-  "昆虫類",
-  "貝類",
-  "その他無脊椎動物",
-];
-
 export default function Home() {
   const router = useRouter();
 
@@ -49,6 +33,7 @@ export default function Home() {
   const [availablePrefectures, setAvailablePrefectures] = useState<string[]>(
     [],
   );
+  const [availableTaxonomies, setAvailableTaxonomies] = useState<string[]>([]);
 
   // ドロップダウン外クリックで閉じる
   useEffect(() => {
@@ -87,6 +72,14 @@ export default function Home() {
           setAvailablePrefectures(prefs);
         },
       )
+      .catch(() => {});
+
+    // 追加: taxonomies.json fetch
+    fetch("/data/taxonomies.json")
+      .then((res) => res.json())
+      .then((list: { canonical: string }[]) => {
+        setAvailableTaxonomies(list.map((t) => t.canonical));
+      })
       .catch(() => {});
   }, []);
 
@@ -243,7 +236,7 @@ export default function Home() {
                 onChange={(e) => setTaxonomyFilter(e.target.value)}
               >
                 <option value="">分類群：すべて</option>
-                {TAXONOMIES.map((tax) => (
+                {availableTaxonomies.map((tax) => (
                   <option key={tax} value={tax}>
                     {tax}
                   </option>

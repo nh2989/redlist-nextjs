@@ -32,6 +32,24 @@ export const CATEGORY_TEXT_COLORS = {
   OTHER: "#333333",
 } as const;
 
+// ---------- 分類群ドット色（検索結果カードのグループヘッダー用） ----------
+export const TAXONOMY_DOT_COLOR: Record<string, string> = {
+  哺乳類: "#185fa5",
+  鳥類: "#378add",
+  爬虫類: "#534ab7",
+  両生類: "#7f77dd",
+  淡水魚類: "#0c447c",
+  昆虫類: "#ba7517",
+  甲殻類: "#993c1d",
+  軟体動物: "#d85a30",
+  その他無脊椎動物: "#888780",
+  維管束植物: "#3b6d11",
+  蘚苔類: "#639922",
+  藻類: "#1d9e75",
+  地衣類: "#0f6e56",
+  菌類: "#444441",
+};
+
 // ---------- 優先順位（希少性が高いほど小さい値） ----------
 export const CATEGORY_PRIORITY: Record<string, number> = {
   EX: 1,
@@ -124,14 +142,14 @@ export const PREFECTURE_CODES: Record<string, number> = {
   沖縄県: 47,
 };
 
+// ============================================================
+// ユーティリティ関数
+// ============================================================
+
 // ---------- 都道府県コード → 都道府県名（逆引き） ----------
 export const CODE_TO_PREF: Record<number, string> = Object.fromEntries(
   Object.entries(PREFECTURE_CODES).map(([name, code]) => [code, name]),
 );
-
-// ============================================================
-// ユーティリティ関数
-// ============================================================
 
 // カテゴリ文字列 → 統一グループキー（EX / CR / EN ...）
 export function getCategoryGroup(category: string): string {
@@ -172,7 +190,7 @@ export function getCategoryClass(unified: string): string {
     case "DD":
       return "category-dd";
     case "LP":
-      return "category-lp"; 
+      return "category-lp";
     default:
       return "category-other";
   }
@@ -199,4 +217,9 @@ export function isSameCategory(unified: string, filter: string): boolean {
   if (!unified || !filter) return false;
   if (filter === "OTHER") return !isMajorCategory(unified);
   return unified === filter;
+}
+
+// 分類群色設定
+export function getTaxonomyDotColor(taxonomy: string): string {
+  return TAXONOMY_DOT_COLOR[taxonomy] ?? "#888780";
 }
