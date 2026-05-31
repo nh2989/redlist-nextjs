@@ -2,26 +2,27 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { PREFECTURE_CODES } from "@/lib/categoryConstants";
+import {
+  PREFECTURE_CODES,
+  ALL_CATEGORIES,
+  CATEGORY_DISPLAY,
+  isAllCategoriesSelected,
+  toggleCategoryValue,
+} from "@/lib/categoryConstants";
 
-const CATEGORIES: [string, string][] = [
-  ["EX", "絶滅（EX）"],
-  ["EW", "野生絶滅（EW）"],
-  ["CR", "絶滅危惧ⅠA類（CR）"],
-  ["EN", "絶滅危惧ⅠB類（EN）"],
-  ["CREN", "絶滅危惧Ⅰ類（CR+EN）"],
-  ["VU", "絶滅危惧Ⅱ類（VU）"],
-  ["NT", "準絶滅危惧（NT）"],
-  ["DD", "情報不足（DD）"],
-  ["LP", "地域個体群（LP）"],
-  ["OTHER", "その他"],
-];
+interface SourceEntry {
+  jurisdiction_name: string;
+  jurisdiction_type: string;
+  parent_prefecture?: string;
+}
 
 export default function Home() {
   const router = useRouter();
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [categoryFilters, setCategoryFilters] = useState<string[]>([]);
+  const [categoryFilters, setCategoryFilters] = useState<string[]>([
+    ...ALL_CATEGORIES,
+  ]);
   const [prefectureFilters, setPrefectureFilters] = useState<string[]>([]);
   const [taxonomyFilter, setTaxonomyFilter] = useState("");
 
@@ -33,23 +34,52 @@ export default function Home() {
   const [availablePrefectures, setAvailablePrefectures] = useState<string[]>(
     [],
   );
+  const [prefToMunicipalities, setPrefToMunicipalities] = useState<
+    Record<string, string[]>
+  >({});
   const [availableTaxonomies, setAvailableTaxonomies] = useState<string[]>([]);
 
-  // ドロップダウン外クリックで閉じる
+  const availableAllPrefs = ["環境省", ...availablePrefectures];
+  const allMunicipalities = Object.values(prefToMunicipalities).flat();
+
+  const allCatSelected = isAllCategoriesSelected(categoryFilters);
+  const isCatFiltered = !allCatSelected && categoryFilters.length > 0;
+
+  const prefOnlyFilters = prefectureFilters.filter(
+    (p) => !allMunicipalities.includes(p),
+  );
+  const allPrefSelected =
+    availableAllPrefs.length > 1 &&
+    availableAllPrefs.every((p) => prefOnlyFilters.includes(p));
+  const isPrefFiltered = !allPrefSelected && prefOnlyFilters.length > 0;
+  const hasMuniSelected = prefectureFilters.some((p) =>
+    allMunicipalities.includes(p),
+  );
+
+  const activeCategoryTags = isCatFiltered
+    ? categoryFilters.filter(
+        (c) =>
+          !(c === "CR" && categoryFilters.includes("CREN")) &&
+          !(c === "EN" && categoryFilters.includes("CREN")),
+      )
+    : [];
+  const activePrefTags = isPrefFiltered ? prefOnlyFilters : [];
+  const activeMuniTags = prefectureFilters.filter((p) =>
+    allMunicipalities.includes(p),
+  );
+
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (
         categoryRef.current &&
         !categoryRef.current.contains(e.target as Node)
-      ) {
+      )
         setIsCategoryOpen(false);
-      }
       if (
         prefectureRef.current &&
         !prefectureRef.current.contains(e.target as Node)
-      ) {
+      )
         setIsPrefectureOpen(false);
-      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -58,23 +88,33 @@ export default function Home() {
   useEffect(() => {
     fetch("/data/sources.json")
       .then((res) => res.json())
-      .then(
-        (
-          sources: { jurisdiction_name: string; jurisdiction_type: string }[],
-        ) => {
-          const prefs = sources
-            .filter((s) => s.jurisdiction_type === "prefecture")
-            .map((s) => s.jurisdiction_name)
-            .sort(
-              (a, b) =>
-                (PREFECTURE_CODES[a] ?? 999) - (PREFECTURE_CODES[b] ?? 999),
-            );
-          setAvailablePrefectures(prefs);
-        },
-      )
+      .then((sources: SourceEntry[]) => {
+        const prefs = sources
+          .filter((s) => s.jurisdiction_type === "prefecture")
+          .map((s) => s.jurisdiction_name)
+          .sort(
+            (a, b) =>
+              (PREFECTURE_CODES[a] ?? 999) - (PREFECTURE_CODES[b] ?? 999),
+          );
+        setAvailablePrefectures(prefs);
+        setPrefectureFilters(["環境省", ...prefs]);
+
+        const muniMap: Record<string, string[]> = {};
+        sources
+          .filter(
+            (s) =>
+              s.jurisdiction_type === "municipality" && s.parent_prefecture,
+          )
+          .forEach((s) => {
+            const parent = s.parent_prefecture!;
+            if (!muniMap[parent]) muniMap[parent] = [];
+            muniMap[parent].push(s.jurisdiction_name);
+          });
+        Object.keys(muniMap).forEach((p) => muniMap[p].sort());
+        setPrefToMunicipalities(muniMap);
+      })
       .catch(() => {});
 
-    // 追加: taxonomies.json fetch
     fetch("/data/taxonomies.json")
       .then((res) => res.json())
       .then((list: { canonical: string }[]) => {
@@ -83,10 +123,16 @@ export default function Home() {
       .catch(() => {});
   }, []);
 
+  function handleCategoryAllChange(checked: boolean) {
+    setCategoryFilters(checked ? [...ALL_CATEGORIES] : []);
+  }
+
   function toggleCategory(value: string) {
-    setCategoryFilters((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
-    );
+    setCategoryFilters((prev) => toggleCategoryValue(prev, value));
+  }
+
+  function handlePrefectureAllChange(checked: boolean) {
+    setPrefectureFilters(checked ? [...availableAllPrefs] : []);
   }
 
   function togglePrefecture(value: string) {
@@ -95,12 +141,20 @@ export default function Home() {
     );
   }
 
+  function toggleMunicipality(muni: string) {
+    setPrefectureFilters((prev) =>
+      prev.includes(muni) ? prev.filter((v) => v !== muni) : [...prev, muni],
+    );
+  }
+
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     const params = new URLSearchParams();
     if (searchTerm) params.set("q", searchTerm);
-    categoryFilters.forEach((cat) => params.append("category", cat));
-    prefectureFilters.forEach((pref) => params.append("prefecture", pref));
+    if (!allCatSelected)
+      categoryFilters.forEach((cat) => params.append("category", cat));
+    if (!allPrefSelected || hasMuniSelected)
+      prefectureFilters.forEach((pref) => params.append("prefecture", pref));
     if (taxonomyFilter) params.set("taxonomy", taxonomyFilter);
     router.push(`/search?${params.toString()}`);
   }
@@ -139,57 +193,140 @@ export default function Home() {
               <div className="multi-select-dropdown" ref={categoryRef}>
                 <button
                   type="button"
-                  className="multi-select-btn"
+                  className={`multi-select-btn${isCatFiltered ? " multi-select-btn--active" : ""}`}
                   onClick={() => setIsCategoryOpen((v) => !v)}
                 >
-                  {categoryFilters.length === 0
-                    ? "カテゴリ：すべて"
-                    : `カテゴリ：${categoryFilters.length}件選択`}
+                  <span>カテゴリ</span>
+                  {isCatFiltered && (
+                    <span className="filter-badge">
+                      {categoryFilters.length}
+                    </span>
+                  )}
                   <span className="dropdown-arrow">
                     {isCategoryOpen ? "▲" : "▼"}
                   </span>
                 </button>
                 {isCategoryOpen && (
                   <div className="multi-select-options">
-                    {CATEGORIES.map(([value, label]) => (
-                      <label key={value} className="multi-select-option">
+                    <label className="multi-select-option multi-select-option--all">
+                      <input
+                        type="checkbox"
+                        checked={allCatSelected}
+                        onChange={(e) =>
+                          handleCategoryAllChange(e.target.checked)
+                        }
+                      />
+                      すべて
+                    </label>
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
+                    />
+                    <label className="multi-select-option">
+                      <input
+                        type="checkbox"
+                        checked={categoryFilters.includes("EX")}
+                        onChange={() => toggleCategory("EX")}
+                      />
+                      絶滅（EX）
+                    </label>
+                    <label className="multi-select-option">
+                      <input
+                        type="checkbox"
+                        checked={categoryFilters.includes("EW")}
+                        onChange={() => toggleCategory("EW")}
+                      />
+                      野生絶滅（EW）
+                    </label>
+                    {/* CREN 親行 */}
+                    <div className="pref-row-with-badge">
+                      <label
+                        className="multi-select-option"
+                        style={{ flex: 1, marginBottom: 0 }}
+                      >
                         <input
                           type="checkbox"
-                          checked={categoryFilters.includes(value)}
-                          onChange={() => toggleCategory(value)}
+                          checked={categoryFilters.includes("CREN")}
+                          onChange={() => toggleCategory("CREN")}
                         />
-                        {label}
+                        絶滅危惧Ⅰ類（CR+EN）
+                      </label>
+                    </div>
+                    {/* CR・EN 子行 */}
+                    <div className="muni-sub-list">
+                      <div className="muni-sub-note">
+                        CR・EN を個別に選択可能
+                      </div>
+                      <label className="multi-select-option muni-option">
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes("CR")}
+                          onChange={() => toggleCategory("CR")}
+                        />
+                        絶滅危惧ⅠA類（CR）
+                      </label>
+                      <label className="multi-select-option muni-option">
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes("EN")}
+                          onChange={() => toggleCategory("EN")}
+                        />
+                        絶滅危惧ⅠB類（EN）
+                      </label>
+                    </div>
+                    {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
+                      <label key={key} className="multi-select-option">
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes(key)}
+                          onChange={() => toggleCategory(key)}
+                        />
+                        {CATEGORY_DISPLAY[key]}
                       </label>
                     ))}
-                    {categoryFilters.length > 0 && (
-                      <button
-                        type="button"
-                        className="multi-select-clear"
-                        onClick={() => setCategoryFilters([])}
-                      >
-                        クリア
-                      </button>
-                    )}
                   </div>
                 )}
               </div>
 
-              {/* 都道府県複数選択（環境省含む） */}
+              {/* 都道府県＋市町村 複数選択 */}
               <div className="multi-select-dropdown" ref={prefectureRef}>
                 <button
                   type="button"
-                  className="multi-select-btn"
+                  className={`multi-select-btn${isPrefFiltered || hasMuniSelected ? " multi-select-btn--active" : ""}`}
                   onClick={() => setIsPrefectureOpen((v) => !v)}
                 >
-                  {prefectureFilters.length === 0
-                    ? "都道府県：すべて"
-                    : `都道府県：${prefectureFilters.join("・")}`}
+                  <span>都道府県</span>
+                  {(isPrefFiltered || hasMuniSelected) && (
+                    <span className="filter-badge">
+                      {prefOnlyFilters.length + activeMuniTags.length}
+                    </span>
+                  )}
                   <span className="dropdown-arrow">
                     {isPrefectureOpen ? "▲" : "▼"}
                   </span>
                 </button>
                 {isPrefectureOpen && (
                   <div className="multi-select-options">
+                    <label className="multi-select-option multi-select-option--all">
+                      <input
+                        type="checkbox"
+                        checked={allPrefSelected}
+                        onChange={(e) =>
+                          handlePrefectureAllChange(e.target.checked)
+                        }
+                      />
+                      すべて
+                    </label>
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
+                    />
                     <label className="multi-select-option">
                       <input
                         type="checkbox"
@@ -205,27 +342,53 @@ export default function Home() {
                         borderTop: "1px solid var(--border)",
                       }}
                     />
-
-                    {availablePrefectures.map((pref) => (
-                      <label key={pref} className="multi-select-option">
-                        <input
-                          type="checkbox"
-                          checked={prefectureFilters.includes(pref)}
-                          onChange={() => togglePrefecture(pref)}
-                        />
-                        {pref}
-                      </label>
-                    ))}
-
-                    {prefectureFilters.length > 0 && (
-                      <button
-                        type="button"
-                        className="multi-select-clear"
-                        onClick={() => setPrefectureFilters([])}
-                      >
-                        クリア
-                      </button>
-                    )}
+                    {availablePrefectures.map((pref) => {
+                      const munis = prefToMunicipalities[pref] ?? [];
+                      const hasMunis = munis.length > 0;
+                      const prefChecked = prefectureFilters.includes(pref);
+                      return (
+                        <div key={pref}>
+                          <div className="pref-row-with-badge">
+                            <label
+                              className="multi-select-option"
+                              style={{ flex: 1, marginBottom: 0 }}
+                            >
+                              <input
+                                type="checkbox"
+                                checked={prefChecked}
+                                onChange={() => togglePrefecture(pref)}
+                              />
+                              {pref}
+                            </label>
+                            {hasMunis && (
+                              <span className="muni-exists-badge">
+                                市町村あり
+                              </span>
+                            )}
+                          </div>
+                          {hasMunis && (
+                            <div className="muni-sub-list">
+                              <div className="muni-sub-note">
+                                市町村データを追加する場合は選択
+                              </div>
+                              {munis.map((muni) => (
+                                <label
+                                  key={muni}
+                                  className="multi-select-option muni-option"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    checked={prefectureFilters.includes(muni)}
+                                    onChange={() => toggleMunicipality(muni)}
+                                  />
+                                  {muni}
+                                </label>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -243,6 +406,44 @@ export default function Home() {
                 ))}
               </select>
             </div>
+
+            {/* アクティブフィルタータグ */}
+            {(activeCategoryTags.length > 0 ||
+              activePrefTags.length > 0 ||
+              activeMuniTags.length > 0) && (
+              <div className="active-filter-tags">
+                {activeCategoryTags.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    className="active-tag active-tag--cat"
+                    onClick={() => toggleCategory(cat)}
+                  >
+                    {CATEGORY_DISPLAY[cat] ?? cat} ✕
+                  </button>
+                ))}
+                {activePrefTags.map((pref) => (
+                  <button
+                    key={pref}
+                    type="button"
+                    className="active-tag active-tag--pref"
+                    onClick={() => togglePrefecture(pref)}
+                  >
+                    {pref} ✕
+                  </button>
+                ))}
+                {activeMuniTags.map((muni) => (
+                  <button
+                    key={muni}
+                    type="button"
+                    className="active-tag active-tag--muni"
+                    onClick={() => toggleMunicipality(muni)}
+                  >
+                    {muni} ✕
+                  </button>
+                ))}
+              </div>
+            )}
 
             <button
               type="submit"

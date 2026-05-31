@@ -5,15 +5,14 @@ interface SourceRecord {
   id: string;
   jurisdiction_name: string;
   jurisdiction_type: string;
+  parent_prefecture?: string;
   title: string;
-  publication_year: number | null;
+  publication_year: number | string | null;
   publisher?: string;
   url: string;
 }
 
 async function getSources(): Promise<SourceRecord[]> {
-  // サーバーサイドでfetchする場合はベースURLが必要なため、
-  // fs で直接読む方法が確実
   const fs = await import("fs/promises");
   const path = await import("path");
   const filePath = path.join(process.cwd(), "public/data/sources.json");
@@ -24,20 +23,19 @@ async function getSources(): Promise<SourceRecord[]> {
 export default async function SourcesPage() {
   const sources = await getSources();
 
-  // PREFECTURE_CODESで並び替え（国→都道府県順→市町村）
+  // PREFECTURE_CODESで並び替え（国→都道府県順→市町村は親都道府県の直下）
   const sorted = [...sources].sort((a, b) => {
     const order = (s: SourceRecord) => {
       if (s.jurisdiction_type === "national") return 0;
       if (s.jurisdiction_type === "prefecture") {
         return PREFECTURE_CODES[s.jurisdiction_name] ?? 999;
       }
-      // municipality: 都道府県コード×100で都道府県ごとにまとめる
-      return 1000 + (PREFECTURE_CODES[s.jurisdiction_name] ?? 999);
+      // municipality: 親都道府県コードを使って都道府県直下に並べる
+      return 1000 + (PREFECTURE_CODES[s.parent_prefecture ?? ""] ?? 999);
     };
     return order(a) - order(b);
   });
 
-  // jurisdiction_type の表示名
   const typeLabel: Record<string, string> = {
     national: "国",
     prefecture: "都道府県",
@@ -82,8 +80,28 @@ export default async function SourcesPage() {
         </thead>
         <tbody>
           {sorted.map((s) => (
-            <tr key={s.id} style={{ borderBottom: "1px solid var(--border)" }}>
-              <td style={tdStyle}>{s.jurisdiction_name}</td>
+            <tr
+              key={s.id}
+              style={{
+                borderBottom: "1px solid var(--border)",
+                background:
+                  s.jurisdiction_type === "municipality"
+                    ? "var(--bg-subtle, var(--bg-table-header))"
+                    : undefined,
+              }}
+            >
+              <td style={tdStyle}>
+                {s.jurisdiction_type === "municipality" && (
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: "16px",
+                      marginRight: "4px",
+                    }}
+                  />
+                )}
+                {s.jurisdiction_name}
+              </td>
               <td style={tdStyle}>
                 {s.url ? (
                   <a

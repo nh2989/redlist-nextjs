@@ -279,6 +279,30 @@ h1 {
   background: var(--bg-subtle);
 }
 
+/* フィルター絞り込み中のボタン */
+.multi-select-btn--active {
+  border-color: var(--brand);
+  border-width: 2px;
+}
+
+/* 件数バッジ */
+.filter-badge {
+  background: var(--brand);
+  color: white;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 7px;
+  min-width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* すべてチェックボックス */
+.multi-select-option--all {
+  font-weight: 600;
+}
+
 /* ============================================================
    オートコンプリート
    ============================================================ */
@@ -394,6 +418,93 @@ h1 {
   margin-top: 0;
   opacity: 0.9;
   font-weight: 500;
+}
+
+/* ドロップダウン内の都道府県行・市町村サブリスト用のスタイル */
+
+/* 都道府県行（バッジ付き） */
+.pref-row-with-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+}
+
+/* 市町村データありバッジ */
+.muni-exists-badge {
+  font-size: 10px;
+  background: var(--bg-subtle);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 市町村サブリスト */
+.muni-sub-list {
+  margin: 2px 0 2px 22px;
+  padding: 3px 6px;
+  border-left: 2px solid var(--border);
+}
+
+/* 市町村サブリスト説明文 */
+.muni-sub-note {
+  font-size: 11px;
+  color: var(--text-faint);
+  padding: 2px 4px;
+  margin-bottom: 2px;
+}
+
+/* 市町村チェックボックス */
+.muni-option {
+  font-size: 12px;
+  color: var(--text-body);
+}
+
+/* 都道府県未選択時のdisabled状態 */
+.muni-option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.muni-option--disabled input {
+  cursor: not-allowed;
+}
+
+/* アクティブフィルタータグ */
+.active-filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+.active-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 3px 8px;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.active-tag:hover {
+  opacity: 0.7;
+}
+.active-tag--cat {
+  background: #e8edf5;
+  color: #2d4a7a;
+}
+.active-tag--pref {
+  background: #e8f0e8;
+  color: #2d5c2e;
+}
+.active-tag--muni {
+  background: #f0ece8;
+  color: #5c3a2d;
 }
 
 /* ============================================================

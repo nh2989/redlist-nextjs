@@ -53,6 +53,7 @@ export type SourceRecord = {
   id: string;
   jurisdiction_name: string;
   jurisdiction_type: string;
+  parent_prefecture?: string; // ← 追加
   title: string;
   publication_year: string;
   publisher: string;
