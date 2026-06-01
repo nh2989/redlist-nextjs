@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 
 import dynamic from "next/dynamic";
 const SpeciesMap = dynamic(() => import("../components/SpeciesMap"), {
@@ -69,6 +70,14 @@ function SearchPage() {
   const [filteredData, setFilteredData] = useState<SpeciesGroup[]>([]);
   const [displayData, setDisplayData] = useState<SpeciesGroup[]>([]);
 
+  // ── 無限スクロール ──────────────────────────────────────────
+  const PAGE_SIZE = 20;
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  // ───────────────────────────────────────────────────────────
+
   const [categoryFilters, setCategoryFilters] = useState<string[]>(
     initialCategories.length > 0 ? initialCategories : [...ALL_CATEGORIES],
   );
@@ -114,8 +123,6 @@ function SearchPage() {
     allMunicipalities.includes(p),
   );
 
-  // アクティブフィルタータグ用
-  // CRENがオンのときはCR・ENを子として表示しない（CRENタグのみ）
   const activeCategoryTags = isCatFiltered
     ? categoryFilters.filter(
         (c) =>
@@ -129,11 +136,7 @@ function SearchPage() {
   );
 
   function handleCategoryAllChange(checked: boolean) {
-    if (checked) {
-      setCategoryFilters([...ALL_CATEGORIES]);
-    } else {
-      setCategoryFilters([]);
-    }
+    setCategoryFilters(checked ? [...ALL_CATEGORIES] : []);
   }
 
   function toggleCategoryFilter(value: string) {
@@ -376,7 +379,6 @@ function SearchPage() {
           categoryFilters.some((cat) =>
             isSameCategory(j.category_unified, cat),
           );
-
         const matchPref = (() => {
           if (j.jurisdiction_type === "municipality") {
             return prefectureFilters.includes(j.jurisdiction_name);
@@ -384,7 +386,6 @@ function SearchPage() {
           if (currentAllPrefsSelected) return true;
           return prefectureFilters.includes(j.jurisdiction_name);
         })();
-
         return matchCat && matchPref;
       }),
     );
@@ -468,7 +469,33 @@ function SearchPage() {
       });
     }
     setDisplayData(sorted);
+    // フィルター・ソート変更時はトップに戻してリセット
+    setVisibleCount(PAGE_SIZE);
+    scrollAreaRef.current?.scrollTo({ top: 0 });
   }
+
+  // ── IntersectionObserver：sentinelが見えたら次のバッチを追加 ──
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    const scrollArea = scrollAreaRef.current;
+    if (!sentinel || !scrollArea) return;
+
+    // 全件表示済みなら監視しない
+    if (visibleCount >= displayData.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => prev + PAGE_SIZE);
+        }
+      },
+      { root: scrollArea, threshold: 0.1 },
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [visibleCount, displayData.length]);
+  // ────────────────────────────────────────────────────────────
 
   function goToTop() {
     router.push("/");
@@ -522,15 +549,108 @@ function SearchPage() {
     };
   }
 
-  if (loading) return <div className="loading">読み込み中...</div>;
+  // ── ローディング中：スケルトン表示 ──────────────────────────
+  if (loading) {
+    return (
+      <div className="search-layout">
+        <div className="search-sticky-header">
+          <div className="search-header-row">
+            <h1 className="search-title">🌿 絶滅危惧種横断検索</h1>
+          </div>
+          <p
+            style={{
+              fontSize: "var(--fs-xs)",
+              color: "var(--text-faint)",
+              margin: 0,
+            }}
+          >
+            読み込み中...
+          </p>
+        </div>
+        <div className="search-results-scroll">
+          <div
+            style={{
+              border: "1px solid var(--border)",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+          >
+            {[...Array(12)].map((_, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1.5fr",
+                  gap: "14px",
+                  padding: "10px 14px",
+                  borderTop: i === 0 ? "none" : "1px solid var(--border)",
+                  background: "var(--bg-page)",
+                }}
+              >
+                <div>
+                  <div
+                    className="skeleton-pulse"
+                    style={{
+                      height: "13px",
+                      width: `${55 + (i % 3) * 15}%`,
+                      borderRadius: "4px",
+                      marginBottom: "7px",
+                    }}
+                  />
+                  <div
+                    className="skeleton-pulse"
+                    style={{
+                      height: "10px",
+                      width: `${40 + (i % 4) * 10}%`,
+                      borderRadius: "4px",
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
+                    borderLeft: "1px solid var(--border)",
+                    paddingLeft: "14px",
+                    display: "flex",
+                    gap: "6px",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    className="skeleton-pulse"
+                    style={{
+                      height: "20px",
+                      width: "44px",
+                      borderRadius: "4px",
+                    }}
+                  />
+                  <div
+                    className="skeleton-pulse"
+                    style={{
+                      height: "20px",
+                      width: "36px",
+                      borderRadius: "4px",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+  // ────────────────────────────────────────────────────────────
 
   const taxonomyOrder: Record<string, number> = {};
   taxonomyList.forEach((t, i) => {
     taxonomyOrder[t.canonical] = i;
   });
 
+  const visibleData = displayData.slice(0, visibleCount);
+  const hasMore = visibleCount < displayData.length;
+
   const taxonomyGroupMap = new Map<string, SpeciesGroup[]>();
-  for (const species of displayData) {
+  for (const species of visibleData) {
     const existing = taxonomyGroupMap.get(species.taxonomy);
     if (existing) {
       existing.push(species);
@@ -562,32 +682,71 @@ function SearchPage() {
 
   return (
     <>
-      <div className="container">
-        <header>
-          <h1>🌿 レッドデータ検索システム</h1>
-          <p className="subtitle">検索結果</p>
-          <button
-            onClick={goToTop}
-            className="btn-back"
-            style={{
-              marginTop: "10px",
-              padding: "8px 16px",
-              border: "none",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            ← トップページに戻る
-          </button>
-        </header>
+      <div className="search-layout">
+        {/* ══ 固定ヘッダー部 ══ */}
+        <div className="search-sticky-header">
+          {/* タイトル行 */}
+          <div className="search-header-row">
+            <h1 className="search-title">🌿 絶滅危惧種横断検索</h1>
+            <Link
+              href="/sources"
+              style={{
+                marginLeft: "auto",
+                fontSize: "var(--fs-sm)",
+                color: "var(--text-faint)",
+                whiteSpace: "nowrap",
+                textDecoration: "underline",
+                textDecorationColor: "var(--border)",
+                textUnderlineOffset: "3px",
+              }}
+            >
+              データ出典
+            </Link>
+            <button
+              onClick={goToTop}
+              className="btn-back"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "32px",
+                height: "32px",
+                padding: 0,
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+              aria-label="トップページに戻る"
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "20px" }}
+              >
+                home
+              </span>
+            </button>
+          </div>
 
-        <div className="search-section">
+          {/* 検索クエリ */}
           {initialSearchTerm && (
-            <p className="search-query-label">
-              「{initialSearchTerm}」の検索結果
-            </p>
+            <div
+              style={{
+                fontSize: "var(--fs-sm)",
+                color: "var(--text-faint)",
+                marginBottom: "6px",
+                paddingLeft: "2px",
+              }}
+            >
+              <span style={{ color: "var(--text-body)", fontWeight: 500 }}>
+                「{initialSearchTerm}」
+              </span>
+              の検索結果
+            </div>
           )}
-          <div className="filters">
+
+          {/* フィルター行 */}
+          <div className="filters" style={{ marginBottom: "6px" }}>
             {/* カテゴリ複数選択 */}
             <div className="multi-select-dropdown" ref={categoryDropdownRef}>
               <button
@@ -604,7 +763,6 @@ function SearchPage() {
               </button>
               {isCategoryOpen && (
                 <div className="multi-select-options">
-                  {/* すべて */}
                   <label className="multi-select-option multi-select-option--all">
                     <input
                       type="checkbox"
@@ -622,8 +780,6 @@ function SearchPage() {
                       borderTop: "1px solid var(--border)",
                     }}
                   />
-
-                  {/* EX */}
                   <label className="multi-select-option">
                     <input
                       type="checkbox"
@@ -632,7 +788,6 @@ function SearchPage() {
                     />
                     絶滅（EX）
                   </label>
-                  {/* EW */}
                   <label className="multi-select-option">
                     <input
                       type="checkbox"
@@ -641,8 +796,6 @@ function SearchPage() {
                     />
                     野生絶滅（EW）
                   </label>
-
-                  {/* CREN 親行 */}
                   <div className="pref-row-with-badge">
                     <label
                       className="multi-select-option"
@@ -656,7 +809,6 @@ function SearchPage() {
                       絶滅危惧Ⅰ類（CR+EN）
                     </label>
                   </div>
-                  {/* CR・EN 子行 */}
                   <div className="muni-sub-list">
                     <div className="muni-sub-note">CR・EN を個別に選択可能</div>
                     <label className="multi-select-option muni-option">
@@ -676,8 +828,6 @@ function SearchPage() {
                       絶滅危惧ⅠB類（EN）
                     </label>
                   </div>
-
-                  {/* VU以降 */}
                   {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
                     <label key={key} className="multi-select-option">
                       <input
@@ -795,6 +945,7 @@ function SearchPage() {
               )}
             </div>
 
+            {/* 分類群 */}
             <select
               value={taxonomyFilter}
               onChange={(e) => setTaxonomyFilter(e.target.value)}
@@ -811,28 +962,25 @@ function SearchPage() {
                   </option>
                 ))}
             </select>
-            <select
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-            >
-              <option value="name">種名順</option>
-              <option value="category">カテゴリ順（希少性）</option>
-              <option value="jurisdiction-desc">指定箇所数（多い順）</option>
-              <option value="jurisdiction-asc">指定箇所数（少ない順）</option>
-              <option value="scientific">学名順</option>
-            </select>
           </div>
 
           {/* アクティブフィルタータグ */}
           {(activeCategoryTags.length > 0 ||
             activePrefTags.length > 0 ||
             activeMuniTags.length > 0) && (
-            <div className="active-filter-tags">
+            <div className="active-filter-tags" style={{ marginBottom: "6px" }}>
               {activeCategoryTags.map((cat) => (
                 <button
                   key={cat}
                   className="active-tag active-tag--cat"
-                  onClick={() => toggleCategoryFilter(cat)}
+                  onClick={() => {
+                    const next = toggleCategoryValue(categoryFilters, cat);
+                    setCategoryFilters(
+                      next.length === 0 || isAllCategoriesSelected(next)
+                        ? [...ALL_CATEGORIES]
+                        : next,
+                    );
+                  }}
                 >
                   {CATEGORY_DISPLAY[cat] ?? cat} ✕
                 </button>
@@ -841,7 +989,20 @@ function SearchPage() {
                 <button
                   key={pref}
                   className="active-tag active-tag--pref"
-                  onClick={() => togglePrefectureFilter(pref)}
+                  onClick={() => {
+                    const next = prefectureFilters.filter((p) => p !== pref);
+                    const nextPrefOnly = next.filter(
+                      (p) => !allMunicipalities.includes(p),
+                    );
+                    const allSelected = availableAllPrefs.every((p) =>
+                      nextPrefOnly.includes(p),
+                    );
+                    setPrefectureFilters(
+                      nextPrefOnly.length === 0 || allSelected
+                        ? [...availableAllPrefs]
+                        : next,
+                    );
+                  }}
                 >
                   {pref} ✕
                 </button>
@@ -858,127 +1019,224 @@ function SearchPage() {
             </div>
           )}
 
-          <div id="resultCount" className="result-count">
-            {resultCountText}
-          </div>
-        </div>
-
-        {/*===== 検索結果 =====*/}
-        <div className="results">
-          {displayData.length === 0 ? (
-            <div className="no-results">
-              {nothingSelected
-                ? "絞り込み条件を選択してください。"
-                : "該当する種が見つかりませんでした。"}
+          {/* 件数 + 並び替え */}
+          <div className="search-meta-row">
+            <span className="result-count" style={{ margin: 0 }}>
+              {resultCountText}
+            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                style={{ fontSize: "var(--fs-sm)" }}
+              >
+                <option value="name">種名順</option>
+                <option value="category">カテゴリ順（希少性）</option>
+                <option value="jurisdiction-desc">指定箇所数（多い順）</option>
+                <option value="jurisdiction-asc">指定箇所数（少ない順）</option>
+                <option value="scientific">学名順</option>
+              </select>
             </div>
-          ) : (
-            taxonomyGroups.map(({ taxonomy, items }) => (
-              <div key={taxonomy}>
-                <div className="taxonomy-group-header">
-                  <div
-                    className="tax-dot"
-                    style={{ background: getTaxonomyDotColor(taxonomy) }}
-                  />
-                  <span>{taxonomy}</span>
-                </div>
-                <div className="card-group">
-                  {items.map((species, index) => {
-                    const visibleJurisdictions = filterJurisdictionsForDisplay(
-                      species.jurisdictions,
-                    );
-                    const { national, prefecture, municipality } =
-                      groupJurisdictionsByType(visibleJurisdictions);
-                    return (
-                      <div
-                        key={index}
-                        className="species-card"
-                        onClick={() => openModal(species)}
-                      >
-                        <div className="card-left">
-                          <h3>
-                            {species.species_name}
-                            {species.species_aliases.length > 0 && (
-                              <span
-                                style={{
-                                  fontSize: "0.75em",
-                                  color: "var(--text-faint)",
-                                  fontWeight: "normal",
-                                  marginLeft: "6px",
-                                }}
-                              >
-                                （別名: {species.species_aliases.join(", ")}）
-                              </span>
-                            )}
-                          </h3>
-                          {species.jurisdictions.some(
-                            (j) => j.jurisdiction_type === "national",
-                          ) && (
-                            <span className="scientific">
-                              {species.scientific_name}
-                            </span>
-                          )}
-                        </div>
-                        <div className="card-right">
-                          {national.length > 0 && (
-                            <div className="desg-row">
-                              <span className="desg-label">国</span>
-                              <div className="org-list">
-                                {national.map((j: Jurisdiction, i: number) => (
-                                  <span
-                                    key={i}
-                                    className={`org-item ${getCategoryClass(j.category_unified)}`}
-                                  >
-                                    {j.jurisdiction_name}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                          {prefecture.length > 0 && (
-                            <div className="desg-row">
-                              <span className="desg-label">都道府県</span>
-                              <div className="org-list">
-                                {prefecture.map(
-                                  (j: Jurisdiction, i: number) => (
-                                    <span
-                                      key={i}
-                                      className={`org-item ${getCategoryClass(j.category_unified)}`}
-                                    >
-                                      {shortenPrefectureName(
-                                        j.jurisdiction_name,
-                                      )}{" "}
-                                    </span>
-                                  ),
-                                )}
-                              </div>
-                            </div>
-                          )}
-                          {municipality.length > 0 && (
-                            <div className="desg-row">
-                              <span className="desg-label">市町村</span>
-                              <div className="org-list">
-                                {municipality.map(
-                                  (j: Jurisdiction, i: number) => (
-                                    <span
-                                      key={i}
-                                      className={`org-item ${getCategoryClass(j.category_unified)}`}
-                                    >
-                                      {j.jurisdiction_name}
-                                    </span>
-                                  ),
-                                )}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))
+          </div>
+
+          {/* カテゴリ凡例 */}
+          {!nothingSelected && displayData.length > 0 && (
+            <div className="category-legend">
+              {(
+                [
+                  { key: "EX", label: "絶滅（EX）" },
+                  { key: "EW", label: "野生絶滅（EW）" },
+                  { key: "CREN", label: "Ⅰ類（CR+EN）" },
+                  { key: "VU", label: "Ⅱ類（VU）" },
+                  { key: "NT", label: "準絶滅危惧（NT）" },
+                  { key: "DD", label: "情報不足（DD）" },
+                  { key: "LP", label: "地域個体群（LP）" },
+                  { key: "OTHER", label: "その他指定あり" },
+                ] as { key: CategoryKey; label: string }[]
+              ).map(({ key, label }) => (
+                <span
+                  key={key}
+                  className={`org-item ${getCategoryClass(key)}`}
+                  style={{ cursor: "default" }}
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
           )}
         </div>
+        {/* ══ /固定ヘッダー部 ══ */}
+
+        {/* ══ スクロール結果エリア ══ */}
+        <div className="search-results-scroll" ref={scrollAreaRef}>
+          <div className="results">
+            {displayData.length === 0 ? (
+              <div className="no-results">
+                {nothingSelected
+                  ? "絞り込み条件を選択してください。"
+                  : "該当する種が見つかりませんでした。"}
+              </div>
+            ) : (
+              <>
+                {taxonomyGroups.map(({ taxonomy, items }) => (
+                  <div key={taxonomy}>
+                    <div className="taxonomy-group-header">
+                      <div
+                        className="tax-dot"
+                        style={{ background: getTaxonomyDotColor(taxonomy) }}
+                      />
+                      <span>{taxonomy}</span>
+                    </div>
+                    <div className="card-group">
+                      {items.map((species, index) => {
+                        const visibleJurisdictions =
+                          filterJurisdictionsForDisplay(species.jurisdictions);
+                        const { national, prefecture, municipality } =
+                          groupJurisdictionsByType(visibleJurisdictions);
+                        return (
+                          <div
+                            key={index}
+                            className="species-card"
+                            onClick={() => openModal(species)}
+                          >
+                            <div className="card-left">
+                              <h3>
+                                {species.species_name}
+                                {species.species_aliases.length > 0 && (
+                                  <span
+                                    style={{
+                                      fontSize: "var(--fs-xs)",
+                                      color: "var(--text-faint)",
+                                      fontWeight: "normal",
+                                      marginLeft: "6px",
+                                    }}
+                                  >
+                                    （別名: {species.species_aliases.join(", ")}
+                                    ）
+                                  </span>
+                                )}
+                              </h3>
+                              {species.jurisdictions.some(
+                                (j) => j.jurisdiction_type === "national",
+                              ) && (
+                                <span className="scientific">
+                                  {species.scientific_name}
+                                </span>
+                              )}
+                            </div>
+                            <div className="card-right">
+                              {national.length > 0 && (
+                                <div className="desg-row">
+                                  <span className="desg-label">国</span>
+                                  <div className="org-list">
+                                    {national.map(
+                                      (j: Jurisdiction, i: number) => (
+                                        <span
+                                          key={i}
+                                          className={`org-item ${getCategoryClass(j.category_unified)}`}
+                                        >
+                                          {j.jurisdiction_name}
+                                        </span>
+                                      ),
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                              {prefecture.length > 0 && (
+                                <div className="desg-row">
+                                  <span className="desg-label">都道府県</span>
+                                  <div className="org-list">
+                                    {prefecture.map(
+                                      (j: Jurisdiction, i: number) => (
+                                        <span
+                                          key={i}
+                                          className={`org-item ${getCategoryClass(j.category_unified)}`}
+                                        >
+                                          {shortenPrefectureName(
+                                            j.jurisdiction_name,
+                                          )}{" "}
+                                        </span>
+                                      ),
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                              {municipality.length > 0 && (
+                                <div className="desg-row">
+                                  <span className="desg-label">市町村</span>
+                                  <div className="org-list">
+                                    {municipality.map(
+                                      (j: Jurisdiction, i: number) => (
+                                        <span
+                                          key={i}
+                                          className={`org-item ${getCategoryClass(j.category_unified)}`}
+                                        >
+                                          {j.jurisdiction_name}
+                                        </span>
+                                      ),
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+
+                {/* ── sentinel（無限スクロール検知用） ── */}
+                <div
+                  ref={sentinelRef}
+                  style={{
+                    height: "40px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {isLoadingMore && (
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontSize: "var(--fs-xs)",
+                        color: "var(--text-faint)",
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: "13px",
+                          height: "13px",
+                          border: "2px solid var(--border)",
+                          borderTopColor: "var(--text-faint)",
+                          borderRadius: "50%",
+                          display: "inline-block",
+                          animation: "spin 0.7s linear infinite",
+                        }}
+                      />
+                      読み込み中...
+                    </span>
+                  )}
+                  {!hasMore && displayData.length > PAGE_SIZE && (
+                    <span
+                      style={{
+                        fontSize: "var(--fs-xs)",
+                        color: "var(--text-faint)",
+                      }}
+                    >
+                      全{displayData.length}件を表示しました
+                    </span>
+                  )}
+                </div>
+                {/* ──────────────────────────────────── */}
+              </>
+            )}
+          </div>
+        </div>
+        {/* ══ /スクロール結果エリア ══ */}
       </div>
 
       {/* モーダル */}

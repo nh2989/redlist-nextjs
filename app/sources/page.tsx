@@ -28,10 +28,10 @@ export default async function SourcesPage() {
     const order = (s: SourceRecord) => {
       if (s.jurisdiction_type === "national") return 0;
       if (s.jurisdiction_type === "prefecture") {
-        return PREFECTURE_CODES[s.jurisdiction_name] ?? 999;
+        return (PREFECTURE_CODES[s.jurisdiction_name] ?? 999) * 10;
       }
       // municipality: 親都道府県コードを使って都道府県直下に並べる
-      return 1000 + (PREFECTURE_CODES[s.parent_prefecture ?? ""] ?? 999);
+      return (PREFECTURE_CODES[s.parent_prefecture ?? ""] ?? 999) * 10 + 1;
     };
     return order(a) - order(b);
   });
@@ -63,7 +63,7 @@ export default async function SourcesPage() {
         style={{
           width: "100%",
           borderCollapse: "collapse",
-          fontSize: "0.9rem",
+          fontSize: "var(--fs-sm)",
         }}
       >
         <thead>

@@ -106,7 +106,7 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
       <div
         ref={containerRef}
         className="species-map-svg"
-        style={{ width: "100%", lineHeight: 0, padding: "2vh" }}
+        style={{ width: "80%", lineHeight: 0, padding: "2vh" }}
       />
       <div className="map-legend-sidebar">
         <div className="legend-title">カテゴリ</div>

@@ -86,14 +86,12 @@ body {
     "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   background: var(--brand);
   min-height: 100vh;
-  padding: 20px;
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
   background: var(--bg-page);
-  border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   padding: 40px;
 }
@@ -104,12 +102,13 @@ header {
 }
 h1 {
   color: var(--text-heading);
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 .subtitle {
+  margin-top: 40px;
   color: var(--text-body);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
 }
 
 /* ============================================================
@@ -241,7 +240,7 @@ h1 {
   padding: 8px;
   z-index: 100;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-height: 280px;
+  max-height: 360px;
   overflow-y: auto;
 }
 
@@ -249,8 +248,8 @@ h1 {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 4px;
-  font-size: 14px;
+  padding: 2px 4px;
+  font-size: var(--fs-sm);
   cursor: pointer;
   border-radius: 4px;
 }
@@ -508,6 +507,107 @@ h1 {
 }
 
 /* ============================================================
+   検索ページ：全画面固定レイアウト
+   ============================================================ */
+
+/* body の padding を検索ページでは無効化 */
+body:has(.search-layout) {
+  padding: 0;
+  overflow: hidden; /* ← bodyのスクロールを殺す */
+  height: 100vh; /* ← bodyをビューポートに固定 */
+}
+
+/* 画面全体を縦に2分割：固定ヘッダー＋スクロールエリア */
+.search-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-page);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 上部固定エリア */
+.search-sticky-header {
+  flex-shrink: 0;
+  overflow: visible; /* ← ドロップダウンがはみ出せるよう */
+  padding: 10px 16px 8px;
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+/* タイトル行：h1＋検索クエリ＋戻るボタン横並び */
+.search-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.search-title {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.search-query-badge {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 件数＋表示件数セレクト横並び */
+.search-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+/* カテゴリ凡例 */
+.category-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+}
+
+/* 下部スクロールエリア：種カードが縦スクロール */
+.search-results-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 16px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+  .search-layout {
+    max-width: 100%;
+    box-shadow: none;
+  }
+  .search-title {
+    font-size: 0.9rem;
+  }
+  .search-sticky-header {
+    padding: 8px 12px 6px;
+  }
+  .search-results-scroll {
+    padding: 6px 12px 16px;
+  }
+}
+
+/* ============================================================
    検索結果
    ============================================================ */
 .loading {
@@ -686,12 +786,20 @@ h1 {
   .species-card {
     grid-template-columns: 1fr;
   }
+  .card-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+  }
+  .scientific {
+    padding-left: 10;
+  }
   .card-right {
     border-left: none;
-    border-top: 1px solid var(--border);
+    /* border-top: 1px solid var(--border); */
     padding-left: 0;
-    padding-top: 8px;
-    margin-top: 6px;
+    /* padding-top: 8px; */
+    margin-top: 4px;
   }
 }
 
@@ -1073,10 +1181,10 @@ footer {
     box-shadow: none;
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .filters {
-    flex-direction: column;
+    flex-direction: row;
   }
   .filters select {
     min-width: 100%;

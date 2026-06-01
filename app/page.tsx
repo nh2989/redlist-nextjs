@@ -170,11 +170,14 @@ export default function Home() {
       }}
     >
       <div style={{ width: "100%", maxWidth: "600px" }}>
-        <header style={{ textAlign: "center", marginBottom: "40px" }}>
-          <h1 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>
-            🌿 絶滅危惧種検索サイト
-          </h1>
-          <p className="subtitle">日本の絶滅危惧種を検索・閲覧できます</p>
+        <header style={{ textAlign: "center", marginBottom: "30px" }}>
+          <h1>🌿 絶滅危惧種横断検索</h1>
+          <p className="subtitle">
+            日本の絶滅危惧種を検索・閲覧できます
+            <br />
+            全国のレッドリストをまとめて検索（
+            <a href="/sources">対応データ一覧</a>）
+          </p>
         </header>
 
         <form onSubmit={handleSearch}>
@@ -463,19 +466,6 @@ export default function Home() {
             </button>
           </div>
         </form>
-
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "40px",
-            color: "var(--text-body)",
-            fontSize: "var(--fs-sm)",
-          }}
-        >
-          <p>📕 国のレッドリスト対応</p>
-          <p>🗾 対応都道府県：{availablePrefectures.join("、")}</p>
-          <p>🏘️ 市町村レッドリストも一部対応</p>
-        </div>
       </div>
     </div>
   );
