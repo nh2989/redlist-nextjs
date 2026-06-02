@@ -78,6 +78,11 @@ function SearchPage() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   // ───────────────────────────────────────────────────────────
 
+  // ── ヘッダー折り畳み（モバイル用） ──────────────────────────
+  const [isHeaderCollapsed, setIsHeaderCollapsed] = useState(false);
+  const touchStartY = useRef<number | null>(null);
+  // ───────────────────────────────────────────────────────────
+
   const [categoryFilters, setCategoryFilters] = useState<string[]>(
     initialCategories.length > 0 ? initialCategories : [...ALL_CATEGORIES],
   );
@@ -135,6 +140,10 @@ function SearchPage() {
     allMunicipalities.includes(p),
   );
 
+  // 絞り込み中かどうか（折り畳み時のバッジ表示に使用）
+  const isFiltering =
+    isCatFiltered || isPrefFiltered || hasMuniSelected || !!taxonomyFilter;
+
   function handleCategoryAllChange(checked: boolean) {
     setCategoryFilters(checked ? [...ALL_CATEGORIES] : []);
   }
@@ -158,6 +167,20 @@ function SearchPage() {
       prev.includes(muni) ? prev.filter((v) => v !== muni) : [...prev, muni],
     );
   }
+
+  // ── タッチスワイプ（ヘッダー折り畳み） ──────────────────────
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStartY.current = e.touches[0].clientY;
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (touchStartY.current === null) return;
+    const dy = touchStartY.current - e.changedTouches[0].clientY;
+    if (dy > 30) setIsHeaderCollapsed(true);   // 上スワイプ → 折り畳む
+    if (dy < -30) setIsHeaderCollapsed(false); // 下スワイプ → 展開
+    touchStartY.current = null;
+  }
+  // ───────────────────────────────────────────────────────────
 
   useEffect(() => {
     loadData();
@@ -465,7 +488,6 @@ function SearchPage() {
       });
     }
     setDisplayData(sorted);
-    // フィルター・ソート変更時はトップに戻してリセット
     setVisibleCount(PAGE_SIZE);
     scrollAreaRef.current?.scrollTo({ top: 0 });
   }
@@ -476,7 +498,6 @@ function SearchPage() {
     const scrollArea = scrollAreaRef.current;
     if (!sentinel || !scrollArea) return;
 
-    // 全件表示済みなら監視しない
     if (visibleCount >= displayData.length) return;
 
     const observer = new IntersectionObserver(
@@ -680,10 +701,24 @@ function SearchPage() {
     <>
       <div className="search-layout">
         {/* ══ 固定ヘッダー部 ══ */}
-        <div className="search-sticky-header">
+        <div
+          className={`search-sticky-header${isHeaderCollapsed ? " header-collapsed" : ""}`}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* タイトル行 */}
           <div className="search-header-row">
             <h1 className="search-title">🌿 絶滅危惧種横断検索</h1>
+
+            {/* 折り畳み時の件数バッジ（モバイルのみ） */}
+            {isHeaderCollapsed && (
+              <span className="header-collapsed-badge">
+                {nothingSelected
+                  ? "—"
+                  : `${displayData.length}件${isFiltering ? " 🔍" : ""}`}
+              </span>
+            )}
+
             <Link
               href="/sources"
               style={{
@@ -698,6 +733,21 @@ function SearchPage() {
             >
               データ出典
             </Link>
+
+            {/* 折り畳みトグルボタン（モバイルのみ表示） */}
+            <button
+              className="header-collapse-btn"
+              onClick={() => setIsHeaderCollapsed((v) => !v)}
+              aria-label={isHeaderCollapsed ? "フィルターを表示" : "フィルターを隠す"}
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "18px" }}
+              >
+                {isHeaderCollapsed ? "expand_more" : "expand_less"}
+              </span>
+            </button>
+
             <button
               onClick={goToTop}
               className="btn-back"
@@ -724,342 +774,349 @@ function SearchPage() {
             </button>
           </div>
 
-          {/* 検索クエリ */}
-          {initialSearchTerm && (
-            <div
-              style={{
-                fontSize: "var(--fs-sm)",
-                color: "var(--text-faint)",
-                marginBottom: "6px",
-                paddingLeft: "2px",
-              }}
-            >
-              <span style={{ color: "var(--text-body)", fontWeight: 500 }}>
-                「{initialSearchTerm}」
-              </span>
-              の検索結果
-            </div>
-          )}
-
-          {/* フィルター行 */}
-          <div className="filters" style={{ marginBottom: "6px" }}>
-            {/* カテゴリ複数選択 */}
-            <div className="multi-select-dropdown" ref={categoryDropdownRef}>
-              <button
-                className={`multi-select-btn${isCatFiltered ? " multi-select-btn--active" : ""}`}
-                onClick={() => setIsCategoryOpen((v) => !v)}
+          {/* ── 折り畳み対象エリア ── */}
+          <div className="header-collapsible">
+            {/* 検索クエリ */}
+            {initialSearchTerm && (
+              <div
+                style={{
+                  fontSize: "var(--fs-sm)",
+                  color: "var(--text-faint)",
+                  marginBottom: "6px",
+                  paddingLeft: "2px",
+                }}
               >
-                <span>カテゴリ</span>
-                {isCatFiltered && (
-                  <span className="filter-badge">{categoryFilters.length}</span>
-                )}
-                <span className="dropdown-arrow">
-                  {isCategoryOpen ? "▲" : "▼"}
+                <span style={{ color: "var(--text-body)", fontWeight: 500 }}>
+                  「{initialSearchTerm}」
                 </span>
-              </button>
-              {isCategoryOpen && (
-                <div className="multi-select-options">
-                  <label className="multi-select-option multi-select-option--all">
-                    <input
-                      type="checkbox"
-                      checked={allCatSelected}
-                      onChange={(e) =>
-                        handleCategoryAllChange(e.target.checked)
-                      }
-                    />
-                    すべて
-                  </label>
-                  <hr
-                    style={{
-                      margin: "4px 0",
-                      border: "none",
-                      borderTop: "1px solid var(--border)",
-                    }}
-                  />
-                  <label className="multi-select-option">
-                    <input
-                      type="checkbox"
-                      checked={categoryFilters.includes("EX")}
-                      onChange={() => toggleCategoryFilter("EX")}
-                    />
-                    絶滅（EX）
-                  </label>
-                  <label className="multi-select-option">
-                    <input
-                      type="checkbox"
-                      checked={categoryFilters.includes("EW")}
-                      onChange={() => toggleCategoryFilter("EW")}
-                    />
-                    野生絶滅（EW）
-                  </label>
-                  <div className="pref-row-with-badge">
-                    <label
-                      className="multi-select-option"
-                      style={{ flex: 1, marginBottom: 0 }}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={categoryFilters.includes("CREN")}
-                        onChange={() => toggleCategoryFilter("CREN")}
-                      />
-                      絶滅危惧Ⅰ類（CR+EN）
-                    </label>
-                  </div>
-                  <div className="muni-sub-list">
-                    <div className="muni-sub-note">CR・EN を個別に選択可能</div>
-                    <label className="multi-select-option muni-option">
-                      <input
-                        type="checkbox"
-                        checked={categoryFilters.includes("CR")}
-                        onChange={() => toggleCategoryFilter("CR")}
-                      />
-                      絶滅危惧ⅠA類（CR）
-                    </label>
-                    <label className="multi-select-option muni-option">
-                      <input
-                        type="checkbox"
-                        checked={categoryFilters.includes("EN")}
-                        onChange={() => toggleCategoryFilter("EN")}
-                      />
-                      絶滅危惧ⅠB類（EN）
-                    </label>
-                  </div>
-                  {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
-                    <label key={key} className="multi-select-option">
-                      <input
-                        type="checkbox"
-                        checked={categoryFilters.includes(key)}
-                        onChange={() => toggleCategoryFilter(key)}
-                      />
-                      {CATEGORY_DISPLAY[key]}
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
+                の検索結果
+              </div>
+            )}
 
-            {/* 都道府県＋市町村 複数選択 */}
-            <div className="multi-select-dropdown" ref={prefectureDropdownRef}>
-              <button
-                className={`multi-select-btn${isPrefFiltered || hasMuniSelected ? " multi-select-btn--active" : ""}`}
-                onClick={() => setIsPrefectureOpen((v) => !v)}
-              >
-                <span>都道府県</span>
-                {(isPrefFiltered || hasMuniSelected) && (
-                  <span className="filter-badge">
-                    {prefOnlyFilters.length + activeMuniTags.length}
+            {/* フィルター行 */}
+            <div className="filters" style={{ marginBottom: "6px" }}>
+              {/* カテゴリ複数選択 */}
+              <div className="multi-select-dropdown" ref={categoryDropdownRef}>
+                <button
+                  className={`multi-select-btn${isCatFiltered ? " multi-select-btn--active" : ""}`}
+                  onClick={() => setIsCategoryOpen((v) => !v)}
+                >
+                  <span>カテゴリ</span>
+                  {isCatFiltered && (
+                    <span className="filter-badge">{categoryFilters.length}</span>
+                  )}
+                  <span className="dropdown-arrow">
+                    {isCategoryOpen ? "▲" : "▼"}
                   </span>
+                </button>
+                {isCategoryOpen && (
+                  <div className="multi-select-options">
+                    <label className="multi-select-option multi-select-option--all">
+                      <input
+                        type="checkbox"
+                        checked={allCatSelected}
+                        onChange={(e) =>
+                          handleCategoryAllChange(e.target.checked)
+                        }
+                      />
+                      すべて
+                    </label>
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
+                    />
+                    <label className="multi-select-option">
+                      <input
+                        type="checkbox"
+                        checked={categoryFilters.includes("EX")}
+                        onChange={() => toggleCategoryFilter("EX")}
+                      />
+                      絶滅（EX）
+                    </label>
+                    <label className="multi-select-option">
+                      <input
+                        type="checkbox"
+                        checked={categoryFilters.includes("EW")}
+                        onChange={() => toggleCategoryFilter("EW")}
+                      />
+                      野生絶滅（EW）
+                    </label>
+                    <div className="pref-row-with-badge">
+                      <label
+                        className="multi-select-option"
+                        style={{ flex: 1, marginBottom: 0 }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes("CREN")}
+                          onChange={() => toggleCategoryFilter("CREN")}
+                        />
+                        絶滅危惧Ⅰ類（CR+EN）
+                      </label>
+                    </div>
+                    <div className="muni-sub-list">
+                      <div className="muni-sub-note">CR・EN を個別に選択可能</div>
+                      <label className="multi-select-option muni-option">
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes("CR")}
+                          onChange={() => toggleCategoryFilter("CR")}
+                        />
+                        絶滅危惧ⅠA類（CR）
+                      </label>
+                      <label className="multi-select-option muni-option">
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes("EN")}
+                          onChange={() => toggleCategoryFilter("EN")}
+                        />
+                        絶滅危惧ⅠB類（EN）
+                      </label>
+                    </div>
+                    {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
+                      <label key={key} className="multi-select-option">
+                        <input
+                          type="checkbox"
+                          checked={categoryFilters.includes(key)}
+                          onChange={() => toggleCategoryFilter(key)}
+                        />
+                        {CATEGORY_DISPLAY[key]}
+                      </label>
+                    ))}
+                  </div>
                 )}
-                <span className="dropdown-arrow">
-                  {isPrefectureOpen ? "▲" : "▼"}
-                </span>
-              </button>
-              {isPrefectureOpen && (
-                <div className="multi-select-options">
-                  <label className="multi-select-option multi-select-option--all">
-                    <input
-                      type="checkbox"
-                      checked={allPrefSelected}
-                      onChange={(e) =>
-                        handlePrefectureAllChange(e.target.checked)
-                      }
+              </div>
+
+              {/* 都道府県＋市町村 複数選択 */}
+              <div className="multi-select-dropdown" ref={prefectureDropdownRef}>
+                <button
+                  className={`multi-select-btn${isPrefFiltered || hasMuniSelected ? " multi-select-btn--active" : ""}`}
+                  onClick={() => setIsPrefectureOpen((v) => !v)}
+                >
+                  <span>都道府県</span>
+                  {(isPrefFiltered || hasMuniSelected) && (
+                    <span className="filter-badge">
+                      {prefOnlyFilters.length + activeMuniTags.length}
+                    </span>
+                  )}
+                  <span className="dropdown-arrow">
+                    {isPrefectureOpen ? "▲" : "▼"}
+                  </span>
+                </button>
+                {isPrefectureOpen && (
+                  <div className="multi-select-options">
+                    <label className="multi-select-option multi-select-option--all">
+                      <input
+                        type="checkbox"
+                        checked={allPrefSelected}
+                        onChange={(e) =>
+                          handlePrefectureAllChange(e.target.checked)
+                        }
+                      />
+                      すべて
+                    </label>
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
                     />
-                    すべて
-                  </label>
-                  <hr
-                    style={{
-                      margin: "4px 0",
-                      border: "none",
-                      borderTop: "1px solid var(--border)",
-                    }}
-                  />
-                  <label className="multi-select-option">
-                    <input
-                      type="checkbox"
-                      checked={prefectureFilters.includes("環境省")}
-                      onChange={() => togglePrefectureFilter("環境省")}
+                    <label className="multi-select-option">
+                      <input
+                        type="checkbox"
+                        checked={prefectureFilters.includes("環境省")}
+                        onChange={() => togglePrefectureFilter("環境省")}
+                      />
+                      🏛️ 環境省
+                    </label>
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
                     />
-                    🏛️ 環境省
-                  </label>
-                  <hr
-                    style={{
-                      margin: "4px 0",
-                      border: "none",
-                      borderTop: "1px solid var(--border)",
-                    }}
-                  />
-                  {availablePrefectures.map((pref) => {
-                    const munis = prefToMunicipalities[pref] ?? [];
-                    const hasMunis = munis.length > 0;
-                    const prefChecked = prefectureFilters.includes(pref);
-                    return (
-                      <div key={pref}>
-                        <div className="pref-row-with-badge">
-                          <label
-                            className="multi-select-option"
-                            style={{ flex: 1, marginBottom: 0 }}
-                          >
-                            <input
-                              type="checkbox"
-                              checked={prefChecked}
-                              onChange={() => togglePrefectureFilter(pref)}
-                            />
-                            {pref}
-                          </label>
+                    {availablePrefectures.map((pref) => {
+                      const munis = prefToMunicipalities[pref] ?? [];
+                      const hasMunis = munis.length > 0;
+                      const prefChecked = prefectureFilters.includes(pref);
+                      return (
+                        <div key={pref}>
+                          <div className="pref-row-with-badge">
+                            <label
+                              className="multi-select-option"
+                              style={{ flex: 1, marginBottom: 0 }}
+                            >
+                              <input
+                                type="checkbox"
+                                checked={prefChecked}
+                                onChange={() => togglePrefectureFilter(pref)}
+                              />
+                              {pref}
+                            </label>
+                            {hasMunis && (
+                              <span className="muni-exists-badge">
+                                市町村あり
+                              </span>
+                            )}
+                          </div>
                           {hasMunis && (
-                            <span className="muni-exists-badge">
-                              市町村あり
-                            </span>
+                            <div className="muni-sub-list">
+                              <div className="muni-sub-note">
+                                市町村データを追加する場合は選択
+                              </div>
+                              {munis.map((muni) => (
+                                <label
+                                  key={muni}
+                                  className="multi-select-option muni-option"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    checked={prefectureFilters.includes(muni)}
+                                    onChange={() =>
+                                      toggleMunicipalityFilter(muni)
+                                    }
+                                  />
+                                  {muni}
+                                </label>
+                              ))}
+                            </div>
                           )}
                         </div>
-                        {hasMunis && (
-                          <div className="muni-sub-list">
-                            <div className="muni-sub-note">
-                              市町村データを追加する場合は選択
-                            </div>
-                            {munis.map((muni) => (
-                              <label
-                                key={muni}
-                                className="multi-select-option muni-option"
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={prefectureFilters.includes(muni)}
-                                  onChange={() =>
-                                    toggleMunicipalityFilter(muni)
-                                  }
-                                />
-                                {muni}
-                              </label>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
 
-            {/* 分類群 */}
-            <select
-              value={taxonomyFilter}
-              onChange={(e) => setTaxonomyFilter(e.target.value)}
-            >
-              <option value="">分類群：すべて</option>
-              {taxonomyList
-                .map((t) => t.canonical)
-                .filter((tax) =>
-                  allSpeciesData.some((item) => item.taxonomy === tax),
-                )
-                .map((tax) => (
-                  <option key={tax} value={tax}>
-                    {tax}
-                  </option>
-                ))}
-            </select>
-          </div>
-
-          {/* アクティブフィルタータグ */}
-          {(activeCategoryTags.length > 0 ||
-            activePrefTags.length > 0 ||
-            activeMuniTags.length > 0) && (
-            <div className="active-filter-tags" style={{ marginBottom: "6px" }}>
-              {activeCategoryTags.map((cat) => (
-                <button
-                  key={cat}
-                  className="active-tag active-tag--cat"
-                  onClick={() => {
-                    const next = toggleCategoryValue(categoryFilters, cat);
-                    setCategoryFilters(
-                      next.length === 0 || isAllCategoriesSelected(next)
-                        ? [...ALL_CATEGORIES]
-                        : next,
-                    );
-                  }}
-                >
-                  {CATEGORY_DISPLAY[cat] ?? cat} ✕
-                </button>
-              ))}
-              {activePrefTags.map((pref) => (
-                <button
-                  key={pref}
-                  className="active-tag active-tag--pref"
-                  onClick={() => {
-                    const next = prefectureFilters.filter((p) => p !== pref);
-                    const nextPrefOnly = next.filter(
-                      (p) => !allMunicipalities.includes(p),
-                    );
-                    const allSelected = availableAllPrefs.every((p) =>
-                      nextPrefOnly.includes(p),
-                    );
-                    setPrefectureFilters(
-                      nextPrefOnly.length === 0 || allSelected
-                        ? [...availableAllPrefs]
-                        : next,
-                    );
-                  }}
-                >
-                  {pref} ✕
-                </button>
-              ))}
-              {activeMuniTags.map((muni) => (
-                <button
-                  key={muni}
-                  className="active-tag active-tag--muni"
-                  onClick={() => toggleMunicipalityFilter(muni)}
-                >
-                  {muni} ✕
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* 件数 + 並び替え */}
-          <div className="search-meta-row">
-            <span className="result-count" style={{ margin: 0 }}>
-              {resultCountText}
-            </span>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              {/* 分類群 */}
               <select
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
-                style={{ fontSize: "var(--fs-sm)" }}
+                value={taxonomyFilter}
+                onChange={(e) => setTaxonomyFilter(e.target.value)}
               >
-                <option value="name">種名順</option>
-                <option value="category">カテゴリ順（希少性）</option>
-                <option value="jurisdiction-desc">指定箇所数（多い順）</option>
-                <option value="jurisdiction-asc">指定箇所数（少ない順）</option>
-                <option value="scientific">学名順</option>
+                <option value="">分類群：すべて</option>
+                {taxonomyList
+                  .map((t) => t.canonical)
+                  .filter((tax) =>
+                    allSpeciesData.some((item) => item.taxonomy === tax),
+                  )
+                  .map((tax) => (
+                    <option key={tax} value={tax}>
+                      {tax}
+                    </option>
+                  ))}
               </select>
             </div>
-          </div>
 
-          {/* カテゴリ凡例 */}
-          {!nothingSelected && displayData.length > 0 && (
-            <div className="category-legend">
-              {(
-                [
-                  { key: "EX", label: "絶滅（EX）" },
-                  { key: "EW", label: "野生絶滅（EW）" },
-                  { key: "CREN", label: "Ⅰ類（CR+EN）" },
-                  { key: "VU", label: "Ⅱ類（VU）" },
-                  { key: "NT", label: "準絶滅危惧（NT）" },
-                  { key: "DD", label: "情報不足（DD）" },
-                  { key: "LP", label: "地域個体群（LP）" },
-                  { key: "OTHER", label: "その他指定あり" },
-                ] as { key: CategoryKey; label: string }[]
-              ).map(({ key, label }) => (
-                <span
-                  key={key}
-                  className={`org-item ${getCategoryClass(key)}`}
-                  style={{ cursor: "default" }}
+            {/* アクティブフィルタータグ */}
+            {(activeCategoryTags.length > 0 ||
+              activePrefTags.length > 0 ||
+              activeMuniTags.length > 0) && (
+              <div className="active-filter-tags" style={{ marginBottom: "6px" }}>
+                {activeCategoryTags.map((cat) => (
+                  <button
+                    key={cat}
+                    className="active-tag active-tag--cat"
+                    onClick={() => {
+                      const next = toggleCategoryValue(categoryFilters, cat);
+                      setCategoryFilters(
+                        next.length === 0 || isAllCategoriesSelected(next)
+                          ? [...ALL_CATEGORIES]
+                          : next,
+                      );
+                    }}
+                  >
+                    {CATEGORY_DISPLAY[cat] ?? cat} ✕
+                  </button>
+                ))}
+                {activePrefTags.map((pref) => (
+                  <button
+                    key={pref}
+                    className="active-tag active-tag--pref"
+                    onClick={() => {
+                      const next = prefectureFilters.filter((p) => p !== pref);
+                      const nextPrefOnly = next.filter(
+                        (p) => !allMunicipalities.includes(p),
+                      );
+                      const allSelected = availableAllPrefs.every((p) =>
+                        nextPrefOnly.includes(p),
+                      );
+                      setPrefectureFilters(
+                        nextPrefOnly.length === 0 || allSelected
+                          ? [...availableAllPrefs]
+                          : next,
+                      );
+                    }}
+                  >
+                    {pref} ✕
+                  </button>
+                ))}
+                {activeMuniTags.map((muni) => (
+                  <button
+                    key={muni}
+                    className="active-tag active-tag--muni"
+                    onClick={() => toggleMunicipalityFilter(muni)}
+                  >
+                    {muni} ✕
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* 件数 + 並び替え */}
+            <div className="search-meta-row">
+              <span className="result-count" style={{ margin: 0 }}>
+                {resultCountText}
+              </span>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  style={{ fontSize: "var(--fs-sm)" }}
                 >
-                  {label}
-                </span>
-              ))}
+                  <option value="name">種名順</option>
+                  <option value="category">カテゴリ順（希少性）</option>
+                  <option value="jurisdiction-desc">指定箇所数（多い順）</option>
+                  <option value="jurisdiction-asc">指定箇所数（少ない順）</option>
+                  <option value="scientific">学名順</option>
+                </select>
+              </div>
             </div>
-          )}
+
+            {/* カテゴリ凡例 */}
+            {!nothingSelected && displayData.length > 0 && (
+              <div className="category-legend">
+                {(
+                  [
+                    { key: "EX", label: "絶滅（EX）" },
+                    { key: "EW", label: "野生絶滅（EW）" },
+                    { key: "CREN", label: "Ⅰ類（CR+EN）" },
+                    { key: "VU", label: "Ⅱ類（VU）" },
+                    { key: "NT", label: "準絶滅危惧（NT）" },
+                    { key: "DD", label: "情報不足（DD）" },
+                    { key: "LP", label: "地域個体群（LP）" },
+                    { key: "OTHER", label: "その他指定あり" },
+                  ] as { key: CategoryKey; label: string }[]
+                ).map(({ key, label }) => (
+                  <span
+                    key={key}
+                    className={`org-item ${getCategoryClass(key)}`}
+                    style={{ cursor: "default" }}
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* ── /折り畳み対象エリア ── */}
+
+          {/* スワイプヒント（モバイルのみ） */}
+          <div className="swipe-hint-bar" />
         </div>
         {/* ══ /固定ヘッダー部 ══ */}
 
@@ -1182,7 +1239,7 @@ function SearchPage() {
                   </div>
                 ))}
 
-                {/* ── sentinel（無限スクロール検知用） ── */}
+                {/* sentinel（無限スクロール検知用） */}
                 <div
                   ref={sentinelRef}
                   style={{
@@ -1227,7 +1284,6 @@ function SearchPage() {
                     </span>
                   )}
                 </div>
-                {/* ──────────────────────────────────── */}
               </>
             )}
           </div>

@@ -198,7 +198,6 @@ h1 {
    マルチセレクト
    ============================================================ */
 
-/* マルチセレクトドロップダウン */
 .multi-select-dropdown {
   position: relative;
   flex: 1;
@@ -278,13 +277,11 @@ h1 {
   background: var(--bg-subtle);
 }
 
-/* フィルター絞り込み中のボタン */
 .multi-select-btn--active {
   border-color: var(--brand);
   border-width: 2px;
 }
 
-/* 件数バッジ */
 .filter-badge {
   background: var(--brand);
   color: white;
@@ -297,7 +294,6 @@ h1 {
   flex-shrink: 0;
 }
 
-/* すべてチェックボックス */
 .multi-select-option--all {
   font-weight: 600;
 }
@@ -419,9 +415,6 @@ h1 {
   font-weight: 500;
 }
 
-/* ドロップダウン内の都道府県行・市町村サブリスト用のスタイル */
-
-/* 都道府県行（バッジ付き） */
 .pref-row-with-badge {
   display: flex;
   align-items: center;
@@ -429,7 +422,6 @@ h1 {
   padding: 0 4px;
 }
 
-/* 市町村データありバッジ */
 .muni-exists-badge {
   font-size: 10px;
   background: var(--bg-subtle);
@@ -441,14 +433,12 @@ h1 {
   flex-shrink: 0;
 }
 
-/* 市町村サブリスト */
 .muni-sub-list {
   margin: 2px 0 2px 22px;
   padding: 3px 6px;
   border-left: 2px solid var(--border);
 }
 
-/* 市町村サブリスト説明文 */
 .muni-sub-note {
   font-size: 11px;
   color: var(--text-faint);
@@ -456,13 +446,11 @@ h1 {
   margin-bottom: 2px;
 }
 
-/* 市町村チェックボックス */
 .muni-option {
   font-size: 12px;
   color: var(--text-body);
 }
 
-/* 都道府県未選択時のdisabled状態 */
 .muni-option--disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -471,7 +459,6 @@ h1 {
   cursor: not-allowed;
 }
 
-/* アクティブフィルタータグ */
 .active-filter-tags {
   display: flex;
   flex-wrap: wrap;
@@ -510,14 +497,12 @@ h1 {
    検索ページ：全画面固定レイアウト
    ============================================================ */
 
-/* body の padding を検索ページでは無効化 */
 body:has(.search-layout) {
   padding: 0;
-  overflow: hidden; /* ← bodyのスクロールを殺す */
-  height: 100vh; /* ← bodyをビューポートに固定 */
+  overflow: hidden;
+  height: 100vh;
 }
 
-/* 画面全体を縦に2分割：固定ヘッダー＋スクロールエリア */
 .search-layout {
   display: flex;
   flex-direction: column;
@@ -528,10 +513,9 @@ body:has(.search-layout) {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
-/* 上部固定エリア */
 .search-sticky-header {
   flex-shrink: 0;
-  overflow: visible; /* ← ドロップダウンがはみ出せるよう */
+  overflow: visible;
   padding: 10px 16px 8px;
   background: var(--bg-page);
   border-bottom: 1px solid var(--border);
@@ -539,7 +523,6 @@ body:has(.search-layout) {
   z-index: 10;
 }
 
-/* タイトル行：h1＋検索クエリ＋戻るボタン横並び */
 .search-header-row {
   display: flex;
   align-items: center;
@@ -563,7 +546,6 @@ body:has(.search-layout) {
   text-overflow: ellipsis;
 }
 
-/* 件数＋表示件数セレクト横並び */
 .search-meta-row {
   display: flex;
   align-items: center;
@@ -573,7 +555,6 @@ body:has(.search-layout) {
   flex-wrap: wrap;
 }
 
-/* カテゴリ凡例 */
 .category-legend {
   display: flex;
   flex-wrap: wrap;
@@ -582,7 +563,6 @@ body:has(.search-layout) {
   border-top: 1px solid var(--border);
 }
 
-/* 下部スクロールエリア：種カードが縦スクロール */
 .search-results-scroll {
   flex: 1;
   overflow-y: auto;
@@ -590,20 +570,136 @@ body:has(.search-layout) {
   -webkit-overflow-scrolling: touch;
 }
 
-/* モバイル対応 */
+/* ============================================================
+   ヘッダー折り畳み（モバイル用）
+   ============================================================ */
+
+/* 折り畳み対象エリア：max-height アニメーションで開閉 */
+.header-collapsible {
+  overflow: hidden;
+  transition: max-height 0.28s ease, opacity 0.2s ease;
+  max-height: 800px; /* 展開時。実際の高さより十分大きければOK */
+  opacity: 1;
+}
+
+.header-collapsed .header-collapsible {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none; /* 折り畳み中はクリック無効 */
+}
+
+/* 折り畳みトグルボタン：デスクトップでは非表示 */
+.header-collapse-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-page);
+  cursor: pointer;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.header-collapse-btn:hover {
+  background: var(--bg-table-header);
+}
+
+/* 折り畳み時の件数バッジ */
+.header-collapsed-badge {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* スワイプヒントバー：折り畳み時のみ表示 */
+.swipe-hint-bar {
+  display: none; /* デスクトップは非表示 */
+}
+
+/* ============================================================
+   モバイル（≤600px）
+   ============================================================ */
 @media (max-width: 600px) {
   .search-layout {
     max-width: 100%;
     box-shadow: none;
   }
-  .search-title {
-    font-size: 0.9rem;
-  }
+
   .search-sticky-header {
-    padding: 8px 12px 6px;
+    padding: 6px 12px 4px;
   }
+
   .search-results-scroll {
     padding: 6px 12px 16px;
+  }
+
+  /* タイトル行を詰める */
+  .search-title {
+    font-size: 0.85rem;
+  }
+
+  .search-header-row {
+    margin-bottom: 0; /* 折り畳み時はgapだけで十分 */
+    gap: 6px;
+  }
+
+  /* トグルボタンを表示 */
+  .header-collapse-btn {
+    display: inline-flex;
+  }
+
+  /* フィルターボタンを詰める */
+  .multi-select-btn,
+  .filters select {
+    padding: 6px 8px;
+    font-size: var(--fs-xs);
+  }
+
+  /* フィルター行を2列グリッドに */
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 4px !important;
+  }
+  .filters select {
+    min-width: unset;
+  }
+  .multi-select-dropdown {
+    min-width: unset;
+  }
+
+  /* 件数・ソートの行も詰める */
+  .search-meta-row {
+    margin-bottom: 4px;
+  }
+
+  /* スワイプヒントバー表示 */
+  .swipe-hint-bar {
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin: 4px auto 0;
+  }
+
+  /* 折り畳み時はヒントバー非表示（余白を最小化） */
+  .header-collapsed .swipe-hint-bar {
+    display: none;
+  }
+
+  /* 折り畳み時にタイトル行の下マージンを少し付ける */
+  .header-collapsed .search-header-row {
+    margin-bottom: 2px;
   }
 }
 
@@ -622,7 +718,6 @@ body:has(.search-layout) {
   flex-direction: column;
 }
 
-/* 分類群グループヘッダー */
 .taxonomy-group-header {
   display: flex;
   align-items: center;
@@ -645,7 +740,6 @@ body:has(.search-layout) {
   letter-spacing: 0.05em;
 }
 
-/* グループ外枠 */
 .card-group {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -653,7 +747,6 @@ body:has(.search-layout) {
   margin-bottom: 4px;
 }
 
-/* 種カード（グループ内の各行） */
 .species-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
@@ -675,7 +768,6 @@ body:has(.search-layout) {
   border-color: var(--border);
 }
 
-/* 左列：和名・学名 */
 .card-left {
   display: flex;
   flex-direction: column;
@@ -695,7 +787,6 @@ body:has(.search-layout) {
   margin: 0;
 }
 
-/* 右列：指定状況 */
 .card-right {
   border-left: 1px solid var(--border);
   padding-left: 14px;
@@ -716,8 +807,8 @@ body:has(.search-layout) {
   flex-shrink: 0;
   padding-top: 2px;
   line-height: 1;
-  text-align: justify; /* 両端揃えで「国」「市町村」も幅いっぱいに伸ばす */
-  text-align-last: justify; /* 最終行も両端揃え */
+  text-align: justify;
+  text-align-last: justify;
 }
 .org-list {
   display: flex;
@@ -732,7 +823,6 @@ body:has(.search-layout) {
   border-radius: 4px;
   white-space: nowrap;
 }
-/* カテゴリ色はCategoryStyles.tsxのCSS変数を流用 */
 .org-item.category-ex {
   background: var(--color-cat-ex);
   color: var(--color-cat-ex-text);
@@ -781,7 +871,6 @@ body:has(.search-layout) {
   font-size: var(--fs-base);
 }
 
-/* モバイル */
 @media (max-width: 768px) {
   .species-card {
     grid-template-columns: 1fr;
@@ -796,9 +885,7 @@ body:has(.search-layout) {
   }
   .card-right {
     border-left: none;
-    /* border-top: 1px solid var(--border); */
     padding-left: 0;
-    /* padding-top: 8px; */
     margin-top: 4px;
   }
 }
@@ -1043,7 +1130,7 @@ footer {
   padding: clamp(5px, 1vh, 8px);
   text-align: left;
   border-bottom: 1px solid var(--border);
-  white-space: nowrap; /* 追加 */
+  white-space: nowrap;
 }
 
 .prefecture-table th {
@@ -1060,7 +1147,7 @@ footer {
 .prefecture-table td.scientific-cell {
   font-style: italic;
   color: var(--text-body);
-  white-space: normal; /* nowrap を上書き */
+  white-space: normal;
   min-width: 120px;
   max-width: 220px;
   word-break: break-word;
@@ -1165,7 +1252,7 @@ footer {
 }
 
 /* ============================================================
-   レスポンシブ
+   レスポンシブ（768px）
    ============================================================ */
 @media (max-width: 768px) {
   body {
