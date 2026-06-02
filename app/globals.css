@@ -723,10 +723,14 @@ body:has(.search-layout) {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 4px 6px;
-}
-.taxonomy-group-header:first-child {
-  padding-top: 0;
+  padding: 8px 4px 6px;
+  position: sticky;
+  top: -8px; /* .search-results-scrollのpadding-top(8px)分を相殺 */
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 5;
+  border-bottom: 1px solid var(--border);
 }
 .tax-dot {
   width: 7px;
@@ -1272,10 +1276,10 @@ footer {
     font-size: 2rem;
   }
   .filters {
-    flex-direction: row;
+    flex-direction: column;
   }
   .filters select {
-    min-width: 100%;
+    min-width: unset;
   }
   .autocomplete-list {
     width: 100%;
