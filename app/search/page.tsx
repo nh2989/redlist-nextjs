@@ -740,12 +740,7 @@ function SearchPage() {
               onClick={() => setIsHeaderCollapsed((v) => !v)}
               aria-label={isHeaderCollapsed ? "フィルターを表示" : "フィルターを隠す"}
             >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "18px" }}
-              >
-                {isHeaderCollapsed ? "expand_more" : "expand_less"}
-              </span>
+              {isHeaderCollapsed ? "▼" : "▲"}
             </button>
 
             <button

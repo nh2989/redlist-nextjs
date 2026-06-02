@@ -602,6 +602,8 @@ body:has(.search-layout) {
   cursor: pointer;
   color: var(--text-faint);
   flex-shrink: 0;
+  font-size: 10px;
+  line-height: 1;
   transition: background 0.15s;
 }
 .header-collapse-btn:hover {
@@ -663,10 +665,9 @@ body:has(.search-layout) {
     font-size: var(--fs-xs);
   }
 
-  /* フィルター行を2列グリッドに */
+  /* フィルター行は縦並び（flex-direction: column） */
   .filters {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
     gap: 5px;
     margin-bottom: 4px !important;
   }
