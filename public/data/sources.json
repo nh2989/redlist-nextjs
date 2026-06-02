@@ -108,5 +108,15 @@
     "publication_year": "2005",
     "publisher": "彦根市",
     "url": "https://www.city.hikone.lg.jp/kakuka/shimin_kankyo/5/2_2/9/3770.html"
+  },
+  {
+    "id": "shizuoka",
+    "jurisdiction_name": "静岡県",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "まもりたい静岡県の野生生物2020　静岡県レッドデータブック＜植物・菌類編＞",
+    "publication_year": "2020",
+    "publisher": "静岡県",
+    "url": "https://www.pref.shizuoka.jp/kurashikankyo/shizenkankyo/wild/1017686.html"
   }
 ]

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const dir = 'public/data';
+const dir = 'public/data/redlist';
 
 const files = fs.readdirSync(dir).filter(f =>
   f.endsWith('.json') &&

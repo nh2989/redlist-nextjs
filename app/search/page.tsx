@@ -166,27 +166,23 @@ function SearchPage() {
   async function loadData() {
     setLoading(true);
     try {
-      const dataFiles = [
-        { id: "national", path: "/data/national.json" },
-        { id: "shiga_2025", path: "/data/shiga_2025.json" },
-        { id: "kyoto", path: "/data/kyoto.json" },
-        { id: "aichi", path: "/data/aichi.json" },
-        { id: "hiroshima", path: "/data/hiroshima.json" },
-        { id: "koka", path: "/data/koka.json" },
-        { id: "hikone", path: "/data/hikone.json" },
-        { id: "shimane", path: "/data/shimane.json" },
-        { id: "fukui", path: "/data/fukui.json" },
-        { id: "gifu", path: "/data/gifu.json" },
-        { id: "mie", path: "/data/mie.json" },
-      ];
-
-      const [sourcesRes, synonymsRes, taxonomiesRes, ...dataResponses] =
+      const [fileListRes, sourcesRes, synonymsRes, taxonomiesRes] =
         await Promise.all([
+          fetch("/api/data-files"),
           fetch("/data/sources.json"),
           fetch("/data/synonyms.json").catch(() => null),
           fetch("/data/taxonomies.json").catch(() => null),
-          ...dataFiles.map((f) => fetch(f.path).catch(() => null)),
         ]);
+
+      const fileNames: string[] = await fileListRes.json();
+      const dataFiles = fileNames.map((name) => ({
+        id: name.replace(".json", ""),
+        path: `/data/redlist/${name}`,
+      }));
+
+      const dataResponses = await Promise.all(
+        dataFiles.map((f) => fetch(f.path).catch(() => null)),
+      );
 
       const synonyms: Record<string, string> = synonymsRes
         ? await synonymsRes.json().catch(() => ({}))

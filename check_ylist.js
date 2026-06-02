@@ -30,7 +30,7 @@ csvLines.forEach(line => {
 });
 
 // 全JSONの species_name を収集
-const dir = 'public/data';
+const dir = 'public/data/redlist';
 const files = fs.readdirSync(dir).filter(f =>
   f.endsWith('.json') &&
   f !== 'sources.json' &&

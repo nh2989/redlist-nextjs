@@ -1,6 +1,6 @@
 // check_national.js として保存して実行
 const fs = require('fs');
-const data = JSON.parse(fs.readFileSync('public/data/national.json', 'utf8').replace(/^\uFEFF/, ''));
+const data = JSON.parse(fs.readFileSync('public/data/redlist/national.json', 'utf8').replace(/^\uFEFF/, ''));
 
 const targets = [
   'ビャクシン', 'イブキ',
