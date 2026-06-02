@@ -254,7 +254,7 @@ h1 {
 }
 
 .multi-select-option:hover {
-  background: var(--bg-subtle);
+  background: var(--bg-table-header);
 }
 
 .multi-select-option input[type="checkbox"] {
@@ -274,7 +274,7 @@ h1 {
 }
 
 .multi-select-clear:hover {
-  background: var(--bg-subtle);
+  background: var(--bg-table-header);
 }
 
 .multi-select-btn--active {
@@ -424,7 +424,7 @@ h1 {
 
 .muni-exists-badge {
   font-size: 10px;
-  background: var(--bg-subtle);
+  background: var(--bg-table-header);
   border: 0.5px solid var(--border);
   border-radius: 4px;
   padding: 1px 5px;
@@ -492,11 +492,163 @@ h1 {
   background: #f0ece8;
   color: #5c3a2d;
 }
+.active-tag--tax {
+  background: #e8f5e8;
+  color: #2d5c2d;
+}
+
+/* ============================================================
+   モバイル/PC 表示切り替え
+   ============================================================ */
+.sp-only { display: none !important; }
+.pc-only { display: block; }
+
+/* ============================================================
+   フィルターシートボタン（モバイル用）
+   ============================================================ */
+.filter-sheet-btn {
+  width: 100%;
+  padding: 6px 10px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: var(--fs-xs);
+  background: var(--bg-page);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-body);
+}
+.filter-sheet-btn--active {
+  border-color: var(--brand);
+}
+
+/* ============================================================
+   ボトムシート
+   ============================================================ */
+.bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottom-sheet {
+  width: 100%;
+  background: var(--bg-page);
+  border-radius: 16px 16px 0 0;
+  max-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  animation: sheet-up 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.bottom-sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: 10px auto 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.bottom-sheet-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 10px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.bottom-sheet-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-faint);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.bottom-sheet-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sheet-section-label {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 10px 0 4px;
+}
+
+.sheet-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+  cursor: pointer;
+}
+.sheet-option:last-child { border-bottom: none; }
+
+.sheet-option--all {
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.sheet-option--sub {
+  padding-left: 20px;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.sheet-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--brand);
+}
+
+.bottom-sheet-foot {
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.bottom-sheet-apply {
+  width: 100%;
+  padding: 11px;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
 
 /* ============================================================
    検索ページ：全画面固定レイアウト
    ============================================================ */
-
 body:has(.search-layout) {
   padding: 0;
   overflow: hidden;
@@ -576,132 +728,22 @@ body:has(.search-layout) {
 
 /* 折り畳み対象エリア：max-height アニメーションで開閉 */
 .header-collapsible {
-  overflow: hidden;
+  overflow: visible;
   transition: max-height 0.28s ease, opacity 0.2s ease;
-  max-height: 800px; /* 展開時。実際の高さより十分大きければOK */
+  max-height: 800px;
   opacity: 1;
 }
 
 .header-collapsed .header-collapsible {
   max-height: 0;
   opacity: 0;
-  pointer-events: none; /* 折り畳み中はクリック無効 */
-}
-
-/* 折り畳みトグルボタン：デスクトップでは非表示 */
-.header-collapse-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg-page);
-  cursor: pointer;
-  color: var(--text-faint);
-  flex-shrink: 0;
-  font-size: 10px;
-  line-height: 1;
-  transition: background 0.15s;
-}
-.header-collapse-btn:hover {
-  background: var(--bg-table-header);
-}
-
-/* 折り畳み時の件数バッジ */
-.header-collapsed-badge {
-  font-size: var(--fs-xs);
-  color: var(--text-faint);
-  font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 /* スワイプヒントバー：折り畳み時のみ表示 */
 .swipe-hint-bar {
   display: none; /* デスクトップは非表示 */
-}
-
-/* ============================================================
-   モバイル（≤600px）
-   ============================================================ */
-@media (max-width: 600px) {
-  .search-layout {
-    max-width: 100%;
-    box-shadow: none;
-  }
-
-  .search-sticky-header {
-    padding: 6px 12px 4px;
-  }
-
-  .search-results-scroll {
-    padding: 6px 12px 16px;
-  }
-
-  /* タイトル行を詰める */
-  .search-title {
-    font-size: 0.85rem;
-  }
-
-  .search-header-row {
-    margin-bottom: 0; /* 折り畳み時はgapだけで十分 */
-    gap: 6px;
-  }
-
-  /* トグルボタンを表示 */
-  .header-collapse-btn {
-    display: inline-flex;
-  }
-
-  /* フィルターボタンを詰める */
-  .multi-select-btn,
-  .filters select {
-    padding: 6px 8px;
-    font-size: var(--fs-xs);
-  }
-
-  /* フィルター行は縦並び（flex-direction: column） */
-  .filters {
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 4px !important;
-  }
-  .filters select {
-    min-width: unset;
-  }
-  .multi-select-dropdown {
-    min-width: unset;
-  }
-
-  /* 件数・ソートの行も詰める */
-  .search-meta-row {
-    margin-bottom: 4px;
-  }
-
-  /* スワイプヒントバー表示 */
-  .swipe-hint-bar {
-    display: block;
-    width: 36px;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    margin: 4px auto 0;
-  }
-
-  /* 折り畳み時はヒントバー非表示（余白を最小化） */
-  .header-collapsed .swipe-hint-bar {
-    display: none;
-  }
-
-  /* 折り畳み時にタイトル行の下マージンを少し付ける */
-  .header-collapsed .search-header-row {
-    margin-bottom: 2px;
-  }
 }
 
 /* ============================================================
@@ -712,6 +754,34 @@ body:has(.search-layout) {
   padding: 40px;
   color: var(--text-body);
   font-size: 18px;
+}
+
+/* ローディングスピナー */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+.loading-spinner-text {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
 }
 
 .results {
@@ -874,25 +944,6 @@ body:has(.search-layout) {
   padding: 60px 20px;
   color: var(--text-faint);
   font-size: var(--fs-base);
-}
-
-@media (max-width: 768px) {
-  .species-card {
-    grid-template-columns: 1fr;
-  }
-  .card-left {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-  }
-  .scientific {
-    padding-left: 10;
-  }
-  .card-right {
-    border-left: none;
-    padding-left: 0;
-    margin-top: 4px;
-  }
 }
 
 /* ============================================================
@@ -1257,8 +1308,17 @@ footer {
 }
 
 /* ============================================================
-   レスポンシブ（768px）
+   レスポンシブ
    ============================================================ */
+
+/* タブレット（769px〜1024px） */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .species-map-svg {
+    max-width: 700px;
+  }
+}
+
+/* タブレット以下（〜768px） */
 @media (max-width: 768px) {
   body {
     padding: 0;
@@ -1274,12 +1334,6 @@ footer {
   }
   h1 {
     font-size: 2rem;
-  }
-  .filters {
-    flex-direction: column;
-  }
-  .filters select {
-    min-width: unset;
   }
   .autocomplete-list {
     width: 100%;
@@ -1305,6 +1359,23 @@ footer {
   .chart-label {
     min-width: 120px;
     font-size: var(--fs-xs);
+  }
+
+  .species-card {
+    grid-template-columns: 1fr;
+  }
+  .card-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+  }
+  .scientific {
+    padding-left: 10;
+  }
+  .card-right {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 4px;
   }
 
   .modal-overlay {
@@ -1344,8 +1415,83 @@ footer {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .species-map-svg {
-    max-width: 700px;
+/* スマートフォン（〜600px） */
+@media (max-width: 600px) {
+  /* モバイル/PC 表示切り替え */
+  .sp-only { display: flex !important; }
+  .pc-only { display: none !important; }
+
+  h1{
+    font-size: 1.6rem;
+  }
+
+  /* 検索ページレイアウト */
+  .search-layout {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .search-sticky-header {
+    padding: 6px 12px 4px;
+  }
+
+  .search-results-scroll {
+    padding: 6px 12px 16px;
+  }
+
+  /* タイトル行を詰める */
+  .search-title {
+    font-size: 0.85rem;
+  }
+
+  .search-header-row {
+    margin-bottom: 0;
+    gap: 6px;
+  }
+
+  /* フィルターボタンを詰める */
+  .multi-select-btn,
+  .filters select {
+    padding: 6px 8px;
+    font-size: var(--fs-xs);
+  }
+
+  /* フィルター行は縦並び */
+  .filters {
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 4px !important;
+  }
+  .filters select {
+    min-width: unset;
+  }
+  .multi-select-dropdown {
+    min-width: unset;
+  }
+
+  /* 件数・ソートの行も詰める */
+  .search-meta-row {
+    margin-bottom: 4px;
+  }
+
+  /* スワイプヒントバー表示 */
+  .swipe-hint-bar {
+    display: block;
+    width: 48px;
+    height: 5px;
+    background: #c0c0c0;
+    border-radius: 3px;
+    margin: 6px auto 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .swipe-hint-bar:hover,
+  .swipe-hint-bar:active {
+    background: #999;
+  }
+
+  /* 折り畳み時にタイトル行の下マージンを少し付ける */
+  .header-collapsed .search-header-row {
+    margin-bottom: 2px;
   }
 }

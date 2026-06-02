@@ -24,12 +24,14 @@ export default function Home() {
     ...ALL_CATEGORIES,
   ]);
   const [prefectureFilters, setPrefectureFilters] = useState<string[]>([]);
-  const [taxonomyFilter, setTaxonomyFilter] = useState("");
+  const [taxonomyFilters, setTaxonomyFilters] = useState<string[]>([]);
 
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isPrefectureOpen, setIsPrefectureOpen] = useState(false);
+  const [isTaxonomyOpen, setIsTaxonomyOpen] = useState(false);
   const categoryRef = useRef<HTMLDivElement>(null);
   const prefectureRef = useRef<HTMLDivElement>(null);
+  const taxonomyRef = useRef<HTMLDivElement>(null);
 
   const [availablePrefectures, setAvailablePrefectures] = useState<string[]>(
     [],
@@ -56,6 +58,11 @@ export default function Home() {
     allMunicipalities.includes(p),
   );
 
+  const allTaxSelected =
+    availableTaxonomies.length > 0 &&
+    availableTaxonomies.every((t) => taxonomyFilters.includes(t));
+  const isTaxFiltered = !allTaxSelected && taxonomyFilters.length > 0;
+
   const activeCategoryTags = isCatFiltered
     ? categoryFilters.filter(
         (c) =>
@@ -67,6 +74,7 @@ export default function Home() {
   const activeMuniTags = prefectureFilters.filter((p) =>
     allMunicipalities.includes(p),
   );
+  const activeTaxTags = isTaxFiltered ? taxonomyFilters : [];
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -80,6 +88,11 @@ export default function Home() {
         !prefectureRef.current.contains(e.target as Node)
       )
         setIsPrefectureOpen(false);
+      if (
+        taxonomyRef.current &&
+        !taxonomyRef.current.contains(e.target as Node)
+      )
+        setIsTaxonomyOpen(false);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -118,7 +131,9 @@ export default function Home() {
     fetch("/data/taxonomies.json")
       .then((res) => res.json())
       .then((list: { canonical: string }[]) => {
-        setAvailableTaxonomies(list.map((t) => t.canonical));
+        const taxes = list.map((t) => t.canonical);
+        setAvailableTaxonomies(taxes);
+        setTaxonomyFilters(taxes); // 初期値：全選択
       })
       .catch(() => {});
   }, []);
@@ -147,6 +162,16 @@ export default function Home() {
     );
   }
 
+  function handleTaxonomyAllChange(checked: boolean) {
+    setTaxonomyFilters(checked ? [...availableTaxonomies] : []);
+  }
+
+  function toggleTaxonomy(tax: string) {
+    setTaxonomyFilters((prev) =>
+      prev.includes(tax) ? prev.filter((t) => t !== tax) : [...prev, tax],
+    );
+  }
+
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     const params = new URLSearchParams();
@@ -155,7 +180,8 @@ export default function Home() {
       categoryFilters.forEach((cat) => params.append("category", cat));
     if (!allPrefSelected || hasMuniSelected)
       prefectureFilters.forEach((pref) => params.append("prefecture", pref));
-    if (taxonomyFilter) params.set("taxonomy", taxonomyFilter);
+    if (!allTaxSelected)
+      taxonomyFilters.forEach((tax) => params.append("taxonomy", tax));
     router.push(`/search?${params.toString()}`);
   }
 
@@ -175,8 +201,8 @@ export default function Home() {
           <p className="subtitle">
             日本の絶滅危惧種を検索・閲覧できます
             <br />
-            全国のレッドリストをまとめて検索（
-            <a href="/sources">対応データ一覧</a>）
+            全国のレッドリストをまとめて検索
+            <br /><a href="/sources">対応データ一覧</a>
           </p>
         </header>
 
@@ -244,7 +270,6 @@ export default function Home() {
                       />
                       野生絶滅（EW）
                     </label>
-                    {/* CREN 親行 */}
                     <div className="pref-row-with-badge">
                       <label
                         className="multi-select-option"
@@ -258,7 +283,6 @@ export default function Home() {
                         絶滅危惧Ⅰ類（CR+EN）
                       </label>
                     </div>
-                    {/* CR・EN 子行 */}
                     <div className="muni-sub-list">
                       <div className="muni-sub-note">
                         CR・EN を個別に選択可能
@@ -396,24 +420,60 @@ export default function Home() {
                 )}
               </div>
 
-              {/* 分類群 */}
-              <select
-                value={taxonomyFilter}
-                onChange={(e) => setTaxonomyFilter(e.target.value)}
-              >
-                <option value="">分類群：すべて</option>
-                {availableTaxonomies.map((tax) => (
-                  <option key={tax} value={tax}>
-                    {tax}
-                  </option>
-                ))}
-              </select>
+              {/* 分類群 複数選択 */}
+              <div className="multi-select-dropdown" ref={taxonomyRef}>
+                <button
+                  type="button"
+                  className={`multi-select-btn${isTaxFiltered ? " multi-select-btn--active" : ""}`}
+                  onClick={() => setIsTaxonomyOpen((v) => !v)}
+                >
+                  <span>分類群</span>
+                  {isTaxFiltered && (
+                    <span className="filter-badge">{taxonomyFilters.length}</span>
+                  )}
+                  <span className="dropdown-arrow">
+                    {isTaxonomyOpen ? "▲" : "▼"}
+                  </span>
+                </button>
+                {isTaxonomyOpen && (
+                  <div className="multi-select-options">
+                    <label className="multi-select-option multi-select-option--all">
+                      <input
+                        type="checkbox"
+                        checked={allTaxSelected}
+                        onChange={(e) =>
+                          handleTaxonomyAllChange(e.target.checked)
+                        }
+                      />
+                      すべて
+                    </label>
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
+                    />
+                    {availableTaxonomies.map((tax) => (
+                      <label key={tax} className="multi-select-option">
+                        <input
+                          type="checkbox"
+                          checked={taxonomyFilters.includes(tax)}
+                          onChange={() => toggleTaxonomy(tax)}
+                        />
+                        {tax}
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* アクティブフィルタータグ */}
             {(activeCategoryTags.length > 0 ||
               activePrefTags.length > 0 ||
-              activeMuniTags.length > 0) && (
+              activeMuniTags.length > 0 ||
+              activeTaxTags.length > 0) && (
               <div className="active-filter-tags">
                 {activeCategoryTags.map((cat) => (
                   <button
@@ -443,6 +503,16 @@ export default function Home() {
                     onClick={() => toggleMunicipality(muni)}
                   >
                     {muni} ✕
+                  </button>
+                ))}
+                {activeTaxTags.map((tax) => (
+                  <button
+                    key={tax}
+                    type="button"
+                    className="active-tag active-tag--tax"
+                    onClick={() => toggleTaxonomy(tax)}
+                  >
+                    {tax} ✕
                   </button>
                 ))}
               </div>
