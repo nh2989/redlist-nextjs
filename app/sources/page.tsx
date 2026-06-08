@@ -37,7 +37,12 @@ export default async function SourcesPage() {
   return (
     <div
       className="container"
-      style={{ maxWidth: "900px", margin: "0 auto", padding: 16 }}
+      style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: 16,
+        paddingBottom: 32,
+      }}
     >
       <header style={{ margin: 0 }}>
         <div
