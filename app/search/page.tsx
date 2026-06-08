@@ -1403,7 +1403,7 @@ function SearchPage() {
                       読み込み中...
                     </span>
                   )}
-                  {!hasMore && displayData.length > PAGE_SIZE && (
+                  {!hasMore && displayData.length > 0 && (
                     <span
                       style={{
                         fontSize: "var(--fs-xs)",
