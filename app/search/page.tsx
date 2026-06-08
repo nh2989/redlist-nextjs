@@ -107,6 +107,12 @@ function SearchPage() {
   const prefectureDropdownRef = useRef<HTMLDivElement>(null);
   const taxonomyDropdownRef = useRef<HTMLDivElement>(null);
 
+  const [collapsibleHeight, setCollapsibleHeight] = useState<number | null>(
+    null,
+  );
+  const collapsibleRef = useRef<HTMLDivElement>(null);
+  const fullHeightRef = useRef<number>(0);
+
   const [taxonomyFilters, setTaxonomyFilters] =
     useState<string[]>(initialTaxonomy);
   const [sortOrder, setSortOrder] = useState(initialSort);
@@ -208,12 +214,37 @@ function SearchPage() {
 
   function handleTouchStart(e: React.TouchEvent) {
     touchStartY.current = e.touches[0].clientY;
+    // 展開時の実高さを記録
+    if (collapsibleRef.current) {
+      fullHeightRef.current = collapsibleRef.current.scrollHeight;
+    }
   }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    if (touchStartY.current === null) return;
+    const dy = touchStartY.current - e.touches[0].clientY;
+    const full = fullHeightRef.current;
+    if (full === 0) return;
+
+    if (isHeaderCollapsed) {
+      // 折り畳み中：上スワイプで展開方向
+      const next = Math.min(Math.max(0, -dy), full);
+      setCollapsibleHeight(next);
+    } else {
+      // 展開中：下スワイプで折り畳み方向
+      const next = Math.min(Math.max(0, full - dy), full);
+      setCollapsibleHeight(next);
+    }
+  }
+
   function handleTouchEnd(e: React.TouchEvent) {
     if (touchStartY.current === null) return;
     const dy = touchStartY.current - e.changedTouches[0].clientY;
-    if (dy > 30) setIsHeaderCollapsed(true);
-    if (dy < -30) setIsHeaderCollapsed(false);
+    const threshold = fullHeightRef.current * 0.5;
+    if (dy > threshold) setIsHeaderCollapsed(true);
+    else if (dy < -threshold) setIsHeaderCollapsed(false);
+    // CSSアニメーションに戻す
+    setCollapsibleHeight(null);
     touchStartY.current = null;
   }
 
@@ -684,6 +715,7 @@ function SearchPage() {
         <div
           className={`search-sticky-header${isHeaderCollapsed ? " header-collapsed" : ""}`}
           onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           {/* タイトル行 */}
@@ -691,7 +723,11 @@ function SearchPage() {
             <h1 className="search-title">
               <Link
                 href="/"
-                style={{ textDecoration: "none", color: "inherit" }}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  display: "inline",
+                }}
               >
                 🌿 絶滅危惧種横断検索
               </Link>
@@ -713,7 +749,19 @@ function SearchPage() {
           </div>
 
           {/* ── 折り畳み対象エリア ── */}
-          <div className="header-collapsible">
+          <div
+            className="header-collapsible"
+            ref={collapsibleRef}
+            style={
+              collapsibleHeight !== null
+                ? {
+                    maxHeight: `${collapsibleHeight}px`,
+                    transition: "none",
+                    overflow: "hidden",
+                  }
+                : undefined
+            }
+          >
             {/* 検索ボックス */}
             <form onSubmit={handleSearch} style={{ marginBottom: "8px" }}>
               <div
