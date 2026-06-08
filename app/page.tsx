@@ -8,7 +8,9 @@ import {
   CATEGORY_DISPLAY,
   isAllCategoriesSelected,
   toggleCategoryValue,
+  TAXONOMY_EMOJI,
 } from "@/lib/categoryConstants";
+
 
 interface SourceEntry {
   jurisdiction_name: string;
@@ -461,7 +463,7 @@ export default function Home() {
                           checked={taxonomyFilters.includes(tax)}
                           onChange={() => toggleTaxonomy(tax)}
                         />
-                        {tax}
+                        {TAXONOMY_EMOJI[tax] ?? "🔹"} {tax}
                       </label>
                     ))}
                   </div>
@@ -512,7 +514,7 @@ export default function Home() {
                     className="active-tag active-tag--tax"
                     onClick={() => toggleTaxonomy(tax)}
                   >
-                    {tax} ✕
+                    {TAXONOMY_EMOJI[tax] ?? "🔹"} {tax} ✕
                   </button>
                 ))}
               </div>

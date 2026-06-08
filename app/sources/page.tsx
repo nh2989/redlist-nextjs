@@ -45,16 +45,32 @@ export default async function SourcesPage() {
   return (
     <div
       className="container"
-      style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}
+      style={{ maxWidth: "900px", margin: "0 auto", padding: 16 }}
     >
-      <header style={{ marginBottom: "32px" }}>
-        <Link href="/" style={{ color: "var(--brand)", fontSize: "0.9rem" }}>
-          ← トップへ戻る
-        </Link>
-        <h1 style={{ marginTop: "16px", color: "var(--text-heading)" }}>
+      <header style={{ margin: 0 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "16px",
+          }}
+        >
+          <h1 className="search-title" style={{ margin: 0 }}>
+            <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+              🌿 絶滅危惧種横断検索
+            </Link>
+          </h1>
+        </div>
+        <h2
+          style={{
+            color: "var(--text-heading)",
+            marginBottom: "8px",
+            fontSize: "var(--fs-base)",
+          }}
+        >
           📚 データ出典一覧
-        </h1>
-        <p style={{ color: "var(--text-body)", marginTop: "8px" }}>
+        </h2>
+        <p style={{ color: "var(--text-body)", fontSize: "var(--fs-xs)" }}>
           本サイトが使用しているレッドリストの出典情報です。
         </p>
       </header>
@@ -63,7 +79,6 @@ export default async function SourcesPage() {
         style={{
           width: "100%",
           borderCollapse: "collapse",
-          fontSize: "var(--fs-sm)",
         }}
       >
         <thead>
@@ -128,14 +143,15 @@ export default async function SourcesPage() {
 }
 
 const thStyle: React.CSSProperties = {
-  padding: "10px 12px",
-  textAlign: "left",
+  padding: "8px 4px",
+  textAlign: "center",
   color: "var(--text-heading)",
   fontWeight: 600,
+  fontSize: "var(--fs-sm)",
 };
 
 const tdStyle: React.CSSProperties = {
-  padding: "10px 12px",
+  padding: "8px 4px",
   color: "var(--text-body)",
-  verticalAlign: "top",
+  fontSize: "var(--fs-sm)",
 };
