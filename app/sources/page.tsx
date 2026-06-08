@@ -23,24 +23,16 @@ async function getSources(): Promise<SourceRecord[]> {
 export default async function SourcesPage() {
   const sources = await getSources();
 
-  // PREFECTURE_CODESで並び替え（国→都道府県順→市町村は親都道府県の直下）
   const sorted = [...sources].sort((a, b) => {
     const order = (s: SourceRecord) => {
       if (s.jurisdiction_type === "national") return 0;
       if (s.jurisdiction_type === "prefecture") {
         return (PREFECTURE_CODES[s.jurisdiction_name] ?? 999) * 10;
       }
-      // municipality: 親都道府県コードを使って都道府県直下に並べる
       return (PREFECTURE_CODES[s.parent_prefecture ?? ""] ?? 999) * 10 + 1;
     };
     return order(a) - order(b);
   });
-
-  const typeLabel: Record<string, string> = {
-    national: "国",
-    prefecture: "都道府県",
-    municipality: "市町村",
-  };
 
   return (
     <div
@@ -76,12 +68,10 @@ export default async function SourcesPage() {
       </header>
 
       <table
-        style={{
-          width: "100%",
-          borderCollapse: "collapse",
-        }}
+        className="sources-table"
+        style={{ width: "100%", borderCollapse: "collapse" }}
       >
-        <thead>
+        <thead className="sources-thead">
           <tr
             style={{
               background: "var(--bg-page)",
@@ -97,6 +87,7 @@ export default async function SourcesPage() {
           {sorted.map((s) => (
             <tr
               key={s.id}
+              className={`sources-row${s.jurisdiction_type === "municipality" ? " sources-row--muni" : ""}`}
               style={{
                 borderBottom: "1px solid var(--border)",
                 background:
@@ -105,19 +96,16 @@ export default async function SourcesPage() {
                     : undefined,
               }}
             >
-              <td style={tdStyle}>
+              <td className="sources-cell sources-cell--name" style={tdStyle}>
                 {s.jurisdiction_type === "municipality" && (
-                  <span
-                    style={{
-                      display: "inline-block",
-                      width: "16px",
-                      marginRight: "4px",
-                    }}
-                  />
+                  <span className="sources-muni-indent" />
                 )}
-                {s.jurisdiction_name}
+                <span className="sources-name-text">{s.jurisdiction_name}</span>
+                <span className="sources-year-sp">
+                  {s.publication_year ?? "—"}
+                </span>
               </td>
-              <td style={tdStyle}>
+              <td className="sources-cell sources-cell--title" style={tdStyle}>
                 {s.url ? (
                   <a
                     href={s.url}
@@ -131,7 +119,10 @@ export default async function SourcesPage() {
                   s.title
                 )}
               </td>
-              <td style={{ ...tdStyle, textAlign: "left" }}>
+              <td
+                className="sources-cell sources-cell--year"
+                style={{ ...tdStyle, textAlign: "left" }}
+              >
                 {s.publication_year ?? "—"}
               </td>
             </tr>
@@ -144,7 +135,7 @@ export default async function SourcesPage() {
 
 const thStyle: React.CSSProperties = {
   padding: "8px 4px",
-  textAlign: "center",
+  textAlign: "left",
   color: "var(--text-heading)",
   fontWeight: 600,
   fontSize: "var(--fs-sm)",
@@ -154,4 +145,5 @@ const tdStyle: React.CSSProperties = {
   padding: "8px 4px",
   color: "var(--text-body)",
   fontSize: "var(--fs-sm)",
+  textAlign: "left",
 };

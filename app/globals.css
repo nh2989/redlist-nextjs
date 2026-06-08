@@ -744,8 +744,6 @@ body:has(.search-layout) {
 /* ============================================================
    ヘッダー折り畳み（モバイル用）
    ============================================================ */
-
-/* 折り畳み対象エリア：max-height アニメーションで開閉 */
 .header-collapsible {
   overflow: visible;
   transition:
@@ -762,9 +760,20 @@ body:has(.search-layout) {
   pointer-events: none;
 }
 
-/* スワイプヒントバー：折り畳み時のみ表示 */
 .swipe-hint-bar {
-  display: none; /* デスクトップは非表示 */
+  display: none;
+}
+
+/* ============================================================
+   出典一覧：PC用デフォルトスタイル
+   ============================================================ */
+.sources-year-sp {
+  display: none;
+}
+.sources-muni-indent {
+  display: inline-block;
+  width: 16px;
+  margin-right: 4px;
 }
 
 /* ============================================================
@@ -777,7 +786,6 @@ body:has(.search-layout) {
   font-size: 18px;
 }
 
-/* ローディングスピナー */
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -818,7 +826,7 @@ body:has(.search-layout) {
   gap: 8px;
   padding: 8px 4px 6px;
   position: sticky;
-  top: -8px; /* .search-results-scrollのpadding-top(8px)分を相殺 */
+  top: -8px;
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -1496,7 +1504,7 @@ footer {
     margin-bottom: 4px;
   }
 
-  /* スマートフォン（〜600px） の既存ブロック内に追加 */
+  /* 凡例ラベルの略号/フル切り替え */
   .legend-label-full {
     display: none;
   }
@@ -1523,5 +1531,69 @@ footer {
   /* 折り畳み時にタイトル行の下マージンを少し付ける */
   .header-collapsed .search-header-row {
     margin-bottom: 2px;
+  }
+
+  /* ============================================================
+     出典一覧テーブル → ボーダーライン表示（スマホ）
+     ============================================================ */
+  .sources-thead {
+    display: none;
+  }
+
+  .sources-row {
+    display: block;
+    border-top: 0.5px solid var(--border);
+    border-bottom: none;
+    padding: 4px 0;
+    background: transparent;
+  }
+
+  .sources-row.sources-row--muni {
+    background: var(--bg-table-header);
+    padding-left: 14px;
+    margin: 0 -16px 0 0;
+    padding-right: 16px;
+  }
+
+  .sources-cell {
+    display: block;
+    padding: 0 !important;
+    border: none;
+  }
+
+  .sources-cell--name {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 2px;
+  }
+
+  .sources-muni-indent {
+    display: none;
+  }
+
+  .sources-name-text {
+    flex: 1;
+  }
+
+  .sources-year-sp {
+    display: inline;
+    font-size: var(--fs-xs);
+    color: var(--text-faint);
+    font-weight: normal;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .sources-cell--title {
+    font-size: var(--fs-sm);
+    color: var(--text-body);
+  }
+
+  .sources-cell--year {
+    display: none;
   }
 }
