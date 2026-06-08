@@ -157,10 +157,19 @@ function SearchPage() {
     availableTaxonomies.every((t) => taxonomyFilters.includes(t));
   const isTaxFiltered = !allTaxSelected && taxonomyFilters.length > 0;
 
-  // 検索確定：入力値を committedSearch にセット
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
-    setCommittedSearch(searchInput.trim());
+    const trimmed = searchInput.trim();
+    setCommittedSearch(trimmed);
+
+    // URLにも反映（リロード時の復元用）
+    const params = new URLSearchParams(window.location.search);
+    if (trimmed) {
+      params.set("q", trimmed);
+    } else {
+      params.delete("q");
+    }
+    router.replace(`/search?${params.toString()}`, { scroll: false });
   }
 
   // 検索クリア：入力値・確定値の両方をリセット
