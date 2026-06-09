@@ -534,21 +534,22 @@ h1 {
 .bottom-sheet-overlay {
   position: fixed;
   inset: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 200;
   display: flex;
   align-items: flex-end;
-  min-height: 100dvh;
 }
 
 .bottom-sheet {
   width: 100%;
   background: var(--bg-page);
   border-radius: 16px 16px 0 0;
-  max-height: 72vh;
+  max-height: 72dvh; /* vh → dvh */
   display: flex;
   flex-direction: column;
   animation: sheet-up 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+  padding-bottom: env(safe-area-inset-bottom); /* ← シート自体に追加 */
 }
 
 @keyframes sheet-up {
@@ -641,14 +642,14 @@ h1 {
 }
 
 .bottom-sheet-foot {
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  padding: 10px 16px;
   border-top: 1px solid var(--border);
   flex-shrink: 0;
 }
 
 .bottom-sheet-apply {
   width: 100%;
-  padding: 11px;
+  padding: 8px;
   background: var(--brand);
   color: white;
   border: none;
