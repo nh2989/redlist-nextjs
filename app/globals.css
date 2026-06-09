@@ -94,6 +94,7 @@ body {
   background: var(--bg-page);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   padding: 40px;
+  min-height: 100vh;
 }
 
 header {
@@ -537,6 +538,7 @@ h1 {
   z-index: 200;
   display: flex;
   align-items: flex-end;
+  min-height: 100dvh;
 }
 
 .bottom-sheet {

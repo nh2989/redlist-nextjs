@@ -15,7 +15,7 @@ export default function Footer() {
       textAlign: "center",
       padding: "8px",
       fontSize: "var(--fs-sm)",
-      color: "var(--text-muted)",
+      color: "var(--text-faint)",
       background: "var(--bg-page)",
       borderTop: "1px solid var(--border)",
     }}>
