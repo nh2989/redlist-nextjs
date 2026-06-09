@@ -1,0 +1,4582 @@
+[
+  {
+    "species_name": "ツシマヤマネコ",
+    "scientific_name": "Prionailurus bengalensis euptilurus",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1994,
+    "note": ""
+  },
+  {
+    "species_name": "イリオモテヤマネコ",
+    "scientific_name": "Prionailurus bengalensis iriomotensis",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1994,
+    "note": ""
+  },
+  {
+    "species_name": "ダイトウオオコウモリ",
+    "scientific_name": "Pteropus dasymallus daitoensis",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "エラブオオコウモリ",
+    "scientific_name": "Pteropus dasymallus dasymallus",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラオオコウモリ",
+    "scientific_name": "Pteropus pselaphon",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2009,
+    "note": ""
+  },
+  {
+    "species_name": "オリイコキクガシラコウモリ",
+    "scientific_name": "Rhinolophus cornutus orii",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オキナワコキクガシラコウモリ",
+    "scientific_name": "Rhinolophus pumilus pumilus",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "リュウキュウユビナガコウモリ",
+    "scientific_name": "Miniopterus fuscus",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "リュウキュウテングコウモリ",
+    "scientific_name": "Murina ryukyuana",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヤンバルホオヒゲコウモリ",
+    "scientific_name": "Myotis yanbarensis",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "アマミノクロウサギ",
+    "scientific_name": "Pentalagus furnessi",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "ケナガネズミ",
+    "scientific_name": "Diplothrix legata",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "オキナワトゲネズミ",
+    "scientific_name": "Tokudaia muenninki",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "アマミトゲネズミ",
+    "scientific_name": "Tokudaia osimensis",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "トクノシマトゲネズミ",
+    "scientific_name": "Tokudaia tokunoshimensis",
+    "taxonomy": "哺乳類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "シジュウカラガン",
+    "scientific_name": "Branta hutchinsii leucopareia",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "エトピリカ",
+    "scientific_name": "Fratercula cirrhata",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ウミガラス",
+    "scientific_name": "Uria aalge inornata",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ヘラシギ",
+    "scientific_name": "Eurynorhynchus pygmeus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "アマミヤマシギ",
+    "scientific_name": "Scolopax mira",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "カラフトアオアシシギ",
+    "scientific_name": "Tringa guttifer",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "コウノトリ",
+    "scientific_name": "Ciconia boyciana",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "トキ",
+    "scientific_name": "Nipponia nippon",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "クロツラヘラサギ",
+    "scientific_name": "Platalea minor",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "キンバト",
+    "scientific_name": "Chalcophaps indica yamashinai",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "アカガシラカラスバト",
+    "scientific_name": "Columba janthina nitens",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ヨナグニカラスバト",
+    "scientific_name": "Columba janthina stejnegeri",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "イヌワシ",
+    "scientific_name": "Aquila chrysaetos japonica",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラノスリ",
+    "scientific_name": "Buteo buteo toyoshimai",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "チュウヒ",
+    "scientific_name": "Circus spilonotus spilonotus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "オジロワシ",
+    "scientific_name": "Haliaeetus albicilla albicilla",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "オオワシ",
+    "scientific_name": "Haliaeetus pelagicus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "クマタカ",
+    "scientific_name": "Nisaetus nipalensis orientalis",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "カンムリワシ",
+    "scientific_name": "Spilornis cheela perplexus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ハヤブサ",
+    "scientific_name": "Falco peregrinus japonensis",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ライチョウ",
+    "scientific_name": "Lagopus muta japonica",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "タンチョウ",
+    "scientific_name": "Grus japonensis",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "シマアオジ",
+    "scientific_name": "Emberiza aureola ornata",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "シマクイナ",
+    "scientific_name": "Coturnicops exquisitus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ヤンバルクイナ",
+    "scientific_name": "Gallirallus okinawae",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラカワラヒワ",
+    "scientific_name": "Chloris sinica kittlitzi",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ハハジマメグロ",
+    "scientific_name": "Apalopteron familiare hahasima",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "アカモズ",
+    "scientific_name": "Lanius cristatus superciliosus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "オオセッカ",
+    "scientific_name": "Locustella pryeri pryeri",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "アカヒゲ",
+    "scientific_name": "Luscinia komadori komadori",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ホントウアカヒゲ",
+    "scientific_name": "Luscinia komadori namiyei",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "アカコッコ",
+    "scientific_name": "Turdus celaenops",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オオトラツグミ",
+    "scientific_name": "Zoothera dauma major",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ヤイロチョウ",
+    "scientific_name": "Pitta nympha",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "チシマウガラス",
+    "scientific_name": "Phalacrocorax urile",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "オオヨシゴイ",
+    "scientific_name": "Ixobrychus eurhythmus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オーストンオオアカゲラ",
+    "scientific_name": "Dendrocopos leucotos owstoni",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ミユビゲラ",
+    "scientific_name": "Picoides tridactylus inouyei",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ノグチゲラ",
+    "scientific_name": "Sapheopipo noguchii",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "アホウドリ",
+    "scientific_name": "Phoebastria albatrus",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "クロコシジロウミツバメ",
+    "scientific_name": "Oceanodroma castro",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラヒメミズナギドリ",
+    "scientific_name": "Puffinus bryani",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "セグロミズナギドリ",
+    "scientific_name": "Puffinus lherminieri bannermani",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ワシミミズク",
+    "scientific_name": "Bubo bubo borissowi",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1997,
+    "note": ""
+  },
+  {
+    "species_name": "シマフクロウ",
+    "scientific_name": "Ketupa blakistoni blakistoni",
+    "taxonomy": "鳥類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1993,
+    "note": ""
+  },
+  {
+    "species_name": "ヨナグニキノボリトカゲ",
+    "scientific_name": "Diploderma polygonatum donan",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "クロイワトカゲモドキ",
+    "scientific_name": "Goniurosaurus kuroiwae kuroiwae",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "マダラトカゲモドキ",
+    "scientific_name": "Goniurosaurus kuroiwae orientalis",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ケラマトカゲモドキ",
+    "scientific_name": "Goniurosaurus kuroiwae sengokui",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "イヘヤトカゲモドキ",
+    "scientific_name": "Goniurosaurus kuroiwae toyamai",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "クメトカゲモドキ",
+    "scientific_name": "Goniurosaurus kuroiwae yamashinae",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オビトカゲモドキ",
+    "scientific_name": "Goniurosaurus splendens",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "サキシマカナヘビ",
+    "scientific_name": "Takydromus dorsalis",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ミヤコカナヘビ",
+    "scientific_name": "Takydromus toyamai",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ミヤコヒバァ",
+    "scientific_name": "Hebius concelarus",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "キクザトサワヘビ",
+    "scientific_name": "Opisthotropis kikuzatoi",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1995,
+    "note": ""
+  },
+  {
+    "species_name": "リュウキュウヤマガメ",
+    "scientific_name": "Geoemyda japonica",
+    "taxonomy": "爬虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ホルストガエル",
+    "scientific_name": "Babina holsti",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "オットンガエル",
+    "scientific_name": "Babina subaspera",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ナミエガエル",
+    "scientific_name": "Limnonectes namiyei",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "オキナワイシカワガエル",
+    "scientific_name": "Odorrana ishikawae",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "アマミイシカワガエル",
+    "scientific_name": "Odorrana splendida",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "コガタハナサキガエル",
+    "scientific_name": "Odorrana utsunomiyaorum",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "アベサンショウウオ",
+    "scientific_name": "Hynobius abei",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1995,
+    "note": ""
+  },
+  {
+    "species_name": "アブサンショウウオ",
+    "scientific_name": "Hynobius abuensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アキサンショウウオ",
+    "scientific_name": "Hynobius akiensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アマクササンショウウオ",
+    "scientific_name": "Hynobius amakusaensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ヤマグチサンショウウオ",
+    "scientific_name": "Hynobius bakan",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オオダイガハラサンショウウオ",
+    "scientific_name": "Hynobius boulengeri",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オオイタサンショウウオ",
+    "scientific_name": "Hynobius dunni",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒガシヒダサンショウウオ",
+    "scientific_name": "Hynobius fossigenus",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "マホロバサンショウウオ",
+    "scientific_name": "Hynobius guttatus",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ハクバサンショウウオ",
+    "scientific_name": "Hynobius hidamontanus",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "ベッコウサンショウウオ",
+    "scientific_name": "Hynobius ikioi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "イワミサンショウウオ",
+    "scientific_name": "Hynobius iwami",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アカイシサンショウウオ",
+    "scientific_name": "Hynobius katoi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "イヨシマサンショウウオ",
+    "scientific_name": "Hynobius kuishiensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "イズモサンショウウオ",
+    "scientific_name": "Hynobius kunibiki",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ブチサンショウウオ",
+    "scientific_name": "Hynobius naevius",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "カスミサンショウウオ",
+    "scientific_name": "Hynobius nebulosus",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オキサンショウウオ",
+    "scientific_name": "Hynobius okiensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オオスミサンショウウオ",
+    "scientific_name": "Hynobius osumiensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "チクシブチサンショウウオ",
+    "scientific_name": "Hynobius oyamai",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "チュウゴクブチサンショウウオ",
+    "scientific_name": "Hynobius sematonotos",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "サンインサンショウウオ",
+    "scientific_name": "Hynobius setoi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "セトウチサンショウウオ",
+    "scientific_name": "Hynobius setouchi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ソボサンショウウオ",
+    "scientific_name": "Hynobius shinichisatoi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "コガタブチサンショウウオ",
+    "scientific_name": "Hynobius stejnegeri",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "トウキョウサンショウウオ",
+    "scientific_name": "Hynobius tokyoensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "トサシミズサンショウウオ",
+    "scientific_name": "Hynobius tosashimizuensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ツルギサンショウウオ",
+    "scientific_name": "Hynobius tsurugiensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "ヒバサンショウウオ",
+    "scientific_name": "Hynobius utsunomiyaorum",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヤマトサンショウウオ",
+    "scientific_name": "Hynobius vandenburghi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "シコクハコネサンショウウオ",
+    "scientific_name": "Onychodactylus kinneburi",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ホムラハコネサンショウウオ",
+    "scientific_name": "Onychodactylus pyrrhonotus",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ツクバハコネサンショウウオ",
+    "scientific_name": "Onychodactylus tsukubaensis",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "キタサンショウウオ",
+    "scientific_name": "Salamandrella keyserlingii",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "イボイモリ",
+    "scientific_name": "Echinotriton andersoni",
+    "taxonomy": "両生類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ハカタスジシマドジョウ",
+    "scientific_name": "Cobitis striata hakataensis",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "タンゴスジシマドジョウ",
+    "scientific_name": "Cobitis takenoi",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "アユモドキ",
+    "scientific_name": "Parabotia curtus",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "イタセンパラ",
+    "scientific_name": "Acheilognathus longipinnis",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1995,
+    "note": ""
+  },
+  {
+    "species_name": "セボシタビラ",
+    "scientific_name": "Acheilognathus tabira nakamurae",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ゼニタナゴ",
+    "scientific_name": "Acheilognathus typus",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "カワバタモロコ",
+    "scientific_name": "Hemigrammocypris neglectus",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "シナイモツゴ",
+    "scientific_name": "Pseudorasbora pumila",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "スイゲンゼニタナゴ",
+    "scientific_name": "Rhodeus atremius suigensis",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2002,
+    "note": ""
+  },
+  {
+    "species_name": "ミヤコタナゴ",
+    "scientific_name": "Tanakia tanago",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1994,
+    "note": ""
+  },
+  {
+    "species_name": "コシノハゼ",
+    "scientific_name": "Gymnogobius nakamurae",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "アリアケヒメシラウオ",
+    "scientific_name": "Neosalanx reganius",
+    "taxonomy": "淡水魚類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ウスオビルリゴキブリ",
+    "scientific_name": "Eucorydia donanensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2024,
+    "note": ""
+  },
+  {
+    "species_name": "ベニエリルリゴキブリ",
+    "scientific_name": "Eucorydia miyakoensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2024,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラナガタマムシ",
+    "scientific_name": "Agrilus boninensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "シラフオガサワラナガタマムシ",
+    "scientific_name": "Agrilus suzukii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラムツボシタマムシ父島列島亜種",
+    "scientific_name": "Chrysobothris boninensis boninensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラムツボシタマムシ母島亜種",
+    "scientific_name": "Chrysobothris boninensis suzukii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ツヤヒメマルタマムシ",
+    "scientific_name": "Kurosawaia yanoi",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ツマベニタマムシ父島・母島列島亜種",
+    "scientific_name": "Tamamushia virida virida",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラハンミョウ",
+    "scientific_name": "Cylindera bonina",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "フサヒゲルリカミキリ",
+    "scientific_name": "Agapanthia japonica",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラトビイロカミキリ",
+    "scientific_name": "Allotraeus boninensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラトラカミキリ",
+    "scientific_name": "Chlorophorus boninensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラキイロトラカミキリ",
+    "scientific_name": "Chlorophorus kobayashii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラモモブトコバネカミキリ",
+    "scientific_name": "Merionoeda tosawai",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "フタモンアメイロカミキリ父島列島亜種",
+    "scientific_name": "Pseudiphra bicolor bicolor",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワライカリモントラカミキリ",
+    "scientific_name": "Xylotrechus ogasawarensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ヤシャゲンゴロウ",
+    "scientific_name": "Acilius kishii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1996,
+    "note": ""
+  },
+  {
+    "species_name": "ゲンゴロウ",
+    "scientific_name": "Cybister chinensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "マルコガタノゲンゴロウ",
+    "scientific_name": "Cybister lewisianus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2011,
+    "note": ""
+  },
+  {
+    "species_name": "フチトリゲンゴロウ",
+    "scientific_name": "Cybister limbatus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2011,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメフチトリゲンゴロウ",
+    "scientific_name": "Cybister rugosus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "エゾゲンゴロウモドキ",
+    "scientific_name": "Dytiscus marginalis czerskii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "シャープゲンゴロウモドキ",
+    "scientific_name": "Dytiscus sharpi",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2011,
+    "note": ""
+  },
+  {
+    "species_name": "マルガタゲンゴロウ",
+    "scientific_name": "Graphoderus adamsii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "オオイチモンジシマゲンゴロウ",
+    "scientific_name": "Hydaticus pacificus conspersus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "マダラシマゲンゴロウ",
+    "scientific_name": "Hydaticus thermonectoides",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ヤンバルオオイチモンジシマゲンゴロウ",
+    "scientific_name": "Hydaticus yambaruensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": ""
+  },
+  {
+    "species_name": "オキナワスジゲンゴロウ",
+    "scientific_name": "Prodaticus vittatus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "リュウキュウヒメミズスマシ",
+    "scientific_name": "Gyrinus ryukyuensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "クメジマボタル",
+    "scientific_name": "Luciola owadai",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヨナグニマルバネクワガタ",
+    "scientific_name": "Neolucanus insulicola donan",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2011,
+    "note": ""
+  },
+  {
+    "species_name": "オキナワマルバネクワガタ",
+    "scientific_name": "Neolucanus okinawanus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ウケジママルバネクワガタ",
+    "scientific_name": "Neolucanus protogenetivus hamaii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "クスイキボシハナノミ",
+    "scientific_name": "Hoshihananomia kusuii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "キムネキボシハナノミ",
+    "scientific_name": "Hoshihananomia ochrothorax",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラキボシハナノミ",
+    "scientific_name": "Hoshihananomia trichopalpis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラモンハナノミ",
+    "scientific_name": "Tomoxia relicta",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ヤンバルテナガコガネ",
+    "scientific_name": "Cheirotonus jambar",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1996,
+    "note": ""
+  },
+  {
+    "species_name": "ヒサマツサイカブト",
+    "scientific_name": "Oryctes hisamatsui",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "タガメ",
+    "scientific_name": "Kirkaldyia deyrolli",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "イシガキニイニイ",
+    "scientific_name": "Platypleura albivannata",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2002,
+    "note": ""
+  },
+  {
+    "species_name": "コバンムシ",
+    "scientific_name": "Ilyocoris cimicoides exclamationis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "タイワンタイコウチ",
+    "scientific_name": "Laccotrephes grossus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ガマアシナガアリ",
+    "scientific_name": "Aphaenogaster gamagumayaa",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "タカネキマダラセセリ赤石山脈亜種",
+    "scientific_name": "Carterocephalus palaemon akaishianus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラセセリ",
+    "scientific_name": "Parnara ogasawarensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメチャマダラセセリ",
+    "scientific_name": "Pyrgus malvae unomasahiroi",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラシジミ",
+    "scientific_name": "Celastrina ogasawaraensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "カシワアカシジミ冠高原亜種",
+    "scientific_name": "Japonica onoi mizobei",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ゴマシジミ関東・中部亜種",
+    "scientific_name": "Phengaris teleius kazamoto",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ツシマウラボシシジミ",
+    "scientific_name": "Pithecops fulgens tsushimanus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "アサマシジミ北海道亜種",
+    "scientific_name": "Plebejus subsolanus iburiensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ゴイシツバメシジミ",
+    "scientific_name": "Shijimia moorei moorei",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1996,
+    "note": ""
+  },
+  {
+    "species_name": "コヒョウモンモドキ",
+    "scientific_name": "Melitaea ambigua niphona",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": ""
+  },
+  {
+    "species_name": "ウスイロヒョウモンモドキ",
+    "scientific_name": "Melitaea protomedia",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ヒョウモンモドキ",
+    "scientific_name": "Melitaea scotosia",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2011,
+    "note": ""
+  },
+  {
+    "species_name": "タカネヒカゲ八ヶ岳亜種",
+    "scientific_name": "Oeneis norna sugitanii",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラトンボ",
+    "scientific_name": "Hemicordulia ogasawarensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラアオイトトンボ",
+    "scientific_name": "Indolestes boninensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "ハナダカトンボ",
+    "scientific_name": "Rhinocypha ogasawarensis",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "ベッコウトンボ",
+    "scientific_name": "Libellula angelina",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1994,
+    "note": ""
+  },
+  {
+    "species_name": "ハネナガチョウトンボ",
+    "scientific_name": "Rhyothemis severini",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "チョウセングンバイトンボ",
+    "scientific_name": "Platycnemis phyllopoda",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": ""
+  },
+  {
+    "species_name": "アカハネバッタ",
+    "scientific_name": "Celes akitanus",
+    "taxonomy": "昆虫類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "リュウジンオオムカデ",
+    "scientific_name": "Scolopendra alcyona",
+    "taxonomy": "その他無脊椎動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2024,
+    "note": ""
+  },
+  {
+    "species_name": "カワシンジュガイ",
+    "scientific_name": "Margaritifera laevis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "コガタカワシンジュガイ",
+    "scientific_name": "Margaritifera togakushiensis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "カタハガイ",
+    "scientific_name": "Obovalis omiensis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "オモイガケナマイマイ",
+    "scientific_name": "Aegista inexpectata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ヘリトリケマイマイ",
+    "scientific_name": "Aegista marginata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ムラヤママイマイ",
+    "scientific_name": "Euhadra murayamai",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ナチマイマイ",
+    "scientific_name": "Euhadra nachicola",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "サドマイマイ",
+    "scientific_name": "Euhadra sadoensis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オオアガリマイマイ",
+    "scientific_name": "Nesiohelix omphalina bipyramidalis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヘソアキアツマイマイ",
+    "scientific_name": "Nesiohelix omphalina omphalina",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "アニジマカタマイマイ",
+    "scientific_name": "Mandarina anijimana",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "コガネカタマイマイ",
+    "scientific_name": "Mandarina aureola",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "チチジマカタマイマイ",
+    "scientific_name": "Mandarina chichijimana",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ヒシカタマイマイ",
+    "scientific_name": "Mandarina exoptata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメカタマイマイ",
+    "scientific_name": "Mandarina hahajimana",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "フタオビカタマイマイ",
+    "scientific_name": "Mandarina hayatoi",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "アナカタマイマイ",
+    "scientific_name": "Mandarina hirasei",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "オトメカタマイマイ",
+    "scientific_name": "Mandarina kaguya",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "カタマイマイ",
+    "scientific_name": "Mandarina mandarina",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "アケボノカタマイマイ",
+    "scientific_name": "Mandarina polita",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ヌノメカタマイマイ",
+    "scientific_name": "Mandarina ponderosa",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "キノボリカタマイマイ",
+    "scientific_name": "Mandarina suenoae",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "コハクアナカタマイマイ",
+    "scientific_name": "Mandarina tomiyamai",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ミスジカタマイマイ",
+    "scientific_name": "Mandarina trifasciata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "トクノシマビロウドマイマイ",
+    "scientific_name": "Nipponochloritis obscura",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "アマノヤマタカマイマイ",
+    "scientific_name": "Satsuma amanoi",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ウラキヤマタカマイマイ",
+    "scientific_name": "Satsuma hemihelva",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "イヘヤヤマタカマイマイ",
+    "scientific_name": "Satsuma iheyaensis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "クメジママイマイ",
+    "scientific_name": "Satsuma kumejimaensis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "サダミマイマイ",
+    "scientific_name": "Satsuma sadamii",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ナルトギセル",
+    "scientific_name": "Megalophaedusa fukudainadai",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "イシカワギセル",
+    "scientific_name": "Megalophaedusa ishikawai",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オオイタシロギセル",
+    "scientific_name": "Megalophaedusa masatokandai masatokandai",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "カザアナギセル",
+    "scientific_name": "Megalophaedusa spelaeonis",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ニシキコギセル",
+    "scientific_name": "Reinia elegans",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ハナコギセル",
+    "scientific_name": "Reinia euholostoma",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "マルクチコギセル",
+    "scientific_name": "Reinia holotrema",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "カスガコギセル",
+    "scientific_name": "Reinia hungerfordiana",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "アズママルクチコギセル",
+    "scientific_name": "Reinia masaoi",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "トクネニヤダマシギセル",
+    "scientific_name": "Stereophaedusa caudata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "タケノコギセル",
+    "scientific_name": "Stereophaedusa elongata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "リュウキュウギセル",
+    "scientific_name": "Stereophaedusa inclyta",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ミヤコオキナワギセル",
+    "scientific_name": "Stereophaedusa striatella",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "イトヒキツムガタノミギセル",
+    "scientific_name": "Zaptyx longiplicata",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ハハジマキセルモドキ",
+    "scientific_name": "Boninena callistoderma",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "チチジマキセルモドキ",
+    "scientific_name": "Boninena hiraseana chichijimana",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ヒラセキセルモドキ",
+    "scientific_name": "Boninena hiraseana hiraseana",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラキセルモドキ",
+    "scientific_name": "Boninena ogasawarae",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ニシキキセルモドキ",
+    "scientific_name": "Luchuena eucharistus",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラオカモノアラガイ",
+    "scientific_name": "Boninosuccinea ogasawarae",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "テンスジオカモノアラガイ",
+    "scientific_name": "Boninosuccinea punctulispira",
+    "taxonomy": "軟体動物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "オガサワラヌマエビ",
+    "scientific_name": "Paratya boninensis",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ニホンザリガニ",
+    "scientific_name": "Cambaroides japonicus",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第二種国内希少野生動植物種（採取等の働きかけ規制対象）"
+  },
+  {
+    "species_name": "オガサワラベニシオマネキ",
+    "scientific_name": "Paraleptuca boninensis",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "カクレサワガニ",
+    "scientific_name": "Amamiku occulta",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "トカシキオオサワガニ",
+    "scientific_name": "Geothelphusa levicervix",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ミヤコサワガニ",
+    "scientific_name": "Geothelphusa miyakoensis",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメユリサワガニ",
+    "scientific_name": "Geothelphusa tenuimanus",
+    "taxonomy": "甲殻類",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "カラフトグワイ",
+    "scientific_name": "Sagittaria natans",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "クロボウモドキ",
+    "scientific_name": "Polyalthia liukiuensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ツルギテンナンショウ",
+    "scientific_name": "Arisaema abei",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "オドリコテンナンショウ",
+    "scientific_name": "Arisaema aprile",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ホロテンナンショウ",
+    "scientific_name": "Arisaema cucullatum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オキナワテンナンショウ",
+    "scientific_name": "Arisaema heterocephalum ssp. okinawense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "イナヒロハテンナンショウ",
+    "scientific_name": "Arisaema inaense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "イシヅチテンナンショウ",
+    "scientific_name": "Arisaema ishizuchiense ssp. ishizuchiense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "トクノシマテンナンショウ",
+    "scientific_name": "Arisaema kawashimae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アマギテンナンショウ",
+    "scientific_name": "Arisaema kuratae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒュウガヒロハテンナンショウ",
+    "scientific_name": "Arisaema minamitanii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ナギヒロハテンナンショウ",
+    "scientific_name": "Arisaema nagiense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オガタテンナンショウ",
+    "scientific_name": "Arisaema ogatae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "セッピコテンナンショウ",
+    "scientific_name": "Arisaema seppikoense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ユズノハカズラ",
+    "scientific_name": "Pothos chinensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "サキシマハブカズラ",
+    "scientific_name": "Rhaphidophora kortharthii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメハブカズラ",
+    "scientific_name": "Rhaphidophora liukiuensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "オナガサイシン",
+    "scientific_name": "Asarum caudigerum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "シシキカンアオイ",
+    "scientific_name": "Asarum hexalobum var. controversum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ジュロウカンアオイ",
+    "scientific_name": "Asarum kinoshitae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アソサイシン",
+    "scientific_name": "Asarum misandrum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "フクエジマカンアオイ",
+    "scientific_name": "Asarum mitoanum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "モノドラカンアオイ",
+    "scientific_name": "Asarum monodoriflorum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒナカンアオイ",
+    "scientific_name": "Asarum okinawense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ホシザキカンアオイ",
+    "scientific_name": "Asarum sakawanum var. stellatum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "サツマアオイ",
+    "scientific_name": "Asarum satsumense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヤエヤマカンアオイ",
+    "scientific_name": "Asarum yaeyamense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "マキノシダ",
+    "scientific_name": "Asplenium formosae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "フササジラン",
+    "scientific_name": "Asplenium griffithianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "イエジマチャセンシダ",
+    "scientific_name": "Asplenium oligophlebium var. iezimaense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "オトメシダ",
+    "scientific_name": "Asplenium tenerum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメタニワタリ",
+    "scientific_name": "Hymenasplenium cardiophyllum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "ウスイロホウビシダ",
+    "scientific_name": "Hymenasplenium subnormale",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヤクシマタニイヌワラビ",
+    "scientific_name": "Athyrium yakusimense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ホソバシケチシダ",
+    "scientific_name": "Cornopteris banajaoensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ヒュウガシケシダ",
+    "scientific_name": "Deparia minamitanii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "アオイガワラビ",
+    "scientific_name": "Diplazium kawakamii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "フクレギシダ",
+    "scientific_name": "Diplazium pin-faense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ムニンミドリシダ",
+    "scientific_name": "Diplazium subtripinnatum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "キタカミヒョウタンボク",
+    "scientific_name": "Lonicera demissa var. borealis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ツシマヒョウタンボク",
+    "scientific_name": "Lonicera fragrantissima",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "クロブシヒョウタンボク",
+    "scientific_name": "Lonicera kurobushiensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヤブヒョウタンボク",
+    "scientific_name": "Lonicera linderifolia var. linderifolia",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ウゼンベニバナヒョウタンボク",
+    "scientific_name": "Lonicera uzenensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ホザキツキヌキソウ",
+    "scientific_name": "Triosteum pinnatifidum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "タカネマンテマ",
+    "scientific_name": "Silene uralensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヨナクニイソノギク",
+    "scientific_name": "Aster asagrayi var. walkeri",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ユズリハワダン",
+    "scientific_name": "Crepidiastrum ameristophyllum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "コヘラナレン",
+    "scientific_name": "Crepidiastrum grandicollum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "ダイトウワダン",
+    "scientific_name": "Crepidiastrum lanceolatum var. daitoense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "シマトウヒレン",
+    "scientific_name": "Saussurea insularis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "ヒナヒゴタイ",
+    "scientific_name": "Saussurea japonica",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ミクラジマトウヒレン",
+    "scientific_name": "Saussurea mikurasimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヤクシマヒゴタイ",
+    "scientific_name": "Saussurea yakusimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "コウリンギク",
+    "scientific_name": "Senecio argunensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ハナナズナ",
+    "scientific_name": "Berteroella maximowiczii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "シリベシナズナ",
+    "scientific_name": "Draba igarashii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "センジョウスゲ",
+    "scientific_name": "Carex lehmannii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "カドハリイ",
+    "scientific_name": "Eleocharis tetraquetra var. tsurumachii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "ビャッコイ",
+    "scientific_name": "Isolepis crassiuscula",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "イヘヤヒゲクサ",
+    "scientific_name": "Schoenus calostachyus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ホソバコウシュンシダ",
+    "scientific_name": "Microlepia obtusiloba var. angustata",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "コキンモウイノデ",
+    "scientific_name": "Ctenitis microlepigera",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "クマヤブソテツ",
+    "scientific_name": "Cyrtomium macrophyllum var. microindusium",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "キリシマイワヘゴ",
+    "scientific_name": "Dryopteris hangchowensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "キュウシュウイノデ",
+    "scientific_name": "Polystichum grandifrons",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ヒイラギデンダ",
+    "scientific_name": "Polystichum lonchitis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヤシャイノデ",
+    "scientific_name": "Polystichum neolobatum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アマミデンダ",
+    "scientific_name": "Polystichum obae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2000,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "サクラジマイノデ",
+    "scientific_name": "Polystichum piceopaleaceum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "シムライノデ",
+    "scientific_name": "Polystichum shimurae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "アマクサミツバツツジ",
+    "scientific_name": "Rhododendron amakusaense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ムニンツツジ",
+    "scientific_name": "Rhododendron boninense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "ウラジロヒカゲツツジ",
+    "scientific_name": "Rhododendron keiskei var. hypoglaucum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2012,
+    "note": ""
+  },
+  {
+    "species_name": "ヤドリコケモモ",
+    "scientific_name": "Vaccinium amamianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2000,
+    "note": ""
+  },
+  {
+    "species_name": "ヒュウガホシクサ",
+    "scientific_name": "Eriocaulon seticuspe",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ボロジノニシキソウ",
+    "scientific_name": "Chamaesyce sparrmannii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "セキモンノキ",
+    "scientific_name": "Claoxylon centinarium",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヒュウガタイゲキ",
+    "scientific_name": "Euphorbia watanabei subsp. Minamitanii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "サンプクリンドウ",
+    "scientific_name": "Comastoma pulmonarium subsp. sectum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": ""
+  },
+  {
+    "species_name": "ヤクシマリンドウ",
+    "scientific_name": "Gentiana yakushimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒメセンブリ",
+    "scientific_name": "Lomatogonium carinthiacum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": ""
+  },
+  {
+    "species_name": "ハナヤマツルリンドウ",
+    "scientific_name": "Tripterospermum distylum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヤクシマフウロ",
+    "scientific_name": "Geranium shikokianum var. yoshiianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ナガミカズラ",
+    "scientific_name": "Aeschynanthus acuminatus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "リュウキュウキンモウワラビ",
+    "scientific_name": "Hypodematium fordii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "シマカコソウ",
+    "scientific_name": "Ajuga boninsimae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメタツナミソウ",
+    "scientific_name": "Scutellaria kikai-insularis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "エダウチタヌキマメ",
+    "scientific_name": "Crotalaria uncinella",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "タシロマメ",
+    "scientific_name": "Intsia bijuga",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ツクシムレスズメ",
+    "scientific_name": "Sophora franchetiana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2024,
+    "note": ""
+  },
+  {
+    "species_name": "ホソバフジボグサ",
+    "scientific_name": "Uraria picta",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "サクヤアカササゲ",
+    "scientific_name": "Vigna vexillata var. vexillata",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "タマボウキ",
+    "scientific_name": "Asparagus oligoclonos",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "クロカミシライトソウ",
+    "scientific_name": "Chionographis koidzumiana var. kurokamiana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "カイコバイモ",
+    "scientific_name": "Fritillaria kaiensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヨナグニノシラン",
+    "scientific_name": "Ophiopogon reversus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ウスギワニグチソウ",
+    "scientific_name": "Polygonatum cryptanthum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "サガミジョウロウホトトギス",
+    "scientific_name": "Tricyrtis ishiiana var. ishiiana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "スルガジョウロウホトトギス",
+    "scientific_name": "Tricyrtis ishiiana var. surugensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "キバナノツキヌキホトトギス",
+    "scientific_name": "Tricyrtis perfoliata",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒモスギラン",
+    "scientific_name": "Lycopodium fargesii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメヨウラクヒバ",
+    "scientific_name": "Lycopodium salvinioides",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "ササキカズラ",
+    "scientific_name": "Ryssopterys timoriensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ムニンノボタン",
+    "scientific_name": "Melastoma tetramerum var. tetramerum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "マルバタイミンタチバナ",
+    "scientific_name": "Myrsine okabeana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメイバラモ",
+    "scientific_name": "Najas tenuicaulis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "シモツケコウホネ",
+    "scientific_name": "Nuphar submersa",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2012,
+    "note": ""
+  },
+  {
+    "species_name": "エンレイショウキラン",
+    "scientific_name": "Acanthephippium pictum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ミスズラン",
+    "scientific_name": "Androcorys pusillus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "キバナシュスラン",
+    "scientific_name": "Anoectochilus formosanus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "コウシュンシュスラン",
+    "scientific_name": "Anoectochilus koshunensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "タイワンエビネ",
+    "scientific_name": "Calanthe formosana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "アサヒエビネ",
+    "scientific_name": "Calanthe hattorii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "ホシツルラン",
+    "scientific_name": "Calanthe hoshii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "カンダヒメラン",
+    "scientific_name": "Crepidium kandae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オオスズムシラン",
+    "scientific_name": "Cryptostylis arachnites",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "タカオオオスズムシラン",
+    "scientific_name": "Cryptostylis taiwaniana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "チョウセンキバナアツモリソウ",
+    "scientific_name": "Cypripedium guttatum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2002,
+    "note": ""
+  },
+  {
+    "species_name": "ホテイアツモリ",
+    "scientific_name": "Cypripedium macranthos var. macranthos",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1997,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "レブンアツモリソウ",
+    "scientific_name": "Cypripedium macranthos var. rebunense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1994,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "アツモリソウ",
+    "scientific_name": "Cypripedium macranthos var. speciosum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1997,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オキナワセッコク",
+    "scientific_name": "Dendrobium okinawense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2002,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ホザキヒメラン",
+    "scientific_name": "Dienia ophrydis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ジョウロウラン",
+    "scientific_name": "Disperis neilgherrensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2024,
+    "note": ""
+  },
+  {
+    "species_name": "タカサゴヤガラ",
+    "scientific_name": "Eulophia taiwanensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ヤクシマヤツシロラン",
+    "scientific_name": "Gastrodia albida",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "タブガワヤツシロラン",
+    "scientific_name": "Gastrodia uraiensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヤブミョウガラン",
+    "scientific_name": "Goodyera fumata",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "テツオサギソウ",
+    "scientific_name": "Habenaria stenopetala",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメクリソラン",
+    "scientific_name": "Hancockia uniflora",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "オオカゲロウラン",
+    "scientific_name": "Hetaeria oblongifolia",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメスズムシソウ",
+    "scientific_name": "Liparis nikkoensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "コゴメキノエラン",
+    "scientific_name": "Liparis viridiflora",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2000,
+    "note": ""
+  },
+  {
+    "species_name": "ナンバンカモメラン",
+    "scientific_name": "Macodes petola",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "シマホザキラン",
+    "scientific_name": "Malaxis boninensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "ハツシマラン",
+    "scientific_name": "Odontochilus hatusimanus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒメシラヒゲラン",
+    "scientific_name": "Odontochilus nanlingensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オオギミラン",
+    "scientific_name": "Odontochilus tashiroi",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "コハクラン",
+    "scientific_name": "Oreorchis itoana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "タコガタサギソウ",
+    "scientific_name": "Peristylus lacertifer",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヒメカクラン",
+    "scientific_name": "Phaius mishmensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "シマツレサギソウ",
+    "scientific_name": "Platanthera boninensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ハチジョウツレサギ",
+    "scientific_name": "Platanthera okuboi",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "クニガミトンボソウ",
+    "scientific_name": "Platanthera sonoharae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2002,
+    "note": ""
+  },
+  {
+    "species_name": "イリオモテトンボソウ",
+    "scientific_name": "Platanthera stenoglossa ssp. iriomotensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "イリオモテカヤラン",
+    "scientific_name": "Thrixspermum annamense var. devolianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": ""
+  },
+  {
+    "species_name": "ハガクレナガミラン",
+    "scientific_name": "Thrixspermum fantasticum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ミソボシラン",
+    "scientific_name": "Vrydagzynea nuda",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "リュウキュウキジノオ",
+    "scientific_name": "Plagiogyria koidzumii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2015,
+    "note": ""
+  },
+  {
+    "species_name": "タイヨウフウトウカズラ",
+    "scientific_name": "Piper postelsianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "コバトベラ",
+    "scientific_name": "Pittosporum parvifolium",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "イネガヤ",
+    "scientific_name": "Piptatherum kuoi",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヒゲナガコメススキ",
+    "scientific_name": "Stipa alpina",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2022,
+    "note": ""
+  },
+  {
+    "species_name": "ハナシノブ",
+    "scientific_name": "Polemonium kiushianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1995,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "リュウキュウヒメハギ",
+    "scientific_name": "Polygala longifolia",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "アラゲタデ",
+    "scientific_name": "Persicaria attenuata ssp. pulchra",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ダイトウサクラタデ",
+    "scientific_name": "Persicaria japonica var. taitoinsularis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ハカマウラボシ",
+    "scientific_name": "Drynaria roosii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "トヨグチウラボシ",
+    "scientific_name": "Lepisorus clathratus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": ""
+  },
+  {
+    "species_name": "ウロコノキシノブ",
+    "scientific_name": "Lepisorus oligolepidus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オキノクリハラン",
+    "scientific_name": "Leptochilus decurrens",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "キレハオオクボシダ",
+    "scientific_name": "Tomophyllum sakaguchianum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ナガバエビモ",
+    "scientific_name": "Potamogeton praelongus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "オニコナスビ",
+    "scientific_name": "Lysimachia tashiroi",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "カッコソウ",
+    "scientific_name": "Primula kisoana var. kisoana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2012,
+    "note": ""
+  },
+  {
+    "species_name": "イワウラジロ",
+    "scientific_name": "Cheilanthes krameri",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "オオバシシラン",
+    "scientific_name": "Haplopteris yakushimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "タイワンアマクサシダ",
+    "scientific_name": "Pteris formosana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ハナカズラ",
+    "scientific_name": "Aconitum ciliare",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "イイデトリカブト",
+    "scientific_name": "Aconitum iidemontanum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "コウライブシ",
+    "scientific_name": "Aconitum jaluense subsp. jaluense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "オンタケブシ",
+    "scientific_name": "Aconitum metajaponicum",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "シコクイチゲ",
+    "scientific_name": "Anemone sikokiana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": ""
+  },
+  {
+    "species_name": "キタダケソウ",
+    "scientific_name": "Callianthemum hondoense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 1994,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "キリギシソウ",
+    "scientific_name": "Callianthemum kirigishiense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "タカネキンポウゲ",
+    "scientific_name": "Ranunculus altaicus subsp. shinanoalpinus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "キタダケキンポウゲ",
+    "scientific_name": "Ranunculus kitadakeanus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "クモマキンポウゲ",
+    "scientific_name": "Ranunculus pygmaeus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヤツガタケキンポウゲ",
+    "scientific_name": "Ranunculus yatsugatakensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ムラサキカラマツ",
+    "scientific_name": "Thalictrum uchiyamae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ヒメクロウメモドキ",
+    "scientific_name": "Rhamnus kanagusukui",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "ヒジハリノキ",
+    "scientific_name": "Randia sinensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ツシマアカショウマ",
+    "scientific_name": "Astilbe tsushimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2023,
+    "note": ""
+  },
+  {
+    "species_name": "コミノヒメウツギ",
+    "scientific_name": "Deutzia hatusimae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2024,
+    "note": ""
+  },
+  {
+    "species_name": "オキナワヒメウツギ",
+    "scientific_name": "Deutzia naseana var. amanoi",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ヤエヤマヒメウツギ",
+    "scientific_name": "Deutzia yaeyamensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "アマミチャルメルソウ",
+    "scientific_name": "Mitella amamiana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "イスミスズカケ",
+    "scientific_name": "Veronicastrum noguchii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": ""
+  },
+  {
+    "species_name": "ムニンホオズキ",
+    "scientific_name": "Lycianthes boninensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "イラブナスビ",
+    "scientific_name": "Solanum miyakojimense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ナガバキブシ",
+    "scientific_name": "Stachyurus macrocarpus var. macrocarpus",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ハザクラキブシ",
+    "scientific_name": "Stachyurus macrocarpus var. prunifolius",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ウチダシクロキ",
+    "scientific_name": "Symplocos kawakamii",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2008,
+    "note": ""
+  },
+  {
+    "species_name": "コモチナナバケシダ",
+    "scientific_name": "Tectaria fauriei",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "ナガバウスバシダ",
+    "scientific_name": "Tectaria kusukusensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "シマヤワラシダ",
+    "scientific_name": "Thelypteris gracilescens",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ヒシバウオトリギ",
+    "scientific_name": "Grewia rhombifolia",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ケナシハテルマカズラ",
+    "scientific_name": "Triumfetta procumbens var. glaberrima",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2019,
+    "note": ""
+  },
+  {
+    "species_name": "ヤクシマソウ",
+    "scientific_name": "Sciaphila yakushimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "ツシマノダケ",
+    "scientific_name": "Tilingia tsusimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ヨナクニトキホコリ",
+    "scientific_name": "Elatostema yonakuniense",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2017,
+    "note": ""
+  },
+  {
+    "species_name": "セキモンウライソウ",
+    "scientific_name": "Procris boninensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2018,
+    "note": ""
+  },
+  {
+    "species_name": "シマキンレイカ",
+    "scientific_name": "Patrinia triloba var. kozushimensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2016,
+    "note": ""
+  },
+  {
+    "species_name": "ホウライムラサキ",
+    "scientific_name": "Callicarpa formosana",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2025,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "タカクマムラサキ",
+    "scientific_name": "Callicarpa longissima",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2021,
+    "note": ""
+  },
+  {
+    "species_name": "ウラジロコムラサキ",
+    "scientific_name": "Callicarpa parvifolia",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2004,
+    "note": ""
+  },
+  {
+    "species_name": "イシガキスミレ",
+    "scientific_name": "Viola tashiroi var. tairae",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "タデスミレ",
+    "scientific_name": "Viola thibaudieri",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  },
+  {
+    "species_name": "オキナワスミレ",
+    "scientific_name": "Viola utchinensis",
+    "taxonomy": "維管束植物",
+    "jurisdiction_name": "環境省",
+    "designation_name": "国内希少野生動植物種",
+    "ordinance_name": "絶滅のおそれのある野生動植物の種の保存に関する法律",
+    "designated_year": 2020,
+    "note": "特定第一種国内希少野生動植物種（商業利用規制対象）"
+  }
+]

@@ -544,14 +544,10 @@ h1 {
   width: 100%;
   background: var(--bg-page);
   border-radius: 16px 16px 0 0;
-  max-height: calc(72vh - env(safe-area-inset-bottom, 0px));
+  max-height: 72vh;
   display: flex;
   flex-direction: column;
   animation: sheet-up 0.28s cubic-bezier(0.32, 0.72, 0, 1);
-  padding-bottom: max(
-    env(safe-area-inset-bottom, 0px),
-    var(--navbar-height, 0px)
-  );
 }
 
 @keyframes sheet-up {
@@ -644,7 +640,7 @@ h1 {
 }
 
 .bottom-sheet-foot {
-  padding: 10px 16px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--border);
   flex-shrink: 0;
 }
