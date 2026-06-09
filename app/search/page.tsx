@@ -249,10 +249,25 @@ function SearchPage() {
     touchStartY.current = null;
   }
 
-  function openBottomSheet(key: "cat" | "pref" | "tax") {
-    setBottomSheet(key);
-    document.body.style.overflow = "hidden";
+function openBottomSheet(key: "cat" | "pref" | "tax") {
+  setBottomSheet(key);
+  document.body.style.overflow = "hidden";
+
+  // Firefoxのナビバー高さを動的に取得してCSS変数に注入
+  const navbarHeight = window.innerHeight - document.documentElement.clientHeight;
+  if (navbarHeight > 0) {
+    document.documentElement.style.setProperty(
+      "--navbar-height",
+      `${navbarHeight}px`
+    );
+  } else {
+    document.documentElement.style.setProperty("--navbar-height", "0px");
   }
+}
+
+
+
+
   function closeBottomSheet() {
     setBottomSheet(null);
     document.body.style.overflow = "";
