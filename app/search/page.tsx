@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense, createPortal } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -1603,7 +1604,7 @@ function SearchPage() {
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
       {/* ══ /ボトムシート ══ */}
 
