@@ -545,11 +545,10 @@ h1 {
   width: 100%;
   background: var(--bg-page);
   border-radius: 16px 16px 0 0;
-  max-height: 72dvh; /* vh → dvh */
+  max-height: calc(72vh - env(safe-area-inset-bottom, 0px));  /* dvh廃止 */
   display: flex;
   flex-direction: column;
   animation: sheet-up 0.28s cubic-bezier(0.32, 0.72, 0, 1);
-  padding-bottom: env(safe-area-inset-bottom); /* ← シート自体に追加 */
 }
 
 @keyframes sheet-up {
@@ -643,6 +642,7 @@ h1 {
 
 .bottom-sheet-foot {
   padding: 10px 16px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--border);
   flex-shrink: 0;
 }
