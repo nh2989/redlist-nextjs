@@ -203,7 +203,7 @@ export default function Home() {
             日本の絶滅危惧種を検索・閲覧できます
             <br />
             全国のレッドリストをまとめて検索
-            <br /><a href="/sources">対応データ一覧</a>
+            <br /><a href="/sources">📚 対応データ一覧</a>
           </p>
         </header>
 

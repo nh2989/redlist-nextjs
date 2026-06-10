@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  Suspense,
+  Fragment,
+} from "react";
 import { createPortal } from "react-dom";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -31,6 +38,7 @@ import type {
   Jurisdiction,
   SpeciesGroup,
   SourceRecord,
+  OrdinalRecord,
 } from "@/lib/types";
 
 function getHighestPriorityCategory(jurisdictions: Jurisdiction[]): number {
@@ -57,6 +65,38 @@ function normalizeAliases(
     .filter((a) => a !== "");
 }
 
+function matchesOrdinance(
+  speciesName: string,
+  aliases: string[],
+  ordinanceData: OrdinalRecord[],
+): boolean {
+  const names = new Set([speciesName, ...aliases]);
+  return ordinanceData.some((r) => {
+    if (names.has(r.species_name)) return true;
+    if (!r.species_aliases) return false;
+    return r.species_aliases
+      .split(/[/／|｜、,]/)
+      .map((s) => s.trim())
+      .some((a) => a && names.has(a));
+  });
+}
+
+function getOrdinanceMatches(
+  speciesName: string,
+  aliases: string[],
+  ordinanceData: OrdinalRecord[],
+): OrdinalRecord[] {
+  const names = new Set([speciesName, ...aliases]);
+  return ordinanceData.filter((r) => {
+    if (names.has(r.species_name)) return true;
+    if (!r.species_aliases) return false;
+    return r.species_aliases
+      .split(/[/／|｜、,]/)
+      .map((s) => s.trim())
+      .some((a) => a && names.has(a));
+  });
+}
+
 function SearchPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -71,6 +111,7 @@ function SearchPage() {
   const [groupedData, setGroupedData] = useState<SpeciesGroup[]>([]);
   const [filteredData, setFilteredData] = useState<SpeciesGroup[]>([]);
   const [displayData, setDisplayData] = useState<SpeciesGroup[]>([]);
+  const [ordinanceData, setOrdinanceData] = useState<OrdinalRecord[]>([]);
 
   const PAGE_SIZE = 20;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -85,7 +126,6 @@ function SearchPage() {
     null,
   );
 
-  // 入力中の値 / 検索ボタン押下で確定される値
   const [searchInput, setSearchInput] = useState(initialSearchTerm);
   const [committedSearch, setCommittedSearch] = useState(initialSearchTerm);
 
@@ -164,12 +204,27 @@ function SearchPage() {
     availableTaxonomies.every((t) => taxonomyFilters.includes(t));
   const isTaxFiltered = !allTaxSelected && taxonomyFilters.length > 0;
 
+  // 条例指定種のセット（リスト表示用キャッシュ）
+  const ordinanceMatchSet = useMemo(() => {
+    const set = new Set<string>();
+    for (const species of groupedData) {
+      if (
+        matchesOrdinance(
+          species.species_name,
+          species.species_aliases,
+          ordinanceData,
+        )
+      ) {
+        set.add(species.species_name);
+      }
+    }
+    return set;
+  }, [groupedData, ordinanceData]);
+
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     const trimmed = searchInput.trim();
     setCommittedSearch(trimmed);
-
-    // URLにも反映（リロード時の復元用）
     const params = new URLSearchParams(window.location.search);
     if (trimmed) {
       params.set("q", trimmed);
@@ -179,7 +234,6 @@ function SearchPage() {
     router.replace(`/search?${params.toString()}`, { scroll: false });
   }
 
-  // 検索クリア：入力値・確定値の両方をリセット
   function handleClearSearch() {
     setSearchInput("");
     setCommittedSearch("");
@@ -215,7 +269,6 @@ function SearchPage() {
 
   function handleTouchStart(e: React.TouchEvent) {
     touchStartY.current = e.touches[0].clientY;
-    // 展開時の実高さを記録
     if (collapsibleRef.current) {
       fullHeightRef.current = collapsibleRef.current.scrollHeight;
     }
@@ -226,13 +279,10 @@ function SearchPage() {
     const dy = touchStartY.current - e.touches[0].clientY;
     const full = fullHeightRef.current;
     if (full === 0) return;
-
     if (isHeaderCollapsed) {
-      // 折り畳み中：上スワイプで展開方向
       const next = Math.min(Math.max(0, -dy), full);
       setCollapsibleHeight(next);
     } else {
-      // 展開中：下スワイプで折り畳み方向
       const next = Math.min(Math.max(0, full - dy), full);
       setCollapsibleHeight(next);
     }
@@ -244,7 +294,6 @@ function SearchPage() {
     const threshold = fullHeightRef.current * 0.5;
     if (dy > threshold) setIsHeaderCollapsed(true);
     else if (dy < -threshold) setIsHeaderCollapsed(false);
-    // CSSアニメーションに戻す
     setCollapsibleHeight(null);
     touchStartY.current = null;
   }
@@ -266,13 +315,19 @@ function SearchPage() {
   async function loadData() {
     setLoading(true);
     try {
-      const [fileListRes, sourcesRes, synonymsRes, taxonomiesRes] =
-        await Promise.all([
-          fetch("/api/data-files"),
-          fetch("/data/sources.json"),
-          fetch("/data/synonyms.json").catch(() => null),
-          fetch("/data/taxonomies.json").catch(() => null),
-        ]);
+      const [
+        fileListRes,
+        sourcesRes,
+        synonymsRes,
+        taxonomiesRes,
+        ordFileListRes,
+      ] = await Promise.all([
+        fetch("/api/data-files"),
+        fetch("/data/sources.json"),
+        fetch("/data/synonyms.json").catch(() => null),
+        fetch("/data/taxonomies.json").catch(() => null),
+        fetch("/api/data-files?type=ordinance"),
+      ]);
 
       const fileNames: string[] = await fileListRes.json();
       const dataFiles = fileNames.map((name) => ({
@@ -356,6 +411,21 @@ function SearchPage() {
         setTaxonomyFilters(taxList);
       }
 
+      const ordFileNames: string[] = await ordFileListRes
+        .json()
+        .catch(() => []);
+      const ordResponses = await Promise.all(
+        ordFileNames.map((name) =>
+          fetch(`/data/ordinance/${name}`).catch(() => null),
+        ),
+      );
+      const ordArrays = await Promise.all(
+        ordResponses.map((res) =>
+          res ? res.json().catch(() => []) : Promise.resolve([]),
+        ),
+      );
+      setOrdinanceData(ordArrays.flat());
+
       setGroupedData(groupBySpecies(allData, synonyms));
     } catch (error) {
       console.error("データ読み込みエラー:", error);
@@ -422,7 +492,6 @@ function SearchPage() {
     return Object.values(speciesMap);
   }
 
-  // committedSearch を依存配列に含める（これが再検索の核心）
   useEffect(() => {
     filterResults();
   }, [
@@ -438,7 +507,6 @@ function SearchPage() {
   function filterResults() {
     let filtered = groupedData;
 
-    // initialSearchTerm ではなく committedSearch を参照
     if (committedSearch) {
       const searchLower = committedSearch.toLowerCase();
       filtered = filtered.filter(
@@ -720,7 +788,6 @@ function SearchPage() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {/* タイトル行 */}
           <div className="search-header-row">
             <h1 className="search-title">
               <Link
@@ -746,11 +813,10 @@ function SearchPage() {
                 textUnderlineOffset: "3px",
               }}
             >
-              データ出典
+              📚 データ出典
             </Link>
           </div>
 
-          {/* ── 折り畳み対象エリア ── */}
           <div
             className="header-collapsible"
             ref={collapsibleRef}
@@ -764,7 +830,6 @@ function SearchPage() {
                 : undefined
             }
           >
-            {/* 検索ボックス */}
             <form onSubmit={handleSearch} style={{ marginBottom: "8px" }}>
               <div
                 style={{ display: "flex", gap: "6px", alignItems: "center" }}
@@ -791,7 +856,6 @@ function SearchPage() {
                       outline: "none",
                     }}
                   />
-                  {/* クリアボタン：入力中 or 検索確定済みのとき表示 */}
                   {(searchInput || committedSearch) && (
                     <button
                       type="button"
@@ -837,9 +901,7 @@ function SearchPage() {
               </div>
             </form>
 
-            {/* フィルター行 */}
             <div className="filters" style={{ marginBottom: "6px" }}>
-              {/* カテゴリ：モバイル=ボトムシート / PC=ドロップダウン */}
               <button
                 className={`filter-sheet-btn${isCatFiltered ? " filter-sheet-btn--active" : ""} sp-only`}
                 onClick={() => openBottomSheet("cat")}
@@ -950,7 +1012,6 @@ function SearchPage() {
                 )}
               </div>
 
-              {/* 都道府県：モバイル=ボトムシート / PC=ドロップダウン */}
               <button
                 className={`filter-sheet-btn${isPrefFiltered || hasMuniSelected ? " filter-sheet-btn--active" : ""} sp-only`}
                 onClick={() => openBottomSheet("pref")}
@@ -1067,7 +1128,6 @@ function SearchPage() {
                 )}
               </div>
 
-              {/* 分類群：モバイル=ボトムシート / PC=ドロップダウン */}
               <button
                 className={`filter-sheet-btn${isTaxFiltered ? " filter-sheet-btn--active" : ""} sp-only`}
                 onClick={() => openBottomSheet("tax")}
@@ -1129,7 +1189,6 @@ function SearchPage() {
               </div>
             </div>
 
-            {/* アクティブフィルタータグ */}
             {(activeCategoryTags.length > 0 ||
               activePrefTags.length > 0 ||
               activeMuniTags.length > 0) && (
@@ -1187,7 +1246,6 @@ function SearchPage() {
               </div>
             )}
 
-            {/* 件数 + 並び替え */}
             <div className="search-meta-row">
               <span className="result-count" style={{ margin: 0 }}>
                 {resultCountText}
@@ -1213,7 +1271,6 @@ function SearchPage() {
               </div>
             </div>
 
-            {/* カテゴリ凡例 */}
             {!nothingSelected && displayData.length > 0 && (
               <div className="category-legend">
                 {(
@@ -1240,9 +1297,7 @@ function SearchPage() {
               </div>
             )}
           </div>
-          {/* ── /折り畳み対象エリア ── */}
 
-          {/* スワイプヒントバー（モバイルのみ） */}
           <div
             className="swipe-hint-bar"
             onClick={() => setIsHeaderCollapsed((v) => !v)}
@@ -1252,7 +1307,6 @@ function SearchPage() {
             }
           />
         </div>
-        {/* ══ /固定ヘッダー部 ══ */}
 
         {/* ══ スクロール結果エリア ══ */}
         <div className="search-results-scroll" ref={scrollAreaRef}>
@@ -1278,6 +1332,9 @@ function SearchPage() {
                           filterJurisdictionsForDisplay(species.jurisdictions);
                         const { national, prefecture, municipality } =
                           groupJurisdictionsByType(visibleJurisdictions);
+                        const hasOrdinance = ordinanceMatchSet.has(
+                          species.species_name,
+                        );
                         return (
                           <div
                             key={index}
@@ -1289,15 +1346,21 @@ function SearchPage() {
                                 {species.species_name}
                                 {species.species_aliases.length > 0 && (
                                   <span
+                                    // 別名設定
                                     style={{
                                       fontSize: "var(--fs-xs)",
                                       color: "var(--text-faint)",
                                       fontWeight: "normal",
-                                      marginLeft: "6px",
+                                      marginLeft: "4px",
                                     }}
                                   >
                                     （別名: {species.species_aliases.join(", ")}
                                     ）
+                                  </span>
+                                )}
+                                {hasOrdinance && (
+                                  <span className="ordinance-name-badge">
+                                    法令・条例指定
                                   </span>
                                 )}
                               </h3>
@@ -1339,7 +1402,7 @@ function SearchPage() {
                                         >
                                           {shortenPrefectureName(
                                             j.jurisdiction_name,
-                                          )}{" "}
+                                          )}
                                         </span>
                                       ),
                                     )}
@@ -1371,7 +1434,6 @@ function SearchPage() {
                   </div>
                 ))}
 
-                {/* sentinel（無限スクロール検知用） */}
                 <div
                   ref={sentinelRef}
                   style={{
@@ -1420,10 +1482,9 @@ function SearchPage() {
             )}
           </div>
         </div>
-        {/* ══ /スクロール結果エリア ══ */}
       </div>
 
-      {/* ══ ボトムシート（モバイル用フィルター） ══ */}
+      {/* ══ ボトムシート ══ */}
       {bottomSheet &&
         typeof document !== "undefined" &&
         createPortal(
@@ -1607,9 +1668,8 @@ function SearchPage() {
           </div>,
           document.body,
         )}
-      {/* ══ /ボトムシート ══ */}
 
-      {/* モーダル */}
+      {/* ══ モーダル ══ */}
       {selectedSpecies &&
         (() => {
           const visibleJurisdictions = filterJurisdictionsForDisplay(
@@ -1617,6 +1677,14 @@ function SearchPage() {
           );
           const { national, prefecture, municipality } =
             groupJurisdictionsByType(visibleJurisdictions);
+          const ordinanceMatches = getOrdinanceMatches(
+            selectedSpecies.species_name,
+            selectedSpecies.species_aliases,
+            ordinanceData,
+          );
+          const natOrdMatches = ordinanceMatches.filter(
+            (m) => m.jurisdiction_name === "環境省",
+          );
           return (
             <div className="modal-overlay" onClick={closeModal}>
               <div
@@ -1626,48 +1694,84 @@ function SearchPage() {
                 <button className="modal-close" onClick={closeModal}>
                   ×
                 </button>
+
+                {/* ══ モーダルヘッダー ══ */}
                 <div className="modal-header-info">
-                  <h2>
-                    {selectedSpecies.species_name}
-                    {selectedSpecies.species_aliases.length > 0 && (
-                      <span className="species-aliases">
-                        （別名: {selectedSpecies.species_aliases.join(", ")}）
-                      </span>
-                    )}
-                  </h2>
-                  <p className="scientific">
-                    {selectedSpecies.scientific_name}
-                  </p>
-                  <p className="taxonomy-label">{selectedSpecies.taxonomy}</p>
+                  <div className="modal-header-top">
+                    <h2>
+                      {selectedSpecies.species_name}
+                      {selectedSpecies.species_aliases.length > 0 && (
+                        <span className="species-aliases">
+                          （別名: {selectedSpecies.species_aliases.join(", ")}）
+                        </span>
+                      )}
+                    </h2>
+                    <p className="scientific">
+                      {selectedSpecies.scientific_name}
+                    </p>
+                    <p className="taxonomy-label">{selectedSpecies.taxonomy}</p>
+                  </div>
+                  {/* 環境省レッドリストカテゴリ + 条例指定 */}
                   {(() => {
                     const nat = selectedSpecies.jurisdictions.find(
                       (j) => j.jurisdiction_type === "national",
                     );
                     return nat ? (
                       <div className="national-status">
-                        <span className="national-status-label">環境省</span>
-                        <span
-                          className={`category ${getCategoryClass(nat.category_unified)}`}
-                        >
-                          {CATEGORY_LABEL[nat.category_unified] ??
-                            nat.category_unified}
-                        </span>
-                        <span className="national-status-original">
-                          （{nat.category}）
-                        </span>
+                        <div className="national-status-row">
+                          <span className="national-status-label">環境省</span>
+                          <span
+                            className={`category ${getCategoryClass(nat.category_unified)}`}
+                          >
+                            {CATEGORY_LABEL[nat.category_unified] ??
+                              nat.category_unified}
+                          </span>
+                          <span className="national-status-original">
+                            （{nat.category}）
+                          </span>
+                        </div>
+                        {natOrdMatches.map((m, i) => (
+                          <div key={i} className="nat-ord-block">
+                            <div className="pref-ord-top">
+                              {" "}
+                              {/* バッジ + 年（左固定） */}
+                              <span className="ord-badge-nat">
+                                {m.designation_name}
+                              </span>
+                              {m.designated_year && (
+                                <span className="ord-year">
+                                  {m.designated_year}年指定
+                                </span>
+                              )}
+                            </div>
+                            <div className="ord-law-group">
+                              {" "}
+                              {/* 法令名 + 特記事項（右側、スマホでは縦） */}
+                              <div className="ord-law">{m.ordinance_name}</div>
+                              {m.note && (
+                                <span className="ordinance-modal-note">
+                                  {m.note}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     ) : null;
                   })()}
                 </div>
+
+                {/* ══ モーダルボディ ══ */}
                 <div className="modal-body">
+                  <h3>📍 指定状況</h3>
                   {prefecture.length > 0 && (
                     <SpeciesMap jurisdictions={prefecture} />
                   )}
+
+                  {/* 都道府県テーブル */}
                   {prefecture.length > 0 && (
                     <>
-                      <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
-                        🗾 都道府県
-                      </h4>
+                      <h4 style={{ marginTop: "20px" }}>🗾 詳細情報</h4>
                       <div className="prefecture-table-wrapper">
                         <table className="prefecture-table">
                           <thead>
@@ -1681,35 +1785,78 @@ function SearchPage() {
                             </tr>
                           </thead>
                           <tbody>
-                            {prefecture.map((j: Jurisdiction, i: number) => (
-                              <tr key={i}>
-                                <td>{j.jurisdiction_name}</td>
-                                <td>{j.original_name}</td>
-                                <td className="scientific-cell">
-                                  {j.scientific_name || "—"}
-                                </td>
-                                <td>
-                                  <span
-                                    className={`category ${getCategoryClass(j.category_unified)}`}
+                            {prefecture.map((j: Jurisdiction, i: number) => {
+                              const prefOrdMatches = ordinanceMatches.filter(
+                                (m) =>
+                                  m.jurisdiction_name === j.jurisdiction_name,
+                              );
+                              const hasOrd = prefOrdMatches.length > 0;
+                              return (
+                                <Fragment key={i}>
+                                  <tr
+                                    className={
+                                      hasOrd ? "pref-row--has-ord" : ""
+                                    }
                                   >
-                                    {CATEGORY_LABEL[j.category_unified] ??
-                                      j.category_unified}
-                                  </span>
-                                </td>
-                                <td>{j.category}</td>
-                                <td>{j.publication_year ?? "—"}</td>
-                              </tr>
-                            ))}
+                                    <td>{j.jurisdiction_name}</td>
+                                    <td>{j.original_name}</td>
+                                    <td className="scientific-cell">
+                                      {j.scientific_name || "—"}
+                                    </td>
+                                    <td>
+                                      <span
+                                        className={`category ${getCategoryClass(j.category_unified)}`}
+                                      >
+                                        {CATEGORY_LABEL[j.category_unified] ??
+                                          j.category_unified}
+                                      </span>
+                                    </td>
+                                    <td>{j.category}</td>
+                                    <td>{j.publication_year ?? "—"}</td>
+                                  </tr>
+                                  {hasOrd &&
+                                    prefOrdMatches.map((m, mi) => (
+                                      <tr
+                                        key={`ord-${mi}`}
+                                        className="pref-ord-row"
+                                      >
+                                        <td colSpan={6}>
+                                          <div className="pref-ord-block">
+                                            <div className="pref-ord-top">
+                                              <span className="ord-badge-pref">
+                                                {m.designation_name}
+                                              </span>
+                                              {m.designated_year && (
+                                                <span className="ord-year">
+                                                  {m.designated_year}年指定
+                                                </span>
+                                              )}
+                                            </div>
+                                            <div className="ord-law">
+                                              {m.ordinance_name}
+                                            </div>
+                                            {m.note && (
+                                              <span className="ordinance-modal-note">
+                                                {m.note}
+                                              </span>
+                                            )}
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    ))}
+                                </Fragment>
+                              );
+                            })}
                           </tbody>
                         </table>
                       </div>
                     </>
                   )}
+
+                  {/* 市町村テーブル */}
                   {municipality.length > 0 && (
                     <>
-                      <h4 style={{ marginTop: "20px", marginBottom: "10px" }}>
-                        🏘️ 市町村
-                      </h4>
+                      <h4 style={{ marginTop: "24px" }}>🏘️ 市町村の指定状況</h4>
                       <div className="prefecture-table-wrapper">
                         <table className="prefecture-table">
                           <thead>

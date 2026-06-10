@@ -59,3 +59,18 @@ export type SourceRecord = {
   publisher: string;
   url: string;
 };
+
+/**
+ * 条例・法令指定レコード（public/data/ordinance/*.json の各エントリ）
+ */
+export type OrdinalRecord = {
+  species_name: string;
+  species_aliases: string;
+  scientific_name: string;
+  taxonomy: string;
+  jurisdiction_name: string;
+  designation_name: string;
+  ordinance_name: string;
+  designated_year: number | null;
+  note: string;
+};

@@ -12,9 +12,9 @@
   --bg-table-header: #f5f5f5;
   --border: #e0e0e0;
 
-  --fs-base: 1rem; /* 16px */
-  --fs-sm: 0.875rem; /* 14px */
-  --fs-xs: 0.75rem; /* 12px */
+  --fs-base: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
 }
 
 /* カテゴリ別の色（値はCategoryStyles.tsxから注入） */
@@ -57,6 +57,21 @@
 .category-other {
   background: var(--color-cat-other);
   color: var(--color-cat-other-text);
+}
+
+/* すべてのカテゴリに共通の余白を設定 */
+.category-ex,
+.category-ew,
+.category-cr,
+.category-en,
+.category-cren,
+.category-vu,
+.category-nt,
+.category-dd,
+.category-lp,
+.category-other {
+  padding: 1px 2px;
+  border-radius: 4px;
 }
 
 /* ============================================================
@@ -198,7 +213,6 @@ h1 {
 /* ============================================================
    マルチセレクト
    ============================================================ */
-
 .multi-select-dropdown {
   position: relative;
   flex: 1;
@@ -727,7 +741,6 @@ body:has(.search-layout) {
   border-top: 1px solid var(--border);
 }
 
-/* 凡例ラベルの略号/フル切り替え */
 .legend-label-full {
   display: inline;
 }
@@ -857,8 +870,8 @@ body:has(.search-layout) {
 .species-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-  gap: 0 14px;
-  padding: 10px 14px;
+  gap: 0 16px;
+  padding: 8px;
   border-top: 1px solid var(--border);
   border-radius: 0;
   background: var(--bg-page);
@@ -884,7 +897,7 @@ body:has(.search-layout) {
   color: var(--text-heading);
   font-size: var(--fs-sm);
   font-weight: 600;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   line-height: 1.3;
 }
 .scientific {
@@ -893,15 +906,15 @@ body:has(.search-layout) {
   font-size: var(--fs-xs);
   margin: 0;
 }
-
 .card-right {
   border-left: 1px solid var(--border);
-  padding-left: 14px;
+  padding-left: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   justify-content: center;
 }
+
 .desg-row {
   display: flex;
   align-items: flex-start;
@@ -920,13 +933,13 @@ body:has(.search-layout) {
 .org-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 4px;
 }
 .org-item {
   font-size: var(--fs-xs);
   font-weight: 500;
   line-height: 1.6;
-  padding: 1px 7px;
+  padding: 0px 2px;
   border-radius: 4px;
   white-space: nowrap;
 }
@@ -1142,9 +1155,8 @@ footer {
 
 .modal-header-info {
   display: flex;
-  align-items: baseline;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 6px;
   margin-bottom: 0;
   padding: clamp(15px, 2.5vw, 30px);
   padding-top: clamp(20px, 3vw, 35px);
@@ -1153,6 +1165,13 @@ footer {
   flex-shrink: 0;
   z-index: 100;
   background: var(--bg-page);
+}
+
+.modal-header-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .modal-body {
@@ -1206,12 +1225,38 @@ footer {
   margin: 10px 0 20px;
 }
 
+/* 環境省ステータス（縦積み） */
+.national-status {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.national-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.national-status-label {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  font-weight: 500;
+}
+.national-status-original {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
 .prefecture-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: clamp(10px, 2vh, 15px);
+  margin-top: clamp(2px, 2vh, 8px);
   table-layout: auto;
-  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  font-size: clamp(var(--fs-xs), 1.2vw, var(--fs-base));
 }
 
 .prefecture-table th,
@@ -1249,24 +1294,111 @@ footer {
   margin: 10px 0;
 }
 
-.national-status {
+/* ============================================================
+   法令・条例指定
+   ============================================================ */
+
+/* 種名右バッジ（リスト表示用） */
+.ordinance-name-badge {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #d3d1c7;
+  color: #2c2c2a;
+  white-space: nowrap;
+  vertical-align: middle;
+  margin-left: 6px;
+  font-style: normal;
+}
+
+/* 条例行を持つ県行：下ボーダーを消す */
+.pref-row--has-ord td {
+  border-bottom: none;
+}
+
+/* 都道府県テーブル内 条例詳細行 */
+.pref-ord-row td {
+  padding: 0 0 6px 0;
+  border-top: none;
+  border-bottom: 1px solid var(--border);
+}
+
+/* pcでは横並び表記 */
+.pref-ord-block {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 4px 8px;
+  background: #f1efe8;
+  border-radius: 6px;
+  align-items: center;
+}
+.pref-ord-top {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-top: 6px;
-  padding-top: 8px;
-  border-top: 1px solid var(--border);
+  flex-wrap: nowrap;
 }
-.national-status-label {
-  font-size: var(--fs-sm);
-  color: var(--text-faint);
+.ord-badge-pref {
+  font-size: var(--fs-xs);
   font-weight: 500;
+  padding: 1px 6px 0px 6px;
+  border-radius: 999px;
+  background: #eaf3de;
+  color: #3b6d11;
+  flex-shrink: 0;
 }
-.national-status-original {
-  font-size: var(--fs-sm);
+
+.ord-year {
+  font-size: var(--fs-xs);
   color: var(--text-faint);
+  flex-shrink: 0;
+}
+.ord-law-group {
+  display: flex;
+  flex-direction: column; /* 法令名の下に特記事項 */
+  gap: 2px;
+  flex: 1; /* 残り幅を占有 */
+  min-width: 0;
+}
+.ord-law {
+  padding: 0px 0px 1px 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* 環境省条例ブロック（モーダルヘッダー内） */
+.nat-ord-block {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 4px 8px;
+  background: #f1efe8;
+  border-radius: 6px;
+  align-items: center;
+}
+
+.ord-badge-nat {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: #e6f1fb;
+  color: #185fa5;
+  flex-shrink: 0;
+}
+
+/* note（特定第一種等） */
+.ordinance-modal-note {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: #faeeda;
+  color: #854f0b;
+  margin-top: 2px;
 }
 
 /* ============================================================
@@ -1308,16 +1440,14 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
-  width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  background: var(--bg-page);
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  gap: 4px;
+  width: 90%; /* 画面幅より少し狭くする（好みの割合に調整してください） */
+  max-width: 600px; /* 画面が大きくなりすぎたときに広がりすぎるのを防ぐ */
+  margin: 8px auto 0 auto; /* 左右の auto で要素自体を中央寄せにする */
+  padding: 4px 16px;
 }
 
-.legend-title {
+/* .legend-title {
   width: 100%;
   font-weight: 600;
   color: var(--text-heading);
@@ -1338,7 +1468,7 @@ footer {
   height: clamp(10px, 1.5vw, 12px);
   border-radius: 3px;
   flex-shrink: 0;
-}
+} */
 
 /* ============================================================
    レスポンシブ
@@ -1403,7 +1533,7 @@ footer {
     justify-content: left;
   }
   .scientific {
-    padding-left: 10;
+    padding-left: 8px;
   }
   .card-right {
     border-left: none;
@@ -1427,10 +1557,6 @@ footer {
     padding: 0;
   }
   .modal-header-info {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 6px 10px;
     padding: 15px 15px 12px;
   }
   .modal-header-info h2 {
@@ -1440,7 +1566,7 @@ footer {
     font-size: 0.8rem;
   }
   .modal-header-info .taxonomy-label {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .modal-body {
     padding: 0 15px;
@@ -1450,7 +1576,6 @@ footer {
 
 /* スマートフォン（〜600px） */
 @media (max-width: 600px) {
-  /* モバイル/PC 表示切り替え */
   .sp-only {
     display: flex !important;
   }
@@ -1462,7 +1587,6 @@ footer {
     font-size: 1.6rem;
   }
 
-  /* 検索ページレイアウト */
   .search-layout {
     max-width: 100%;
     box-shadow: none;
@@ -1481,14 +1605,12 @@ footer {
     gap: 6px;
   }
 
-  /* フィルターボタンを詰める */
   .multi-select-btn,
   .filters select {
     padding: 6px 8px;
     font-size: var(--fs-xs);
   }
 
-  /* フィルター行は縦並び */
   .filters {
     flex-direction: column;
     gap: 5px;
@@ -1501,12 +1623,10 @@ footer {
     min-width: unset;
   }
 
-  /* 件数・ソートの行も詰める */
   .search-meta-row {
     margin-bottom: 4px;
   }
 
-  /* 凡例ラベルの略号/フル切り替え */
   .legend-label-full {
     display: none;
   }
@@ -1514,7 +1634,6 @@ footer {
     display: inline;
   }
 
-  /* スワイプヒントバー表示 */
   .swipe-hint-bar {
     display: block;
     width: 48px;
@@ -1530,7 +1649,6 @@ footer {
     background: #999;
   }
 
-  /* 折り畳み時にタイトル行の下マージンを少し付ける */
   .header-collapsed .search-header-row {
     margin-bottom: 2px;
   }
@@ -1597,5 +1715,20 @@ footer {
 
   .sources-cell--year {
     display: none;
+  }
+
+  .nat-ord-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+
+  /* 条例指定の表記をスマホではバッジ+指定年、改行して条例名 */
+  .pref-ord-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
   }
 }

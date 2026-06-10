@@ -3,11 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CATEGORY_COLORS,
-  CATEGORY_LABEL,
   CATEGORY_PRIORITY,
   CODE_TO_PREF,
+  getCategoryClass,
   getCategoryColor,
 } from "@/lib/categoryConstants";
+import type { CategoryKey } from "@/lib/categoryConstants";
 import type { Jurisdiction } from "@/lib/types";
 
 const JAPAN_MAP_SVG = "/japan-map.svg";
@@ -102,41 +103,45 @@ export default function SpeciesMap({ jurisdictions }: SpeciesMapProps) {
 
   return (
     <div className="species-map-container">
-      <h3>📍 都道府県の指定状況</h3>
       <div
         ref={containerRef}
         className="species-map-svg"
-        style={{ width: "80%", lineHeight: 0, padding: "2vh" }}
+        style={{ width: "100%", lineHeight: 0, padding: "2vh" }}
       />
       <div className="map-legend-sidebar">
-        <div className="legend-title">カテゴリ</div>
         {(
           [
-            { key: "EX", label: "絶滅（EX）" },
-            { key: "EW", label: "野生絶滅（EW）" },
-            { key: "CREN", label: "Ⅰ類（CR+EN）" },
-            { key: "VU", label: "Ⅱ類（VU）" },
-            { key: "NT", label: "準絶滅危惧（NT）" },
-            { key: "DD", label: "情報不足（DD）" },
-            { key: "OTHER", label: "その他指定あり" },
-            { key: "NONE", label: "指定なし", border: true },
-          ] as {
-            key: keyof typeof CATEGORY_COLORS;
-            label: string;
-            border?: boolean;
-          }[]
-        ).map(({ key, label, border }) => (
-          <div key={key} className="legend-item-vertical">
-            <div
-              className="legend-color-box"
-              style={{
-                background: CATEGORY_COLORS[key],
-                border: border ? "1px solid #ccc" : undefined,
-              }}
-            />
-            <span>{label}</span>
-          </div>
+            { key: "EX", full: "絶滅（EX）", short: "EX" },
+            { key: "EW", full: "野生絶滅（EW）", short: "EW" },
+            { key: "CREN", full: "Ⅰ類（CR+EN）", short: "CR+EN" },
+            { key: "VU", full: "Ⅱ類（VU）", short: "VU" },
+            { key: "NT", full: "準絶滅危惧（NT）", short: "NT" },
+            { key: "DD", full: "情報不足（DD）", short: "DD" },
+            { key: "LP", full: "地域個体群（LP）", short: "LP" },
+            { key: "OTHER", full: "その他指定", short: "他" },
+          ] as { key: CategoryKey; full: string; short: string }[]
+        ).map(({ key, full, short }) => (
+          <span
+            key={key}
+            className={`org-item ${getCategoryClass(key)}`}
+            style={{ cursor: "default" }}
+          >
+            <span className="legend-label-full">{full}</span>
+            <span className="legend-label-short">{short}</span>
+          </span>
         ))}
+        <span
+          className="org-item"
+          style={{
+            cursor: "default",
+            background: CATEGORY_COLORS.NONE,
+            border: "1px solid #ccc",
+            color: "#999",
+          }}
+        >
+          <span className="legend-label-full">指定なし</span>
+          <span className="legend-label-short">なし</span>
+        </span>
       </div>
     </div>
   );
