@@ -1,6 +1,7 @@
 [
   {
     "species_name": "ツシマヤマネコ",
+    "species_aliases": "",
     "scientific_name": "Prionailurus bengalensis euptilurus",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -11,6 +12,7 @@
   },
   {
     "species_name": "イリオモテヤマネコ",
+    "species_aliases": "",
     "scientific_name": "Prionailurus bengalensis iriomotensis",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -21,6 +23,7 @@
   },
   {
     "species_name": "ダイトウオオコウモリ",
+    "species_aliases": "",
     "scientific_name": "Pteropus dasymallus daitoensis",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -31,6 +34,7 @@
   },
   {
     "species_name": "エラブオオコウモリ",
+    "species_aliases": "",
     "scientific_name": "Pteropus dasymallus dasymallus",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -41,6 +45,7 @@
   },
   {
     "species_name": "オガサワラオオコウモリ",
+    "species_aliases": "",
     "scientific_name": "Pteropus pselaphon",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -51,6 +56,7 @@
   },
   {
     "species_name": "オリイコキクガシラコウモリ",
+    "species_aliases": "",
     "scientific_name": "Rhinolophus cornutus orii",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -61,6 +67,7 @@
   },
   {
     "species_name": "オキナワコキクガシラコウモリ",
+    "species_aliases": "",
     "scientific_name": "Rhinolophus pumilus pumilus",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -71,6 +78,7 @@
   },
   {
     "species_name": "リュウキュウユビナガコウモリ",
+    "species_aliases": "",
     "scientific_name": "Miniopterus fuscus",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -81,6 +89,7 @@
   },
   {
     "species_name": "リュウキュウテングコウモリ",
+    "species_aliases": "",
     "scientific_name": "Murina ryukyuana",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -91,6 +100,7 @@
   },
   {
     "species_name": "ヤンバルホオヒゲコウモリ",
+    "species_aliases": "",
     "scientific_name": "Myotis yanbarensis",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -101,6 +111,7 @@
   },
   {
     "species_name": "アマミノクロウサギ",
+    "species_aliases": "",
     "scientific_name": "Pentalagus furnessi",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -111,6 +122,7 @@
   },
   {
     "species_name": "ケナガネズミ",
+    "species_aliases": "",
     "scientific_name": "Diplothrix legata",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -121,6 +133,7 @@
   },
   {
     "species_name": "オキナワトゲネズミ",
+    "species_aliases": "",
     "scientific_name": "Tokudaia muenninki",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -131,6 +144,7 @@
   },
   {
     "species_name": "アマミトゲネズミ",
+    "species_aliases": "",
     "scientific_name": "Tokudaia osimensis",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -141,6 +155,7 @@
   },
   {
     "species_name": "トクノシマトゲネズミ",
+    "species_aliases": "",
     "scientific_name": "Tokudaia tokunoshimensis",
     "taxonomy": "哺乳類",
     "jurisdiction_name": "環境省",
@@ -151,6 +166,7 @@
   },
   {
     "species_name": "シジュウカラガン",
+    "species_aliases": "",
     "scientific_name": "Branta hutchinsii leucopareia",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -161,6 +177,7 @@
   },
   {
     "species_name": "エトピリカ",
+    "species_aliases": "",
     "scientific_name": "Fratercula cirrhata",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -171,6 +188,7 @@
   },
   {
     "species_name": "ウミガラス",
+    "species_aliases": "",
     "scientific_name": "Uria aalge inornata",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -181,6 +199,7 @@
   },
   {
     "species_name": "ヘラシギ",
+    "species_aliases": "",
     "scientific_name": "Eurynorhynchus pygmeus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -191,6 +210,7 @@
   },
   {
     "species_name": "アマミヤマシギ",
+    "species_aliases": "",
     "scientific_name": "Scolopax mira",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -201,6 +221,7 @@
   },
   {
     "species_name": "カラフトアオアシシギ",
+    "species_aliases": "",
     "scientific_name": "Tringa guttifer",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -211,6 +232,7 @@
   },
   {
     "species_name": "コウノトリ",
+    "species_aliases": "",
     "scientific_name": "Ciconia boyciana",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -221,6 +243,7 @@
   },
   {
     "species_name": "トキ",
+    "species_aliases": "",
     "scientific_name": "Nipponia nippon",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -231,6 +254,7 @@
   },
   {
     "species_name": "クロツラヘラサギ",
+    "species_aliases": "",
     "scientific_name": "Platalea minor",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -241,6 +265,7 @@
   },
   {
     "species_name": "キンバト",
+    "species_aliases": "",
     "scientific_name": "Chalcophaps indica yamashinai",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -251,6 +276,7 @@
   },
   {
     "species_name": "アカガシラカラスバト",
+    "species_aliases": "",
     "scientific_name": "Columba janthina nitens",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -261,6 +287,7 @@
   },
   {
     "species_name": "ヨナグニカラスバト",
+    "species_aliases": "",
     "scientific_name": "Columba janthina stejnegeri",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -271,6 +298,7 @@
   },
   {
     "species_name": "イヌワシ",
+    "species_aliases": "",
     "scientific_name": "Aquila chrysaetos japonica",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -281,6 +309,7 @@
   },
   {
     "species_name": "オガサワラノスリ",
+    "species_aliases": "",
     "scientific_name": "Buteo buteo toyoshimai",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -291,6 +320,7 @@
   },
   {
     "species_name": "チュウヒ",
+    "species_aliases": "",
     "scientific_name": "Circus spilonotus spilonotus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -301,6 +331,7 @@
   },
   {
     "species_name": "オジロワシ",
+    "species_aliases": "",
     "scientific_name": "Haliaeetus albicilla albicilla",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -311,6 +342,7 @@
   },
   {
     "species_name": "オオワシ",
+    "species_aliases": "",
     "scientific_name": "Haliaeetus pelagicus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -321,6 +353,7 @@
   },
   {
     "species_name": "クマタカ",
+    "species_aliases": "",
     "scientific_name": "Nisaetus nipalensis orientalis",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -331,6 +364,7 @@
   },
   {
     "species_name": "カンムリワシ",
+    "species_aliases": "",
     "scientific_name": "Spilornis cheela perplexus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -341,6 +375,7 @@
   },
   {
     "species_name": "ハヤブサ",
+    "species_aliases": "",
     "scientific_name": "Falco peregrinus japonensis",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -351,6 +386,7 @@
   },
   {
     "species_name": "ライチョウ",
+    "species_aliases": "",
     "scientific_name": "Lagopus muta japonica",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -361,6 +397,7 @@
   },
   {
     "species_name": "タンチョウ",
+    "species_aliases": "",
     "scientific_name": "Grus japonensis",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -371,6 +408,7 @@
   },
   {
     "species_name": "シマアオジ",
+    "species_aliases": "",
     "scientific_name": "Emberiza aureola ornata",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -381,6 +419,7 @@
   },
   {
     "species_name": "シマクイナ",
+    "species_aliases": "",
     "scientific_name": "Coturnicops exquisitus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -391,6 +430,7 @@
   },
   {
     "species_name": "ヤンバルクイナ",
+    "species_aliases": "",
     "scientific_name": "Gallirallus okinawae",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -401,6 +441,7 @@
   },
   {
     "species_name": "オガサワラカワラヒワ",
+    "species_aliases": "",
     "scientific_name": "Chloris sinica kittlitzi",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -411,6 +452,7 @@
   },
   {
     "species_name": "ハハジマメグロ",
+    "species_aliases": "",
     "scientific_name": "Apalopteron familiare hahasima",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -421,6 +463,7 @@
   },
   {
     "species_name": "アカモズ",
+    "species_aliases": "",
     "scientific_name": "Lanius cristatus superciliosus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -431,6 +474,7 @@
   },
   {
     "species_name": "オオセッカ",
+    "species_aliases": "",
     "scientific_name": "Locustella pryeri pryeri",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -441,6 +485,7 @@
   },
   {
     "species_name": "アカヒゲ",
+    "species_aliases": "",
     "scientific_name": "Luscinia komadori komadori",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -451,6 +496,7 @@
   },
   {
     "species_name": "ホントウアカヒゲ",
+    "species_aliases": "",
     "scientific_name": "Luscinia komadori namiyei",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -461,6 +507,7 @@
   },
   {
     "species_name": "アカコッコ",
+    "species_aliases": "",
     "scientific_name": "Turdus celaenops",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -471,6 +518,7 @@
   },
   {
     "species_name": "オオトラツグミ",
+    "species_aliases": "",
     "scientific_name": "Zoothera dauma major",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -481,6 +529,7 @@
   },
   {
     "species_name": "ヤイロチョウ",
+    "species_aliases": "",
     "scientific_name": "Pitta nympha",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -491,6 +540,7 @@
   },
   {
     "species_name": "チシマウガラス",
+    "species_aliases": "",
     "scientific_name": "Phalacrocorax urile",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -501,6 +551,7 @@
   },
   {
     "species_name": "オオヨシゴイ",
+    "species_aliases": "",
     "scientific_name": "Ixobrychus eurhythmus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -511,6 +562,7 @@
   },
   {
     "species_name": "オーストンオオアカゲラ",
+    "species_aliases": "",
     "scientific_name": "Dendrocopos leucotos owstoni",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -521,6 +573,7 @@
   },
   {
     "species_name": "ミユビゲラ",
+    "species_aliases": "",
     "scientific_name": "Picoides tridactylus inouyei",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -531,6 +584,7 @@
   },
   {
     "species_name": "ノグチゲラ",
+    "species_aliases": "",
     "scientific_name": "Sapheopipo noguchii",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -541,6 +595,7 @@
   },
   {
     "species_name": "アホウドリ",
+    "species_aliases": "",
     "scientific_name": "Phoebastria albatrus",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -551,6 +606,7 @@
   },
   {
     "species_name": "クロコシジロウミツバメ",
+    "species_aliases": "",
     "scientific_name": "Oceanodroma castro",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -561,6 +617,7 @@
   },
   {
     "species_name": "オガサワラヒメミズナギドリ",
+    "species_aliases": "",
     "scientific_name": "Puffinus bryani",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -571,6 +628,7 @@
   },
   {
     "species_name": "セグロミズナギドリ",
+    "species_aliases": "",
     "scientific_name": "Puffinus lherminieri bannermani",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -581,6 +639,7 @@
   },
   {
     "species_name": "ワシミミズク",
+    "species_aliases": "",
     "scientific_name": "Bubo bubo borissowi",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -591,6 +650,7 @@
   },
   {
     "species_name": "シマフクロウ",
+    "species_aliases": "",
     "scientific_name": "Ketupa blakistoni blakistoni",
     "taxonomy": "鳥類",
     "jurisdiction_name": "環境省",
@@ -601,6 +661,7 @@
   },
   {
     "species_name": "ヨナグニキノボリトカゲ",
+    "species_aliases": "",
     "scientific_name": "Diploderma polygonatum donan",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -611,6 +672,7 @@
   },
   {
     "species_name": "クロイワトカゲモドキ",
+    "species_aliases": "ヤンバルトカゲモドキ",
     "scientific_name": "Goniurosaurus kuroiwae kuroiwae",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -621,6 +683,7 @@
   },
   {
     "species_name": "マダラトカゲモドキ",
+    "species_aliases": "",
     "scientific_name": "Goniurosaurus kuroiwae orientalis",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -631,6 +694,7 @@
   },
   {
     "species_name": "ケラマトカゲモドキ",
+    "species_aliases": "",
     "scientific_name": "Goniurosaurus kuroiwae sengokui",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -641,6 +705,7 @@
   },
   {
     "species_name": "イヘヤトカゲモドキ",
+    "species_aliases": "",
     "scientific_name": "Goniurosaurus kuroiwae toyamai",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -651,6 +716,7 @@
   },
   {
     "species_name": "クメトカゲモドキ",
+    "species_aliases": "",
     "scientific_name": "Goniurosaurus kuroiwae yamashinae",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -661,6 +727,7 @@
   },
   {
     "species_name": "オビトカゲモドキ",
+    "species_aliases": "",
     "scientific_name": "Goniurosaurus splendens",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -671,6 +738,7 @@
   },
   {
     "species_name": "サキシマカナヘビ",
+    "species_aliases": "",
     "scientific_name": "Takydromus dorsalis",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -681,6 +749,7 @@
   },
   {
     "species_name": "ミヤコカナヘビ",
+    "species_aliases": "",
     "scientific_name": "Takydromus toyamai",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -691,6 +760,7 @@
   },
   {
     "species_name": "ミヤコヒバァ",
+    "species_aliases": "",
     "scientific_name": "Hebius concelarus",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -701,6 +771,7 @@
   },
   {
     "species_name": "キクザトサワヘビ",
+    "species_aliases": "",
     "scientific_name": "Opisthotropis kikuzatoi",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -711,6 +782,7 @@
   },
   {
     "species_name": "リュウキュウヤマガメ",
+    "species_aliases": "",
     "scientific_name": "Geoemyda japonica",
     "taxonomy": "爬虫類",
     "jurisdiction_name": "環境省",
@@ -721,6 +793,7 @@
   },
   {
     "species_name": "ホルストガエル",
+    "species_aliases": "",
     "scientific_name": "Babina holsti",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -731,6 +804,7 @@
   },
   {
     "species_name": "オットンガエル",
+    "species_aliases": "",
     "scientific_name": "Babina subaspera",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -741,6 +815,7 @@
   },
   {
     "species_name": "ナミエガエル",
+    "species_aliases": "",
     "scientific_name": "Limnonectes namiyei",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -751,6 +826,7 @@
   },
   {
     "species_name": "オキナワイシカワガエル",
+    "species_aliases": "",
     "scientific_name": "Odorrana ishikawae",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -761,6 +837,7 @@
   },
   {
     "species_name": "アマミイシカワガエル",
+    "species_aliases": "",
     "scientific_name": "Odorrana splendida",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -771,6 +848,7 @@
   },
   {
     "species_name": "コガタハナサキガエル",
+    "species_aliases": "",
     "scientific_name": "Odorrana utsunomiyaorum",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -781,6 +859,7 @@
   },
   {
     "species_name": "アベサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius abei",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -791,6 +870,7 @@
   },
   {
     "species_name": "アブサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius abuensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -801,6 +881,7 @@
   },
   {
     "species_name": "アキサンショウウオ",
+    "species_aliases": "ゲイヨサンショウウオ|ヒロシマサンショウウオ",
     "scientific_name": "Hynobius akiensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -811,6 +892,7 @@
   },
   {
     "species_name": "アマクササンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius amakusaensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -821,6 +903,7 @@
   },
   {
     "species_name": "ヤマグチサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius bakan",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -831,6 +914,7 @@
   },
   {
     "species_name": "オオダイガハラサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius boulengeri",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -841,6 +925,7 @@
   },
   {
     "species_name": "オオイタサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius dunni",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -851,6 +936,7 @@
   },
   {
     "species_name": "ヒガシヒダサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius fossigenus",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -861,6 +947,7 @@
   },
   {
     "species_name": "マホロバサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius guttatus",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -871,6 +958,7 @@
   },
   {
     "species_name": "ハクバサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius hidamontanus",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -881,6 +969,7 @@
   },
   {
     "species_name": "ベッコウサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius ikioi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -891,6 +980,7 @@
   },
   {
     "species_name": "イワミサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius iwami",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -901,6 +991,7 @@
   },
   {
     "species_name": "アカイシサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius katoi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -911,6 +1002,7 @@
   },
   {
     "species_name": "イヨシマサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius kuishiensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -921,6 +1013,7 @@
   },
   {
     "species_name": "イズモサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius kunibiki",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -931,6 +1024,7 @@
   },
   {
     "species_name": "ブチサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius naevius",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -941,6 +1035,7 @@
   },
   {
     "species_name": "カスミサンショウウオ",
+    "species_aliases": "タゴサンショウウオ",
     "scientific_name": "Hynobius nebulosus",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -951,6 +1046,7 @@
   },
   {
     "species_name": "オキサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius okiensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -961,6 +1057,7 @@
   },
   {
     "species_name": "オオスミサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius osumiensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -971,6 +1068,7 @@
   },
   {
     "species_name": "チクシブチサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius oyamai",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -981,6 +1079,7 @@
   },
   {
     "species_name": "チュウゴクブチサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius sematonotos",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -991,6 +1090,7 @@
   },
   {
     "species_name": "サンインサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius setoi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1001,6 +1101,7 @@
   },
   {
     "species_name": "セトウチサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius setouchi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1011,6 +1112,7 @@
   },
   {
     "species_name": "ソボサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius shinichisatoi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1021,6 +1123,7 @@
   },
   {
     "species_name": "コガタブチサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius stejnegeri",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1031,6 +1134,7 @@
   },
   {
     "species_name": "トウキョウサンショウウオ",
+    "species_aliases": "イワキサンショウウオ",
     "scientific_name": "Hynobius tokyoensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1041,6 +1145,7 @@
   },
   {
     "species_name": "トサシミズサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius tosashimizuensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1051,6 +1156,7 @@
   },
   {
     "species_name": "ツルギサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius tsurugiensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1061,6 +1167,7 @@
   },
   {
     "species_name": "ヒバサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Hynobius utsunomiyaorum",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1071,6 +1178,7 @@
   },
   {
     "species_name": "ヤマトサンショウウオ",
+    "species_aliases": "オワリサンショウウオ",
     "scientific_name": "Hynobius vandenburghi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1081,6 +1189,7 @@
   },
   {
     "species_name": "シコクハコネサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Onychodactylus kinneburi",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1091,6 +1200,7 @@
   },
   {
     "species_name": "ホムラハコネサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Onychodactylus pyrrhonotus",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1101,6 +1211,7 @@
   },
   {
     "species_name": "ツクバハコネサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Onychodactylus tsukubaensis",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1111,6 +1222,7 @@
   },
   {
     "species_name": "キタサンショウウオ",
+    "species_aliases": "",
     "scientific_name": "Salamandrella keyserlingii",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1121,6 +1233,7 @@
   },
   {
     "species_name": "イボイモリ",
+    "species_aliases": "オキナワイボイモリ|アマミイボイモリ",
     "scientific_name": "Echinotriton andersoni",
     "taxonomy": "両生類",
     "jurisdiction_name": "環境省",
@@ -1131,6 +1244,7 @@
   },
   {
     "species_name": "ハカタスジシマドジョウ",
+    "species_aliases": "",
     "scientific_name": "Cobitis striata hakataensis",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1141,6 +1255,7 @@
   },
   {
     "species_name": "タンゴスジシマドジョウ",
+    "species_aliases": "",
     "scientific_name": "Cobitis takenoi",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1151,6 +1266,7 @@
   },
   {
     "species_name": "アユモドキ",
+    "species_aliases": "",
     "scientific_name": "Parabotia curtus",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1161,6 +1277,7 @@
   },
   {
     "species_name": "イタセンパラ",
+    "species_aliases": "",
     "scientific_name": "Acheilognathus longipinnis",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1171,6 +1288,7 @@
   },
   {
     "species_name": "セボシタビラ",
+    "species_aliases": "",
     "scientific_name": "Acheilognathus tabira nakamurae",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1181,6 +1299,7 @@
   },
   {
     "species_name": "ゼニタナゴ",
+    "species_aliases": "",
     "scientific_name": "Acheilognathus typus",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1191,6 +1310,7 @@
   },
   {
     "species_name": "カワバタモロコ",
+    "species_aliases": "",
     "scientific_name": "Hemigrammocypris neglectus",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1201,6 +1321,7 @@
   },
   {
     "species_name": "シナイモツゴ",
+    "species_aliases": "",
     "scientific_name": "Pseudorasbora pumila",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1211,6 +1332,7 @@
   },
   {
     "species_name": "スイゲンゼニタナゴ",
+    "species_aliases": "",
     "scientific_name": "Rhodeus atremius suigensis",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1221,6 +1343,7 @@
   },
   {
     "species_name": "ミヤコタナゴ",
+    "species_aliases": "",
     "scientific_name": "Tanakia tanago",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1231,6 +1354,7 @@
   },
   {
     "species_name": "コシノハゼ",
+    "species_aliases": "",
     "scientific_name": "Gymnogobius nakamurae",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1241,6 +1365,7 @@
   },
   {
     "species_name": "アリアケヒメシラウオ",
+    "species_aliases": "",
     "scientific_name": "Neosalanx reganius",
     "taxonomy": "淡水魚類",
     "jurisdiction_name": "環境省",
@@ -1251,6 +1376,7 @@
   },
   {
     "species_name": "ウスオビルリゴキブリ",
+    "species_aliases": "",
     "scientific_name": "Eucorydia donanensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1261,6 +1387,7 @@
   },
   {
     "species_name": "ベニエリルリゴキブリ",
+    "species_aliases": "",
     "scientific_name": "Eucorydia miyakoensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1271,6 +1398,7 @@
   },
   {
     "species_name": "オガサワラナガタマムシ",
+    "species_aliases": "",
     "scientific_name": "Agrilus boninensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1281,6 +1409,7 @@
   },
   {
     "species_name": "シラフオガサワラナガタマムシ",
+    "species_aliases": "",
     "scientific_name": "Agrilus suzukii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1291,6 +1420,7 @@
   },
   {
     "species_name": "オガサワラムツボシタマムシ父島列島亜種",
+    "species_aliases": "",
     "scientific_name": "Chrysobothris boninensis boninensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1301,6 +1431,7 @@
   },
   {
     "species_name": "オガサワラムツボシタマムシ母島亜種",
+    "species_aliases": "",
     "scientific_name": "Chrysobothris boninensis suzukii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1311,6 +1442,7 @@
   },
   {
     "species_name": "ツヤヒメマルタマムシ",
+    "species_aliases": "",
     "scientific_name": "Kurosawaia yanoi",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1321,6 +1453,7 @@
   },
   {
     "species_name": "ツマベニタマムシ父島・母島列島亜種",
+    "species_aliases": "",
     "scientific_name": "Tamamushia virida virida",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1331,6 +1464,7 @@
   },
   {
     "species_name": "オガサワラハンミョウ",
+    "species_aliases": "",
     "scientific_name": "Cylindera bonina",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1341,6 +1475,7 @@
   },
   {
     "species_name": "フサヒゲルリカミキリ",
+    "species_aliases": "",
     "scientific_name": "Agapanthia japonica",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1351,6 +1486,7 @@
   },
   {
     "species_name": "オガサワラトビイロカミキリ",
+    "species_aliases": "",
     "scientific_name": "Allotraeus boninensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1361,6 +1497,7 @@
   },
   {
     "species_name": "オガサワラトラカミキリ",
+    "species_aliases": "",
     "scientific_name": "Chlorophorus boninensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1371,6 +1508,7 @@
   },
   {
     "species_name": "オガサワラキイロトラカミキリ",
+    "species_aliases": "",
     "scientific_name": "Chlorophorus kobayashii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1381,6 +1519,7 @@
   },
   {
     "species_name": "オガサワラモモブトコバネカミキリ",
+    "species_aliases": "",
     "scientific_name": "Merionoeda tosawai",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1391,6 +1530,7 @@
   },
   {
     "species_name": "フタモンアメイロカミキリ父島列島亜種",
+    "species_aliases": "",
     "scientific_name": "Pseudiphra bicolor bicolor",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1401,6 +1541,7 @@
   },
   {
     "species_name": "オガサワライカリモントラカミキリ",
+    "species_aliases": "",
     "scientific_name": "Xylotrechus ogasawarensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1411,6 +1552,7 @@
   },
   {
     "species_name": "ヤシャゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Acilius kishii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1421,6 +1563,7 @@
   },
   {
     "species_name": "ゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Cybister chinensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1431,6 +1574,7 @@
   },
   {
     "species_name": "マルコガタノゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Cybister lewisianus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1441,6 +1585,7 @@
   },
   {
     "species_name": "フチトリゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Cybister limbatus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1451,6 +1596,7 @@
   },
   {
     "species_name": "ヒメフチトリゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Cybister rugosus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1461,6 +1607,7 @@
   },
   {
     "species_name": "エゾゲンゴロウモドキ",
+    "species_aliases": "",
     "scientific_name": "Dytiscus marginalis czerskii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1471,6 +1618,7 @@
   },
   {
     "species_name": "シャープゲンゴロウモドキ",
+    "species_aliases": "",
     "scientific_name": "Dytiscus sharpi",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1481,6 +1629,7 @@
   },
   {
     "species_name": "マルガタゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Graphoderus adamsii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1491,6 +1640,7 @@
   },
   {
     "species_name": "オオイチモンジシマゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Hydaticus pacificus conspersus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1501,6 +1651,7 @@
   },
   {
     "species_name": "マダラシマゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Hydaticus thermonectoides",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1511,6 +1662,7 @@
   },
   {
     "species_name": "ヤンバルオオイチモンジシマゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Hydaticus yambaruensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1521,6 +1673,7 @@
   },
   {
     "species_name": "オキナワスジゲンゴロウ",
+    "species_aliases": "",
     "scientific_name": "Prodaticus vittatus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1531,6 +1684,7 @@
   },
   {
     "species_name": "リュウキュウヒメミズスマシ",
+    "species_aliases": "",
     "scientific_name": "Gyrinus ryukyuensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1541,6 +1695,7 @@
   },
   {
     "species_name": "クメジマボタル",
+    "species_aliases": "",
     "scientific_name": "Luciola owadai",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1551,6 +1706,7 @@
   },
   {
     "species_name": "ヨナグニマルバネクワガタ",
+    "species_aliases": "",
     "scientific_name": "Neolucanus insulicola donan",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1561,6 +1717,7 @@
   },
   {
     "species_name": "オキナワマルバネクワガタ",
+    "species_aliases": "",
     "scientific_name": "Neolucanus okinawanus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1571,6 +1728,7 @@
   },
   {
     "species_name": "ウケジママルバネクワガタ",
+    "species_aliases": "",
     "scientific_name": "Neolucanus protogenetivus hamaii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1581,6 +1739,7 @@
   },
   {
     "species_name": "クスイキボシハナノミ",
+    "species_aliases": "",
     "scientific_name": "Hoshihananomia kusuii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1591,6 +1750,7 @@
   },
   {
     "species_name": "キムネキボシハナノミ",
+    "species_aliases": "",
     "scientific_name": "Hoshihananomia ochrothorax",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1601,6 +1761,7 @@
   },
   {
     "species_name": "オガサワラキボシハナノミ",
+    "species_aliases": "",
     "scientific_name": "Hoshihananomia trichopalpis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1611,6 +1772,7 @@
   },
   {
     "species_name": "オガサワラモンハナノミ",
+    "species_aliases": "",
     "scientific_name": "Tomoxia relicta",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1621,6 +1783,7 @@
   },
   {
     "species_name": "ヤンバルテナガコガネ",
+    "species_aliases": "",
     "scientific_name": "Cheirotonus jambar",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1631,6 +1794,7 @@
   },
   {
     "species_name": "ヒサマツサイカブト",
+    "species_aliases": "",
     "scientific_name": "Oryctes hisamatsui",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1641,6 +1805,7 @@
   },
   {
     "species_name": "タガメ",
+    "species_aliases": "",
     "scientific_name": "Kirkaldyia deyrolli",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1651,6 +1816,7 @@
   },
   {
     "species_name": "イシガキニイニイ",
+    "species_aliases": "",
     "scientific_name": "Platypleura albivannata",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1661,6 +1827,7 @@
   },
   {
     "species_name": "コバンムシ",
+    "species_aliases": "",
     "scientific_name": "Ilyocoris cimicoides exclamationis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1671,6 +1838,7 @@
   },
   {
     "species_name": "タイワンタイコウチ",
+    "species_aliases": "",
     "scientific_name": "Laccotrephes grossus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1681,6 +1849,7 @@
   },
   {
     "species_name": "ガマアシナガアリ",
+    "species_aliases": "",
     "scientific_name": "Aphaenogaster gamagumayaa",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1691,6 +1860,7 @@
   },
   {
     "species_name": "タカネキマダラセセリ赤石山脈亜種",
+    "species_aliases": "",
     "scientific_name": "Carterocephalus palaemon akaishianus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1701,6 +1871,7 @@
   },
   {
     "species_name": "オガサワラセセリ",
+    "species_aliases": "",
     "scientific_name": "Parnara ogasawarensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1711,6 +1882,7 @@
   },
   {
     "species_name": "ヒメチャマダラセセリ",
+    "species_aliases": "",
     "scientific_name": "Pyrgus malvae unomasahiroi",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1721,6 +1893,7 @@
   },
   {
     "species_name": "オガサワラシジミ",
+    "species_aliases": "",
     "scientific_name": "Celastrina ogasawaraensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1731,6 +1904,7 @@
   },
   {
     "species_name": "カシワアカシジミ冠高原亜種",
+    "species_aliases": "",
     "scientific_name": "Japonica onoi mizobei",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1741,6 +1915,7 @@
   },
   {
     "species_name": "ゴマシジミ関東・中部亜種",
+    "species_aliases": "",
     "scientific_name": "Phengaris teleius kazamoto",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1751,6 +1926,7 @@
   },
   {
     "species_name": "ツシマウラボシシジミ",
+    "species_aliases": "",
     "scientific_name": "Pithecops fulgens tsushimanus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1761,6 +1937,7 @@
   },
   {
     "species_name": "アサマシジミ北海道亜種",
+    "species_aliases": "",
     "scientific_name": "Plebejus subsolanus iburiensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1771,6 +1948,7 @@
   },
   {
     "species_name": "ゴイシツバメシジミ",
+    "species_aliases": "",
     "scientific_name": "Shijimia moorei moorei",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1781,6 +1959,7 @@
   },
   {
     "species_name": "コヒョウモンモドキ",
+    "species_aliases": "",
     "scientific_name": "Melitaea ambigua niphona",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1791,6 +1970,7 @@
   },
   {
     "species_name": "ウスイロヒョウモンモドキ",
+    "species_aliases": "",
     "scientific_name": "Melitaea protomedia",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1801,6 +1981,7 @@
   },
   {
     "species_name": "ヒョウモンモドキ",
+    "species_aliases": "",
     "scientific_name": "Melitaea scotosia",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1811,6 +1992,7 @@
   },
   {
     "species_name": "タカネヒカゲ八ヶ岳亜種",
+    "species_aliases": "",
     "scientific_name": "Oeneis norna sugitanii",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1821,6 +2003,7 @@
   },
   {
     "species_name": "オガサワラトンボ",
+    "species_aliases": "",
     "scientific_name": "Hemicordulia ogasawarensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1831,6 +2014,7 @@
   },
   {
     "species_name": "オガサワラアオイトトンボ",
+    "species_aliases": "",
     "scientific_name": "Indolestes boninensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1841,6 +2025,7 @@
   },
   {
     "species_name": "ハナダカトンボ",
+    "species_aliases": "",
     "scientific_name": "Rhinocypha ogasawarensis",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1851,6 +2036,7 @@
   },
   {
     "species_name": "ベッコウトンボ",
+    "species_aliases": "",
     "scientific_name": "Libellula angelina",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1861,6 +2047,7 @@
   },
   {
     "species_name": "ハネナガチョウトンボ",
+    "species_aliases": "",
     "scientific_name": "Rhyothemis severini",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1871,6 +2058,7 @@
   },
   {
     "species_name": "チョウセングンバイトンボ",
+    "species_aliases": "",
     "scientific_name": "Platycnemis phyllopoda",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1881,6 +2069,7 @@
   },
   {
     "species_name": "アカハネバッタ",
+    "species_aliases": "",
     "scientific_name": "Celes akitanus",
     "taxonomy": "昆虫類",
     "jurisdiction_name": "環境省",
@@ -1891,6 +2080,7 @@
   },
   {
     "species_name": "リュウジンオオムカデ",
+    "species_aliases": "",
     "scientific_name": "Scolopendra alcyona",
     "taxonomy": "その他無脊椎動物",
     "jurisdiction_name": "環境省",
@@ -1901,6 +2091,7 @@
   },
   {
     "species_name": "カワシンジュガイ",
+    "species_aliases": "",
     "scientific_name": "Margaritifera laevis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1911,6 +2102,7 @@
   },
   {
     "species_name": "コガタカワシンジュガイ",
+    "species_aliases": "",
     "scientific_name": "Margaritifera togakushiensis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1921,6 +2113,7 @@
   },
   {
     "species_name": "カタハガイ",
+    "species_aliases": "",
     "scientific_name": "Obovalis omiensis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1931,6 +2124,7 @@
   },
   {
     "species_name": "オモイガケナマイマイ",
+    "species_aliases": "",
     "scientific_name": "Aegista inexpectata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1941,6 +2135,7 @@
   },
   {
     "species_name": "ヘリトリケマイマイ",
+    "species_aliases": "",
     "scientific_name": "Aegista marginata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1951,6 +2146,7 @@
   },
   {
     "species_name": "ムラヤママイマイ",
+    "species_aliases": "",
     "scientific_name": "Euhadra murayamai",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1961,6 +2157,7 @@
   },
   {
     "species_name": "ナチマイマイ",
+    "species_aliases": "",
     "scientific_name": "Euhadra nachicola",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1971,6 +2168,7 @@
   },
   {
     "species_name": "サドマイマイ",
+    "species_aliases": "",
     "scientific_name": "Euhadra sadoensis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1981,6 +2179,7 @@
   },
   {
     "species_name": "オオアガリマイマイ",
+    "species_aliases": "",
     "scientific_name": "Nesiohelix omphalina bipyramidalis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -1991,6 +2190,7 @@
   },
   {
     "species_name": "ヘソアキアツマイマイ",
+    "species_aliases": "",
     "scientific_name": "Nesiohelix omphalina omphalina",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2001,6 +2201,7 @@
   },
   {
     "species_name": "アニジマカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina anijimana",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2011,6 +2212,7 @@
   },
   {
     "species_name": "コガネカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina aureola",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2021,6 +2223,7 @@
   },
   {
     "species_name": "チチジマカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina chichijimana",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2031,6 +2234,7 @@
   },
   {
     "species_name": "ヒシカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina exoptata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2041,6 +2245,7 @@
   },
   {
     "species_name": "ヒメカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina hahajimana",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2051,6 +2256,7 @@
   },
   {
     "species_name": "フタオビカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina hayatoi",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2061,6 +2267,7 @@
   },
   {
     "species_name": "アナカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina hirasei",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2071,6 +2278,7 @@
   },
   {
     "species_name": "オトメカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina kaguya",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2081,6 +2289,7 @@
   },
   {
     "species_name": "カタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina mandarina",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2091,6 +2300,7 @@
   },
   {
     "species_name": "アケボノカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina polita",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2101,6 +2311,7 @@
   },
   {
     "species_name": "ヌノメカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina ponderosa",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2111,6 +2322,7 @@
   },
   {
     "species_name": "キノボリカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina suenoae",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2121,6 +2333,7 @@
   },
   {
     "species_name": "コハクアナカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina tomiyamai",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2131,6 +2344,7 @@
   },
   {
     "species_name": "ミスジカタマイマイ",
+    "species_aliases": "",
     "scientific_name": "Mandarina trifasciata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2141,6 +2355,7 @@
   },
   {
     "species_name": "トクノシマビロウドマイマイ",
+    "species_aliases": "",
     "scientific_name": "Nipponochloritis obscura",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2151,6 +2366,7 @@
   },
   {
     "species_name": "アマノヤマタカマイマイ",
+    "species_aliases": "",
     "scientific_name": "Satsuma amanoi",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2161,6 +2377,7 @@
   },
   {
     "species_name": "ウラキヤマタカマイマイ",
+    "species_aliases": "",
     "scientific_name": "Satsuma hemihelva",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2171,6 +2388,7 @@
   },
   {
     "species_name": "イヘヤヤマタカマイマイ",
+    "species_aliases": "",
     "scientific_name": "Satsuma iheyaensis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2181,6 +2399,7 @@
   },
   {
     "species_name": "クメジママイマイ",
+    "species_aliases": "",
     "scientific_name": "Satsuma kumejimaensis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2191,6 +2410,7 @@
   },
   {
     "species_name": "サダミマイマイ",
+    "species_aliases": "",
     "scientific_name": "Satsuma sadamii",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2201,6 +2421,7 @@
   },
   {
     "species_name": "ナルトギセル",
+    "species_aliases": "",
     "scientific_name": "Megalophaedusa fukudainadai",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2211,6 +2432,7 @@
   },
   {
     "species_name": "イシカワギセル",
+    "species_aliases": "",
     "scientific_name": "Megalophaedusa ishikawai",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2221,6 +2443,7 @@
   },
   {
     "species_name": "オオイタシロギセル",
+    "species_aliases": "",
     "scientific_name": "Megalophaedusa masatokandai masatokandai",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2231,6 +2454,7 @@
   },
   {
     "species_name": "カザアナギセル",
+    "species_aliases": "",
     "scientific_name": "Megalophaedusa spelaeonis",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2241,6 +2465,7 @@
   },
   {
     "species_name": "ニシキコギセル",
+    "species_aliases": "",
     "scientific_name": "Reinia elegans",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2251,6 +2476,7 @@
   },
   {
     "species_name": "ハナコギセル",
+    "species_aliases": "",
     "scientific_name": "Reinia euholostoma",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2261,6 +2487,7 @@
   },
   {
     "species_name": "マルクチコギセル",
+    "species_aliases": "",
     "scientific_name": "Reinia holotrema",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2271,6 +2498,7 @@
   },
   {
     "species_name": "カスガコギセル",
+    "species_aliases": "",
     "scientific_name": "Reinia hungerfordiana",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2281,6 +2509,7 @@
   },
   {
     "species_name": "アズママルクチコギセル",
+    "species_aliases": "",
     "scientific_name": "Reinia masaoi",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2291,6 +2520,7 @@
   },
   {
     "species_name": "トクネニヤダマシギセル",
+    "species_aliases": "",
     "scientific_name": "Stereophaedusa caudata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2301,6 +2531,7 @@
   },
   {
     "species_name": "タケノコギセル",
+    "species_aliases": "",
     "scientific_name": "Stereophaedusa elongata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2311,6 +2542,7 @@
   },
   {
     "species_name": "リュウキュウギセル",
+    "species_aliases": "",
     "scientific_name": "Stereophaedusa inclyta",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2321,6 +2553,7 @@
   },
   {
     "species_name": "ミヤコオキナワギセル",
+    "species_aliases": "",
     "scientific_name": "Stereophaedusa striatella",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2331,6 +2564,7 @@
   },
   {
     "species_name": "イトヒキツムガタノミギセル",
+    "species_aliases": "",
     "scientific_name": "Zaptyx longiplicata",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2341,6 +2575,7 @@
   },
   {
     "species_name": "ハハジマキセルモドキ",
+    "species_aliases": "",
     "scientific_name": "Boninena callistoderma",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2351,6 +2586,7 @@
   },
   {
     "species_name": "チチジマキセルモドキ",
+    "species_aliases": "",
     "scientific_name": "Boninena hiraseana chichijimana",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2361,6 +2597,7 @@
   },
   {
     "species_name": "ヒラセキセルモドキ",
+    "species_aliases": "",
     "scientific_name": "Boninena hiraseana hiraseana",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2371,6 +2608,7 @@
   },
   {
     "species_name": "オガサワラキセルモドキ",
+    "species_aliases": "",
     "scientific_name": "Boninena ogasawarae",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2381,6 +2619,7 @@
   },
   {
     "species_name": "ニシキキセルモドキ",
+    "species_aliases": "",
     "scientific_name": "Luchuena eucharistus",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2391,6 +2630,7 @@
   },
   {
     "species_name": "オガサワラオカモノアラガイ",
+    "species_aliases": "",
     "scientific_name": "Boninosuccinea ogasawarae",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2401,6 +2641,7 @@
   },
   {
     "species_name": "テンスジオカモノアラガイ",
+    "species_aliases": "",
     "scientific_name": "Boninosuccinea punctulispira",
     "taxonomy": "軟体動物",
     "jurisdiction_name": "環境省",
@@ -2411,6 +2652,7 @@
   },
   {
     "species_name": "オガサワラヌマエビ",
+    "species_aliases": "",
     "scientific_name": "Paratya boninensis",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2421,6 +2663,7 @@
   },
   {
     "species_name": "ニホンザリガニ",
+    "species_aliases": "",
     "scientific_name": "Cambaroides japonicus",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2431,6 +2674,7 @@
   },
   {
     "species_name": "オガサワラベニシオマネキ",
+    "species_aliases": "",
     "scientific_name": "Paraleptuca boninensis",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2441,6 +2685,7 @@
   },
   {
     "species_name": "カクレサワガニ",
+    "species_aliases": "",
     "scientific_name": "Amamiku occulta",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2451,6 +2696,7 @@
   },
   {
     "species_name": "トカシキオオサワガニ",
+    "species_aliases": "",
     "scientific_name": "Geothelphusa levicervix",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2461,6 +2707,7 @@
   },
   {
     "species_name": "ミヤコサワガニ",
+    "species_aliases": "",
     "scientific_name": "Geothelphusa miyakoensis",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2471,6 +2718,7 @@
   },
   {
     "species_name": "ヒメユリサワガニ",
+    "species_aliases": "",
     "scientific_name": "Geothelphusa tenuimanus",
     "taxonomy": "甲殻類",
     "jurisdiction_name": "環境省",
@@ -2481,6 +2729,7 @@
   },
   {
     "species_name": "カラフトグワイ",
+    "species_aliases": "",
     "scientific_name": "Sagittaria natans",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2491,6 +2740,7 @@
   },
   {
     "species_name": "クロボウモドキ",
+    "species_aliases": "",
     "scientific_name": "Polyalthia liukiuensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2501,6 +2751,7 @@
   },
   {
     "species_name": "ツルギテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema abei",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2511,6 +2762,7 @@
   },
   {
     "species_name": "オドリコテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema aprile",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2521,6 +2773,7 @@
   },
   {
     "species_name": "ホロテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema cucullatum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2531,6 +2784,7 @@
   },
   {
     "species_name": "オキナワテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema heterocephalum ssp. okinawense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2541,6 +2795,7 @@
   },
   {
     "species_name": "イナヒロハテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema inaense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2551,6 +2806,7 @@
   },
   {
     "species_name": "イシヅチテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema ishizuchiense ssp. ishizuchiense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2561,6 +2817,7 @@
   },
   {
     "species_name": "トクノシマテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema kawashimae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2571,6 +2828,7 @@
   },
   {
     "species_name": "アマギテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema kuratae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2581,6 +2839,7 @@
   },
   {
     "species_name": "ヒュウガヒロハテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema minamitanii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2591,6 +2850,7 @@
   },
   {
     "species_name": "ナギヒロハテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema nagiense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2601,6 +2861,7 @@
   },
   {
     "species_name": "オガタテンナンショウ",
+    "species_aliases": "ツクシテンナンショウ",
     "scientific_name": "Arisaema ogatae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2611,6 +2872,7 @@
   },
   {
     "species_name": "セッピコテンナンショウ",
+    "species_aliases": "",
     "scientific_name": "Arisaema seppikoense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2621,6 +2883,7 @@
   },
   {
     "species_name": "ユズノハカズラ",
+    "species_aliases": "",
     "scientific_name": "Pothos chinensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2631,6 +2894,7 @@
   },
   {
     "species_name": "サキシマハブカズラ",
+    "species_aliases": "",
     "scientific_name": "Rhaphidophora kortharthii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2641,6 +2905,7 @@
   },
   {
     "species_name": "ヒメハブカズラ",
+    "species_aliases": "",
     "scientific_name": "Rhaphidophora liukiuensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2651,6 +2916,7 @@
   },
   {
     "species_name": "オナガサイシン",
+    "species_aliases": "",
     "scientific_name": "Asarum caudigerum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2661,6 +2927,7 @@
   },
   {
     "species_name": "シシキカンアオイ",
+    "species_aliases": "シジキカンアオイ",
     "scientific_name": "Asarum hexalobum var. controversum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2671,6 +2938,7 @@
   },
   {
     "species_name": "ジュロウカンアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum kinoshitae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2681,6 +2949,7 @@
   },
   {
     "species_name": "アソサイシン",
+    "species_aliases": "",
     "scientific_name": "Asarum misandrum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2691,6 +2960,7 @@
   },
   {
     "species_name": "フクエジマカンアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum mitoanum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2701,6 +2971,7 @@
   },
   {
     "species_name": "モノドラカンアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum monodoriflorum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2711,6 +2982,7 @@
   },
   {
     "species_name": "ヒナカンアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum okinawense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2721,6 +2993,7 @@
   },
   {
     "species_name": "ホシザキカンアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum sakawanum var. stellatum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2731,6 +3004,7 @@
   },
   {
     "species_name": "サツマアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum satsumense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2741,6 +3015,7 @@
   },
   {
     "species_name": "ヤエヤマカンアオイ",
+    "species_aliases": "",
     "scientific_name": "Asarum yaeyamense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2751,6 +3026,7 @@
   },
   {
     "species_name": "マキノシダ",
+    "species_aliases": "",
     "scientific_name": "Asplenium formosae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2761,6 +3037,7 @@
   },
   {
     "species_name": "フササジラン",
+    "species_aliases": "",
     "scientific_name": "Asplenium griffithianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2771,6 +3048,7 @@
   },
   {
     "species_name": "イエジマチャセンシダ",
+    "species_aliases": "",
     "scientific_name": "Asplenium oligophlebium var. iezimaense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2781,6 +3059,7 @@
   },
   {
     "species_name": "オトメシダ",
+    "species_aliases": "",
     "scientific_name": "Asplenium tenerum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2791,6 +3070,7 @@
   },
   {
     "species_name": "ヒメタニワタリ",
+    "species_aliases": "",
     "scientific_name": "Hymenasplenium cardiophyllum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2801,6 +3081,7 @@
   },
   {
     "species_name": "ウスイロホウビシダ",
+    "species_aliases": "",
     "scientific_name": "Hymenasplenium subnormale",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2811,6 +3092,7 @@
   },
   {
     "species_name": "ヤクシマタニイヌワラビ",
+    "species_aliases": "",
     "scientific_name": "Athyrium yakusimense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2821,6 +3103,7 @@
   },
   {
     "species_name": "ホソバシケチシダ",
+    "species_aliases": "",
     "scientific_name": "Cornopteris banajaoensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2831,6 +3114,7 @@
   },
   {
     "species_name": "ヒュウガシケシダ",
+    "species_aliases": "",
     "scientific_name": "Deparia minamitanii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2841,6 +3125,7 @@
   },
   {
     "species_name": "アオイガワラビ",
+    "species_aliases": "",
     "scientific_name": "Diplazium kawakamii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2851,6 +3136,7 @@
   },
   {
     "species_name": "フクレギシダ",
+    "species_aliases": "",
     "scientific_name": "Diplazium pin-faense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2861,6 +3147,7 @@
   },
   {
     "species_name": "ムニンミドリシダ",
+    "species_aliases": "",
     "scientific_name": "Diplazium subtripinnatum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2871,6 +3158,7 @@
   },
   {
     "species_name": "キタカミヒョウタンボク",
+    "species_aliases": "",
     "scientific_name": "Lonicera demissa var. borealis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2881,6 +3169,7 @@
   },
   {
     "species_name": "ツシマヒョウタンボク",
+    "species_aliases": "",
     "scientific_name": "Lonicera fragrantissima",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2891,6 +3180,7 @@
   },
   {
     "species_name": "クロブシヒョウタンボク",
+    "species_aliases": "",
     "scientific_name": "Lonicera kurobushiensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2901,6 +3191,7 @@
   },
   {
     "species_name": "ヤブヒョウタンボク",
+    "species_aliases": "",
     "scientific_name": "Lonicera linderifolia var. linderifolia",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2911,6 +3202,7 @@
   },
   {
     "species_name": "ウゼンベニバナヒョウタンボク",
+    "species_aliases": "",
     "scientific_name": "Lonicera uzenensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2921,6 +3213,7 @@
   },
   {
     "species_name": "ホザキツキヌキソウ",
+    "species_aliases": "",
     "scientific_name": "Triosteum pinnatifidum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2931,6 +3224,7 @@
   },
   {
     "species_name": "タカネマンテマ",
+    "species_aliases": "",
     "scientific_name": "Silene uralensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2941,6 +3235,7 @@
   },
   {
     "species_name": "ヨナクニイソノギク",
+    "species_aliases": "",
     "scientific_name": "Aster asagrayi var. walkeri",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2951,6 +3246,7 @@
   },
   {
     "species_name": "ユズリハワダン",
+    "species_aliases": "",
     "scientific_name": "Crepidiastrum ameristophyllum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2961,6 +3257,7 @@
   },
   {
     "species_name": "コヘラナレン",
+    "species_aliases": "",
     "scientific_name": "Crepidiastrum grandicollum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2971,6 +3268,7 @@
   },
   {
     "species_name": "ダイトウワダン",
+    "species_aliases": "",
     "scientific_name": "Crepidiastrum lanceolatum var. daitoense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2981,6 +3279,7 @@
   },
   {
     "species_name": "シマトウヒレン",
+    "species_aliases": "",
     "scientific_name": "Saussurea insularis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -2991,6 +3290,7 @@
   },
   {
     "species_name": "ヒナヒゴタイ",
+    "species_aliases": "",
     "scientific_name": "Saussurea japonica",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3001,6 +3301,7 @@
   },
   {
     "species_name": "ミクラジマトウヒレン",
+    "species_aliases": "",
     "scientific_name": "Saussurea mikurasimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3011,6 +3312,7 @@
   },
   {
     "species_name": "ヤクシマヒゴタイ",
+    "species_aliases": "ヤクシマトウヒレン",
     "scientific_name": "Saussurea yakusimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3021,6 +3323,7 @@
   },
   {
     "species_name": "コウリンギク",
+    "species_aliases": "",
     "scientific_name": "Senecio argunensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3031,6 +3334,7 @@
   },
   {
     "species_name": "ハナナズナ",
+    "species_aliases": "",
     "scientific_name": "Berteroella maximowiczii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3041,6 +3345,7 @@
   },
   {
     "species_name": "シリベシナズナ",
+    "species_aliases": "",
     "scientific_name": "Draba igarashii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3051,6 +3356,7 @@
   },
   {
     "species_name": "センジョウスゲ",
+    "species_aliases": "",
     "scientific_name": "Carex lehmannii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3061,6 +3367,7 @@
   },
   {
     "species_name": "カドハリイ",
+    "species_aliases": "",
     "scientific_name": "Eleocharis tetraquetra var. tsurumachii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3071,6 +3378,7 @@
   },
   {
     "species_name": "ビャッコイ",
+    "species_aliases": "",
     "scientific_name": "Isolepis crassiuscula",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3081,6 +3389,7 @@
   },
   {
     "species_name": "イヘヤヒゲクサ",
+    "species_aliases": "",
     "scientific_name": "Schoenus calostachyus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3091,6 +3400,7 @@
   },
   {
     "species_name": "ホソバコウシュンシダ",
+    "species_aliases": "",
     "scientific_name": "Microlepia obtusiloba var. angustata",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3101,6 +3411,7 @@
   },
   {
     "species_name": "コキンモウイノデ",
+    "species_aliases": "",
     "scientific_name": "Ctenitis microlepigera",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3111,6 +3422,7 @@
   },
   {
     "species_name": "クマヤブソテツ",
+    "species_aliases": "",
     "scientific_name": "Cyrtomium macrophyllum var. microindusium",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3121,6 +3433,7 @@
   },
   {
     "species_name": "キリシマイワヘゴ",
+    "species_aliases": "",
     "scientific_name": "Dryopteris hangchowensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3131,6 +3444,7 @@
   },
   {
     "species_name": "キュウシュウイノデ",
+    "species_aliases": "",
     "scientific_name": "Polystichum grandifrons",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3141,6 +3455,7 @@
   },
   {
     "species_name": "ヒイラギデンダ",
+    "species_aliases": "",
     "scientific_name": "Polystichum lonchitis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3151,6 +3466,7 @@
   },
   {
     "species_name": "ヤシャイノデ",
+    "species_aliases": "",
     "scientific_name": "Polystichum neolobatum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3161,6 +3477,7 @@
   },
   {
     "species_name": "アマミデンダ",
+    "species_aliases": "",
     "scientific_name": "Polystichum obae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3171,6 +3488,7 @@
   },
   {
     "species_name": "サクラジマイノデ",
+    "species_aliases": "",
     "scientific_name": "Polystichum piceopaleaceum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3181,6 +3499,7 @@
   },
   {
     "species_name": "シムライノデ",
+    "species_aliases": "",
     "scientific_name": "Polystichum shimurae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3191,6 +3510,7 @@
   },
   {
     "species_name": "アマクサミツバツツジ",
+    "species_aliases": "",
     "scientific_name": "Rhododendron amakusaense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3201,6 +3521,7 @@
   },
   {
     "species_name": "ムニンツツジ",
+    "species_aliases": "",
     "scientific_name": "Rhododendron boninense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3211,6 +3532,7 @@
   },
   {
     "species_name": "ウラジロヒカゲツツジ",
+    "species_aliases": "",
     "scientific_name": "Rhododendron keiskei var. hypoglaucum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3221,6 +3543,7 @@
   },
   {
     "species_name": "ヤドリコケモモ",
+    "species_aliases": "",
     "scientific_name": "Vaccinium amamianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3231,6 +3554,7 @@
   },
   {
     "species_name": "ヒュウガホシクサ",
+    "species_aliases": "",
     "scientific_name": "Eriocaulon seticuspe",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3241,6 +3565,7 @@
   },
   {
     "species_name": "ボロジノニシキソウ",
+    "species_aliases": "",
     "scientific_name": "Chamaesyce sparrmannii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3251,6 +3576,7 @@
   },
   {
     "species_name": "セキモンノキ",
+    "species_aliases": "",
     "scientific_name": "Claoxylon centinarium",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3261,6 +3587,7 @@
   },
   {
     "species_name": "ヒュウガタイゲキ",
+    "species_aliases": "",
     "scientific_name": "Euphorbia watanabei subsp. Minamitanii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3271,6 +3598,7 @@
   },
   {
     "species_name": "サンプクリンドウ",
+    "species_aliases": "",
     "scientific_name": "Comastoma pulmonarium subsp. sectum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3281,6 +3609,7 @@
   },
   {
     "species_name": "ヤクシマリンドウ",
+    "species_aliases": "",
     "scientific_name": "Gentiana yakushimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3291,6 +3620,7 @@
   },
   {
     "species_name": "ヒメセンブリ",
+    "species_aliases": "",
     "scientific_name": "Lomatogonium carinthiacum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3301,6 +3631,7 @@
   },
   {
     "species_name": "ハナヤマツルリンドウ",
+    "species_aliases": "",
     "scientific_name": "Tripterospermum distylum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3311,6 +3642,7 @@
   },
   {
     "species_name": "ヤクシマフウロ",
+    "species_aliases": "",
     "scientific_name": "Geranium shikokianum var. yoshiianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3321,6 +3653,7 @@
   },
   {
     "species_name": "ナガミカズラ",
+    "species_aliases": "",
     "scientific_name": "Aeschynanthus acuminatus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3331,6 +3664,7 @@
   },
   {
     "species_name": "リュウキュウキンモウワラビ",
+    "species_aliases": "",
     "scientific_name": "Hypodematium fordii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3341,6 +3675,7 @@
   },
   {
     "species_name": "シマカコソウ",
+    "species_aliases": "",
     "scientific_name": "Ajuga boninsimae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3351,6 +3686,7 @@
   },
   {
     "species_name": "ヒメタツナミソウ",
+    "species_aliases": "",
     "scientific_name": "Scutellaria kikai-insularis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3361,6 +3697,7 @@
   },
   {
     "species_name": "エダウチタヌキマメ",
+    "species_aliases": "",
     "scientific_name": "Crotalaria uncinella",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3371,6 +3708,7 @@
   },
   {
     "species_name": "タシロマメ",
+    "species_aliases": "",
     "scientific_name": "Intsia bijuga",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3381,6 +3719,7 @@
   },
   {
     "species_name": "ツクシムレスズメ",
+    "species_aliases": "",
     "scientific_name": "Sophora franchetiana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3391,6 +3730,7 @@
   },
   {
     "species_name": "ホソバフジボグサ",
+    "species_aliases": "",
     "scientific_name": "Uraria picta",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3401,6 +3741,7 @@
   },
   {
     "species_name": "サクヤアカササゲ",
+    "species_aliases": "",
     "scientific_name": "Vigna vexillata var. vexillata",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3411,6 +3752,7 @@
   },
   {
     "species_name": "タマボウキ",
+    "species_aliases": "",
     "scientific_name": "Asparagus oligoclonos",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3421,6 +3763,7 @@
   },
   {
     "species_name": "クロカミシライトソウ",
+    "species_aliases": "",
     "scientific_name": "Chionographis koidzumiana var. kurokamiana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3431,6 +3774,7 @@
   },
   {
     "species_name": "カイコバイモ",
+    "species_aliases": "",
     "scientific_name": "Fritillaria kaiensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3441,6 +3785,7 @@
   },
   {
     "species_name": "ヨナグニノシラン",
+    "species_aliases": "",
     "scientific_name": "Ophiopogon reversus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3451,6 +3796,7 @@
   },
   {
     "species_name": "ウスギワニグチソウ",
+    "species_aliases": "",
     "scientific_name": "Polygonatum cryptanthum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3461,6 +3807,7 @@
   },
   {
     "species_name": "サガミジョウロウホトトギス",
+    "species_aliases": "",
     "scientific_name": "Tricyrtis ishiiana var. ishiiana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3471,6 +3818,7 @@
   },
   {
     "species_name": "スルガジョウロウホトトギス",
+    "species_aliases": "",
     "scientific_name": "Tricyrtis ishiiana var. surugensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3481,6 +3829,7 @@
   },
   {
     "species_name": "キバナノツキヌキホトトギス",
+    "species_aliases": "",
     "scientific_name": "Tricyrtis perfoliata",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3491,6 +3840,7 @@
   },
   {
     "species_name": "ヒモスギラン",
+    "species_aliases": "",
     "scientific_name": "Lycopodium fargesii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3501,6 +3851,7 @@
   },
   {
     "species_name": "ヒメヨウラクヒバ",
+    "species_aliases": "",
     "scientific_name": "Lycopodium salvinioides",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3511,6 +3862,7 @@
   },
   {
     "species_name": "ササキカズラ",
+    "species_aliases": "",
     "scientific_name": "Ryssopterys timoriensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3521,6 +3873,7 @@
   },
   {
     "species_name": "ムニンノボタン",
+    "species_aliases": "",
     "scientific_name": "Melastoma tetramerum var. tetramerum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3531,6 +3884,7 @@
   },
   {
     "species_name": "マルバタイミンタチバナ",
+    "species_aliases": "",
     "scientific_name": "Myrsine okabeana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3541,6 +3895,7 @@
   },
   {
     "species_name": "ヒメイバラモ",
+    "species_aliases": "",
     "scientific_name": "Najas tenuicaulis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3551,6 +3906,7 @@
   },
   {
     "species_name": "シモツケコウホネ",
+    "species_aliases": "",
     "scientific_name": "Nuphar submersa",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3561,6 +3917,7 @@
   },
   {
     "species_name": "エンレイショウキラン",
+    "species_aliases": "",
     "scientific_name": "Acanthephippium pictum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3571,6 +3928,7 @@
   },
   {
     "species_name": "ミスズラン",
+    "species_aliases": "",
     "scientific_name": "Androcorys pusillus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3581,6 +3939,7 @@
   },
   {
     "species_name": "キバナシュスラン",
+    "species_aliases": "",
     "scientific_name": "Anoectochilus formosanus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3591,6 +3950,7 @@
   },
   {
     "species_name": "コウシュンシュスラン",
+    "species_aliases": "",
     "scientific_name": "Anoectochilus koshunensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3601,6 +3961,7 @@
   },
   {
     "species_name": "タイワンエビネ",
+    "species_aliases": "",
     "scientific_name": "Calanthe formosana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3611,6 +3972,7 @@
   },
   {
     "species_name": "アサヒエビネ",
+    "species_aliases": "",
     "scientific_name": "Calanthe hattorii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3621,6 +3983,7 @@
   },
   {
     "species_name": "ホシツルラン",
+    "species_aliases": "",
     "scientific_name": "Calanthe hoshii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3631,6 +3994,7 @@
   },
   {
     "species_name": "カンダヒメラン",
+    "species_aliases": "",
     "scientific_name": "Crepidium kandae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3641,6 +4005,7 @@
   },
   {
     "species_name": "オオスズムシラン",
+    "species_aliases": "",
     "scientific_name": "Cryptostylis arachnites",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3651,6 +4016,7 @@
   },
   {
     "species_name": "タカオオオスズムシラン",
+    "species_aliases": "",
     "scientific_name": "Cryptostylis taiwaniana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3661,6 +4027,7 @@
   },
   {
     "species_name": "チョウセンキバナアツモリソウ",
+    "species_aliases": "",
     "scientific_name": "Cypripedium guttatum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3671,6 +4038,7 @@
   },
   {
     "species_name": "ホテイアツモリ",
+    "species_aliases": "",
     "scientific_name": "Cypripedium macranthos var. macranthos",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3681,6 +4049,7 @@
   },
   {
     "species_name": "レブンアツモリソウ",
+    "species_aliases": "",
     "scientific_name": "Cypripedium macranthos var. rebunense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3691,6 +4060,7 @@
   },
   {
     "species_name": "アツモリソウ",
+    "species_aliases": "",
     "scientific_name": "Cypripedium macranthos var. speciosum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3701,6 +4071,7 @@
   },
   {
     "species_name": "オキナワセッコク",
+    "species_aliases": "",
     "scientific_name": "Dendrobium okinawense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3711,6 +4082,7 @@
   },
   {
     "species_name": "ホザキヒメラン",
+    "species_aliases": "",
     "scientific_name": "Dienia ophrydis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3721,6 +4093,7 @@
   },
   {
     "species_name": "ジョウロウラン",
+    "species_aliases": "",
     "scientific_name": "Disperis neilgherrensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3731,6 +4104,7 @@
   },
   {
     "species_name": "タカサゴヤガラ",
+    "species_aliases": "",
     "scientific_name": "Eulophia taiwanensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3741,6 +4115,7 @@
   },
   {
     "species_name": "ヤクシマヤツシロラン",
+    "species_aliases": "",
     "scientific_name": "Gastrodia albida",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3751,6 +4126,7 @@
   },
   {
     "species_name": "タブガワヤツシロラン",
+    "species_aliases": "",
     "scientific_name": "Gastrodia uraiensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3761,6 +4137,7 @@
   },
   {
     "species_name": "ヤブミョウガラン",
+    "species_aliases": "",
     "scientific_name": "Goodyera fumata",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3771,6 +4148,7 @@
   },
   {
     "species_name": "テツオサギソウ",
+    "species_aliases": "",
     "scientific_name": "Habenaria stenopetala",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3781,6 +4159,7 @@
   },
   {
     "species_name": "ヒメクリソラン",
+    "species_aliases": "",
     "scientific_name": "Hancockia uniflora",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3791,6 +4170,7 @@
   },
   {
     "species_name": "オオカゲロウラン",
+    "species_aliases": "",
     "scientific_name": "Hetaeria oblongifolia",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3801,6 +4181,7 @@
   },
   {
     "species_name": "ヒメスズムシソウ",
+    "species_aliases": "",
     "scientific_name": "Liparis nikkoensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3811,6 +4192,7 @@
   },
   {
     "species_name": "コゴメキノエラン",
+    "species_aliases": "",
     "scientific_name": "Liparis viridiflora",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3821,6 +4203,7 @@
   },
   {
     "species_name": "ナンバンカモメラン",
+    "species_aliases": "",
     "scientific_name": "Macodes petola",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3831,6 +4214,7 @@
   },
   {
     "species_name": "シマホザキラン",
+    "species_aliases": "",
     "scientific_name": "Malaxis boninensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3841,6 +4225,7 @@
   },
   {
     "species_name": "ハツシマラン",
+    "species_aliases": "",
     "scientific_name": "Odontochilus hatusimanus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3851,6 +4236,7 @@
   },
   {
     "species_name": "ヒメシラヒゲラン",
+    "species_aliases": "",
     "scientific_name": "Odontochilus nanlingensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3861,6 +4247,7 @@
   },
   {
     "species_name": "オオギミラン",
+    "species_aliases": "",
     "scientific_name": "Odontochilus tashiroi",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3871,6 +4258,7 @@
   },
   {
     "species_name": "コハクラン",
+    "species_aliases": "",
     "scientific_name": "Oreorchis itoana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3881,6 +4269,7 @@
   },
   {
     "species_name": "タコガタサギソウ",
+    "species_aliases": "",
     "scientific_name": "Peristylus lacertifer",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3891,6 +4280,7 @@
   },
   {
     "species_name": "ヒメカクラン",
+    "species_aliases": "",
     "scientific_name": "Phaius mishmensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3901,6 +4291,7 @@
   },
   {
     "species_name": "シマツレサギソウ",
+    "species_aliases": "",
     "scientific_name": "Platanthera boninensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3911,6 +4302,7 @@
   },
   {
     "species_name": "ハチジョウツレサギ",
+    "species_aliases": "",
     "scientific_name": "Platanthera okuboi",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3921,6 +4313,7 @@
   },
   {
     "species_name": "クニガミトンボソウ",
+    "species_aliases": "",
     "scientific_name": "Platanthera sonoharae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3931,6 +4324,7 @@
   },
   {
     "species_name": "イリオモテトンボソウ",
+    "species_aliases": "",
     "scientific_name": "Platanthera stenoglossa ssp. iriomotensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3941,6 +4335,7 @@
   },
   {
     "species_name": "イリオモテカヤラン",
+    "species_aliases": "",
     "scientific_name": "Thrixspermum annamense var. devolianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3951,6 +4346,7 @@
   },
   {
     "species_name": "ハガクレナガミラン",
+    "species_aliases": "",
     "scientific_name": "Thrixspermum fantasticum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3961,6 +4357,7 @@
   },
   {
     "species_name": "ミソボシラン",
+    "species_aliases": "",
     "scientific_name": "Vrydagzynea nuda",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3971,6 +4368,7 @@
   },
   {
     "species_name": "リュウキュウキジノオ",
+    "species_aliases": "",
     "scientific_name": "Plagiogyria koidzumii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3981,6 +4379,7 @@
   },
   {
     "species_name": "タイヨウフウトウカズラ",
+    "species_aliases": "",
     "scientific_name": "Piper postelsianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -3991,6 +4390,7 @@
   },
   {
     "species_name": "コバトベラ",
+    "species_aliases": "",
     "scientific_name": "Pittosporum parvifolium",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4001,6 +4401,7 @@
   },
   {
     "species_name": "イネガヤ",
+    "species_aliases": "",
     "scientific_name": "Piptatherum kuoi",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4011,6 +4412,7 @@
   },
   {
     "species_name": "ヒゲナガコメススキ",
+    "species_aliases": "",
     "scientific_name": "Stipa alpina",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4021,6 +4423,7 @@
   },
   {
     "species_name": "ハナシノブ",
+    "species_aliases": "",
     "scientific_name": "Polemonium kiushianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4031,6 +4434,7 @@
   },
   {
     "species_name": "リュウキュウヒメハギ",
+    "species_aliases": "",
     "scientific_name": "Polygala longifolia",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4041,6 +4445,7 @@
   },
   {
     "species_name": "アラゲタデ",
+    "species_aliases": "",
     "scientific_name": "Persicaria attenuata ssp. pulchra",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4051,6 +4456,7 @@
   },
   {
     "species_name": "ダイトウサクラタデ",
+    "species_aliases": "",
     "scientific_name": "Persicaria japonica var. taitoinsularis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4061,6 +4467,7 @@
   },
   {
     "species_name": "ハカマウラボシ",
+    "species_aliases": "",
     "scientific_name": "Drynaria roosii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4071,6 +4478,7 @@
   },
   {
     "species_name": "トヨグチウラボシ",
+    "species_aliases": "",
     "scientific_name": "Lepisorus clathratus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4081,6 +4489,7 @@
   },
   {
     "species_name": "ウロコノキシノブ",
+    "species_aliases": "",
     "scientific_name": "Lepisorus oligolepidus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4091,6 +4500,7 @@
   },
   {
     "species_name": "オキノクリハラン",
+    "species_aliases": "",
     "scientific_name": "Leptochilus decurrens",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4101,6 +4511,7 @@
   },
   {
     "species_name": "キレハオオクボシダ",
+    "species_aliases": "",
     "scientific_name": "Tomophyllum sakaguchianum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4111,6 +4522,7 @@
   },
   {
     "species_name": "ナガバエビモ",
+    "species_aliases": "",
     "scientific_name": "Potamogeton praelongus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4121,6 +4533,7 @@
   },
   {
     "species_name": "オニコナスビ",
+    "species_aliases": "",
     "scientific_name": "Lysimachia tashiroi",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4131,6 +4544,7 @@
   },
   {
     "species_name": "カッコソウ",
+    "species_aliases": "",
     "scientific_name": "Primula kisoana var. kisoana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4141,6 +4555,7 @@
   },
   {
     "species_name": "イワウラジロ",
+    "species_aliases": "",
     "scientific_name": "Cheilanthes krameri",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4151,6 +4566,7 @@
   },
   {
     "species_name": "オオバシシラン",
+    "species_aliases": "",
     "scientific_name": "Haplopteris yakushimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4161,6 +4577,7 @@
   },
   {
     "species_name": "タイワンアマクサシダ",
+    "species_aliases": "",
     "scientific_name": "Pteris formosana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4171,6 +4588,7 @@
   },
   {
     "species_name": "ハナカズラ",
+    "species_aliases": "",
     "scientific_name": "Aconitum ciliare",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4181,6 +4599,7 @@
   },
   {
     "species_name": "イイデトリカブト",
+    "species_aliases": "",
     "scientific_name": "Aconitum iidemontanum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4191,6 +4610,7 @@
   },
   {
     "species_name": "コウライブシ",
+    "species_aliases": "",
     "scientific_name": "Aconitum jaluense subsp. jaluense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4201,6 +4621,7 @@
   },
   {
     "species_name": "オンタケブシ",
+    "species_aliases": "",
     "scientific_name": "Aconitum metajaponicum",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4211,6 +4632,7 @@
   },
   {
     "species_name": "シコクイチゲ",
+    "species_aliases": "",
     "scientific_name": "Anemone sikokiana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4221,6 +4643,7 @@
   },
   {
     "species_name": "キタダケソウ",
+    "species_aliases": "",
     "scientific_name": "Callianthemum hondoense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4231,6 +4654,7 @@
   },
   {
     "species_name": "キリギシソウ",
+    "species_aliases": "",
     "scientific_name": "Callianthemum kirigishiense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4241,6 +4665,7 @@
   },
   {
     "species_name": "タカネキンポウゲ",
+    "species_aliases": "",
     "scientific_name": "Ranunculus altaicus subsp. shinanoalpinus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4251,6 +4676,7 @@
   },
   {
     "species_name": "キタダケキンポウゲ",
+    "species_aliases": "",
     "scientific_name": "Ranunculus kitadakeanus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4261,6 +4687,7 @@
   },
   {
     "species_name": "クモマキンポウゲ",
+    "species_aliases": "",
     "scientific_name": "Ranunculus pygmaeus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4271,6 +4698,7 @@
   },
   {
     "species_name": "ヤツガタケキンポウゲ",
+    "species_aliases": "",
     "scientific_name": "Ranunculus yatsugatakensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4281,6 +4709,7 @@
   },
   {
     "species_name": "ムラサキカラマツ",
+    "species_aliases": "",
     "scientific_name": "Thalictrum uchiyamae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4291,6 +4720,7 @@
   },
   {
     "species_name": "ヒメクロウメモドキ",
+    "species_aliases": "",
     "scientific_name": "Rhamnus kanagusukui",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4301,6 +4731,7 @@
   },
   {
     "species_name": "ヒジハリノキ",
+    "species_aliases": "",
     "scientific_name": "Randia sinensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4311,6 +4742,7 @@
   },
   {
     "species_name": "ツシマアカショウマ",
+    "species_aliases": "",
     "scientific_name": "Astilbe tsushimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4321,6 +4753,7 @@
   },
   {
     "species_name": "コミノヒメウツギ",
+    "species_aliases": "",
     "scientific_name": "Deutzia hatusimae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4331,6 +4764,7 @@
   },
   {
     "species_name": "オキナワヒメウツギ",
+    "species_aliases": "",
     "scientific_name": "Deutzia naseana var. amanoi",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4341,6 +4775,7 @@
   },
   {
     "species_name": "ヤエヤマヒメウツギ",
+    "species_aliases": "",
     "scientific_name": "Deutzia yaeyamensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4351,6 +4786,7 @@
   },
   {
     "species_name": "アマミチャルメルソウ",
+    "species_aliases": "",
     "scientific_name": "Mitella amamiana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4361,6 +4797,7 @@
   },
   {
     "species_name": "イスミスズカケ",
+    "species_aliases": "",
     "scientific_name": "Veronicastrum noguchii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4371,6 +4808,7 @@
   },
   {
     "species_name": "ムニンホオズキ",
+    "species_aliases": "",
     "scientific_name": "Lycianthes boninensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4381,6 +4819,7 @@
   },
   {
     "species_name": "イラブナスビ",
+    "species_aliases": "",
     "scientific_name": "Solanum miyakojimense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4391,6 +4830,7 @@
   },
   {
     "species_name": "ナガバキブシ",
+    "species_aliases": "",
     "scientific_name": "Stachyurus macrocarpus var. macrocarpus",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4401,6 +4841,7 @@
   },
   {
     "species_name": "ハザクラキブシ",
+    "species_aliases": "",
     "scientific_name": "Stachyurus macrocarpus var. prunifolius",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4411,6 +4852,7 @@
   },
   {
     "species_name": "ウチダシクロキ",
+    "species_aliases": "",
     "scientific_name": "Symplocos kawakamii",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4421,6 +4863,7 @@
   },
   {
     "species_name": "コモチナナバケシダ",
+    "species_aliases": "",
     "scientific_name": "Tectaria fauriei",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4431,6 +4874,7 @@
   },
   {
     "species_name": "ナガバウスバシダ",
+    "species_aliases": "",
     "scientific_name": "Tectaria kusukusensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4441,6 +4885,7 @@
   },
   {
     "species_name": "シマヤワラシダ",
+    "species_aliases": "",
     "scientific_name": "Thelypteris gracilescens",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4451,6 +4896,7 @@
   },
   {
     "species_name": "ヒシバウオトリギ",
+    "species_aliases": "アツバウオトリギ",
     "scientific_name": "Grewia rhombifolia",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4461,6 +4907,7 @@
   },
   {
     "species_name": "ケナシハテルマカズラ",
+    "species_aliases": "",
     "scientific_name": "Triumfetta procumbens var. glaberrima",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4471,6 +4918,7 @@
   },
   {
     "species_name": "ヤクシマソウ",
+    "species_aliases": "",
     "scientific_name": "Sciaphila yakushimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4481,6 +4929,7 @@
   },
   {
     "species_name": "ツシマノダケ",
+    "species_aliases": "",
     "scientific_name": "Tilingia tsusimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4491,6 +4940,7 @@
   },
   {
     "species_name": "ヨナクニトキホコリ",
+    "species_aliases": "",
     "scientific_name": "Elatostema yonakuniense",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4501,6 +4951,7 @@
   },
   {
     "species_name": "セキモンウライソウ",
+    "species_aliases": "",
     "scientific_name": "Procris boninensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4511,6 +4962,7 @@
   },
   {
     "species_name": "シマキンレイカ",
+    "species_aliases": "",
     "scientific_name": "Patrinia triloba var. kozushimensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4521,6 +4973,7 @@
   },
   {
     "species_name": "ホウライムラサキ",
+    "species_aliases": "",
     "scientific_name": "Callicarpa formosana",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4531,6 +4984,7 @@
   },
   {
     "species_name": "タカクマムラサキ",
+    "species_aliases": "",
     "scientific_name": "Callicarpa longissima",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4541,6 +4995,7 @@
   },
   {
     "species_name": "ウラジロコムラサキ",
+    "species_aliases": "",
     "scientific_name": "Callicarpa parvifolia",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4551,6 +5006,7 @@
   },
   {
     "species_name": "イシガキスミレ",
+    "species_aliases": "",
     "scientific_name": "Viola tashiroi var. tairae",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4561,6 +5017,7 @@
   },
   {
     "species_name": "タデスミレ",
+    "species_aliases": "",
     "scientific_name": "Viola thibaudieri",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
@@ -4571,6 +5028,7 @@
   },
   {
     "species_name": "オキナワスミレ",
+    "species_aliases": "",
     "scientific_name": "Viola utchinensis",
     "taxonomy": "維管束植物",
     "jurisdiction_name": "環境省",
