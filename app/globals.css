@@ -845,7 +845,6 @@ body:has(.search-layout) {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   z-index: 5;
-  border-bottom: 1px solid var(--border);
 }
 .tax-dot {
   width: 7px;
