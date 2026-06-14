@@ -97,6 +97,29 @@ function getOrdinanceMatches(
   });
 }
 
+// 種カードに表示する学名のバリエーションを取得
+// - 各管轄区域の学名をユニーク化
+// - 「命名者なし版」が「命名者あり版」の先頭部分(prefix)に一致する場合は、なし版を除外
+function getDisplayScientificNames(jurisdictions: Jurisdiction[]): string[] {
+  const normalize = (s: string) => s.trim().replace(/\s+/g, " ");
+
+  const names = Array.from(
+    new Set(
+      jurisdictions
+        .map((j) => j.scientific_name)
+        .filter((s) => s && s.trim() !== "")
+        .map(normalize),
+    ),
+  );
+
+  return names.filter((name) => {
+    return !names.some((other) => {
+      if (other === name) return false;
+      return other.startsWith(name) && other.length > name.length;
+    });
+  });
+}
+
 function SearchPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -122,9 +145,9 @@ function SearchPage() {
   const [isHeaderCollapsed, setIsHeaderCollapsed] = useState(false);
   const touchStartY = useRef<number | null>(null);
 
-  const [bottomSheet, setBottomSheet] = useState<"cat" | "ord" | "pref" | "tax" | null>(
-    null,
-  );
+  const [bottomSheet, setBottomSheet] = useState<
+    "cat" | "ord" | "pref" | "tax" | null
+  >(null);
 
   const [searchInput, setSearchInput] = useState(initialSearchTerm);
   const [committedSearch, setCommittedSearch] = useState(initialSearchTerm);
@@ -152,7 +175,9 @@ function SearchPage() {
 
   // 法令・条例フィルター: "national"=国内希少, "prefecture"=都道府県条例
   // "any"=指定あり全体, "national"=国内希少, "prefecture"=条例指定
-  const [ordinanceFilters, setOrdinanceFilters] = useState<("any" | "national" | "prefecture")[]>([]);
+  const [ordinanceFilters, setOrdinanceFilters] = useState<
+    ("any" | "national" | "prefecture")[]
+  >([]);
 
   const [collapsibleHeight, setCollapsibleHeight] = useState<number | null>(
     null,
@@ -221,12 +246,18 @@ function SearchPage() {
     const set = new Set<string>();
     for (const species of groupedData) {
       const names = new Set([species.species_name, ...species.species_aliases]);
-      if (ordinanceData.some((r) => {
-        if (r.jurisdiction_name !== "環境省") return false;
-        if (names.has(r.species_name)) return true;
-        if (!r.species_aliases) return false;
-        return r.species_aliases.split(/[/／|｜、,]/).map((s: string) => s.trim()).some((a: string) => a && names.has(a));
-      })) set.add(species.species_name);
+      if (
+        ordinanceData.some((r) => {
+          if (r.jurisdiction_name !== "環境省") return false;
+          if (names.has(r.species_name)) return true;
+          if (!r.species_aliases) return false;
+          return r.species_aliases
+            .split(/[/／|｜、,]/)
+            .map((s: string) => s.trim())
+            .some((a: string) => a && names.has(a));
+        })
+      )
+        set.add(species.species_name);
     }
     return set;
   }, [groupedData, ordinanceData]);
@@ -236,12 +267,18 @@ function SearchPage() {
     const set = new Set<string>();
     for (const species of groupedData) {
       const names = new Set([species.species_name, ...species.species_aliases]);
-      if (ordinanceData.some((r) => {
-        if (r.jurisdiction_name === "環境省") return false;
-        if (names.has(r.species_name)) return true;
-        if (!r.species_aliases) return false;
-        return r.species_aliases.split(/[/／|｜、,]/).map((s: string) => s.trim()).some((a: string) => a && names.has(a));
-      })) set.add(species.species_name);
+      if (
+        ordinanceData.some((r) => {
+          if (r.jurisdiction_name === "環境省") return false;
+          if (names.has(r.species_name)) return true;
+          if (!r.species_aliases) return false;
+          return r.species_aliases
+            .split(/[/／|｜、,]/)
+            .map((s: string) => s.trim())
+            .some((a: string) => a && names.has(a));
+        })
+      )
+        set.add(species.species_name);
     }
     return set;
   }, [groupedData, ordinanceData]);
@@ -977,7 +1014,8 @@ function SearchPage() {
                 onClick={() => openBottomSheet("ord")}
               >
                 <span>
-                  指定{ordAnyOn ? (ordNatOn && ordPrefOn ? " (2)" : " (1)") : ""}
+                  指定
+                  {ordAnyOn ? (ordNatOn && ordPrefOn ? " (2)" : " (1)") : ""}
                 </span>
                 <span className="dropdown-arrow">▼</span>
               </button>
@@ -1057,7 +1095,7 @@ function SearchPage() {
                           checked={categoryFilters.includes("CR")}
                           onChange={() => toggleCategoryFilter("CR")}
                         />
-                        絶滅危惧ⅠA類（CR）
+                        絶滅危惧ⅠＡ類（CR）
                       </label>
                       <label className="multi-select-option muni-option">
                         <input
@@ -1065,7 +1103,7 @@ function SearchPage() {
                           checked={categoryFilters.includes("EN")}
                           onChange={() => toggleCategoryFilter("EN")}
                         />
-                        絶滅危惧ⅠB類（EN）
+                        絶滅危惧ⅠＢ類（EN）
                       </label>
                     </div>
                     {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
@@ -1113,9 +1151,18 @@ function SearchPage() {
                       />
                       すべて（指定なしを含む）
                     </label>
-                    <hr style={{ margin: "4px 0", border: "none", borderTop: "1px solid var(--border)" }} />
+                    <hr
+                      style={{
+                        margin: "4px 0",
+                        border: "none",
+                        borderTop: "1px solid var(--border)",
+                      }}
+                    />
                     <div className="pref-row-with-badge">
-                      <label className="multi-select-option" style={{ flex: 1, marginBottom: 0 }}>
+                      <label
+                        className="multi-select-option"
+                        style={{ flex: 1, marginBottom: 0 }}
+                      >
                         <input
                           type="checkbox"
                           checked={ordAnyOn}
@@ -1132,7 +1179,9 @@ function SearchPage() {
                     </div>
                     <div className="muni-sub-list">
                       <div className="muni-sub-note">個別に選択可能</div>
-                      <label className={`multi-select-option muni-option${!ordAnyOn ? " muni-option--disabled" : ""}`}>
+                      <label
+                        className={`multi-select-option muni-option${!ordAnyOn ? " muni-option--disabled" : ""}`}
+                      >
                         <input
                           type="checkbox"
                           checked={ordNatOn}
@@ -1144,13 +1193,19 @@ function SearchPage() {
                                 : [...prev, "national"];
                               const hasNat = next.includes("national");
                               const hasPref = next.includes("prefecture");
-                              return (hasNat || hasPref ? next : []) as ("any" | "national" | "prefecture")[];
+                              return (hasNat || hasPref ? next : []) as (
+                                | "any"
+                                | "national"
+                                | "prefecture"
+                              )[];
                             })
                           }
                         />
                         国内希少野生動植物種
                       </label>
-                      <label className={`multi-select-option muni-option${!ordAnyOn ? " muni-option--disabled" : ""}`}>
+                      <label
+                        className={`multi-select-option muni-option${!ordAnyOn ? " muni-option--disabled" : ""}`}
+                      >
                         <input
                           type="checkbox"
                           checked={ordPrefOn}
@@ -1162,7 +1217,11 @@ function SearchPage() {
                                 : [...prev, "prefecture"];
                               const hasNat = next.includes("national");
                               const hasPref = next.includes("prefecture");
-                              return (hasNat || hasPref ? next : []) as ("any" | "national" | "prefecture")[];
+                              return (hasNat || hasPref ? next : []) as (
+                                | "any"
+                                | "national"
+                                | "prefecture"
+                              )[];
                             })
                           }
                         />
@@ -1397,18 +1456,21 @@ function SearchPage() {
                     {pref} ✕
                   </button>
                 ))}
-                {isTaxFiltered && taxonomyFilters.map((tax) => (
-                  <button
-                    key={tax}
-                    className="active-tag active-tag--tax"
-                    onClick={() => {
-                      const next = taxonomyFilters.filter((t) => t !== tax);
-                      setTaxonomyFilters(next.length === 0 ? [...availableTaxonomies] : next);
-                    }}
-                  >
-                    {tax} ✕
-                  </button>
-                ))}
+                {isTaxFiltered &&
+                  taxonomyFilters.map((tax) => (
+                    <button
+                      key={tax}
+                      className="active-tag active-tag--tax"
+                      onClick={() => {
+                        const next = taxonomyFilters.filter((t) => t !== tax);
+                        setTaxonomyFilters(
+                          next.length === 0 ? [...availableTaxonomies] : next,
+                        );
+                      }}
+                    >
+                      {tax} ✕
+                    </button>
+                  ))}
                 {activeMuniTags.map((muni) => (
                   <button
                     key={muni}
@@ -1430,7 +1492,9 @@ function SearchPage() {
                   <button
                     className="active-tag active-tag--ord-nat"
                     onClick={() =>
-                      setOrdinanceFilters((prev) => prev.filter((v) => v !== "national"))
+                      setOrdinanceFilters((prev) =>
+                        prev.filter((v) => v !== "national"),
+                      )
                     }
                   >
                     国内希少 ✕
@@ -1440,7 +1504,9 @@ function SearchPage() {
                   <button
                     className="active-tag active-tag--ord-pref"
                     onClick={() =>
-                      setOrdinanceFilters((prev) => prev.filter((v) => v !== "prefecture"))
+                      setOrdinanceFilters((prev) =>
+                        prev.filter((v) => v !== "prefecture"),
+                      )
                     }
                   >
                     条例指定 ✕
@@ -1535,8 +1601,14 @@ function SearchPage() {
                           filterJurisdictionsForDisplay(species.jurisdictions);
                         const { national, prefecture, municipality } =
                           groupJurisdictionsByType(visibleJurisdictions);
-                        const hasNatOrdinance = natOrdinanceSet.has(species.species_name);
-                        const hasPrefOrdinance = prefOrdinanceSet.has(species.species_name);
+                        const hasNatOrdinance = natOrdinanceSet.has(
+                          species.species_name,
+                        );
+                        const hasPrefOrdinance = prefOrdinanceSet.has(
+                          species.species_name,
+                        );
+                        const displayScientificNames =
+                          getDisplayScientificNames(species.jurisdictions);
                         return (
                           <div
                             key={index}
@@ -1549,10 +1621,14 @@ function SearchPage() {
                                 {(hasNatOrdinance || hasPrefOrdinance) && (
                                   <div className="card-ord-badges">
                                     {hasNatOrdinance && (
-                                      <span className="nat-ord-badge">国内希少</span>
+                                      <span className="nat-ord-badge">
+                                        国内希少
+                                      </span>
                                     )}
                                     {hasPrefOrdinance && (
-                                      <span className="pref-ord-badge">条例指定</span>
+                                      <span className="pref-ord-badge">
+                                        条例指定
+                                      </span>
                                     )}
                                   </div>
                                 )}
@@ -1562,11 +1638,9 @@ function SearchPage() {
                                   （{species.species_aliases.join("、")}）
                                 </div>
                               )}
-                              {species.jurisdictions.some(
-                                (j) => j.jurisdiction_type === "national",
-                              ) && (
+                              {displayScientificNames.length > 0 && (
                                 <span className="scientific">
-                                  {species.scientific_name}
+                                  {displayScientificNames.join(" / ")}
                                 </span>
                               )}
                             </div>
@@ -1743,7 +1817,7 @@ function SearchPage() {
                         checked={categoryFilters.includes("CR")}
                         onChange={() => toggleCategoryFilter("CR")}
                       />
-                      <span>絶滅危惧ⅠA類（CR）</span>
+                      <span>絶滅危惧ⅠＡ類（CR）</span>
                     </label>
                     <label className="sheet-option sheet-option--sub">
                       <input
@@ -1751,7 +1825,7 @@ function SearchPage() {
                         checked={categoryFilters.includes("EN")}
                         onChange={() => toggleCategoryFilter("EN")}
                       />
-                      <span>絶滅危惧ⅠB類（EN）</span>
+                      <span>絶滅危惧ⅠＢ類（EN）</span>
                     </label>
                     {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
                       <label key={key} className="sheet-option">
@@ -1847,7 +1921,9 @@ function SearchPage() {
                         checked={ordAnyOn}
                         onChange={() =>
                           setOrdinanceFilters((prev) =>
-                            prev.includes("any") ? [] : ["any", "national", "prefecture"],
+                            prev.includes("any")
+                              ? []
+                              : ["any", "national", "prefecture"],
                           )
                         }
                       />
@@ -1865,12 +1941,18 @@ function SearchPage() {
                               : [...prev, "national"];
                             const hasNat = next.includes("national");
                             const hasPref = next.includes("prefecture");
-                            return (hasNat || hasPref ? next : []) as ("any" | "national" | "prefecture")[];
+                            return (hasNat || hasPref ? next : []) as (
+                              | "any"
+                              | "national"
+                              | "prefecture"
+                            )[];
                           })
                         }
                         style={{ accentColor: "#cc8800" }}
                       />
-                      <span style={{ opacity: ordAnyOn ? 1 : 0.4 }}>国内希少野生動植物種</span>
+                      <span style={{ opacity: ordAnyOn ? 1 : 0.4 }}>
+                        国内希少野生動植物種
+                      </span>
                     </label>
                     <label className="sheet-option sheet-option--sub">
                       <input
@@ -1884,12 +1966,18 @@ function SearchPage() {
                               : [...prev, "prefecture"];
                             const hasNat = next.includes("national");
                             const hasPref = next.includes("prefecture");
-                            return (hasNat || hasPref ? next : []) as ("any" | "national" | "prefecture")[];
+                            return (hasNat || hasPref ? next : []) as (
+                              | "any"
+                              | "national"
+                              | "prefecture"
+                            )[];
                           })
                         }
                         style={{ accentColor: "#5f5e5a" }}
                       />
-                      <span style={{ opacity: ordAnyOn ? 1 : 0.4 }}>都道府県条例による指定種</span>
+                      <span style={{ opacity: ordAnyOn ? 1 : 0.4 }}>
+                        都道府県条例による指定種
+                      </span>
                     </label>
                   </>
                 )}
@@ -1949,6 +2037,9 @@ function SearchPage() {
           const natOrdMatches = ordinanceMatches.filter(
             (m) => m.jurisdiction_name === "環境省",
           );
+          const modalDisplayScientificNames = getDisplayScientificNames(
+            selectedSpecies.jurisdictions,
+          );
           return (
             <div className="modal-overlay" onClick={closeModal}>
               <div
@@ -1962,18 +2053,23 @@ function SearchPage() {
                 {/* ══ モーダルヘッダー ══ */}
                 <div className="modal-header-info">
                   <div className="modal-header-top">
-                    <h2>
-                      {selectedSpecies.species_name}
-                      {selectedSpecies.species_aliases.length > 0 && (
-                        <span className="species-aliases">
-                          （別名: {selectedSpecies.species_aliases.join(", ")}）
-                        </span>
-                      )}
-                    </h2>
+                    <div className="modal-header-name-row">
+                      <h2>
+                        {selectedSpecies.species_name}
+                        {selectedSpecies.species_aliases.length > 0 && (
+                          <span className="species-aliases">
+                            （別名: {selectedSpecies.species_aliases.join(", ")}
+                            ）
+                          </span>
+                        )}
+                      </h2>
+                      <p className="taxonomy-label">
+                        {selectedSpecies.taxonomy}
+                      </p>
+                    </div>
                     <p className="scientific">
-                      {selectedSpecies.scientific_name}
+                      {modalDisplayScientificNames.join(" / ")}
                     </p>
-                    <p className="taxonomy-label">{selectedSpecies.taxonomy}</p>
                   </div>
                   {/* 環境省レッドリストカテゴリ + 条例指定 */}
                   {(() => {
@@ -2027,11 +2123,12 @@ function SearchPage() {
 
                 {/* ══ モーダルボディ ══ */}
                 <div className="modal-body">
-                  <h3>📍 指定状況</h3>
+                  {(prefecture.length > 0 || municipality.length > 0) && (
+                    <h3>📍 指定状況</h3>
+                  )}{" "}
                   {prefecture.length > 0 && (
                     <SpeciesMap jurisdictions={prefecture} />
                   )}
-
                   {/* 都道府県テーブル */}
                   {prefecture.length > 0 && (
                     <>
@@ -2116,7 +2213,6 @@ function SearchPage() {
                       </div>
                     </>
                   )}
-
                   {/* 市町村テーブル */}
                   {municipality.length > 0 && (
                     <>

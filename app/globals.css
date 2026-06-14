@@ -1194,6 +1194,11 @@ footer {
 
 .modal-header-top {
   display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.modal-header-name-row {
+  display: flex;
   align-items: baseline;
   gap: 10px;
   flex-wrap: wrap;
@@ -1369,7 +1374,6 @@ footer {
 }
 
 /* 法令・条例フィルターバッジ */
-
 
 /* 法令・条例ドロップダウンボタン active */
 .multi-select-btn--ord {

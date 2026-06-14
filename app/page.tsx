@@ -294,7 +294,7 @@ export default function Home() {
                           checked={categoryFilters.includes("CR")}
                           onChange={() => toggleCategory("CR")}
                         />
-                        絶滅危惧ⅠA類（CR）
+                        絶滅危惧ⅠＡ類（CR）
                       </label>
                       <label className="multi-select-option muni-option">
                         <input
@@ -302,7 +302,7 @@ export default function Home() {
                           checked={categoryFilters.includes("EN")}
                           onChange={() => toggleCategory("EN")}
                         />
-                        絶滅危惧ⅠB類（EN）
+                        絶滅危惧ⅠＢ類（EN）
                       </label>
                     </div>
                     {(["VU", "NT", "DD", "LP", "OTHER"] as const).map((key) => (
