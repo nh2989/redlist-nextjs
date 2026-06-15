@@ -4045,8 +4045,8 @@
   },
   {
     "id": "338",
-    "species_name": "ミスミソウ（狭義のオオミスミソウおよびケスハマソウを含む）",
-    "species_aliases": "ミスミソウ",
+    "species_name": "ミスミソウ",
+    "species_aliases": "狭義のオオミスミソウおよびケスハマソウを含む",
     "scientific_name": "Hepatica nobilis Schreb. var. japonica Nakai",
     "category": "県域絶滅危惧Ⅱ類",
     "category_unified": "VU",
@@ -4381,8 +4381,8 @@
   },
   {
     "id": "366",
-    "species_name": "ウメバチソウ（狭義のエゾウメバチソウを含む）",
-    "species_aliases": "ウメバチソウ",
+    "species_name": "ウメバチソウ",
+    "species_aliases": "狭義のエゾウメバチソウを含む",
     "scientific_name": "Parnassia palustris L. var. palustris",
     "category": "県域絶滅危惧Ⅱ類",
     "category_unified": "VU",
@@ -7225,8 +7225,8 @@
   },
   {
     "id": "603",
-    "species_name": "ヒロハテンナンショウ（アシウテンナンショウ型）",
-    "species_aliases": "アシウテンナンショウ",
+    "species_name": "ヒロハテンナンショウ",
+    "species_aliases": "アシウテンナンショウ型",
     "scientific_name": "Arisaema ovale Nakai var. ovale",
     "category": "要注目",
     "category_unified": "DD",
@@ -8137,8 +8137,8 @@
   },
   {
     "id": "679",
-    "species_name": "ミゾハコベ（狭義のイヌミゾハコベを除く）",
-    "species_aliases": "ミゾハコベ",
+    "species_name": "ミゾハコベ",
+    "species_aliases": "狭義のイヌミゾハコベを除く",
     "scientific_name": "Elatine triandra Schkuhr var. pedicellata Krylov",
     "category": "要注目",
     "category_unified": "DD",

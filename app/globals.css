@@ -1297,6 +1297,12 @@ footer {
   white-space: nowrap;
 }
 
+.prefecture-table td.wamei-cell {
+  white-space: normal;
+  word-break: break-word;
+  min-width: 100px;
+}
+
 .prefecture-table th {
   background: var(--bg-table-header);
   font-weight: 600;

@@ -523,18 +523,28 @@ function SearchPage() {
       if (!speciesMap[key]) {
         speciesMap[key] = {
           species_name: key,
-          species_aliases: (item.species_aliases as string[]) || [],
+          species_aliases: [],
           scientific_name: item.scientific_name,
           taxonomy: item.taxonomy,
           jurisdictions: [],
         };
       }
+
+      // 各レコードのspecies_aliasesをマージ（重複・自分自身を除外）
+      const itemAliases = (item.species_aliases as string[]) || [];
+      for (const alias of itemAliases) {
+        if (alias !== key && !speciesMap[key].species_aliases.includes(alias)) {
+          speciesMap[key].species_aliases.push(alias);
+        }
+      }
+
       if (
         synonyms[item.species_name] &&
         !speciesMap[key].species_aliases.includes(item.species_name)
       ) {
         speciesMap[key].species_aliases.push(item.species_name);
       }
+
       speciesMap[key].jurisdictions.push({
         jurisdiction_name: item.jurisdiction_name,
         jurisdiction_type: item.jurisdiction_type,
@@ -2058,8 +2068,7 @@ function SearchPage() {
                         {selectedSpecies.species_name}
                         {selectedSpecies.species_aliases.length > 0 && (
                           <span className="species-aliases">
-                            （別名: {selectedSpecies.species_aliases.join(", ")}
-                            ）
+                            （ {selectedSpecies.species_aliases.join(", ")}）
                           </span>
                         )}
                       </h2>
@@ -2160,7 +2169,11 @@ function SearchPage() {
                                     }
                                   >
                                     <td>{j.jurisdiction_name}</td>
-                                    <td>{j.original_name}</td>
+                                    <td className="wamei-cell">
+                                      {j.original_aliases.length > 0
+                                        ? `${j.original_name}（${j.original_aliases.join("、")}）`
+                                        : j.original_name}
+                                    </td>
                                     <td className="scientific-cell">
                                       {j.scientific_name || "—"}
                                     </td>
@@ -2233,7 +2246,11 @@ function SearchPage() {
                             {municipality.map((j: Jurisdiction, i: number) => (
                               <tr key={i}>
                                 <td>{j.jurisdiction_name}</td>
-                                <td>{j.original_name}</td>
+                                <td className="wamei-cell">
+                                  {j.original_aliases.length > 0
+                                    ? `${j.original_name}（${j.original_aliases.join("、")}）`
+                                    : j.original_name}
+                                </td>{" "}
                                 <td className="scientific-cell">
                                   {j.scientific_name || "—"}
                                 </td>

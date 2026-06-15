@@ -5,145 +5,135 @@
 学名: Liparis makinoana Schltr.
 和名: スズムシソウ → aichi.json
 和名: セイタカスズムシソウ → shiga.json
-
-> shigaセイタカスズムシソウの学名を修正→Liparis japonica (Miq.) Maxim.（ylistの標準和名とは異なる）
+_shiga.json セイタカスズムシソウ の学名を修正→Liparis japonica (Miq.) Maxim.（ylistの標準和名とは異なる）_
 
 学名: Impatiens hypophylla Makino var. microhypophylla (Nakai) H.Hara
 和名: エンシュウツリフネ → aichi.json
 和名: エンシュウツリフネソウ → gifu.json
-
-> synonyms.jsonに登録済み
+_synonyms.jsonに登録済み_
 
 学名: Utricularia exoleta R.Br.
 和名: ミカワタヌキモ → aichi.json
 和名: イトタヌキモ → shiga.json
-
-> synonyms.jsonに登録済み
+_synonyms.jsonに登録済み_
 
 学名: Juniperus chinensis L.
 和名: ビャクシン → aichi.json
 和名: イブキ → hiroshima.json
-
-> イブキを正規で登録
+_イブキを正規で登録_
 
 学名: Fritillaria japonica Miq.
 和名: ミノコバイモ → aichi.json
 和名: コバイモ → fukui.json
-
-> synonyms.jsonに登録済み
+_synonyms.jsonに登録済み_
 
 学名: Ceratophyllum platyacanthum Cham. subsp. oryzetorum (Kom.) Les
 和名: ゴハリノマツモ → aichi.json
 和名: ゴハリマツモ → shiga.json
-
-> ヨツバリキンギョモを正規として登録
+_ヨツバリキンギョモを正規としてsynonyms.jsonに登録_
 
 学名: Spiraea chamaedryfolia L. var. pilosa (Nakai) H.Hara
 和名: アイズシモツケ → aichi.json
 和名: アイヅシモツケ → gifu.json
-
-> synonymsとして登録済み
+_synonyms.jsonに登録済み_
 
 学名: Rhododendron sanctum Nakai
 和名: ジングウツツジ → aichi.json
 和名: シブカワツツジ → shizuoka.json
-
-> 分類に混乱あり。和名はそのまま留保
+_分類に混乱あり。和名はそれぞれ留保_
 
 学名: Pterygocalyx volubilis Maxim.
 和名: ホソバツルリンドウ → aichi.json
 和名: ホソバノツルリンドウ → gifu.json
-
-> synonymsとして登録済み
+_synonyms.jsonに登録済み_
 
 学名: Saussurea ussuriensis Maxim.
 和名: キクアザミ → aichi.json
 和名: ワカサトウヒレン → fukui.json
-
-> ylistではワカサトウヒレンの学名は異なるが、原典に従いそのまま保留。
+_ylistではワカサトウヒレンの学名は異なるが、原典に従いそのまま留保_
 
 学名: Arisaema kishidae Makino ex Nakai
 和名: ムロウマムシグサ → aichi.json
 和名: キシダマムシグサ → gifu.json
-
-> キシダマムシグサを正規としてsynonyms.jsonに登録
+_キシダマムシグサを正規としてsynonyms.jsonに登録_
 
 学名: Najas chinensis N.Z.Wang
 和名: サガミトリゲモ → aichi.json
 和名: ヒロハトリゲモ → shiga.json
-
-> サガミトリゲモを正規としてsynonyms.jsonに登録
+_サガミトリゲモを正規としてsynonyms.jsonに登録_
 
 学名: Tricyrtis latifolia Maxim.
 和名: タマガワホトトギス → aichi.json
 和名: ホトトギス → gifu.json
-
-> gifuホトトギスの学名が間違っている可能性があるがとりあえず保留
+_gifu.json ホトトギス の学名が間違っている可能性あり。とりあえず留保_
 
 学名: Lecanorchis kiusiana Tuyama
 和名: ウスギムヨウラン → aichi.json
 和名: ウスキムヨウラン → shiga.json
-
-> synonymsとして登録済み
+_synonyms.jsonに登録済み_
 
 学名: Parasenecio farfarifolius (Siebold et Zucc.) H.Koyama var. acerinus (Makino) H.Koyama
 和名: モミジタマブキ → aichi.json
 和名: ミヤマコウモリソウ → gifu.json
-
-> ミヤマコウモリソウを正規としてsynonyms.jsonに登録
+_ミヤマコウモリソウを正規としてsynonyms.jsonに登録_
 
 学名: Potamogeton pusillus L.
 和名: イトモ → aichi.json
 和名: ツツイトモ → shizuoka.json
-
-> aichiイトモの学名は保育社を引用。ylist学名は異なる。和名・学名はそのまま留保。
+_aichi.json イトモ の学名は保育社を引用。ylist標準学名は異なる。いずれの和名・学名そのまま留保_
+_mie.json,hiroshima.jsonもPotamogeton pusillus L.を採用 スクリプトでは検出せず_
 
 学名: Carex nachiana Ohwi
 和名: キシュウナキリスゲ → aichi.json
 和名: キシュウナキリ → shizuoka.json
-
-> キシュウナキリスゲを正規としてsynonyms.jsonに登録
+_キシュウナキリスゲを正規としてsynonyms.jsonに登録_
 
 学名: Oxalis acetosella L.
 和名: コミヤマカタバミ → aichi.json
 和名: オオヤマカタバミ → gifu.json
+_gifu.json オオヤマカタバミの学名が誤りの可能性 とりあえずそのまま留保_
 
 学名: Cypripedium macranthos Sw. var. macranthos
 和名: ホテイアツモリソウ → fukui.json
 和名: ホテイアツモリ → gifu.json
-※synonymsとして登録済み
+_synonyms.jsonに登録済み_
 
 学名: Hepatica nobilis Schreb. var. japonica Nakai
 和名: ミスミソウ（狭義のオオミスミソウおよびケスハマソウを含む） → fukui.json
 和名: ミスミソウ → gifu.json
-※synonymsとして登録済み
+_synonyms.jsonに登録済み_
 
 学名: Parnassia palustris L. var. palustris
 和名: ウメバチソウ（狭義のエゾウメバチソウを含む） → fukui.json
 和名: ウメバチソウ → shiga.json
+_fukui.json "狭義のエゾウメバチソウを含む"を別名に移動_
 
 学名: Galium verum L. subsp. asiaticum (Nakai) T.Yamaz.
 和名: キバナカワラマツバ → fukui.json
 和名: キバナノカワラマツバ → hiroshima.json
+_キバナカワラマツバを正規としてsynonyms.jsonに登録_
 
 学名: Microcarpaea minima (J.Koenig ex Retz.) Merr.
 和名: スズメノハコベ → fukui.json
 和名: スズメハコベ → shizuoka.json
-※synonymsとして登録済み
+_synonyms.jsonに登録済み_
 
 学名: Bolboschoenus koshevnikovii (Litv. ex Zinger) A.E.Kozhevn.
 和名: コウキヤガラ → fukui.json
 和名: エゾウキヤガラ → shizuoka.json
-※コウキヤガラを正規としてsynonyms.jsonに登録
+_コウキヤガラを正規としてsynonyms.jsonに登録_
 
 学名: Pellionia minima Makino
 和名: サンショウソウ → fukui.json
 和名: キミズモドキ → gifu.json
+_gifu.json キミズモドキの学名が誤りの可能性もある とりあえず留保_
 
 学名: Arisaema ovale Nakai var. ovale
 和名: ヒロハテンナンショウ（アシウテンナンショウ型） → fukui.json
 和名: ヒロハテンナンショウ → mie.json
 和名: アシウテンナンショウ → shiga.json
+_fukui.json アシウテンナンショウ型を別名に移動_
+_ヒロハテンナンショウを正規としてsynonyms.jsonに登録_
 
 学名: Eleocharis mamillata H.Lindb. var. cyclocarpa Kitag.
 和名: オオヌマハリイ → fukui.json
@@ -173,6 +163,7 @@
 学名: Machaerina rubiginosa (Sol. ex G.Forst.) T.Koyama
 和名: ネビキグサ → hiroshima.json
 和名: アンペライ → mie.json
+_ネビキグサを正規としてsynonyms.jsonに登録_
 
 学名: Pseudorychodes insignis
 和名: ミツギリゾウムシ → shiga.json
