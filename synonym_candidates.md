@@ -139,6 +139,8 @@ _ヒロハテンナンショウを正規としてsynonyms.jsonに登録_
 和名: オオヌマハリイ → fukui.json
 和名: エゾハリイ → gifu.json
 和名: ヌマハリイ → mie.json
+_オオヌマハリイを正規としてsynonyms.jsonに登録_
+_gifu.json エゾハリイは学名誤りの可能性だがとりあえずそのまま留保_
 
 学名: Rhynchospora rugosa (Vahl) Gale
 和名: イヌノハナヒゲ → fukui.json
