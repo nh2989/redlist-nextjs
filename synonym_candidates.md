@@ -342,6 +342,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: ヒロハテンナンショウ 学名: Arisaema ovale Nakai var. ovale → mie.json
 和名: アシウテンナンショウ 学名: Arisaema ovale Nakai var. ovale → shiga.json
 和名: ヒロハテンナンショウ 学名: Arisaema ovale Nakai var. sadoense (Nakai) J.Murata → shiga.json
+_ヒロハテンナンショウとアシウテンナンショウのシノニム扱いをキャンセル_
 
 属+種小名: Chionographis koidzumiana
 和名: チャボシライトソウ 学名: Chionographis koidzumiana Ohwi → aichi.json
@@ -358,6 +359,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: ミノコバイモ 学名: Fritillaria japonica Miq. → aichi.json
 和名: コバイモ 学名: Fritillaria japonica Miq. → fukui.json
 和名: ミノコバイモ 学名: Fritillaria japonica → national.json
+_シノニムとして登録済み_
 
 属+種小名: Ponerorchis graminifolia
 和名: ウチョウラン 学名: Ponerorchis graminifolia Rchb.f. → aichi.json
@@ -397,19 +399,23 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: オオヌマハリイ 学名: Eleocharis mamillata H.Lindb. var. cyclocarpa Kitag. → fukui.json
 和名: エゾハリイ 学名: Eleocharis mamillata H.Lindb. var. cyclocarpa Kitag. → gifu.json
 和名: ヌマハリイ 学名: Eleocharis mamillata H.Lindb. var. cyclocarpa Kitag. → mie.json
+_シノニムとして登録済み_
 
 属+種小名: Ceratophyllum platyacanthum
 和名: ゴハリノマツモ 学名: Ceratophyllum platyacanthum Cham. subsp. oryzetorum (Kom.) Les → aichi.json
 和名: ゴハリマツモ 学名: Ceratophyllum platyacanthum Cham. subsp. oryzetorum (Kom.) Les → shiga.json
+_シノニムとして登録済み_
 
 属+種小名: Corydalis ophiocarpa
 和名: ヤマキケマン 学名: Corydalis ophiocarpa Hook. et Thomson → aichi.json
 和名: ヤマキケマン 学名: Corydalis ophiocarpa Hook.f. et Thomson → hiroshima.json
 和名: ヤマケマン 学名: Corydalis ophiocarpa Hook. f. et Thomson → shizuoka.json
+_ヤマキケマンを正規としてシノニムに登録_
 
 属+種小名: Corydalis raddeana
 和名: ナガミノツルケマン 学名: Corydalis raddeana Regel → aichi.json
 和名: ナガミノツルキケマン 学名: Corydalis raddeana → national.json
+_ナガミノツルケマンを正規としてシノニムに登録_
 
 属+種小名: Aconitum japonicum
 和名: ヤマトリカブト 学名: Aconitum japonicum Thunb. → aichi.json
@@ -432,6 +438,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 属+種小名: Spiraea chamaedryfolia
 和名: アイズシモツケ 学名: Spiraea chamaedryfolia L. var. pilosa (Nakai) H.Hara → aichi.json
 和名: アイヅシモツケ 学名: Spiraea chamaedryfolia L. var. pilosa (Nakai) H.Hara → gifu.json
+_シノニムに登録済み_
 
 属+種小名: Celtis biondii
 和名: コバノチョウセンエノキ 学名: Celtis biondii Pamp. → aichi.json
@@ -444,6 +451,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: オオシラヒゲソウ 学名: Parnassia foliosa Hook. f. et Thomson var. japonica (Nakai) Ohwi → gifu.json
 和名: シラヒゲソウ 学名: Parnassia foliosa Hook. f. et Thomson var. foliosa → gifu.json
 和名: シラヒゲソウ 学名: Parnassia foliosa Hook.f. et Thomson var. foliosa → mie.json
+_". f." → ".f." に修正_
 
 属+種小名: Persicaria erectominor
 和名: ヒメタデ 学名: Persicaria erectominor (Makino) Nakai → aichi.json
@@ -470,6 +478,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: ホソバツルリンドウ 学名: Pterygocalyx volubilis Maxim. → aichi.json
 和名: ホソバノツルリンドウ 学名: Pterygocalyx volubilis Maxim. → gifu.json
 和名: ホソバツルリンドウ 学名: Pterygocalyx volubilis → national.json
+_シノニムに登録済み_
 
 属+種小名: Ajuga shikotanensis
 和名: ケブカツルカコソウ 学名: Ajuga shikotanensis Miyabe et Tatew. form. hirsuta (Honda) Murata → aichi.json
@@ -506,6 +515,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: キクアザミ 学名: Saussurea ussuriensis Maxim. → aichi.json
 和名: ワカサトウヒレン 学名: Saussurea ussuriensis Maxim. → fukui.json
 和名: キクアザミ 学名: Saussurea ussuriensis Maxim. var. ussuriensis → hiroshima.json
+_fukuiのワカサトウヒレンの学名が誤りの可能性　そのまま留保_
 
 属+種小名: Lonicera ramosissima
 和名: コウグイスカグラ 学名: Lonicera ramosissima Franch. et Sav. ex Maxim. → aichi.json
@@ -526,11 +536,13 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 属+種小名: Arisaema kishidae
 和名: ムロウマムシグサ 学名: Arisaema kishidae Makino ex Nakai → aichi.json
 和名: キシダマムシグサ 学名: Arisaema kishidae Makino ex Nakai → gifu.json
+_シノニムに登録済み_
 
 属+種小名: Najas chinensis
 和名: サガミトリゲモ 学名: Najas chinensis N.Z.Wang → aichi.json
 和名: サガミトリゲモ 学名: Najas chinensis → national.json
 和名: ヒロハトリゲモ 学名: Najas chinensis N.Z.Wang → shiga.json
+_シノニムに登録済み_
 
 属+種小名: Tricyrtis latifolia
 和名: タマガワホトトギス 学名: Tricyrtis latifolia Maxim. → aichi.json
@@ -556,6 +568,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: ウスキムヨウラン 学名: Lecanorchis kiusiana Lecanorchis kiusiana Tuyama → gifu.json
 和名: ウスギムヨウラン 学名: Lecanorchis kiusiana → national.json
 和名: ウスキムヨウラン 学名: Lecanorchis kiusiana Tuyama → shiga.json
+_シノニムに登録済み_
 
 属+種小名: Lecanorchis nigricans
 和名: トサノクロムヨウラン 学名: Lecanorchis nigricans Honda var. patipetala Y.Sawa → aichi.json
@@ -611,6 +624,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: チョウセンヒメツゲ 学名: Buxus microphylla var. insularis → national.json
 和名: ツゲ 学名: Buxus microphylla Siebold et Zucc. var. japonica (Müll.Arg. ex Miq.) Rehder et E.H.Wilson → shiga.json
 和名: ツゲ 学名: Buxus microphylla Siebold et Zucc. var. japonica (Müell. Arg. ex Miq.) Rehder et E.H.Wilson → shizuoka.json
+_学名表記を一部修正_
 
 属+種小名: Corylopsis gotoana
 和名: ダンドミズキ 学名: Corylopsis gotoana Makino var. → aichi.json
@@ -697,6 +711,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: キシュウナキリスゲ 学名: Carex nachiana Ohwi → aichi.json
 和名: キシュウナキリスゲ 学名: Carex nachiana → national.json
 和名: キシュウナキリ 学名: Carex nachiana Ohwi → shizuoka.json
+_シノニムに登録済み_
 
 属+種小名: Carex sachalinensis
 和名: キイトスゲ 学名: Carex sachalinensis F.Schmidt var. fulva (Ohwi) Ohwi → aichi.json
@@ -743,6 +758,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: マルバアカザ 学名: Chenopodium acuminatum Willd. → aichi.json
 和名: カワラアカザ 学名: Chenopodium acuminatum Willd. var. vachelii (Hook. et Arn.) Miq. → aichi.json
 和名: カワラアカザ 学名: Chenopodium acuminatum Willd. var. vachelii (Hook. et Arn.) Moq. → fukui.json
+_Miq.は正しくはMoq.　とりあえずそのまま留保_
 
 属+種小名: Syringa reticulata
 和名: ハシドイ 学名: Syringa reticulata (Blume) H.Hara → aichi.json
@@ -756,6 +772,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: スズメハコベ 学名: Microcarpaea minima → national.json
 和名: スズメノハコベ 学名: Microcarpaea minima (K.D.Koenig ex Retz.) Merr. → shiga.json
 和名: スズメハコベ 学名: Microcarpaea minima (J.Koenig ex Retz.) Merr. → shizuoka.json
+_シノニムに登録済み_
 
 属+種小名: Scabiosa japonica
 和名: マツムシソウ 学名: Scabiosa japonica Miq. → aichi.json
@@ -864,6 +881,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: アラゲヒョウタンボク 学名: Lonicera strophiophora Franch. → fukui.json
 和名: ダイセンヒョウタンボク 学名: Lonicera strophiophora Franch. glabra (Nakai) H.Hara → gifu.json
 和名: ダイセンヒョウタンボク 学名: Lonicera strophiophora Franch. var. glabra Nakai → hiroshima.json
+_gifuの学名　var.ヌケ　そのまま留保_
 
 属+種小名: Eritrichium nipponicum
 和名: ミヤマムラサキ 学名: Eritrichium nipponicum Makino → fukui.json
@@ -952,6 +970,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 和名: キバナカワラマツバ 学名: Galium verum L. subsp. asiaticum (Nakai) T.Yamaz. → fukui.json
 和名: キバナノカワラマツバ 学名: Galium verum L. subsp. asiaticum (Nakai) T.Yamaz. → hiroshima.json
 和名: キバナカワラマツバ 学名: Galium verum L. subsp. asiaticum (Nakai) T.Yamaz. var. asiaticum Nakai f. luteolum Makino → shizuoka.json
+_シノニムとして登録済み_
 
 属+種小名: Gentiana nipponica
 和名: ミヤマリンドウ 学名: Gentiana nipponica Maxim. → fukui.json
@@ -1386,6 +1405,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 属+種小名: Machaerina rubiginosa
 和名: ネビキグサ 学名: Machaerina rubiginosa (Sol. ex G.Forst.) T.Koyama → hiroshima.json
 和名: アンペライ 学名: Machaerina rubiginosa (Sol. ex G.Forst.) T.Koyama → mie.json
+_シノニムとして登録済み_
 
 属+種小名: Spiraea japonica
 和名: シモツケ 学名: Spiraea japonica L.f. var. japonica → hiroshima.json
@@ -1628,6 +1648,7 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 属+種小名: Corydalis ochotensis
 和名: ツルキケマン 学名: Corydalis ochotensis → national.json
 和名: ツルケマン 学名: Corydalis ochotensis Turcz. → shizuoka.json
+_ツルケマンを正規としてシノニムに登録_
 
 属+種小名: Hylotelephium sieboldii
 和名: エッチュウミセバヤ 学名: Hylotelephium sieboldii var. ettyuense → national.json
@@ -1775,14 +1796,17 @@ _shiga スズムシソウ　セイタカスズムシソウの学名を修正_
 属+種小名: Polygonatum x
 和名: コウライワニグチソウ 学名: Polygonatum x desoulavyi → national.json
 和名: ドウモンワニグチソウ 学名: Polygonatum x domonense Satake → shiga.json
+_shigaのドウモンワニグチソウの学名を原典通りに修正_
 
 属+種小名: Chrysosplenium maximowiczii
 和名: ムカゴネコノメ 学名: Chrysosplenium maximowiczii → national.json
 和名: ムカゴネコノメソウ 学名: Chrysosplenium maximowiczii Franch. et Sav. → shizuoka.json
+_ムカゴネコノメソウを正規としてシノニムに登録_
 
 属+種小名: Hypericum hakonense
 和名: ハコネオトギリ 学名: Hypericum hakonense → national.json
 和名: コオトギリ 学名: Hypericum hakonense Franch. et Sav. → shizuoka.json
+_コオトギリを正規としてシノニムに登録_
 
 属+種小名: Lagerstroemia subcostata
 和名: ヤクシマサルスベリ 学名: Lagerstroemia subcostata var. fauriei → national.json
