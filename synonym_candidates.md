@@ -1882,6 +1882,7 @@ _コオトギリを正規としてシノニムに登録_
 属+種小名: Encalypta streptocarpa
 和名: シナノセンボンゴケ（セイタカヤリカツギ） 学名: Encalypta streptocarpa → national.json
 和名: セイタカヤリカツギ 学名: Encalypta streptocarpa Hedw. → shiga.json
+_セイタカヤリカツギを正規としてシノニムに登録_
 
 属+種小名: Sasaokaea aomoriensis
 和名: ササオカゴケ（アオモリカギハイゴケ） 学名: Sasaokaea aomoriensis → national.json
