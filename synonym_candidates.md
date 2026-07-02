@@ -2103,6 +2103,7 @@ _セイタカヤリカツギを正規としてシノニムに登録_
 属+種小名: Dryopteris simasakii
 和名: ヌカイタチシダマガイ 学名: Dryopteris simasakii (H.Itô) Sa. Kurata → shizuoka.json
 和名: アツギノヌカイタチシダマガ 学名: Dryopteris simasakii (H.Itô) Sa. Kurata var. paleacea (H.Itô) Sa. Kurata → shizuoka.json
+_アツギノヌカイタチシダマガ→アツギノヌカイタチシダマガイ_
 
 属+種小名: Hydaticus (Guignotites)
 和名: スジゲンゴロウ 学名: Hydaticus (Guignotites) satoi Wewalka, 1975 → shizuoka.json

@@ -20,6 +20,16 @@
     "url": "https://www.pref.aichi.jp/soshiki/shizen/redlist-aichi-2025.html"
   },
   {
+    "id": "akita",
+    "jurisdiction_name": "秋田県",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "秋田県版レッドデータブック・レッドリスト",
+    "publication_year": "2009-2019",
+    "publisher": "秋田県",
+    "url": "https://www.pref.akita.lg.jp/pages/genre/59619"
+  },
+  {
     "id": "fukui",
     "jurisdiction_name": "福井県",
     "jurisdiction_type": "prefecture",
