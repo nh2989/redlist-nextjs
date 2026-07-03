@@ -60,6 +60,16 @@
     "url": "https://www.pref.hiroshima.lg.jp/site/tayousei/j-j2-reddata2-index3.html"
   },
   {
+    "id": "ishikawa",
+    "jurisdiction_name": "石川県",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "石川県の絶滅のおそれのある野生生物 いしかわレッドデータブック2020（動物編・植物編）",
+    "publication_year": "2020",
+    "publisher": "石川県",
+    "url": "https://www.pref.ishikawa.lg.jp/sizen/reddata/rdb2020/rdb_2020_pdf.html"
+  },
+  {
     "id": "kyoto",
     "jurisdiction_name": "京都府",
     "jurisdiction_type": "prefecture",
