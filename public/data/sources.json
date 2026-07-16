@@ -90,6 +90,16 @@
     "url": "https://www.pref.mie.lg.jp/MIDORI/HP/m0118500321.htm"
   },
   {
+    "id": "nagano",
+    "jurisdiction_name": "長野県",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "長野県版レッドリスト（植物編）2014",
+    "publication_year": "2014",
+    "publisher": "長野県",
+    "url": "https://www.pref.nagano.lg.jp/shizenhogo/kurashi/shizen/hogo/kisyoyasei/redlist/redlist-syokubutu-2014kaitei.html"
+  },
+  {
     "id": "shiga",
     "jurisdiction_name": "滋賀県",
     "jurisdiction_type": "prefecture",

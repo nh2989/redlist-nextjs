@@ -3,10 +3,7 @@
 // 色を変更する場合はここだけ編集すればOK
 // ============================================================
 
-// ============================================================
-// 色定義
-// ============================================================
-
+// ---------- 色定義 ----------
 export const CATEGORY_COLORS = {
   EX: "#4f4437", // 絶滅
   EW: "#84618c", // 野生絶滅
@@ -21,6 +18,7 @@ export const CATEGORY_COLORS = {
   NONE: "#ffffff", // 指定なし（データなし）
 } as const;
 
+// ---------- 文字色定義 ----------
 export const CATEGORY_TEXT_COLORS = {
   EX: "#ffffff",
   EW: "#ffffff",
@@ -30,61 +28,11 @@ export const CATEGORY_TEXT_COLORS = {
   VU: "#333333",
   NT: "#333333",
   DD: "#333333",
-  LP: "#ffffff",
+  LP: "#ffffff", // 新規追加
   OTHER: "#333333",
 } as const;
 
-// ============================================================
-// カテゴリ定数・型
-// ============================================================
-
-// フィルター用全カテゴリ一覧
-export const ALL_CATEGORIES = [
-  "EX",
-  "EW",
-  "CR",
-  "EN",
-  "CREN",
-  "VU",
-  "NT",
-  "DD",
-  "LP",
-  "OTHER",
-] as const;
-export type CategoryKey = (typeof ALL_CATEGORIES)[number];
-
-// ドロップダウン・タグ用表示名
-// CATEGORY_LABEL（モーダルの統一カテゴリ列など）とは別に、
-// フィルターUIでは正式名称＋略号を表示する
-export const CATEGORY_DISPLAY: Record<string, string> = {
-  EX: "絶滅（EX）",
-  EW: "野生絶滅（EW）",
-  CREN: "絶滅危惧Ⅰ類（CR+EN）",
-  CR: "絶滅危惧ⅠＡ類（CR）",
-  EN: "絶滅危惧ⅠＢ類（EN）",
-  VU: "絶滅危惧Ⅱ類（VU）",
-  NT: "準絶滅危惧（NT）",
-  DD: "情報不足（DD）",
-  LP: "地域個体群（LP）",
-  OTHER: "その他",
-};
-
-// モーダルの統一カテゴリ列・環境省ステータス表示用
-// CR・EN・CRENはすべて「絶滅危惧Ⅰ類」として表示
-export const CATEGORY_LABEL: Record<string, string> = {
-  EX: "絶滅",
-  EW: "野生絶滅",
-  CR: "絶滅危惧Ⅰ類",
-  EN: "絶滅危惧Ⅰ類",
-  CREN: "絶滅危惧Ⅰ類",
-  VU: "絶滅危惧Ⅱ類",
-  NT: "準絶滅危惧",
-  DD: "情報不足",
-  LP: "地域個体群",
-  OTHER: "その他",
-};
-
-// 優先順位（希少性が高いほど小さい値）
+// ---------- 優先順位（希少性が高いほど小さい値） ----------
 export const CATEGORY_PRIORITY: Record<string, number> = {
   EX: 1,
   EW: 2,
@@ -98,33 +46,12 @@ export const CATEGORY_PRIORITY: Record<string, number> = {
   OTHER: 10,
 };
 
-// カテゴリマッピング（各自治体の表記 → 統一グループ）
-// データパイプライン・ingestion用。ランタイムでは使用しない
+// ---------- カテゴリマッピング（各自治体の表記 → 統一グループ） ----------
 export const CATEGORY_MAPPINGS: Record<string, string[]> = {
   EX: ["絶滅(EX)", "絶滅（EX）", "絶滅", "EX", "絶滅種"],
   EW: ["野生絶滅(EW)", "野生絶滅（EW）", "野生絶滅", "EW"],
-  CR: [
-    "絶滅危惧ⅠA類(CR)",
-    "絶滅危惧ⅠA類（CR）",
-    "絶滅危惧ⅠA類",
-    "絶滅危惧ⅠＡ類(CR)",
-    "絶滅危惧ⅠＡ類（CR）",
-    "絶滅危惧ⅠＡ類",
-    "ⅠA類",
-    "ⅠＡ類",
-    "CR",
-  ],
-  EN: [
-    "絶滅危惧ⅠB類(EN)",
-    "絶滅危惧ⅠB類（EN）",
-    "絶滅危惧ⅠB類",
-    "絶滅危惧ⅠＢ類(EN)",
-    "絶滅危惧ⅠＢ類（EN）",
-    "絶滅危惧ⅠＢ類",
-    "ⅠB類",
-    "ⅠＢ類",
-    "EN",
-  ],
+  CR: ["絶滅危惧ⅠA類(CR)", "絶滅危惧ⅠA類（CR）", "絶滅危惧ⅠA類", "ⅠA類", "CR"],
+  EN: ["絶滅危惧ⅠB類(EN)", "絶滅危惧ⅠB類（EN）", "絶滅危惧ⅠB類", "ⅠB類", "EN"],
   CREN: ["絶滅危惧Ⅰ類（CR+EN）", "絶滅危惧Ⅰ類", "Ⅰ類"],
   VU: ["絶滅危惧Ⅱ類（VU）", "絶滅危惧Ⅱ類", "Ⅱ類", "VU", "絶滅危機増大種"],
   NT: ["準絶滅危惧（NT）", "準絶滅危惧", "準絶滅危惧種", "希少種", "NT"],
@@ -133,51 +60,20 @@ export const CATEGORY_MAPPINGS: Record<string, string[]> = {
   OTHER: ["その他重要種", "分布上重要種"],
 };
 
-// ============================================================
-// 地図・分類群
-// ============================================================
-
-// 分類群ドット色（検索結果カードのグループヘッダー用）
-export const TAXONOMY_DOT_COLOR: Record<string, string> = {
-  哺乳類: "#185fa5",
-  鳥類: "#378add",
-  爬虫類: "#534ab7",
-  両生類: "#7f77dd",
-  淡水魚類: "#0c447c",
-  昆虫類: "#ba7517",
-  甲殻類: "#993c1d",
-  軟体動物: "#d85a30",
-  その他無脊椎動物: "#888780",
-  維管束植物: "#3b6d11",
-  蘚苔類: "#639922",
-  藻類: "#1d9e75",
-  地衣類: "#0f6e56",
-  菌類: "#444441",
+export const CATEGORY_LABEL: Record<string, string> = {
+  EX: "絶滅",
+  EW: "野生絶滅",
+  CR: "絶滅危惧Ⅰ類",
+  EN: "絶滅危惧Ⅰ類",
+  CREN: "絶滅危惧Ⅰ類",
+  VU: "絶滅危惧Ⅱ類",
+  NT: "準絶滅危惧",
+  DD: "情報不足",
+  LP: "地域個体群",
+  OTHER: "その他",
 };
 
-// 分類群絵文字（フィルターUI用）
-export const TAXONOMY_EMOJI: Record<string, string> = {
-  哺乳類: "🦌",
-  鳥類: "🐦",
-  爬虫類: "🦎",
-  両生類: "🐸",
-  淡水魚類: "🐟",
-  昆虫類: "🦋",
-  甲殻類: "🦀",
-  軟体動物: "🐚",
-  その他無脊椎動物: "🔹",
-  維管束植物: "🌿",
-  蘚苔類: "🌱",
-  藻類: "🌊",
-  地衣類: "🍃",
-  菌類: "🍄",
-};
-
-// ============================================================
-// 都道府県
-// ============================================================
-
-// 都道府県コード（JIS X 0401）
+// ---------- 都道府県コード（JIS X 0401） ----------
 export const PREFECTURE_CODES: Record<string, number> = {
   北海道: 1,
   青森県: 2,
@@ -228,7 +124,7 @@ export const PREFECTURE_CODES: Record<string, number> = {
   沖縄県: 47,
 };
 
-// 都道府県コード → 都道府県名（逆引き）
+// ---------- 都道府県コード → 都道府県名（逆引き） ----------
 export const CODE_TO_PREF: Record<number, string> = Object.fromEntries(
   Object.entries(PREFECTURE_CODES).map(([name, code]) => [code, name]),
 );
@@ -236,15 +132,6 @@ export const CODE_TO_PREF: Record<number, string> = Object.fromEntries(
 // ============================================================
 // ユーティリティ関数
 // ============================================================
-
-/**
- * 都道府県名から「都」「府」「県」を省略する
- * 例: 「滋賀県」→「滋賀」「東京都」→「東京」「大阪府」→「大阪」
- * 「北海道」はそのまま
- */
-export function shortenPrefectureName(name: string): string {
-  return name.replace(/[都府県]$/, "");
-}
 
 // カテゴリ文字列 → 統一グループキー（EX / CR / EN ...）
 export function getCategoryGroup(category: string): string {
@@ -285,7 +172,7 @@ export function getCategoryClass(unified: string): string {
     case "DD":
       return "category-dd";
     case "LP":
-      return "category-lp";
+      return "category-lp"; 
     default:
       return "category-other";
   }
@@ -308,48 +195,8 @@ export function isMajorCategory(unified: string): boolean {
 }
 
 // カテゴリが同じグループかどうか（フィルタリング用）
-// 完全一致のみ。CREN は CR でも EN でもマッチしない（意図的な設計）
 export function isSameCategory(unified: string, filter: string): boolean {
   if (!unified || !filter) return false;
   if (filter === "OTHER") return !isMajorCategory(unified);
   return unified === filter;
-}
-
-// 分類群ドット色
-export function getTaxonomyDotColor(taxonomy: string): string {
-  return TAXONOMY_DOT_COLOR[taxonomy] ?? "#888780";
-}
-
-// ============================================================
-// フィルター操作ユーティリティ
-// ============================================================
-
-// カテゴリ全選択判定
-export function isAllCategoriesSelected(filters: string[]): boolean {
-  return ALL_CATEGORIES.every((c) => filters.includes(c));
-}
-
-/**
- * カテゴリのトグル処理（CREN/CR/EN連動ロジック含む）
- * - CREN をオン → CR・EN も自動オン
- * - CREN をオフ → CR・EN も自動オフ
- * - CR か EN をオフ → CREN も自動オフ
- * - CR・EN を手動で両方オンにしても CREN はオフのまま
- *   （Ⅰ類をCR/ENに分割している都道府県のみ表示したい場合に有用）
- */
-export function toggleCategoryValue(prev: string[], value: string): string[] {
-  if (prev.includes(value)) {
-    if (value === "CREN") {
-      return prev.filter((v) => v !== "CREN" && v !== "CR" && v !== "EN");
-    }
-    if (value === "CR" || value === "EN") {
-      return prev.filter((v) => v !== value && v !== "CREN");
-    }
-    return prev.filter((v) => v !== value);
-  } else {
-    if (value === "CREN") {
-      return [...new Set([...prev, "CREN", "CR", "EN"])];
-    }
-    return [...prev, value];
-  }
 }
