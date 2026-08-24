@@ -302,15 +302,7 @@ function SearchPage() {
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
-    const trimmed = searchInput.trim();
-    setCommittedSearch(trimmed);
-    const params = new URLSearchParams(window.location.search);
-    if (trimmed) {
-      params.set("q", trimmed);
-    } else {
-      params.delete("q");
-    }
-    router.replace(`/search?${params.toString()}`, { scroll: false });
+    setCommittedSearch(searchInput.trim());
   }
 
   function handleClearSearch() {
@@ -580,6 +572,47 @@ function SearchPage() {
 
     return Object.values(speciesMap);
   }
+
+  // フィルター状態をURLに同期
+  useEffect(() => {
+    if (loading) return; // 初期データ取得前は同期しない
+
+    const params = new URLSearchParams();
+
+    if (committedSearch) params.set("q", committedSearch);
+
+    if (!isAllCategoriesSelected(categoryFilters)) {
+      categoryFilters.forEach((c) => params.append("category", c));
+    }
+
+    const isDefaultPref =
+      availableAllPrefs.length > 0 &&
+      prefectureFilters.length === availableAllPrefs.length &&
+      availableAllPrefs.every((p) => prefectureFilters.includes(p));
+    if (!isDefaultPref) {
+      prefectureFilters.forEach((p) => params.append("prefecture", p));
+    }
+
+    const isDefaultTax =
+      availableTaxonomies.length > 0 &&
+      taxonomyFilters.length === availableTaxonomies.length &&
+      availableTaxonomies.every((t) => taxonomyFilters.includes(t));
+    if (!isDefaultTax) {
+      taxonomyFilters.forEach((t) => params.append("taxonomy", t));
+    }
+
+    if (sortOrder !== "name") params.set("sort", sortOrder);
+
+    const query = params.toString();
+    router.replace(query ? `/search?${query}` : "/search", { scroll: false });
+  }, [
+    loading,
+    committedSearch,
+    categoryFilters,
+    prefectureFilters,
+    taxonomyFilters,
+    sortOrder,
+  ]);
 
   useEffect(() => {
     filterResults();
