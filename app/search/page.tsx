@@ -242,8 +242,10 @@ function SearchPage() {
   const isOrdFiltered = ordAnyOn;
 
   // 国内希少マッチセット（環境省 ordinanceData）
+  // 「環境省」が都道府県フィルターで選択されているときのみマッチ対象にする
   const natOrdinanceSet = useMemo(() => {
     const set = new Set<string>();
+    if (!prefectureFilters.includes("環境省")) return set;
     for (const species of groupedData) {
       const names = new Set([species.species_name, ...species.species_aliases]);
       if (
@@ -260,9 +262,11 @@ function SearchPage() {
         set.add(species.species_name);
     }
     return set;
-  }, [groupedData, ordinanceData]);
+  }, [groupedData, ordinanceData, prefectureFilters]);
 
   // 都道府県条例マッチセット
+  // 選択中の都道府県フィルターに含まれる jurisdiction_name の条例レコードのみをマッチ対象にする
+  // （他都道府県で条例指定されているだけの種が混入しないようにする）
   const prefOrdinanceSet = useMemo(() => {
     const set = new Set<string>();
     for (const species of groupedData) {
@@ -270,6 +274,7 @@ function SearchPage() {
       if (
         ordinanceData.some((r) => {
           if (r.jurisdiction_name === "環境省") return false;
+          if (!prefectureFilters.includes(r.jurisdiction_name)) return false;
           if (names.has(r.species_name)) return true;
           if (!r.species_aliases) return false;
           return r.species_aliases
@@ -281,7 +286,7 @@ function SearchPage() {
         set.add(species.species_name);
     }
     return set;
-  }, [groupedData, ordinanceData]);
+  }, [groupedData, ordinanceData, prefectureFilters]);
 
   // 条例指定種のセット（リスト表示用キャッシュ）
   const ordinanceMatchSet = useMemo(() => {
