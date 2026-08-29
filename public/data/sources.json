@@ -60,6 +60,16 @@
     "url": "https://www.pref.hiroshima.lg.jp/site/tayousei/j-j2-reddata2-index3.html"
   },
   {
+    "id": "ibaraki",
+    "jurisdiction_name": "茨城県",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "茨城県版レッドリスト（植物編）2025年改訂版",
+    "publication_year": "2025",
+    "publisher": "茨城県",
+    "url": "https://www.pref.ibaraki.jp/seikatsukankyo/shizen/tayousei/redbook/ibaraki_redbook.html"
+  },
+  {
     "id": "ishikawa",
     "jurisdiction_name": "石川県",
     "jurisdiction_type": "prefecture",
@@ -110,6 +120,16 @@
     "url": "https://www.pref.nara.lg.jp/n094/2861.html"
   },
   {
+    "id": "saitama",
+    "jurisdiction_name": "埼玉県",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "埼玉県レッドリスト2024植物編",
+    "publication_year": "2025",
+    "publisher": "埼玉県",
+    "url": "https://www.pref.saitama.lg.jp/b0508/list2024.html"
+  },
+  {
     "id": "shiga",
     "jurisdiction_name": "滋賀県",
     "jurisdiction_type": "prefecture",
@@ -158,5 +178,15 @@
     "publication_year": "2020",
     "publisher": "静岡県",
     "url": "https://www.pref.shizuoka.jp/kurashikankyo/shizenkankyo/wild/1017686.html"
+  },
+  {
+    "id": "tokyo",
+    "jurisdiction_name": "東京都",
+    "jurisdiction_type": "prefecture",
+    "parent_prefecture": "",
+    "title": "東京都の保護上重要な野生生物種（本土部）2020年見直し版",
+    "publication_year": "2020",
+    "publisher": "東京都",
+    "url": "https://www.kankyo.metro.tokyo.lg.jp/nature/animals_plants/red_data_book/400100a20230424184008472/"
   }
 ]
