@@ -1837,3 +1837,219 @@ footer {
     align-items: flex-start;
   }
 }
+
+/* ============================================================
+   トップページ 絞り込み条件パネル（セグメントコントロール風）
+   検索ページの .multi-select-dropdown / .filters とは独立した
+   専用クラス。中身のチェックボックス行は既存の .multi-select-option
+   系クラスを共用する。
+   ============================================================ */
+
+.home-segmented-wrap {
+  position: relative;
+}
+
+.home-segmented {
+  display: flex;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.home-segment-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border: none;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.home-segment-btn:not(:last-child) {
+  border-right: 2px solid var(--border);
+}
+
+.home-segment-btn:hover {
+  background: var(--bg-table-header);
+}
+
+.home-segment-btn--active {
+  background: var(--bg-table-header);
+  color: var(--text-heading);
+  font-weight: 700;
+}
+
+/* パネルは中身の幅に合わせて広がり、親（.home-segmented-wrap）の
+   幅を超えない。カテゴリ／分類群のような短いリストで右側に
+   無駄な余白ができる問題と、都道府県パネルが窮屈になる問題の
+   両方をこれで解消する。 */
+.home-filter-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: max-content;
+  min-width: 200px;
+  max-width: 100%;
+  background: var(--bg-page);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* 画面の高さに応じて縮む可変の上限（固定360pxではなく、
+     低いディスプレイでもページ全体が極力1画面に収まるように） */
+  max-height: min(360px, 48vh);
+  overflow-y: auto;
+}
+
+/* 都道府県パネルは地方区分を横並びにするため親幅いっぱいに広げる */
+.home-filter-panel--wide {
+  width: 100%;
+}
+
+/* 都道府県パネル：地方見出し＋同一地方内は横並びのシンプル表示
+   （枠線・チップ・破線なし、チェックボックス＋テキストのみ） */
+.home-region {
+  margin-bottom: 10px;
+}
+
+.home-region:last-child {
+  margin-bottom: 0;
+}
+
+/* 地域名は行の見出しではなく、同じ行の先頭ラベルとして
+   都道府県と横並びに表示する（地域名の後で改行しない） */
+.home-region-title {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-weight: 600;
+  white-space: nowrap;
+  margin-right: 2px;
+}
+
+.home-region-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 4px;
+  column-gap: 14px;
+}
+
+.home-pref-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.home-pref-item input {
+  cursor: pointer;
+}
+
+/* 市町村は同じ地方の行に続けて小さく・薄く表示 */
+.home-pref-item--muni {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* 分類群パネル：動物／植物・菌類等の見出し */
+.home-taxon-group {
+  margin-top: 8px;
+}
+
+.home-taxon-group:first-child {
+  margin-top: 0;
+}
+
+.home-taxon-group-title {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-weight: 600;
+  margin: 6px 0 4px;
+}
+
+/* 絶滅危惧Ⅰ類（CR+EN）とその内訳（CR／EN）を1つのまとまりとして
+   見せるための小さな点線クラスタ。横並びレイアウトでも親子関係が
+   分かるようにする */
+.home-cren-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px 2px 2px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+}
+
+.home-cren-group .multi-select-option {
+  padding: 2px 4px;
+}
+
+.home-cren-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 2px;
+  padding-left: 6px;
+  border-left: 1px dashed var(--border);
+}
+
+.home-suboption {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* PC: カテゴリ／分類群パネルもパネル幅いっぱいを使い、選択肢を
+   横方向に流し込む（都道府県パネルと同じ考え方）。分類群は
+   動物／植物・菌類等のグループごとに行が変わる。
+   スマホ側は変更しない（従来どおり縦積みのまま）。 */
+@media (min-width: 601px) {
+  .home-option-row,
+  .home-taxon-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 4px;
+    column-gap: 16px;
+  }
+
+  .home-option-row .multi-select-option,
+  .home-taxon-row .multi-select-option {
+    white-space: nowrap;
+  }
+}
+
+/* PC: セグメントは横並び／スマホ: 縦積み */
+@media (max-width: 600px) {
+  .home-segmented {
+    flex-direction: column;
+  }
+
+  .home-segment-btn:not(:last-child) {
+    border-right: none;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .home-segment-btn {
+    justify-content: space-between;
+  }
+
+  /* 画面が狭いので、パネルはコンテナ幅いっぱいに広げて
+     はみ出しを防ぐ */
+  .home-filter-panel {
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+}
